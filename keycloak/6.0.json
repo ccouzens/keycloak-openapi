@@ -5,5 +5,32 @@
     "description": "This is a REST API reference for the Keycloak Admin",
     "version": "1"
   },
-  "paths": {}
+  "paths": {},
+  "components": {
+    "schemas": {
+      "AddressClaimSet": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "formatted": {
+            "type": "string"
+          },
+          "locality": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "street_address": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }
