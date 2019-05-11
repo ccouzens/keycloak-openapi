@@ -3,7 +3,7 @@ use openapiv3::Info;
 use scraper::Selector;
 use selectors;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum TransformError {
     SelectorErr(cssparser::ParseError<'static, selectors::parser::SelectorParseErrorKind<'static>>),
     NoFindErr(&'static str),
@@ -50,4 +50,20 @@ pub fn parse(document: &scraper::html::Html) -> Result<Info, TransformError> {
             .split("Version: ")
             .collect(),
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::parse;
+    use openapiv3::OpenAPI;
+    use scraper::Html;
+
+    #[test]
+    fn parses_as_expected() {
+        const HTML: &str = include_str!("../../keycloak/6.0.html");
+        const JSON: &str = include_str!("../../keycloak/6.0.json");
+        let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
+
+        assert_eq!(Ok(openapi.info), parse(&Html::parse_document(HTML)));
+    }
 }
