@@ -36,17 +36,17 @@ fn extract_string(
         .to_string())
 }
 
-pub fn parse(document: scraper::html::Html) -> Result<Info, TransformError> {
+pub fn parse(document: &scraper::html::Html) -> Result<Info, TransformError> {
     Ok(Info {
-        title: extract_string(&document, "h1")?,
+        title: extract_string(document, "h1")?,
         description: Some(extract_string(
-            &document,
+            document,
             "#_overview + .sectionbody > .paragraph",
         )?),
         terms_of_service: None,
         contact: None,
         license: None,
-        version: extract_string(&document, "#_version_information + .paragraph")?
+        version: extract_string(document, "#_version_information + .paragraph")?
             .split("Version: ")
             .collect(),
     })
