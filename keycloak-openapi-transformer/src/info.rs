@@ -9,7 +9,7 @@ pub enum TransformError {
     NoFindErr(&'static str),
 }
 
-impl<'i> std::fmt::Display for TransformError {
+impl std::fmt::Display for TransformError {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             TransformError::NoFindErr(selector) => {
