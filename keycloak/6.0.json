@@ -8,6 +8,14 @@
   "paths": {},
   "components": {
     "schemas": {
+      "AccessToken-CertConf": {
+        "type": "object",
+        "properties": {
+          "x5t#S256": {
+            "type": "string"
+          }
+        }
+      },
       "AddressClaimSet": {
         "type": "object",
         "properties": {
@@ -27,6 +35,77 @@
             "type": "string"
           },
           "street_address": {
+            "type": "string"
+          }
+        }
+      },
+      "AuthDetailsRepresentation": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "realmId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        }
+      },
+      "CertificateRepresentation": {
+        "type": "object",
+        "properties": {
+          "certificate": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          },
+          "privateKey": {
+            "type": "string"
+          },
+          "publicKey": {
+            "type": "string"
+          }
+        }
+      },
+      "ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation": {
+        "type": "object",
+        "properties": {
+          "containerId": {
+            "type": "string"
+          },
+          "containerName": {
+            "type": "string"
+          },
+          "containerType": {
+            "type": "string"
+          },
+          "mapperId": {
+            "type": "string"
+          },
+          "mapperName": {
+            "type": "string"
+          },
+          "protocolMapper": {
+            "type": "string"
+          }
+        }
+      },
+      "FederatedIdentityRepresentation": {
+        "type": "object",
+        "properties": {
+          "identityProvider": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userName": {
             "type": "string"
           }
         }

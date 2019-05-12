@@ -22,16 +22,7 @@ fn main() -> Result<(), Box<std::error::Error>> {
             examples: BTreeMap::new(),
             request_bodies: BTreeMap::new(),
             headers: BTreeMap::new(),
-            schemas: [(
-                "AddressClaimSet".to_string(),
-                openapiv3::ReferenceOr::Item(components::schemas::parse_schema(
-                    &document,
-                    "AddressClaimSet",
-                )),
-            )]
-            .iter()
-            .cloned()
-            .collect(),
+            schemas: components::schemas::parse_schemas(&document),
             links: BTreeMap::new(),
             callbacks: BTreeMap::new(),
         }),

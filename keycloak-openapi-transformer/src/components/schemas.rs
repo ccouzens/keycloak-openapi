@@ -2,16 +2,35 @@ use openapiv3::ObjectType;
 use openapiv3::Schema;
 use openapiv3::SchemaKind;
 use scraper::Selector;
+use std::collections::BTreeMap;
 
-pub fn parse_schema(document: &scraper::html::Html, schema_name: &str) -> Schema {
-    let selector = Selector::parse(&format!(
-        "#_{} + table > tbody > tr",
-        schema_name.to_ascii_lowercase()
-    ))
-    .unwrap();
-    let properties = document.select(&selector).map(|row| {
+pub fn parse_schemas(
+    document: &scraper::html::Html,
+) -> BTreeMap<String, openapiv3::ReferenceOr<Schema>> {
+    let schemas_selector = Selector::parse("#_definitions + .sectionbody > .sect2").unwrap();
+    let title_selector = Selector::parse("h3").unwrap();
+    document
+        .select(&schemas_selector)
+        .map(|section| {
+            (
+                section
+                    .select(&title_selector)
+                    .next()
+                    .unwrap()
+                    .text()
+                    .collect(),
+                openapiv3::ReferenceOr::Item(parse_schema(section)),
+            )
+        })
+        .collect()
+}
+
+fn parse_schema<'i>(section: scraper::element_ref::ElementRef<'i>) -> Schema {
+    let row_selector = Selector::parse("table > tbody > tr").unwrap();
+    let property_name_selector = Selector::parse("td:first-child strong").unwrap();
+    let properties = section.select(&row_selector).map(|row| {
         (
-            row.select(&Selector::parse("td:first-child strong").unwrap())
+            row.select(&property_name_selector)
                 .next()
                 .unwrap()
                 .text()
@@ -40,30 +59,21 @@ pub fn parse_schema(document: &scraper::html::Html, schema_name: &str) -> Schema
 
 #[cfg(test)]
 mod tests {
-    use super::parse_schema;
+    use super::parse_schemas;
     use openapiv3::OpenAPI;
     use scraper::Html;
 
+    const HTML: &str = include_str!("../../../keycloak/6.0.html");
+    const JSON: &str = include_str!("../../../keycloak/6.0.json");
+
     #[test]
     fn parses_simple_schema_as_expected() {
-        const HTML: &str = include_str!("../../../keycloak/6.0.html");
-        const JSON: &str = include_str!("../../../keycloak/6.0.json");
         let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
         let components = openapi.components.expect("Couldn't deserialize components");
-        let address_claim_set = components
-            .schemas
-            .get("AddressClaimSet")
-            .expect("Couldn't find address claim set");
-        let address_claim_set_schema = match address_claim_set {
-            openapiv3::ReferenceOr::Item(schema) => schema,
-            openapiv3::ReferenceOr::Reference { reference: _ } => {
-                panic!("Could not extract schema")
-            }
-        };
 
         assert_eq!(
-            address_claim_set_schema,
-            &parse_schema(&Html::parse_document(HTML), "AddressClaimSet")
+            components.schemas.get("AccessToken-CertConf"),
+            parse_schemas(&Html::parse_document(HTML)).get("AccessToken-CertConf")
         );
     }
 }
