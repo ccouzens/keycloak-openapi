@@ -1,6 +1,5 @@
 use openapiv3::ObjectType;
 use openapiv3::Schema;
-use openapiv3::SchemaData;
 use openapiv3::SchemaKind;
 use scraper::Selector;
 
@@ -18,18 +17,7 @@ pub fn parse_schema(document: &scraper::html::Html, schema_name: &str) -> Schema
                 .text()
                 .collect::<String>(),
             openapiv3::ReferenceOr::Item(Box::new(Schema {
-                schema_data: SchemaData {
-                    nullable: false,
-                    read_only: false,
-                    write_only: false,
-                    deprecated: false,
-                    external_docs: None,
-                    example: None,
-                    title: None,
-                    description: None,
-                    discriminator: None,
-                    default: None,
-                },
+                schema_data: Default::default(),
                 schema_kind: SchemaKind::Type(openapiv3::Type::String(openapiv3::StringType {
                     format: openapiv3::VariantOrUnknownOrEmpty::Empty,
                     pattern: None,
@@ -39,18 +27,7 @@ pub fn parse_schema(document: &scraper::html::Html, schema_name: &str) -> Schema
         )
     });
     Schema {
-        schema_data: SchemaData {
-            nullable: false,
-            read_only: false,
-            write_only: false,
-            deprecated: false,
-            external_docs: None,
-            example: None,
-            title: None,
-            description: None,
-            discriminator: None,
-            default: None,
-        },
+        schema_data: Default::default(),
         schema_kind: SchemaKind::Type(openapiv3::Type::Object(ObjectType {
             properties: properties.collect(),
             required: vec![],
