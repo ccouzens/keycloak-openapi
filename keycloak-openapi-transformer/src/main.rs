@@ -28,7 +28,10 @@ fn main() -> Result<(), Box<std::error::Error>> {
         }),
         security: vec![],
         tags: vec![],
-        external_docs: None,
+        external_docs: Some(openapiv3::ExternalDocumentation {
+            description: Some("Schema source code".to_string()),
+            url: "https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations".to_string()
+        }),
     };
 
     println!("{}", to_string_pretty(&spec)?);

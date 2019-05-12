@@ -25,7 +25,7 @@ pub fn parse_schemas(
         .collect()
 }
 
-fn parse_schema<'i>(section: scraper::element_ref::ElementRef<'i>) -> Schema {
+fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
     let row_selector = Selector::parse("table > tbody > tr").unwrap();
     let property_name_selector = Selector::parse("td:first-child strong").unwrap();
     let properties = section.select(&row_selector).map(|row| {
