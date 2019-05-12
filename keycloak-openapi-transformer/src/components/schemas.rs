@@ -19,7 +19,7 @@ pub fn parse_schema(document: &scraper::html::Html, schema_name: &str) -> Schema
             openapiv3::ReferenceOr::Item(Box::new(Schema {
                 schema_data: Default::default(),
                 schema_kind: SchemaKind::Type(openapiv3::Type::String(openapiv3::StringType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Empty,
+                    format: Default::default(),
                     pattern: None,
                     enumeration: vec![],
                 })),
