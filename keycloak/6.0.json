@@ -73,6 +73,46 @@
           }
         }
       },
+      "ClientInitialAccessCreatePresentation": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiration": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ClientInitialAccessPresentation": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expiration": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          },
+          "remainingCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
       "ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation": {
         "type": "object",
         "properties": {
