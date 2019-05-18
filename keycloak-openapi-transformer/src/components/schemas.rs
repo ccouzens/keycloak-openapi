@@ -66,6 +66,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                 enumeration: vec![],
             }),
             "boolean" => openapiv3::Type::Boolean {},
+            "Map" => openapiv3::Type::Object(Default::default()),
             _ => openapiv3::Type::String(openapiv3::StringType {
                 format: Default::default(),
                 pattern: None,
@@ -140,4 +141,10 @@ mod tests {
     fn parses_schema_with_int64_as_expected() {
         parse_schema_correctly("MemoryInfoRepresentation");
     }
+
+    #[test]
+    fn parses_schema_with_map_as_expected() {
+        parse_schema_correctly("SpiInfoRepresentation");
+    }
+
 }

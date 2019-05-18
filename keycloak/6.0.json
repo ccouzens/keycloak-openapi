@@ -119,6 +119,20 @@
           }
         }
       },
+      "AuthenticatorConfigRepresentation": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      },
       "CertificateRepresentation": {
         "type": "object",
         "properties": {
@@ -199,6 +213,39 @@
           }
         }
       },
+      "EventRepresentation": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          },
+          "error": {
+            "type": "string"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "realmId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "time": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        }
+      },
       "FederatedIdentityRepresentation": {
         "type": "object",
         "properties": {
@@ -210,6 +257,67 @@
           },
           "userName": {
             "type": "string"
+          }
+        }
+      },
+      "IdentityProviderMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "config": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "identityProviderAlias": {
+            "type": "string"
+          },
+          "identityProviderMapper": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "IdentityProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "addReadTokenRoleOnCreate": {
+            "type": "boolean"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "firstBrokerLoginFlowAlias": {
+            "type": "string"
+          },
+          "internalId": {
+            "type": "string"
+          },
+          "linkOnly": {
+            "type": "boolean"
+          },
+          "postBrokerLoginFlowAlias": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "storeToken": {
+            "type": "boolean"
+          },
+          "trustEmail": {
+            "type": "boolean"
           }
         }
       },
@@ -263,6 +371,20 @@
           },
           "type": {
             "type": "string"
+          }
+        }
+      },
+      "ManagementPermissionReference": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "scopePermissions": {
+            "type": "object"
           }
         }
       },
@@ -349,6 +471,76 @@
           }
         }
       },
+      "ProtocolMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "config": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "protocol": {
+            "type": "string"
+          },
+          "protocolMapper": {
+            "type": "string"
+          }
+        }
+      },
+      "ProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "operationalInfo": {
+            "type": "object"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "RequiredActionProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object"
+          },
+          "defaultAction": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "providerId": {
+            "type": "string"
+          }
+        }
+      },
+      "SpiInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "internal": {
+            "type": "boolean"
+          },
+          "providers": {
+            "type": "object"
+          }
+        }
+      },
       "SynchronizationResult": {
         "type": "object",
         "properties": {
@@ -432,6 +624,87 @@
             "type": "string"
           },
           "version": {
+            "type": "string"
+          }
+        }
+      },
+      "UserFederationMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "config": {
+            "type": "object"
+          },
+          "federationMapperType": {
+            "type": "string"
+          },
+          "federationProviderDisplayName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "UserFederationProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "changedSyncPeriod": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "config": {
+            "type": "object"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "fullSyncPeriod": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lastSync": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "providerName": {
+            "type": "string"
+          }
+        }
+      },
+      "UserSessionRepresentation": {
+        "type": "object",
+        "properties": {
+          "clients": {
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "lastAccess": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "username": {
             "type": "string"
           }
         }
