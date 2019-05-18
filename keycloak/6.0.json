@@ -56,6 +56,69 @@
           }
         }
       },
+      "AuthenticationExecutionExportRepresentation": {
+        "type": "object",
+        "properties": {
+          "authenticator": {
+            "type": "string"
+          },
+          "authenticatorConfig": {
+            "type": "string"
+          },
+          "authenticatorFlow": {
+            "type": "boolean"
+          },
+          "autheticatorFlow": {
+            "type": "boolean"
+          },
+          "flowAlias": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "userSetupAllowed": {
+            "type": "boolean"
+          }
+        }
+      },
+      "AuthenticationExecutionRepresentation": {
+        "type": "object",
+        "properties": {
+          "authenticator": {
+            "type": "string"
+          },
+          "authenticatorConfig": {
+            "type": "string"
+          },
+          "authenticatorFlow": {
+            "type": "boolean"
+          },
+          "autheticatorFlow": {
+            "type": "boolean"
+          },
+          "flowId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "parentFlow": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        }
+      },
       "CertificateRepresentation": {
         "type": "object",
         "properties": {
@@ -147,6 +210,76 @@
           },
           "userName": {
             "type": "string"
+          }
+        }
+      },
+      "KeyStoreConfig": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string"
+          },
+          "keyAlias": {
+            "type": "string"
+          },
+          "keyPassword": {
+            "type": "string"
+          },
+          "realmAlias": {
+            "type": "string"
+          },
+          "realmCertificate": {
+            "type": "boolean"
+          },
+          "storePassword": {
+            "type": "string"
+          }
+        }
+      },
+      "PasswordPolicyTypeRepresentation": {
+        "type": "object",
+        "properties": {
+          "configType": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "multipleSupported": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SynchronizationResult": {
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ignored": {
+            "type": "boolean"
+          },
+          "removed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       }

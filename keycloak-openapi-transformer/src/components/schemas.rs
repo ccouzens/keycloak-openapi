@@ -47,6 +47,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                 maximum: None,
                 enumeration: vec![],
             }),
+            "boolean" => openapiv3::Type::Boolean {},
             _ => openapiv3::Type::String(openapiv3::StringType {
                 format: Default::default(),
                 pattern: None,
@@ -87,28 +88,29 @@ mod tests {
     const HTML: &str = include_str!("../../../keycloak/6.0.html");
     const JSON: &str = include_str!("../../../keycloak/6.0.json");
 
-    #[test]
-    fn parses_string_only_schema_as_expected() {
+    fn parse_schema_correctly(schema: &str) {
         let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
         let components = openapi.components.expect("Couldn't deserialize components");
 
         assert_eq!(
-            components.schemas.get("AccessToken-CertConf"),
-            parse_schemas(&Html::parse_document(HTML)).get("AccessToken-CertConf")
+            components.schemas.get(schema),
+            parse_schemas(&Html::parse_document(HTML)).get(schema)
         );
     }
 
     #[test]
-    fn parses_int32_only_schema_as_expected() {
-        let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
-        let components = openapi.components.expect("Couldn't deserialize components");
+    fn parses_string_only_schema_as_expected() {
+        parse_schema_correctly("AccessToken-CertConf");
+    }
 
-        assert_eq!(
-            components
-                .schemas
-                .get("ClientInitialAccessCreatePresentation"),
-            parse_schemas(&Html::parse_document(HTML)).get("ClientInitialAccessCreatePresentation")
-        );
+    #[test]
+    fn parses_int32_only_schema_as_expected() {
+        parse_schema_correctly("ClientInitialAccessCreatePresentation");
+    }
+
+    #[test]
+    fn parses_schema_with_bool_as_expected() {
+        parse_schema_correctly("SynchronizationResult");
     }
 
 }
