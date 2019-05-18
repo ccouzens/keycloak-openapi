@@ -47,6 +47,15 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                 maximum: None,
                 enumeration: vec![],
             }),
+            "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
+                multiple_of: None,
+                exclusive_minimum: false,
+                exclusive_maximum: false,
+                minimum: None,
+                maximum: None,
+                enumeration: vec![],
+            }),
             "boolean" => openapiv3::Type::Boolean {},
             _ => openapiv3::Type::String(openapiv3::StringType {
                 format: Default::default(),
@@ -113,4 +122,8 @@ mod tests {
         parse_schema_correctly("SynchronizationResult");
     }
 
+    #[test]
+    fn parses_schema_with_float_as_expected() {
+        parse_schema_correctly("MultivaluedHashMap");
+    }
 }

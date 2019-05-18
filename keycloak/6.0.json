@@ -236,6 +236,22 @@
           }
         }
       },
+      "MultivaluedHashMap": {
+        "type": "object",
+        "properties": {
+          "empty": {
+            "type": "boolean"
+          },
+          "loadFactor": {
+            "type": "number",
+            "format": "float"
+          },
+          "threshold": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "PasswordPolicyTypeRepresentation": {
         "type": "object",
         "properties": {
