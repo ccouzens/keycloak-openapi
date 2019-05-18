@@ -236,6 +236,66 @@
           }
         }
       },
+      "KeysMetadataRepresentation-KeyMetadataRepresentation": {
+        "type": "object",
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "certificate": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "providerPriority": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "publicKey": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "MemoryInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "free": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "freeFormated": {
+            "type": "string"
+          },
+          "freePercentage": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalFormated": {
+            "type": "string"
+          },
+          "used": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "usedFormated": {
+            "type": "string"
+          }
+        }
+      },
       "MultivaluedHashMap": {
         "type": "object",
         "properties": {
@@ -272,6 +332,23 @@
           }
         }
       },
+      "ProfileInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "disabledFeatures": {
+            "type": "string"
+          },
+          "experimentalFeatures": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "previewFeatures": {
+            "type": "string"
+          }
+        }
+      },
       "SynchronizationResult": {
         "type": "object",
         "properties": {
@@ -296,6 +373,66 @@
           "updated": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "SystemInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "fileEncoding": {
+            "type": "string"
+          },
+          "javaHome": {
+            "type": "string"
+          },
+          "javaRuntime": {
+            "type": "string"
+          },
+          "javaVendor": {
+            "type": "string"
+          },
+          "javaVersion": {
+            "type": "string"
+          },
+          "javaVm": {
+            "type": "string"
+          },
+          "javaVmVersion": {
+            "type": "string"
+          },
+          "osArchitecture": {
+            "type": "string"
+          },
+          "osName": {
+            "type": "string"
+          },
+          "osVersion": {
+            "type": "string"
+          },
+          "serverTime": {
+            "type": "string"
+          },
+          "uptime": {
+            "type": "string"
+          },
+          "uptimeMillis": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userDir": {
+            "type": "string"
+          },
+          "userLocale": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "userTimezone": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
           }
         }
       }

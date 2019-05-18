@@ -47,6 +47,15 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                 maximum: None,
                 enumeration: vec![],
             }),
+            "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
+                multiple_of: None,
+                exclusive_minimum: false,
+                exclusive_maximum: false,
+                minimum: None,
+                maximum: None,
+                enumeration: vec![],
+            }),
             "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
                 multiple_of: None,
@@ -125,5 +134,10 @@ mod tests {
     #[test]
     fn parses_schema_with_float_as_expected() {
         parse_schema_correctly("MultivaluedHashMap");
+    }
+
+    #[test]
+    fn parses_schema_with_int64_as_expected() {
+        parse_schema_correctly("MemoryInfoRepresentation");
     }
 }
