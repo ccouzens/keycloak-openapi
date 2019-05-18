@@ -43,12 +43,10 @@ pub fn parse(document: &scraper::html::Html) -> Result<Info, TransformError> {
             document,
             "#_overview + .sectionbody > .paragraph",
         )?),
-        terms_of_service: None,
-        contact: None,
-        license: None,
         version: extract_string(document, "#_version_information + .paragraph")?
             .split("Version: ")
             .collect(),
+        ..Default::default()
     })
 }
 

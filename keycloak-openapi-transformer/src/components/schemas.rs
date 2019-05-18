@@ -40,37 +40,20 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
         {
             "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
-                multiple_of: None,
-                exclusive_minimum: false,
-                exclusive_maximum: false,
-                minimum: None,
-                maximum: None,
-                enumeration: vec![],
+                ..Default::default()
             }),
             "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
-                multiple_of: None,
-                exclusive_minimum: false,
-                exclusive_maximum: false,
-                minimum: None,
-                maximum: None,
-                enumeration: vec![],
+                ..Default::default()
             }),
             "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
-                multiple_of: None,
-                exclusive_minimum: false,
-                exclusive_maximum: false,
-                minimum: None,
-                maximum: None,
-                enumeration: vec![],
+                ..Default::default()
             }),
             "boolean" => openapiv3::Type::Boolean {},
             "Map" => openapiv3::Type::Object(Default::default()),
             _ => openapiv3::Type::String(openapiv3::StringType {
-                format: Default::default(),
-                pattern: None,
-                enumeration: vec![],
+                ..Default::default()
             }),
         };
 
@@ -90,10 +73,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
         schema_data: Default::default(),
         schema_kind: SchemaKind::Type(openapiv3::Type::Object(ObjectType {
             properties: properties.collect(),
-            required: vec![],
-            additional_properties: None,
-            min_properties: None,
-            max_properties: None,
+            ..Default::default()
         })),
     }
 }
