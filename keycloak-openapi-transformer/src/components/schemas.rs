@@ -54,18 +54,14 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
             "< string > array" => openapiv3::Type::Array(openapiv3::ArrayType {
                 items: openapiv3::ReferenceOr::Item(Box::new(Schema {
                     schema_data: Default::default(),
-                    schema_kind: SchemaKind::Type(openapiv3::Type::String(openapiv3::StringType {
-                        ..Default::default()
-                    })),
+                    schema_kind: SchemaKind::Type(openapiv3::Type::String(Default::default())),
                 })),
                 min_items: None,
                 max_items: None,
                 unique_items: false,
             }),
             "Map" => openapiv3::Type::Object(Default::default()),
-            _ => openapiv3::Type::String(openapiv3::StringType {
-                ..Default::default()
-            }),
+            _ => openapiv3::Type::String(Default::default()),
         };
 
         (
