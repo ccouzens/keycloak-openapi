@@ -45,7 +45,7 @@ fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
 
 fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     const START: &str = "< ";
-    const END: &str = "> array";
+    const END: &str = " > array";
     if raw_type.starts_with(START) && raw_type.ends_with(END) {
         let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
@@ -59,32 +59,41 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
-fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
-    let schema_type = enum_type(&raw_type)
+fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
+    enum_type(&raw_type)
         .or_else(|| array_type(&raw_type))
-        .unwrap_or_else(|| match raw_type {
-            "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+        .or_else(|| match raw_type {
+            "integer(int32)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
                 ..Default::default()
-            }),
-            "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+            })),
+            "integer(int64)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 ..Default::default()
-            }),
-            "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
+            })),
+            "number(float)" => Some(openapiv3::Type::Number(openapiv3::NumberType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
                 ..Default::default()
-            }),
-            "boolean" => openapiv3::Type::Boolean {},
-            "Map" => openapiv3::Type::Object(Default::default()),
-            "Object" => openapiv3::Type::Object(Default::default()),
-            _ => openapiv3::Type::String(Default::default()),
-        });
+            })),
+            "boolean" => Some(openapiv3::Type::Boolean {}),
+            "Map" => Some(openapiv3::Type::Object(Default::default())),
+            "Object" => Some(openapiv3::Type::Object(Default::default())),
+            "string" => Some(openapiv3::Type::String(Default::default())),
+            _ => None,
+        })
+}
 
-    openapiv3::ReferenceOr::Item(Box::new(Schema {
-        schema_data: Default::default(),
-        schema_kind: SchemaKind::Type(schema_type),
-    }))
+fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
+    if let Some(simple_type) = item_type(raw_type) {
+        openapiv3::ReferenceOr::Item(Box::new(Schema {
+            schema_data: Default::default(),
+            schema_kind: SchemaKind::Type(simple_type),
+        }))
+    } else {
+        openapiv3::ReferenceOr::Reference {
+            reference: format!("#/components/schemas/{}", raw_type),
+        }
+    }
 }
 
 fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
@@ -181,5 +190,15 @@ mod tests {
     #[test]
     fn parses_schema_with_object_as_expected() {
         parse_schema_correctly("ConfigPropertyRepresentation");
+    }
+
+    #[test]
+    fn parses_schema_with_reference_as_expected() {
+        parse_schema_correctly("ComponentExportRepresentation");
+    }
+
+    #[test]
+    fn parses_schema_only_reference_array_as_expected() {
+        parse_schema_correctly("AccessToken-Authorization");
     }
 }
