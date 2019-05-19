@@ -25,19 +25,36 @@ pub fn parse_schemas(
         .collect()
 }
 
+fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
+    const START: &str = "enum (";
+    const END: &str = ")";
+    if raw_type.starts_with(START) && raw_type.ends_with(END) {
+        let enumerations = raw_type
+            .get(START.len()..raw_type.len() - END.len())?
+            .split(", ")
+            .map(|e| e.to_string())
+            .collect();
+        Some(openapiv3::Type::String(openapiv3::StringType {
+            enumeration: enumerations,
+            ..Default::default()
+        }))
+    } else {
+        None
+    }
+}
+
 fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
     let row_selector = Selector::parse("table > tbody > tr").unwrap();
     let property_name_selector = Selector::parse("td:first-child strong").unwrap();
     let type_selector = Selector::parse("td:first-child + td").unwrap();
     let properties = section.select(&row_selector).map(|row| {
-        let schema_type = match row
+        let raw_type = row
             .select(&type_selector)
             .next()
             .unwrap()
             .text()
-            .collect::<String>()
-            .as_str()
-        {
+            .collect::<String>();
+        let schema_type = enum_type(&raw_type).unwrap_or_else(|| match raw_type.as_str() {
             "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
                 ..Default::default()
@@ -62,7 +79,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
             }),
             "Map" => openapiv3::Type::Object(Default::default()),
             _ => openapiv3::Type::String(Default::default()),
-        };
+        });
 
         (
             row.select(&property_name_selector)
@@ -130,12 +147,12 @@ mod tests {
     }
 
     #[test]
-    fn parses_schema_with_map_as_expected() {
+    fn parses_schema_only_map_as_expected() {
         parse_schema_correctly("SpiInfoRepresentation");
     }
 
     #[test]
-    fn parses_schema_with_string_array_as_expected() {
-        parse_schema_correctly("GlobalRequestResult");
+    fn parses_schema_with_enum_as_expected() {
+        parse_schema_correctly("PolicyRepresentation");
     }
 }
