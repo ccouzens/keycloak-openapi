@@ -32,7 +32,7 @@ fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
         let enumerations = raw_type
             .get(START.len()..raw_type.len() - END.len())?
             .split(", ")
-            .map(|e| e.to_string())
+            .map(std::string::ToString::to_string)
             .collect();
         Some(openapiv3::Type::String(openapiv3::StringType {
             enumeration: enumerations,
@@ -78,6 +78,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                 unique_items: false,
             }),
             "Map" => openapiv3::Type::Object(Default::default()),
+            "Object" => openapiv3::Type::Object(Default::default()),
             _ => openapiv3::Type::String(Default::default()),
         });
 
@@ -154,5 +155,10 @@ mod tests {
     #[test]
     fn parses_schema_with_enum_as_expected() {
         parse_schema_correctly("PolicyRepresentation");
+    }
+
+    #[test]
+    fn parses_schema_with_object_as_expected() {
+        parse_schema_correctly("ConfigPropertyRepresentation");
     }
 }

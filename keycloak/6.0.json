@@ -273,6 +273,35 @@
           }
         }
       },
+      "ConfigPropertyRepresentation": {
+        "type": "object",
+        "properties": {
+          "defaultValue": {
+            "type": "object"
+          },
+          "helpText": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "secret": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
       "EventRepresentation": {
         "type": "object",
         "properties": {
