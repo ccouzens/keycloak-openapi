@@ -5,7 +5,76 @@
     "description": "This is a REST API reference for the Keycloak Admin",
     "version": "1"
   },
-  "paths": {},
+  "paths": {
+    "/{realm}/attack-detection/brute-force/users": {
+      "delete": {
+        "description": "Clear any user login failures for all users This can release temporary disabled users",
+        "operationId":  "clearallbruteforce",        
+        "responses": {
+          "default": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "realm",
+          "in": "path",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/{realm}/attack-detection/brute-force/users/{userId}": {
+      "delete": {
+        "description": "Clear any user login failures for the user This can release temporary disabled user",
+        "operationId": "clearbruteforceforuser",
+        "responses": {
+          "default": {
+            "description": "success"
+          }
+        }
+      },
+      "get": {
+        "description": "Get status of a username in brute force detection",
+        "operationId": "bruteforceuserstatus",
+        "responses": {
+          "default": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "realm",
+          "in": "path",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
   "components": {
     "schemas": {
       "AccessToken": {
