@@ -43,61 +43,68 @@ fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
+fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
+    let schema_type = enum_type(&raw_type).unwrap_or_else(|| match raw_type {
+        "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
+            ..Default::default()
+        }),
+        "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
+            ..Default::default()
+        }),
+        "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
+            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
+            ..Default::default()
+        }),
+        "boolean" => openapiv3::Type::Boolean {},
+        "< string > array" => openapiv3::Type::Array(openapiv3::ArrayType {
+            items: openapiv3::ReferenceOr::Item(Box::new(Schema {
+                schema_data: Default::default(),
+                schema_kind: SchemaKind::Type(openapiv3::Type::String(Default::default())),
+            })),
+            min_items: None,
+            max_items: None,
+            unique_items: false,
+        }),
+        "Map" => openapiv3::Type::Object(Default::default()),
+        "Object" => openapiv3::Type::Object(Default::default()),
+        _ => openapiv3::Type::String(Default::default()),
+    });
+
+    openapiv3::ReferenceOr::Item(Box::new(Schema {
+        schema_data: Default::default(),
+        schema_kind: SchemaKind::Type(schema_type),
+    }))
+}
+
 fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
     let row_selector = Selector::parse("table > tbody > tr").unwrap();
     let property_name_selector = Selector::parse("td:first-child strong").unwrap();
     let type_selector = Selector::parse("td:first-child + td").unwrap();
-    let properties = section.select(&row_selector).map(|row| {
-        let raw_type = row
-            .select(&type_selector)
-            .next()
-            .unwrap()
-            .text()
-            .collect::<String>();
-        let schema_type = enum_type(&raw_type).unwrap_or_else(|| match raw_type.as_str() {
-            "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
-                ..Default::default()
-            }),
-            "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
-                ..Default::default()
-            }),
-            "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
-                ..Default::default()
-            }),
-            "boolean" => openapiv3::Type::Boolean {},
-            "< string > array" => openapiv3::Type::Array(openapiv3::ArrayType {
-                items: openapiv3::ReferenceOr::Item(Box::new(Schema {
-                    schema_data: Default::default(),
-                    schema_kind: SchemaKind::Type(openapiv3::Type::String(Default::default())),
-                })),
-                min_items: None,
-                max_items: None,
-                unique_items: false,
-            }),
-            "Map" => openapiv3::Type::Object(Default::default()),
-            "Object" => openapiv3::Type::Object(Default::default()),
-            _ => openapiv3::Type::String(Default::default()),
-        });
-
-        (
-            row.select(&property_name_selector)
-                .next()
-                .unwrap()
-                .text()
-                .collect::<String>(),
-            openapiv3::ReferenceOr::Item(Box::new(Schema {
-                schema_data: Default::default(),
-                schema_kind: SchemaKind::Type(schema_type),
-            })),
-        )
-    });
+    let properties = section
+        .select(&row_selector)
+        .map(|row| {
+            (
+                row.select(&property_name_selector)
+                    .next()
+                    .unwrap()
+                    .text()
+                    .collect::<String>(),
+                parse_type(
+                    &row.select(&type_selector)
+                        .next()
+                        .unwrap()
+                        .text()
+                        .collect::<String>(),
+                ),
+            )
+        })
+        .collect();
     Schema {
         schema_data: Default::default(),
         schema_kind: SchemaKind::Type(openapiv3::Type::Object(ObjectType {
-            properties: properties.collect(),
+            properties,
             ..Default::default()
         })),
     }
