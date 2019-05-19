@@ -43,34 +43,43 @@ fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
-fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
-    let schema_type = enum_type(&raw_type).unwrap_or_else(|| match raw_type {
-        "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
-            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
-            ..Default::default()
-        }),
-        "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
-            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
-            ..Default::default()
-        }),
-        "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
-            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
-            ..Default::default()
-        }),
-        "boolean" => openapiv3::Type::Boolean {},
-        "< string > array" => openapiv3::Type::Array(openapiv3::ArrayType {
-            items: openapiv3::ReferenceOr::Item(Box::new(Schema {
-                schema_data: Default::default(),
-                schema_kind: SchemaKind::Type(openapiv3::Type::String(Default::default())),
-            })),
+fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
+    const START: &str = "< ";
+    const END: &str = "> array";
+    if raw_type.starts_with(START) && raw_type.ends_with(END) {
+        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+        Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: parse_type(inner_type),
             min_items: None,
             max_items: None,
             unique_items: false,
-        }),
-        "Map" => openapiv3::Type::Object(Default::default()),
-        "Object" => openapiv3::Type::Object(Default::default()),
-        _ => openapiv3::Type::String(Default::default()),
-    });
+        }))
+    } else {
+        None
+    }
+}
+
+fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
+    let schema_type = enum_type(&raw_type)
+        .or_else(|| array_type(&raw_type))
+        .unwrap_or_else(|| match raw_type {
+            "integer(int32)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
+                ..Default::default()
+            }),
+            "integer(int64)" => openapiv3::Type::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
+                ..Default::default()
+            }),
+            "number(float)" => openapiv3::Type::Number(openapiv3::NumberType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
+                ..Default::default()
+            }),
+            "boolean" => openapiv3::Type::Boolean {},
+            "Map" => openapiv3::Type::Object(Default::default()),
+            "Object" => openapiv3::Type::Object(Default::default()),
+            _ => openapiv3::Type::String(Default::default()),
+        });
 
     openapiv3::ReferenceOr::Item(Box::new(Schema {
         schema_data: Default::default(),
@@ -157,6 +166,11 @@ mod tests {
     #[test]
     fn parses_schema_only_map_as_expected() {
         parse_schema_correctly("SpiInfoRepresentation");
+    }
+
+    #[test]
+    fn parses_schema_with_string_array_as_expected() {
+        parse_schema_correctly("GlobalRequestResult");
     }
 
     #[test]
