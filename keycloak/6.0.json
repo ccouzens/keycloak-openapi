@@ -9,8 +9,34 @@
     "/": {},
     "/{any}": {},
     "/{id}/name": {},
-    "/{realm}": {},
-    "/{realm}/admin-events": {},
+    "/{realm}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/admin-events": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/attack-detection/brute-force/users": {
       "delete": {
         "description": "Clear any user login failures for all users This can release temporary disabled users",
@@ -23,13 +49,14 @@
       },
       "parameters": [
         {
-          "name": "realm",
           "in": "path",
+          "name": "realm",
           "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
-          }
+          },
+          "style": "simple"
         }
       ]
     },
@@ -58,188 +85,4380 @@
             }
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "userId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
     },
-    "/{realm}/authentication/authenticator-providers": {},
-    "/{realm}/authentication/client-authenticator-providers": {},
-    "/{realm}/authentication/config-description/{providerId}": {},
-    "/{realm}/authentication/config/{id}": {},
-    "/{realm}/authentication/executions": {},
-    "/{realm}/authentication/executions/{executionId}": {},
-    "/{realm}/authentication/executions/{executionId}/config": {},
-    "/{realm}/authentication/executions/{executionId}/lower-priority": {},
-    "/{realm}/authentication/executions/{executionId}/raise-priority": {},
-    "/{realm}/authentication/flows": {},
-    "/{realm}/authentication/flows/{flowAlias}/copy": {},
-    "/{realm}/authentication/flows/{flowAlias}/executions": {},
-    "/{realm}/authentication/flows/{flowAlias}/executions/execution": {},
-    "/{realm}/authentication/flows/{flowAlias}/executions/flow": {},
-    "/{realm}/authentication/flows/{id}": {},
-    "/{realm}/authentication/form-action-providers": {},
-    "/{realm}/authentication/form-providers": {},
-    "/{realm}/authentication/per-client-config-description": {},
-    "/{realm}/authentication/register-required-action": {},
-    "/{realm}/authentication/required-actions": {},
-    "/{realm}/authentication/required-actions/{alias}": {},
-    "/{realm}/authentication/required-actions/{alias}/lower-priority": {},
-    "/{realm}/authentication/required-actions/{alias}/raise-priority": {},
-    "/{realm}/authentication/unregistered-required-actions": {},
-    "/{realm}/clear-keys-cache": {},
-    "/{realm}/clear-realm-cache": {},
-    "/{realm}/clear-user-cache": {},
-    "/{realm}/client-description-converter": {},
-    "/{realm}/client-registration-policy/providers": {},
-    "/{realm}/client-scopes": {},
-    "/{realm}/client-scopes/{id}": {},
-    "/{realm}/client-scopes/{id}/protocol-mappers/add-models": {},
-    "/{realm}/client-scopes/{id}/protocol-mappers/models": {},
-    "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {},
-    "/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {},
-    "/{realm}/client-scopes/{id}/scope-mappings": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/realm": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/realm/available": {},
-    "/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {},
-    "/{realm}/client-session-stats": {},
-    "/{realm}/clients": {},
-    "/{realm}/clients-initial-access": {},
-    "/{realm}/clients-initial-access/{id}": {},
-    "/{realm}/clients/{id}": {},
-    "/{realm}/clients/{id}/certificates/{attr}": {},
-    "/{realm}/clients/{id}/certificates/{attr}/download": {},
-    "/{realm}/clients/{id}/certificates/{attr}/generate": {},
-    "/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {},
-    "/{realm}/clients/{id}/certificates/{attr}/upload": {},
-    "/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {},
-    "/{realm}/clients/{id}/client-secret": {},
-    "/{realm}/clients/{id}/default-client-scopes": {},
-    "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {},
-    "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {},
-    "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {},
-    "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {},
-    "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {},
-    "/{realm}/clients/{id}/installation/providers/{providerId}": {},
-    "/{realm}/clients/{id}/management/permissions": {},
-    "/{realm}/clients/{id}/nodes": {},
-    "/{realm}/clients/{id}/nodes/{node}": {},
-    "/{realm}/clients/{id}/offline-session-count": {},
-    "/{realm}/clients/{id}/offline-sessions": {},
-    "/{realm}/clients/{id}/optional-client-scopes": {},
-    "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {},
-    "/{realm}/clients/{id}/protocol-mappers/add-models": {},
-    "/{realm}/clients/{id}/protocol-mappers/models": {},
-    "/{realm}/clients/{id}/protocol-mappers/models/{id}": {},
-    "/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {},
-    "/{realm}/clients/{id}/push-revocation": {},
-    "/{realm}/clients/{id}/registration-access-token": {},
-    "/{realm}/clients/{id}/roles": {},
-    "/{realm}/clients/{id}/roles/{role-name}": {},
-    "/{realm}/clients/{id}/roles/{role-name}/composites": {},
-    "/{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}": {},
-    "/{realm}/clients/{id}/roles/{role-name}/composites/realm": {},
-    "/{realm}/clients/{id}/roles/{role-name}/groups": {},
-    "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {},
-    "/{realm}/clients/{id}/roles/{role-name}/users": {},
-    "/{realm}/clients/{id}/scope-mappings": {},
-    "/{realm}/clients/{id}/scope-mappings/clients/{client}": {},
-    "/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {},
-    "/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {},
-    "/{realm}/clients/{id}/scope-mappings/realm": {},
-    "/{realm}/clients/{id}/scope-mappings/realm/available": {},
-    "/{realm}/clients/{id}/scope-mappings/realm/composite": {},
-    "/{realm}/clients/{id}/service-account-user": {},
-    "/{realm}/clients/{id}/session-count": {},
-    "/{realm}/clients/{id}/test-nodes-available": {},
-    "/{realm}/clients/{id}/user-sessions": {},
-    "/{realm}/components": {},
-    "/{realm}/components/{id}": {},
-    "/{realm}/components/{id}/sub-component-types": {},
-    "/{realm}/default-default-client-scopes": {},
-    "/{realm}/default-default-client-scopes/{clientScopeId}": {},
-    "/{realm}/default-groups": {},
-    "/{realm}/default-groups/{groupId}": {},
-    "/{realm}/default-optional-client-scopes": {},
-    "/{realm}/default-optional-client-scopes/{clientScopeId}": {},
-    "/{realm}/events": {},
-    "/{realm}/events/config": {},
-    "/{realm}/group-by-path/{path}": {},
-    "/{realm}/groups": {},
-    "/{realm}/groups/count": {},
-    "/{realm}/groups/{id}": {},
-    "/{realm}/groups/{id}/children": {},
-    "/{realm}/groups/{id}/management/permissions": {},
-    "/{realm}/groups/{id}/members": {},
-    "/{realm}/groups/{id}/role-mappings": {},
-    "/{realm}/groups/{id}/role-mappings/clients/{client}": {},
-    "/{realm}/groups/{id}/role-mappings/clients/{client}/available": {},
-    "/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {},
-    "/{realm}/groups/{id}/role-mappings/realm": {},
-    "/{realm}/groups/{id}/role-mappings/realm/available": {},
-    "/{realm}/groups/{id}/role-mappings/realm/composite": {},
-    "/{realm}/identity-provider/import-config": {},
-    "/{realm}/identity-provider/instances": {},
-    "/{realm}/identity-provider/instances/{alias}": {},
-    "/{realm}/identity-provider/instances/{alias}/export": {},
-    "/{realm}/identity-provider/instances/{alias}/management/permissions": {},
-    "/{realm}/identity-provider/instances/{alias}/mapper-types": {},
-    "/{realm}/identity-provider/instances/{alias}/mappers": {},
-    "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {},
-    "/{realm}/identity-provider/providers/{provider_id}": {},
-    "/{realm}/keys": {},
-    "/{realm}/logout-all": {},
-    "/{realm}/partial-export": {},
-    "/{realm}/partialImport": {},
-    "/{realm}/push-revocation": {},
-    "/{realm}/roles": {},
-    "/{realm}/roles-by-id/{role-id}": {},
-    "/{realm}/roles-by-id/{role-id}/composites": {},
-    "/{realm}/roles-by-id/{role-id}/composites/clients/{client}": {},
-    "/{realm}/roles-by-id/{role-id}/composites/realm": {},
-    "/{realm}/roles-by-id/{role-id}/management/permissions": {},
-    "/{realm}/roles/{role-name}": {},
-    "/{realm}/roles/{role-name}/composites": {},
-    "/{realm}/roles/{role-name}/composites/clients/{client}": {},
-    "/{realm}/roles/{role-name}/composites/realm": {},
-    "/{realm}/roles/{role-name}/groups": {},
-    "/{realm}/roles/{role-name}/management/permissions": {},
-    "/{realm}/roles/{role-name}/users": {},
-    "/{realm}/sessions/{session}": {},
-    "/{realm}/testLDAPConnection": {},
-    "/{realm}/testSMTPConnection/{config}": {},
-    "/{realm}/user-storage/{id}/name": {},
-    "/{realm}/user-storage/{id}/remove-imported-users": {},
-    "/{realm}/user-storage/{id}/sync": {},
-    "/{realm}/user-storage/{id}/unlink-users": {},
-    "/{realm}/user-storage/{parentId}/mappers/{id}/sync": {},
-    "/{realm}/users": {},
-    "/{realm}/users-management-permissions": {},
-    "/{realm}/users/count": {},
-    "/{realm}/users/{id}": {},
-    "/{realm}/users/{id}/consents": {},
-    "/{realm}/users/{id}/consents/{client}": {},
-    "/{realm}/users/{id}/disable-credential-types": {},
-    "/{realm}/users/{id}/execute-actions-email": {},
-    "/{realm}/users/{id}/federated-identity": {},
-    "/{realm}/users/{id}/federated-identity/{provider}": {},
-    "/{realm}/users/{id}/groups": {},
-    "/{realm}/users/{id}/groups/count": {},
-    "/{realm}/users/{id}/groups/{groupId}": {},
-    "/{realm}/users/{id}/impersonation": {},
-    "/{realm}/users/{id}/logout": {},
-    "/{realm}/users/{id}/offline-sessions/{clientId}": {},
-    "/{realm}/users/{id}/remove-totp": {},
-    "/{realm}/users/{id}/reset-password": {},
-    "/{realm}/users/{id}/role-mappings": {},
-    "/{realm}/users/{id}/role-mappings/clients/{client}": {},
-    "/{realm}/users/{id}/role-mappings/clients/{client}/available": {},
-    "/{realm}/users/{id}/role-mappings/clients/{client}/composite": {},
-    "/{realm}/users/{id}/role-mappings/realm": {},
-    "/{realm}/users/{id}/role-mappings/realm/available": {},
-    "/{realm}/users/{id}/role-mappings/realm/composite": {},
-    "/{realm}/users/{id}/send-verify-email": {},
-    "/{realm}/users/{id}/sessions": {}
+    "/{realm}/authentication/authenticator-providers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/client-authenticator-providers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/config-description/{providerId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "providerId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/config/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "Configuration id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/executions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/executions/{executionId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "executionId",
+          "description": "Execution id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/executions/{executionId}/config": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "executionId",
+          "description": "Execution id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/executions/{executionId}/lower-priority": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "executionId",
+          "description": "Execution id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/executions/{executionId}/raise-priority": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "executionId",
+          "description": "Execution id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows/{flowAlias}/copy": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "flowAlias",
+          "description": "Name of the existing authentication flow",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows/{flowAlias}/executions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "flowAlias",
+          "description": "Flow alias",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows/{flowAlias}/executions/execution": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "flowAlias",
+          "description": "Alias of parent flow",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows/{flowAlias}/executions/flow": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "flowAlias",
+          "description": "Alias of parent authentication flow",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/flows/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "Flow id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/form-action-providers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/form-providers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/per-client-config-description": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/register-required-action": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/required-actions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/required-actions/{alias}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "Alias of required action",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/required-actions/{alias}/lower-priority": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "Alias of required action",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/required-actions/{alias}/raise-priority": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "Alias of required action",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/authentication/unregistered-required-actions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clear-keys-cache": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clear-realm-cache": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clear-user-cache": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-description-converter": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-registration-policy/providers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/protocol-mappers/models": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "Mapper id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "protocol",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client scope (not name)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/client-session-stats": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients-initial-access": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients-initial-access/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}/download": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}/generate": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}/upload": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "attr",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/client-secret": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/default-client-scopes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "clientScopeId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "roleContainerId",
+          "description": "either realm name OR client UUID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "roleContainerId",
+          "description": "either realm name OR client UUID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/installation/providers/{providerId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "providerId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/nodes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/nodes/{node}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "node",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/offline-session-count": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/offline-sessions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/optional-client-scopes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "clientScopeId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/protocol-mappers/add-models": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/protocol-mappers/models": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/protocol-mappers/models/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "Mapper id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "protocol",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/push-revocation": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/registration-access-token": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/composites": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/groups": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/roles/{role-name}/users": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/realm/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/scope-mappings/realm/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/service-account-user": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/session-count": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/test-nodes-available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id}/user-sessions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "id of client (not client-id)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/components": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/components/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/components/{id}/sub-component-types": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-default-client-scopes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-default-client-scopes/{clientScopeId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "clientScopeId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-groups": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-groups/{groupId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-optional-client-scopes": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/default-optional-client-scopes/{clientScopeId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "clientScopeId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/events": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/events/config": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/group-by-path/{path}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "path",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/count": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/children": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/members": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/realm/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/groups/{id}/role-mappings/realm/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/import-config": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}/export": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}/mapper-types": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}/mappers": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "alias",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "Mapper id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/identity-provider/providers/{provider_id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "provider_id",
+          "description": "Provider id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/keys": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/logout-all": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/partial-export": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/partialImport": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/push-revocation": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles-by-id/{role-id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-id",
+          "description": "id of role",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles-by-id/{role-id}/composites": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-id",
+          "description": "Role id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles-by-id/{role-id}/composites/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles-by-id/{role-id}/composites/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles-by-id/{role-id}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/composites": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/composites/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/composites/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/groups": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/management/permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/roles/{role-name}/users": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "role-name",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/sessions/{session}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "session",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/testLDAPConnection": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/testSMTPConnection/{config}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "config",
+          "description": "SMTP server configuration",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/user-storage/{id}/name": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/user-storage/{id}/remove-imported-users": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/user-storage/{id}/sync": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/user-storage/{id}/unlink-users": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/user-storage/{parentId}/mappers/{id}/sync": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "parentId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users-management-permissions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/count": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/consents": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/consents/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "Client id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/disable-credential-types": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/execute-actions-email": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/federated-identity": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/federated-identity/{provider}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "provider",
+          "description": "Social login provider id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/groups": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/groups/count": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/groups/{groupId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "groupId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/impersonation": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/logout": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/offline-sessions/{clientId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "clientId",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/remove-totp": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/reset-password": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/clients/{client}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/clients/{client}/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "client",
+          "description": "",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/realm": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/realm/available": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/role-mappings/realm/composite": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/send-verify-email": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/sessions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    }
   },
   "components": {
     "schemas": {

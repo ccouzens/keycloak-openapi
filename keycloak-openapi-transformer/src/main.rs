@@ -29,7 +29,10 @@ fn main() -> Result<(), Box<std::error::Error>> {
             s.select(&Selector::parse("pre").unwrap()).next()
             .or_else(|| s.select(&Selector::parse("h4").unwrap()).next())
             .unwrap().text().collect::<String>().split_whitespace().nth(1).unwrap().to_string(),
-            openapiv3::ReferenceOr::Item(Default::default()))).collect(),
+            openapiv3::ReferenceOr::Item(openapiv3::PathItem{
+                parameters: paths::parameters::parse_path(&s),
+                ..Default::default()
+            }))).collect(),
         ..Default::default()
     };
 
