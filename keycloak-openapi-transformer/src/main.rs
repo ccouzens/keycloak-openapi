@@ -7,6 +7,7 @@ const HTML: &str = include_str!("../../keycloak/6.0.html");
 
 mod components;
 mod info;
+mod paths;
 
 fn main() -> Result<(), Box<std::error::Error>> {
     let document = Html::parse_document(HTML);
