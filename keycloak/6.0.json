@@ -9,11 +9,25 @@
     "/": {},
     "/{any}": {},
     "/{id}/name": {
+      "get": {
+        "description": "Need this for admin console to display simple name of provider when displaying client detail KEYCLOAK-4328",
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
           "name": "id",
-          "description": "string",
           "required": true,
           "schema": {
             "type": "string"

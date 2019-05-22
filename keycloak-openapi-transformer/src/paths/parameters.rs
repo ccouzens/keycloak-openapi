@@ -2,23 +2,42 @@ use openapiv3::{Parameter, ReferenceOr};
 use scraper::Selector;
 
 pub fn parse_path(section: &scraper::element_ref::ElementRef<'_>) -> Vec<ReferenceOr<Parameter>> {
+    let titles_selector = Selector::parse("thead > tr > th").unwrap();
+    let titles = section
+        .select(&titles_selector)
+        .map(|th| th.text().collect::<String>())
+        .zip(0..)
+        .collect::<std::collections::HashMap<_, _>>();
+    let type_index = titles["Type"];
+    let name_index = titles["Name"];
+    let description_index = titles.get("Description").cloned();
+    let schema_index = titles["Schema"];
+    let rows_selector = Selector::parse("tbody > tr").unwrap();
     let cell_selector = Selector::parse("td").unwrap();
-    let name_selector = Selector::parse("td:first-child + td strong").unwrap();
-    section
-        .select(&Selector::parse("tbody > tr").unwrap())
-        .filter(|row| {
-            row.select(&cell_selector)
-                .next()
-                .unwrap()
-                .text()
-                .collect::<String>()
-                == "Path"
-        })
+    let name_selector = Selector::parse("strong").unwrap();
+    let path_rows = section.select(&rows_selector).filter(|row| {
+        row.select(&cell_selector)
+            .nth(type_index)
+            .unwrap()
+            .text()
+            .collect::<String>()
+            == "Path"
+    });
+    path_rows
         .map(|row| {
             ReferenceOr::Item(Parameter::Path {
                 parameter_data: openapiv3::ParameterData {
-                    name: row.select(&name_selector).next().unwrap().text().collect(),
-                    description: Some(row.select(&cell_selector).nth(2).unwrap().text().collect()),
+                    name: row
+                        .select(&cell_selector)
+                        .nth(name_index)
+                        .unwrap()
+                        .select(&name_selector)
+                        .next()
+                        .unwrap()
+                        .text()
+                        .collect(),
+                    description: description_index
+                        .map(|i| row.select(&cell_selector).nth(i).unwrap().text().collect()),
                     required: true,
                     deprecated: None,
                     format: openapiv3::ParameterSchemaOrContent::Schema(
@@ -69,9 +88,16 @@ mod tests {
     #[test]
     fn correctly_parses_realm() {
         parse_parameters_correctly(
-            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 [id=_parameters] + table",
-            "/{realm}/attack-detection/brute-force/users"
-        );
+                    "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 [id^=_parameters] + table",
+                    "/{realm}/attack-detection/brute-force/users"
+                );
     }
 
+    #[test]
+    fn correctly_parses_when_description_is_missing() {
+        parse_parameters_correctly(
+          "#_paths + .sectionbody > .sect2 > #_user_storage_provider_resource + .sect3 [id^=_parameters] + table",
+                    "/{id}/name"
+                );
+    }
 }
