@@ -8,7 +8,20 @@
   "paths": {
     "/": {},
     "/{any}": {},
-    "/{id}/name": {},
+    "/{id}/name": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "description": "string",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}": {
       "parameters": [
         {
