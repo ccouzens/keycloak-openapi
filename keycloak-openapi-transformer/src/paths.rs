@@ -36,3 +36,41 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
         })
         .collect()
 }
+
+#[cfg(test)]
+mod tests {
+
+    mod parameters {
+        const HTML: &str = include_str!("../../keycloak/6.0.html");
+
+        use super::super::paths;
+        use openapiv3::ReferenceOr;
+        use scraper::Html;
+
+        #[test]
+        fn correctly_parses_when_there_are_no_parameters() {
+            let paths = paths(&Html::parse_document(HTML));
+            let path = if let ReferenceOr::Item(path) = paths.get("/{any}").unwrap() {
+                path
+            } else {
+                panic!("Couldn't extract path")
+            };
+            assert_eq!(path.parameters, vec![]);
+        }
+
+        #[test]
+        fn correctly_parses_when_there_are_three_parameters() {
+            let paths = paths(&Html::parse_document(HTML));
+            let path = if let ReferenceOr::Item(path) = paths
+                .get("/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}")
+                .unwrap()
+            {
+                path
+            } else {
+                panic!("Couldn't extract path")
+            };
+            assert_eq!(path.parameters.len(), 3);
+        }
+
+    }
+}
