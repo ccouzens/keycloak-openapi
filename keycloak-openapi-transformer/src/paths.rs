@@ -5,36 +5,41 @@ pub mod parameters;
 pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let path_section_selector =
         Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
-    let primary_path_selector = Selector::parse("pre").unwrap();
-    let secondary_path_selector = Selector::parse("h4").unwrap();
     let params_table_selector = Selector::parse("h5[id^=_parameters] + table").unwrap();
 
-    document
-        .select(&path_section_selector)
-        .map(|s| {
-            let params_section = s.select(&params_table_selector).next();
-            (
-                s.select(&primary_path_selector)
-                    .next()
-                    .or_else(|| s.select(&secondary_path_selector).next())
-                    .unwrap()
-                    .text()
-                    .collect::<String>()
-                    .split_whitespace()
-                    .nth(1)
-                    .unwrap()
-                    .to_string(),
-                openapiv3::ReferenceOr::Item(openapiv3::PathItem {
-                    parameters: if let Some(s) = params_section {
-                        parameters::parse_path(&s)
-                    } else {
-                        Default::default()
-                    },
-                    ..Default::default()
-                }),
-            )
-        })
-        .collect()
+    let mut paths = openapiv3::Paths::default();
+
+    for section in document.select(&path_section_selector) {
+        let (_verb, path) = verb_path_split(&section);
+        paths.entry(path).or_insert_with(|| {
+            let params_section = section.select(&params_table_selector).next();
+            openapiv3::ReferenceOr::Item(openapiv3::PathItem {
+                parameters: if let Some(s) = params_section {
+                    parameters::parse_path(&s)
+                } else {
+                    Default::default()
+                },
+                ..Default::default()
+            })
+        });
+    }
+
+    paths
+}
+
+fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> (String, String) {
+    let verb_path = section
+        .select(&Selector::parse("pre").unwrap())
+        .next()
+        .or_else(|| section.select(&Selector::parse("h4").unwrap()).next())
+        .unwrap()
+        .text()
+        .collect::<String>();
+    let mut split = verb_path.split_whitespace();
+    (
+        split.next().unwrap().to_string(),
+        split.next().unwrap().to_string(),
+    )
 }
 
 #[cfg(test)]
