@@ -230,7 +230,7 @@
         {
           "in": "path",
           "name": "executionId",
-          "description": "",
+          "description": "Execution id",
           "required": true,
           "schema": {
             "type": "string"
@@ -3378,7 +3378,7 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
+          "description": "Mapper id",
           "required": true,
           "schema": {
             "type": "string"
@@ -3560,7 +3560,7 @@
         {
           "in": "path",
           "name": "role-id",
-          "description": "",
+          "description": "Role id",
           "required": true,
           "schema": {
             "type": "string"

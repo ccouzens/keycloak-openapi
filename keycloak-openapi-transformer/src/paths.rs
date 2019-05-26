@@ -10,7 +10,8 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
 
     let mut paths = openapiv3::Paths::default();
 
-    for section in document.select(&path_section_selector) {
+    let sections = document.select(&path_section_selector).collect::<Vec<_>>();
+    for section in sections.iter().rev() {
         let (verb, path) = verb_path_split(&section);
         if let openapiv3::ReferenceOr::Item(path_item) = paths.entry(path).or_insert_with(|| {
             let params_section = section.select(&params_table_selector).next();
@@ -99,6 +100,27 @@ mod tests {
                 panic!("Couldn't extract path")
             };
             assert_eq!(path.parameters.len(), 3);
+        }
+
+        #[test]
+        fn adds_descriptions_when_not_always_present() {
+            let paths = paths(&Html::parse_document(HTML));
+            let path_item = if let ReferenceOr::Item(path) = paths
+                .get("/{realm}/roles-by-id/{role-id}/composites")
+                .unwrap()
+            {
+                path
+            } else {
+                panic!("Couldn't extract path")
+            };
+            for reference in path_item.parameters.iter() {
+                if let ReferenceOr::Item(openapiv3::Parameter::Path { parameter_data, .. }) =
+                    reference
+                {
+                    assert_ne!(None, parameter_data.description);
+                    assert_ne!(Some("".to_string()), parameter_data.description);
+                }
+            }
         }
     }
 
