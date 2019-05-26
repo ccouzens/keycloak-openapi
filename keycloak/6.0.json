@@ -9,21 +9,6 @@
     "/": {},
     "/{any}": {},
     "/{id}/name": {
-      "get": {
-        "description": "Need this for admin console to display simple name of provider when displaying client detail KEYCLOAK-4328",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          }
-        }
-      },
       "parameters": [
         {
           "in": "path",
@@ -37,6 +22,14 @@
       ]
     },
     "/{realm}": {
+      "delete": {
+        "summary": "Delete the realm",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -51,6 +44,14 @@
       ]
     },
     "/{realm}/admin-events": {
+      "delete": {
+        "summary": "Delete all admin events",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -66,8 +67,7 @@
     },
     "/{realm}/attack-detection/brute-force/users": {
       "delete": {
-        "description": "Clear any user login failures for all users This can release temporary disabled users",
-        "operationId":  "clearallbruteforce",        
+        "summary": "Clear any user login failures for all users   This can release temporary disabled users",
         "responses": {
           "2XX": {
             "description": "success"
@@ -89,27 +89,10 @@
     },
     "/{realm}/attack-detection/brute-force/users/{userId}": {
       "delete": {
-        "description": "Clear any user login failures for the user This can release temporary disabled user",
-        "operationId": "clearbruteforceforuser",
+        "summary": "Clear any user login failures for the user   This can release temporary disabled user",
         "responses": {
           "2XX": {
             "description": "success"
-          }
-        }
-      },
-      "get": {
-        "description": "Get status of a username in brute force detection",
-        "operationId": "bruteforceuserstatus",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
           }
         }
       },
@@ -189,6 +172,14 @@
       ]
     },
     "/{realm}/authentication/config/{id}": {
+      "delete": {
+        "summary": "Delete authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -227,11 +218,19 @@
       ]
     },
     "/{realm}/authentication/executions/{executionId}": {
+      "delete": {
+        "summary": "Delete execution",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
           "name": "executionId",
-          "description": "Execution id",
+          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -433,6 +432,14 @@
       ]
     },
     "/{realm}/authentication/flows/{id}": {
+      "delete": {
+        "summary": "Delete an authentication flow",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -527,6 +534,14 @@
       ]
     },
     "/{realm}/authentication/required-actions/{alias}": {
+      "delete": {
+        "summary": "Delete required action",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -697,6 +712,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}": {
+      "delete": {
+        "summary": "Delete the client scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -769,6 +792,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {
+      "delete": {
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -851,6 +882,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
+      "delete": {
+        "summary": "Remove client-level roles from the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -953,6 +992,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm": {
+      "delete": {
+        "summary": "Remove a set of realm-level roles from the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1067,6 +1114,14 @@
       ]
     },
     "/{realm}/clients-initial-access/{id}": {
+      "delete": {
+        "summary": "DELETE /{realm}/clients-initial-access/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1091,6 +1146,14 @@
       ]
     },
     "/{realm}/clients/{id}": {
+      "delete": {
+        "summary": "Delete the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1367,6 +1430,14 @@
       ]
     },
     "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1599,6 +1670,14 @@
       ]
     },
     "/{realm}/clients/{id}/nodes/{node}": {
+      "delete": {
+        "summary": "Unregister a cluster node from the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1705,6 +1784,14 @@
       ]
     },
     "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1787,6 +1874,14 @@
       ]
     },
     "/{realm}/clients/{id}/protocol-mappers/models/{id}": {
+      "delete": {
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1917,6 +2012,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}": {
+      "delete": {
+        "summary": "Delete a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1951,6 +2054,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites": {
+      "delete": {
+        "summary": "Remove roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2189,6 +2300,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}": {
+      "delete": {
+        "summary": "Remove client-level roles from the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2291,6 +2410,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/realm": {
+      "delete": {
+        "summary": "Remove a set of realm-level roles from the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2473,6 +2600,14 @@
       ]
     },
     "/{realm}/components/{id}": {
+      "delete": {
+        "summary": "DELETE /{realm}/components/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2535,6 +2670,14 @@
       ]
     },
     "/{realm}/default-default-client-scopes/{clientScopeId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/default-default-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2573,6 +2716,14 @@
       ]
     },
     "/{realm}/default-groups/{groupId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/default-groups/{groupId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2611,6 +2762,14 @@
       ]
     },
     "/{realm}/default-optional-client-scopes/{clientScopeId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/default-optional-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2635,6 +2794,14 @@
       ]
     },
     "/{realm}/events": {
+      "delete": {
+        "summary": "Delete all events",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2715,6 +2882,14 @@
       ]
     },
     "/{realm}/groups/{id}": {
+      "delete": {
+        "summary": "DELETE /{realm}/groups/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2835,6 +3010,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}": {
+      "delete": {
+        "summary": "Delete client-level roles from user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2937,6 +3120,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/realm": {
+      "delete": {
+        "summary": "Delete realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3037,6 +3228,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}": {
+      "delete": {
+        "summary": "Delete the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3157,6 +3356,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "delete": {
+        "summary": "Delete a mapper for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3171,7 +3378,7 @@
         {
           "in": "path",
           "name": "id",
-          "description": "Mapper id",
+          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3299,6 +3506,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}": {
+      "delete": {
+        "summary": "Delete the role",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3323,6 +3538,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}/composites": {
+      "delete": {
+        "summary": "Remove a set of roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3337,7 +3560,7 @@
         {
           "in": "path",
           "name": "role-id",
-          "description": "Role id",
+          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3429,6 +3652,14 @@
       ]
     },
     "/{realm}/roles/{role-name}": {
+      "delete": {
+        "summary": "Delete a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3453,6 +3684,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/composites": {
+      "delete": {
+        "summary": "Remove roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3607,6 +3846,14 @@
       ]
     },
     "/{realm}/sessions/{session}": {
+      "delete": {
+        "summary": "Remove a specific user session.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3841,6 +4088,14 @@
       ]
     },
     "/{realm}/users/{id}": {
+      "delete": {
+        "summary": "Delete the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3889,6 +4144,14 @@
       ]
     },
     "/{realm}/users/{id}/consents/{client}": {
+      "delete": {
+        "summary": "Revoke consent and offline tokens for particular client from user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3995,6 +4258,14 @@
       ]
     },
     "/{realm}/users/{id}/federated-identity/{provider}": {
+      "delete": {
+        "summary": "Remove a social login provider from user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4077,6 +4348,14 @@
       ]
     },
     "/{realm}/users/{id}/groups/{groupId}": {
+      "delete": {
+        "summary": "DELETE /{realm}/users/{id}/groups/{groupId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4265,6 +4544,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}": {
+      "delete": {
+        "summary": "Delete client-level roles from user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4367,6 +4654,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/realm": {
+      "delete": {
+        "summary": "Delete realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
