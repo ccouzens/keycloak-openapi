@@ -1609,7 +1609,6 @@
     },
     "/{realm}/clients-initial-access": {
       "get": {
-        "summary": "GET /{realm}/clients-initial-access",
         "responses": {
           "2XX": {
             "description": "success"
@@ -1639,7 +1638,6 @@
     },
     "/{realm}/clients-initial-access/{id}": {
       "delete": {
-        "summary": "DELETE /{realm}/clients-initial-access/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2036,7 +2034,6 @@
     },
     "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
       "put": {
-        "summary": "PUT /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2044,7 +2041,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2233,7 +2229,6 @@
     },
     "/{realm}/clients/{id}/installation/providers/{providerId}": {
       "get": {
-        "summary": "GET /{realm}/clients/{id}/installation/providers/{providerId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2483,7 +2478,6 @@
     },
     "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
       "put": {
-        "summary": "PUT /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2491,7 +2485,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3548,7 +3541,6 @@
     },
     "/{realm}/components": {
       "get": {
-        "summary": "GET /{realm}/components",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3556,7 +3548,6 @@
         }
       },
       "post": {
-        "summary": "POST /{realm}/components",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3578,7 +3569,6 @@
     },
     "/{realm}/components/{id}": {
       "get": {
-        "summary": "GET /{realm}/components/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3586,7 +3576,6 @@
         }
       },
       "put": {
-        "summary": "PUT /{realm}/components/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3594,7 +3583,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/components/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3678,7 +3666,6 @@
     },
     "/{realm}/default-default-client-scopes/{clientScopeId}": {
       "put": {
-        "summary": "PUT /{realm}/default-default-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3686,7 +3673,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/default-default-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3739,7 +3725,6 @@
     },
     "/{realm}/default-groups/{groupId}": {
       "put": {
-        "summary": "PUT /{realm}/default-groups/{groupId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3747,7 +3732,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/default-groups/{groupId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3800,7 +3784,6 @@
     },
     "/{realm}/default-optional-client-scopes/{clientScopeId}": {
       "put": {
-        "summary": "PUT /{realm}/default-optional-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3808,7 +3791,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/default-optional-client-scopes/{clientScopeId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3899,7 +3881,6 @@
     },
     "/{realm}/group-by-path/{path}": {
       "get": {
-        "summary": "GET /{realm}/group-by-path/{path}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3982,7 +3963,6 @@
     },
     "/{realm}/groups/{id}": {
       "get": {
-        "summary": "GET /{realm}/groups/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3998,7 +3978,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/groups/{id}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -4734,7 +4713,6 @@
     },
     "/{realm}/keys": {
       "get": {
-        "summary": "GET /{realm}/keys",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5629,7 +5607,6 @@
     },
     "/{realm}/users-management-permissions": {
       "get": {
-        "summary": "GET /{realm}/users-management-permissions",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5637,7 +5614,6 @@
         }
       },
       "put": {
-        "summary": "PUT /{realm}/users-management-permissions",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5659,7 +5635,6 @@
     },
     "/{realm}/users/count": {
       "get": {
-        "summary": "GET /{realm}/users/count",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5949,7 +5924,6 @@
     },
     "/{realm}/users/{id}/groups": {
       "get": {
-        "summary": "GET /{realm}/users/{id}/groups",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5981,7 +5955,6 @@
     },
     "/{realm}/users/{id}/groups/count": {
       "get": {
-        "summary": "GET /{realm}/users/{id}/groups/count",
         "responses": {
           "2XX": {
             "description": "success"
@@ -6013,7 +5986,6 @@
     },
     "/{realm}/users/{id}/groups/{groupId}": {
       "put": {
-        "summary": "PUT /{realm}/users/{id}/groups/{groupId}",
         "responses": {
           "2XX": {
             "description": "success"
@@ -6021,7 +5993,6 @@
         }
       },
       "delete": {
-        "summary": "DELETE /{realm}/users/{id}/groups/{groupId}",
         "responses": {
           "2XX": {
             "description": "success"
