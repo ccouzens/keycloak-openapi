@@ -24,21 +24,25 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 ..Default::default()
             })
         }) {
-            match verb.as_ref() {
+            let operation = Some(operation::parse(&section));
+            (match verb.as_ref() {
                 "DELETE" => {
-                    path_item.delete = Some(operation::parse(&section));
+                    path_item.delete = operation;
                 }
                 "GET" => {
-                    path_item.get = Some(operation::parse(&section));
+                    path_item.get = operation;
+                }
+                "POST" => {
+                    path_item.post = operation;
                 }
                 "PUT" => {
-                    path_item.put = Some(operation::parse(&section));
+                    path_item.put = operation;
                 }
                 "OPTIONS" => {
-                    path_item.options = Some(operation::parse(&section));
+                    path_item.options = operation;
                 }
-                _ => {}
-            }
+                _ => panic!(format!("Unexpected HTTP verb: {:?}", verb)),
+            });
         }
     }
 
@@ -159,6 +163,15 @@ mod tests {
                     .as_ref()
                     .and_then(|op| op.summary.as_ref()),
                 Some(&"CORS preflight".to_string())
+            );
+        }
+
+        #[test]
+        fn correctly_parses_the_post_case() {
+            let path_item = get_path("/{realm}/testLDAPConnection");
+            assert_eq!(
+                path_item.post.as_ref().and_then(|op| op.summary.as_ref()),
+                Some(&"Test LDAP connection".to_string())
             );
         }
 
