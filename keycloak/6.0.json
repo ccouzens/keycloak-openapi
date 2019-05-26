@@ -6,7 +6,16 @@
     "version": "1"
   },
   "paths": {
-    "/": {},
+    "/": {
+      "get": {
+        "summary": "Get themes, social providers, auth providers, and event listeners available on this server",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
     "/{any}": {
       "options": {
         "summary": "CORS preflight",
@@ -18,6 +27,14 @@
       }
     },
     "/{id}/name": {
+      "get": {
+        "summary": "Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -31,6 +48,14 @@
       ]
     },
     "/{realm}": {
+      "get": {
+        "summary": "Get the top-level representation of the realm   It will not include nested information like User and Client representations.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the realm",
         "responses": {
@@ -53,6 +78,14 @@
       ]
     },
     "/{realm}/admin-events": {
+      "get": {
+        "summary": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete all admin events",
         "responses": {
@@ -97,6 +130,14 @@
       ]
     },
     "/{realm}/attack-detection/brute-force/users/{userId}": {
+      "get": {
+        "summary": "Get status of a username in brute force detection",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Clear any user login failures for the user   This can release temporary disabled user",
         "responses": {
@@ -128,6 +169,14 @@
       ]
     },
     "/{realm}/authentication/authenticator-providers": {
+      "get": {
+        "summary": "Get authenticator providers   Returns a list of authenticator providers.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -142,6 +191,14 @@
       ]
     },
     "/{realm}/authentication/client-authenticator-providers": {
+      "get": {
+        "summary": "Get client authenticator providers   Returns a list of client authenticator providers.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -156,6 +213,14 @@
       ]
     },
     "/{realm}/authentication/config-description/{providerId}": {
+      "get": {
+        "summary": "Get authenticator provider’s configuration description",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -179,6 +244,14 @@
       ]
     },
     "/{realm}/authentication/config/{id}": {
+      "get": {
+        "summary": "Get authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete authenticator configuration",
         "responses": {
@@ -225,6 +298,14 @@
       ]
     },
     "/{realm}/authentication/executions/{executionId}": {
+      "get": {
+        "summary": "Get Single Execution",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete execution",
         "responses": {
@@ -329,6 +410,14 @@
       ]
     },
     "/{realm}/authentication/flows": {
+      "get": {
+        "summary": "Get authentication flows   Returns a list of authentication flows.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -367,6 +456,14 @@
       ]
     },
     "/{realm}/authentication/flows/{flowAlias}/executions": {
+      "get": {
+        "summary": "Get authentication executions for a flow",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -439,6 +536,14 @@
       ]
     },
     "/{realm}/authentication/flows/{id}": {
+      "get": {
+        "summary": "Get authentication flow for id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete an authentication flow",
         "responses": {
@@ -471,6 +576,14 @@
       ]
     },
     "/{realm}/authentication/form-action-providers": {
+      "get": {
+        "summary": "Get form action providers   Returns a list of form action providers.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -485,6 +598,14 @@
       ]
     },
     "/{realm}/authentication/form-providers": {
+      "get": {
+        "summary": "Get form providers   Returns a list of form providers.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -499,6 +620,14 @@
       ]
     },
     "/{realm}/authentication/per-client-config-description": {
+      "get": {
+        "summary": "Get configuration descriptions for all clients",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -527,6 +656,14 @@
       ]
     },
     "/{realm}/authentication/required-actions": {
+      "get": {
+        "summary": "Get required actions   Returns a list of required actions.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -541,6 +678,14 @@
       ]
     },
     "/{realm}/authentication/required-actions/{alias}": {
+      "get": {
+        "summary": "Get required action for alias",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete required action",
         "responses": {
@@ -621,6 +766,14 @@
       ]
     },
     "/{realm}/authentication/unregistered-required-actions": {
+      "get": {
+        "summary": "Get unregistered required actions   Returns a list of unregistered required actions.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -691,6 +844,14 @@
       ]
     },
     "/{realm}/client-registration-policy/providers": {
+      "get": {
+        "summary": "Base path for retrieve providers with the configProperties properly filled",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -705,6 +866,14 @@
       ]
     },
     "/{realm}/client-scopes": {
+      "get": {
+        "summary": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -719,6 +888,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}": {
+      "get": {
+        "summary": "Get representation of the client scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the client scope",
         "responses": {
@@ -775,6 +952,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/models": {
+      "get": {
+        "summary": "Get mappers",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -799,6 +984,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {
+      "get": {
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the mapper",
         "responses": {
@@ -831,6 +1024,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "summary": "Get mappers by name for a specific protocol",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -864,6 +1065,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings": {
+      "get": {
+        "summary": "Get all scope mappings for the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -888,6 +1097,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
         "responses": {
@@ -929,6 +1146,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -962,6 +1187,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -995,6 +1228,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm": {
+      "get": {
+        "summary": "Get realm-level roles associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "responses": {
@@ -1027,6 +1268,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
+      "get": {
+        "summary": "Get realm-level roles that are available to attach to this client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1051,6 +1300,14 @@
       ]
     },
     "/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1075,6 +1332,14 @@
       ]
     },
     "/{realm}/client-session-stats": {
+      "get": {
+        "summary": "Get client session stats   Returns a JSON map.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1089,6 +1354,14 @@
       ]
     },
     "/{realm}/clients": {
+      "get": {
+        "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1103,6 +1376,14 @@
       ]
     },
     "/{realm}/clients-initial-access": {
+      "get": {
+        "summary": "GET /{realm}/clients-initial-access",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1148,6 +1429,14 @@
       ]
     },
     "/{realm}/clients/{id}": {
+      "get": {
+        "summary": "Get representation of the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the client",
         "responses": {
@@ -1180,6 +1469,14 @@
       ]
     },
     "/{realm}/clients/{id}/certificates/{attr}": {
+      "get": {
+        "summary": "Get key info",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1378,6 +1675,14 @@
       ]
     },
     "/{realm}/clients/{id}/client-secret": {
+      "get": {
+        "summary": "Get the client secret",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1402,6 +1707,14 @@
       ]
     },
     "/{realm}/clients/{id}/default-client-scopes": {
+      "get": {
+        "summary": "Get default client scopes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1467,6 +1780,14 @@
       ]
     },
     "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
+      "get": {
+        "summary": "Create JSON with payload of example access token",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1491,6 +1812,14 @@
       ]
     },
     "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
+      "get": {
+        "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1515,6 +1844,14 @@
       ]
     },
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
+      "get": {
+        "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1549,6 +1886,14 @@
       ]
     },
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
+      "get": {
+        "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1583,6 +1928,14 @@
       ]
     },
     "/{realm}/clients/{id}/installation/providers/{providerId}": {
+      "get": {
+        "summary": "GET /{realm}/clients/{id}/installation/providers/{providerId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1616,6 +1969,14 @@
       ]
     },
     "/{realm}/clients/{id}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1705,6 +2066,14 @@
       ]
     },
     "/{realm}/clients/{id}/offline-session-count": {
+      "get": {
+        "summary": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1729,6 +2098,14 @@
       ]
     },
     "/{realm}/clients/{id}/offline-sessions": {
+      "get": {
+        "summary": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1753,6 +2130,14 @@
       ]
     },
     "/{realm}/clients/{id}/optional-client-scopes": {
+      "get": {
+        "summary": "Get optional client scopes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1842,6 +2227,14 @@
       ]
     },
     "/{realm}/clients/{id}/protocol-mappers/models": {
+      "get": {
+        "summary": "Get mappers",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1866,6 +2259,14 @@
       ]
     },
     "/{realm}/clients/{id}/protocol-mappers/models/{id}": {
+      "get": {
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the mapper",
         "responses": {
@@ -1898,6 +2299,14 @@
       ]
     },
     "/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "summary": "Get mappers by name for a specific protocol",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -1979,6 +2388,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles": {
+      "get": {
+        "summary": "Get all roles for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2003,6 +2420,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}": {
+      "get": {
+        "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete a role by name",
         "responses": {
@@ -2045,6 +2470,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites": {
+      "get": {
+        "summary": "Get composites of the role",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove roles from the role’s composite",
         "responses": {
@@ -2087,6 +2520,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}": {
+      "get": {
+        "summary": "An app-level roles for the specified app for the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2130,6 +2571,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
+      "get": {
+        "summary": "Get realm-level roles of the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2164,6 +2613,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/groups": {
+      "get": {
+        "summary": "Return List of Groups that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2197,6 +2654,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2230,6 +2695,14 @@
       ]
     },
     "/{realm}/clients/{id}/roles/{role-name}/users": {
+      "get": {
+        "summary": "Return List of Users that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2263,6 +2736,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings": {
+      "get": {
+        "summary": "Get all scope mappings for the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2287,6 +2768,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
         "responses": {
@@ -2328,6 +2817,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2361,6 +2858,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2394,6 +2899,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/realm": {
+      "get": {
+        "summary": "Get realm-level roles associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "responses": {
@@ -2426,6 +2939,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/realm/available": {
+      "get": {
+        "summary": "Get realm-level roles that are available to attach to this client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2450,6 +2971,14 @@
       ]
     },
     "/{realm}/clients/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2474,6 +3003,14 @@
       ]
     },
     "/{realm}/clients/{id}/service-account-user": {
+      "get": {
+        "summary": "Get a user dedicated to the service account",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2498,6 +3035,14 @@
       ]
     },
     "/{realm}/clients/{id}/session-count": {
+      "get": {
+        "summary": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2522,6 +3067,14 @@
       ]
     },
     "/{realm}/clients/{id}/test-nodes-available": {
+      "get": {
+        "summary": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2546,6 +3099,14 @@
       ]
     },
     "/{realm}/clients/{id}/user-sessions": {
+      "get": {
+        "summary": "Get user sessions for client   Returns a list of user sessions associated with this client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2570,6 +3131,14 @@
       ]
     },
     "/{realm}/components": {
+      "get": {
+        "summary": "GET /{realm}/components",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2584,6 +3153,14 @@
       ]
     },
     "/{realm}/components/{id}": {
+      "get": {
+        "summary": "GET /{realm}/components/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/components/{id}",
         "responses": {
@@ -2615,6 +3192,14 @@
       ]
     },
     "/{realm}/components/{id}/sub-component-types": {
+      "get": {
+        "summary": "List of subcomponent types that are available to configure for a particular parent component.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2638,6 +3223,14 @@
       ]
     },
     "/{realm}/default-default-client-scopes": {
+      "get": {
+        "summary": "Get realm default client scopes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2683,6 +3276,14 @@
       ]
     },
     "/{realm}/default-groups": {
+      "get": {
+        "summary": "Get group hierarchy.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2728,6 +3329,14 @@
       ]
     },
     "/{realm}/default-optional-client-scopes": {
+      "get": {
+        "summary": "Get realm optional client scopes.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2773,6 +3382,14 @@
       ]
     },
     "/{realm}/events": {
+      "get": {
+        "summary": "Get events   Returns all events, or filters them based on URL query parameters listed here",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete all events",
         "responses": {
@@ -2795,6 +3412,14 @@
       ]
     },
     "/{realm}/events/config": {
+      "get": {
+        "summary": "Get the events provider configuration   Returns JSON object with events provider configuration",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2809,6 +3434,14 @@
       ]
     },
     "/{realm}/group-by-path/{path}": {
+      "get": {
+        "summary": "GET /{realm}/group-by-path/{path}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2832,6 +3465,14 @@
       ]
     },
     "/{realm}/groups": {
+      "get": {
+        "summary": "Get group hierarchy.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2846,6 +3487,14 @@
       ]
     },
     "/{realm}/groups/count": {
+      "get": {
+        "summary": "Returns the groups counts.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2860,6 +3509,14 @@
       ]
     },
     "/{realm}/groups/{id}": {
+      "get": {
+        "summary": "GET /{realm}/groups/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/groups/{id}",
         "responses": {
@@ -2914,6 +3571,14 @@
       ]
     },
     "/{realm}/groups/{id}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2937,6 +3602,14 @@
       ]
     },
     "/{realm}/groups/{id}/members": {
+      "get": {
+        "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2960,6 +3633,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings": {
+      "get": {
+        "summary": "Get role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2983,6 +3664,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "summary": "Get client-level role mappings for the user, and the app",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
         "responses": {
@@ -3023,6 +3712,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "summary": "Get available client-level roles that can be mapped to the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3055,6 +3752,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "summary": "Get effective client-level role mappings   This recurses any composite roles",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3087,6 +3792,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/realm": {
+      "get": {
+        "summary": "Get realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete realm-level role mappings",
         "responses": {
@@ -3118,6 +3831,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/realm/available": {
+      "get": {
+        "summary": "Get realm-level roles that can be mapped",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3141,6 +3862,14 @@
       ]
     },
     "/{realm}/groups/{id}/role-mappings/realm/composite": {
+      "get": {
+        "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3178,6 +3907,14 @@
       ]
     },
     "/{realm}/identity-provider/instances": {
+      "get": {
+        "summary": "Get identity providers",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3192,6 +3929,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}": {
+      "get": {
+        "summary": "Get the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the identity provider",
         "responses": {
@@ -3223,6 +3968,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/export": {
+      "get": {
+        "summary": "Export public broker configuration for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3246,6 +3999,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3269,6 +4030,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/mapper-types": {
+      "get": {
+        "summary": "Get mapper types for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3292,6 +4061,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/mappers": {
+      "get": {
+        "summary": "Get mappers for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3315,6 +4092,14 @@
       ]
     },
     "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "get": {
+        "summary": "Get mapper by id for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete a mapper for the identity provider",
         "responses": {
@@ -3356,6 +4141,14 @@
       ]
     },
     "/{realm}/identity-provider/providers/{provider_id}": {
+      "get": {
+        "summary": "Get identity providers",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3380,6 +4173,14 @@
       ]
     },
     "/{realm}/keys": {
+      "get": {
+        "summary": "GET /{realm}/keys",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3450,6 +4251,14 @@
       ]
     },
     "/{realm}/roles": {
+      "get": {
+        "summary": "Get all roles for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3464,6 +4273,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}": {
+      "get": {
+        "summary": "Get a specific role’s representation",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the role",
         "responses": {
@@ -3496,6 +4313,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}/composites": {
+      "get": {
+        "summary": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove a set of roles from the role’s composite",
         "responses": {
@@ -3528,6 +4353,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}/composites/clients/{client}": {
+      "get": {
+        "summary": "Get client-level roles for the client that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3560,6 +4393,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}/composites/realm": {
+      "get": {
+        "summary": "Get realm-level roles that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3583,6 +4424,14 @@
       ]
     },
     "/{realm}/roles-by-id/{role-id}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3606,6 +4455,14 @@
       ]
     },
     "/{realm}/roles/{role-name}": {
+      "get": {
+        "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete a role by name",
         "responses": {
@@ -3638,6 +4495,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/composites": {
+      "get": {
+        "summary": "Get composites of the role",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Remove roles from the role’s composite",
         "responses": {
@@ -3670,6 +4535,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/composites/clients/{client}": {
+      "get": {
+        "summary": "An app-level roles for the specified app for the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3703,6 +4576,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/composites/realm": {
+      "get": {
+        "summary": "Get realm-level roles of the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3727,6 +4608,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/groups": {
+      "get": {
+        "summary": "Return List of Groups that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3750,6 +4639,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/management/permissions": {
+      "get": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3773,6 +4670,14 @@
       ]
     },
     "/{realm}/roles/{role-name}/users": {
+      "get": {
+        "summary": "Return List of Users that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3865,6 +4770,14 @@
       ]
     },
     "/{realm}/user-storage/{id}/name": {
+      "get": {
+        "summary": "Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -3989,6 +4902,14 @@
       ]
     },
     "/{realm}/users": {
+      "get": {
+        "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4003,6 +4924,14 @@
       ]
     },
     "/{realm}/users-management-permissions": {
+      "get": {
+        "summary": "GET /{realm}/users-management-permissions",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4017,6 +4946,14 @@
       ]
     },
     "/{realm}/users/count": {
+      "get": {
+        "summary": "GET /{realm}/users/count",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4031,6 +4968,14 @@
       ]
     },
     "/{realm}/users/{id}": {
+      "get": {
+        "summary": "Get representation of the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the user",
         "responses": {
@@ -4063,6 +5008,14 @@
       ]
     },
     "/{realm}/users/{id}/consents": {
+      "get": {
+        "summary": "Get consents granted by the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4177,6 +5130,14 @@
       ]
     },
     "/{realm}/users/{id}/federated-identity": {
+      "get": {
+        "summary": "Get social logins associated with the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4243,6 +5204,14 @@
       ]
     },
     "/{realm}/users/{id}/groups": {
+      "get": {
+        "summary": "GET /{realm}/users/{id}/groups",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4267,6 +5236,14 @@
       ]
     },
     "/{realm}/users/{id}/groups/count": {
+      "get": {
+        "summary": "GET /{realm}/users/{id}/groups/count",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4380,6 +5357,14 @@
       ]
     },
     "/{realm}/users/{id}/offline-sessions/{clientId}": {
+      "get": {
+        "summary": "Get offline sessions associated with the user and client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4461,6 +5446,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings": {
+      "get": {
+        "summary": "Get role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4485,6 +5478,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "summary": "Get client-level role mappings for the user, and the app",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
         "responses": {
@@ -4526,6 +5527,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "summary": "Get available client-level roles that can be mapped to the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4559,6 +5568,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "summary": "Get effective client-level role mappings   This recurses any composite roles",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4592,6 +5609,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/realm": {
+      "get": {
+        "summary": "Get realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete realm-level role mappings",
         "responses": {
@@ -4624,6 +5649,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/realm/available": {
+      "get": {
+        "summary": "Get realm-level roles that can be mapped",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4648,6 +5681,14 @@
       ]
     },
     "/{realm}/users/{id}/role-mappings/realm/composite": {
+      "get": {
+        "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4696,6 +5737,14 @@
       ]
     },
     "/{realm}/users/{id}/sessions": {
+      "get": {
+        "summary": "Get sessions associated with the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",

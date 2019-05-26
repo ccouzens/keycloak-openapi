@@ -28,6 +28,9 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 "DELETE" => {
                     path_item.delete = Some(operation::parse(&section));
                 }
+                "GET" => {
+                    path_item.get = Some(operation::parse(&section));
+                }
                 "OPTIONS" => {
                     path_item.options = Some(operation::parse(&section));
                 }
@@ -117,14 +120,18 @@ mod tests {
         use openapiv3::ReferenceOr;
         use scraper::Html;
 
-        #[test]
-        fn correctly_parses_simple_delete_case() {
+        fn get_path(path: &str) -> openapiv3::PathItem {
             let paths = paths(&Html::parse_document(HTML));
-            let path_item = if let ReferenceOr::Item(path) = paths.get("/{realm}").unwrap() {
-                path
+            if let ReferenceOr::Item(path) = paths.get(path).unwrap() {
+                path.clone()
             } else {
                 panic!("Couldn't extract path")
-            };
+            }
+        }
+
+        #[test]
+        fn correctly_parses_simple_delete_case() {
+            let path_item = get_path("/{realm}");
             assert_eq!(
                 path_item.delete.as_ref().and_then(|op| op.summary.as_ref()),
                 Some(&"Delete the realm".to_string())
@@ -132,13 +139,17 @@ mod tests {
         }
 
         #[test]
+        fn correctly_parses_the_get_case() {
+            let path_item = get_path("/{realm}/groups/{id}/role-mappings");
+            assert_eq!(
+                path_item.get.as_ref().and_then(|op| op.summary.as_ref()),
+                Some(&"Get role mappings".to_string())
+            );
+        }
+
+        #[test]
         fn correctly_parses_the_options_case() {
-            let paths = paths(&Html::parse_document(HTML));
-            let path_item = if let ReferenceOr::Item(path) = paths.get("/{any}").unwrap() {
-                path
-            } else {
-                panic!("Couldn't extract path")
-            };
+            let path_item = get_path("/{any}");
             assert_eq!(
                 path_item
                     .options
