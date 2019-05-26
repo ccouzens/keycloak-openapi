@@ -1,12 +1,12 @@
 use scraper::Selector;
 
+mod operation;
 pub mod parameters;
 
 pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let path_section_selector =
         Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
     let params_table_selector = Selector::parse("h5[id^=_parameters] + table").unwrap();
-    let summary_selector = Selector::parse("h4:first-child").unwrap();
 
     let mut paths = openapiv3::Paths::default();
 
@@ -24,27 +24,14 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 ..Default::default()
             })
         }) {
-            if verb == "DELETE" {
-                path_item.delete = Some(openapiv3::Operation {
-                    summary: section
-                        .select(&summary_selector)
-                        .next()
-                        .map(|s| s.text().collect()),
-                    responses: openapiv3::Responses {
-                        default: None,
-                        responses: [(
-                            "2XX".to_string(),
-                            openapiv3::ReferenceOr::Item(openapiv3::Response {
-                                description: "success".to_string(),
-                                ..Default::default()
-                            }),
-                        )]
-                        .iter()
-                        .cloned()
-                        .collect(),
-                    },
-                    ..Default::default()
-                })
+            match verb.as_ref() {
+                "DELETE" => {
+                    path_item.delete = Some(operation::parse(&section));
+                }
+                "OPTIONS" => {
+                    path_item.options = Some(operation::parse(&section));
+                }
+                _ => {}
             }
         }
     }
@@ -124,14 +111,14 @@ mod tests {
         }
     }
 
-    mod delete {
+    mod operatitions {
         use super::super::paths;
         use super::HTML;
         use openapiv3::ReferenceOr;
         use scraper::Html;
 
         #[test]
-        fn correctly_parses_simple_case() {
+        fn correctly_parses_simple_delete_case() {
             let paths = paths(&Html::parse_document(HTML));
             let path_item = if let ReferenceOr::Item(path) = paths.get("/{realm}").unwrap() {
                 path
@@ -143,5 +130,23 @@ mod tests {
                 Some(&"Delete the realm".to_string())
             );
         }
+
+        #[test]
+        fn correctly_parses_the_options_case() {
+            let paths = paths(&Html::parse_document(HTML));
+            let path_item = if let ReferenceOr::Item(path) = paths.get("/{any}").unwrap() {
+                path
+            } else {
+                panic!("Couldn't extract path")
+            };
+            assert_eq!(
+                path_item
+                    .options
+                    .as_ref()
+                    .and_then(|op| op.summary.as_ref()),
+                Some(&"CORS preflight".to_string())
+            );
+        }
+
     }
 }

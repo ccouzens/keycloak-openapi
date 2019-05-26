@@ -7,7 +7,16 @@
   },
   "paths": {
     "/": {},
-    "/{any}": {},
+    "/{any}": {
+      "options": {
+        "summary": "CORS preflight",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      }
+    },
     "/{id}/name": {
       "parameters": [
         {
