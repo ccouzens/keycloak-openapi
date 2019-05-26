@@ -56,6 +56,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the realm",
         "responses": {
@@ -246,6 +254,14 @@
     "/{realm}/authentication/config/{id}": {
       "get": {
         "summary": "Get authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update authenticator configuration",
         "responses": {
           "2XX": {
             "description": "success"
@@ -464,6 +480,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update authentication executions of a flow",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -538,6 +562,14 @@
     "/{realm}/authentication/flows/{id}": {
       "get": {
         "summary": "Get authentication flow for id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an authentication flow",
         "responses": {
           "2XX": {
             "description": "success"
@@ -680,6 +712,14 @@
     "/{realm}/authentication/required-actions/{alias}": {
       "get": {
         "summary": "Get required action for alias",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update required action",
         "responses": {
           "2XX": {
             "description": "success"
@@ -896,6 +936,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update the client scope",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the client scope",
         "responses": {
@@ -986,6 +1034,14 @@
     "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {
       "get": {
         "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the mapper",
         "responses": {
           "2XX": {
             "description": "success"
@@ -1437,6 +1493,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update the client",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the client",
         "responses": {
@@ -1739,6 +1803,14 @@
       ]
     },
     "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
+      "put": {
+        "summary": "PUT /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/clients/{id}/default-client-scopes/{clientScopeId}",
         "responses": {
@@ -1977,6 +2049,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -2162,6 +2242,14 @@
       ]
     },
     "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "summary": "PUT /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}",
         "responses": {
@@ -2261,6 +2349,14 @@
     "/{realm}/clients/{id}/protocol-mappers/models/{id}": {
       "get": {
         "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the mapper",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2422,6 +2518,14 @@
     "/{realm}/clients/{id}/roles/{role-name}": {
       "get": {
         "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a role by name",
         "responses": {
           "2XX": {
             "description": "success"
@@ -2655,6 +2759,14 @@
     },
     "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
       "get": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -3161,6 +3273,14 @@
           }
         }
       },
+      "put": {
+        "summary": "PUT /{realm}/components/{id}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/components/{id}",
         "responses": {
@@ -3245,6 +3365,14 @@
       ]
     },
     "/{realm}/default-default-client-scopes/{clientScopeId}": {
+      "put": {
+        "summary": "PUT /{realm}/default-default-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/default-default-client-scopes/{clientScopeId}",
         "responses": {
@@ -3298,6 +3426,14 @@
       ]
     },
     "/{realm}/default-groups/{groupId}": {
+      "put": {
+        "summary": "PUT /{realm}/default-groups/{groupId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/default-groups/{groupId}",
         "responses": {
@@ -3351,6 +3487,14 @@
       ]
     },
     "/{realm}/default-optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "summary": "PUT /{realm}/default-optional-client-scopes/{clientScopeId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/default-optional-client-scopes/{clientScopeId}",
         "responses": {
@@ -3414,6 +3558,14 @@
     "/{realm}/events/config": {
       "get": {
         "summary": "Get the events provider configuration   Returns JSON object with events provider configuration",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the events provider   Change the events provider and/or its configuration",
         "responses": {
           "2XX": {
             "description": "success"
@@ -3517,6 +3669,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update group, ignores subgroups.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/groups/{id}",
         "responses": {
@@ -3572,6 +3732,14 @@
     },
     "/{realm}/groups/{id}/management/permissions": {
       "get": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -3937,6 +4105,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the identity provider",
         "responses": {
@@ -4000,6 +4176,14 @@
     },
     "/{realm}/identity-provider/instances/{alias}/management/permissions": {
       "get": {
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -4094,6 +4278,14 @@
     "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
       "get": {
         "summary": "Get mapper by id for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a mapper for the identity provider",
         "responses": {
           "2XX": {
             "description": "success"
@@ -4281,6 +4473,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Update the role",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "Delete the role",
         "responses": {
@@ -4432,6 +4632,14 @@
           }
         }
       },
+      "put": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4457,6 +4665,14 @@
     "/{realm}/roles/{role-name}": {
       "get": {
         "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a role by name",
         "responses": {
           "2XX": {
             "description": "success"
@@ -4640,6 +4856,14 @@
     },
     "/{realm}/roles/{role-name}/management/permissions": {
       "get": {
+        "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
@@ -4932,6 +5156,14 @@
           }
         }
       },
+      "put": {
+        "summary": "PUT /{realm}/users-management-permissions",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -4970,6 +5202,14 @@
     "/{realm}/users/{id}": {
       "get": {
         "summary": "Get representation of the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the user",
         "responses": {
           "2XX": {
             "description": "success"
@@ -5082,6 +5322,14 @@
       ]
     },
     "/{realm}/users/{id}/disable-credential-types": {
+      "put": {
+        "summary": "Disable all credentials for a user of a specific type",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -5106,6 +5354,14 @@
       ]
     },
     "/{realm}/users/{id}/execute-actions-email": {
+      "put": {
+        "summary": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -5268,6 +5524,14 @@
       ]
     },
     "/{realm}/users/{id}/groups/{groupId}": {
+      "put": {
+        "summary": "PUT /{realm}/users/{id}/groups/{groupId}",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "delete": {
         "summary": "DELETE /{realm}/users/{id}/groups/{groupId}",
         "responses": {
@@ -5398,6 +5662,14 @@
       ]
     },
     "/{realm}/users/{id}/remove-totp": {
+      "put": {
+        "summary": "Remove TOTP from the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -5422,6 +5694,14 @@
       ]
     },
     "/{realm}/users/{id}/reset-password": {
+      "put": {
+        "summary": "Set up a new password for the user.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",
@@ -5713,6 +5993,14 @@
       ]
     },
     "/{realm}/users/{id}/send-verify-email": {
+      "put": {
+        "summary": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
       "parameters": [
         {
           "in": "path",

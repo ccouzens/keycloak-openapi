@@ -31,6 +31,9 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 "GET" => {
                     path_item.get = Some(operation::parse(&section));
                 }
+                "PUT" => {
+                    path_item.put = Some(operation::parse(&section));
+                }
                 "OPTIONS" => {
                     path_item.options = Some(operation::parse(&section));
                 }
@@ -159,5 +162,13 @@ mod tests {
             );
         }
 
+        #[test]
+        fn correctly_parses_the_put_case() {
+            let path_item = get_path("/{realm}/users/{id}");
+            assert_eq!(
+                path_item.put.as_ref().and_then(|op| op.summary.as_ref()),
+                Some(&"Update the user".to_string())
+            );
+        }
     }
 }
