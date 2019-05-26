@@ -110,7 +110,6 @@
         {
           "in": "path",
           "name": "userId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -152,7 +151,6 @@
         {
           "in": "path",
           "name": "providerId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -838,7 +836,6 @@
         {
           "in": "path",
           "name": "protocol",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -894,7 +891,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -928,7 +924,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -962,7 +957,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1126,7 +1120,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1182,7 +1175,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1216,7 +1208,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1250,7 +1241,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1284,7 +1274,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1318,7 +1307,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1352,7 +1340,6 @@
         {
           "in": "path",
           "name": "attr",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1442,7 +1429,6 @@
         {
           "in": "path",
           "name": "clientScopeId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1602,7 +1588,6 @@
         {
           "in": "path",
           "name": "providerId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1692,7 +1677,6 @@
         {
           "in": "path",
           "name": "node",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1796,7 +1780,6 @@
         {
           "in": "path",
           "name": "clientScopeId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -1920,7 +1903,6 @@
         {
           "in": "path",
           "name": "protocol",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2100,7 +2082,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2198,7 +2179,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2232,7 +2212,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2266,7 +2245,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2312,7 +2290,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2346,7 +2323,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2380,7 +2356,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2612,7 +2587,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2636,7 +2610,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2682,7 +2655,6 @@
         {
           "in": "path",
           "name": "clientScopeId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2728,7 +2700,6 @@
         {
           "in": "path",
           "name": "groupId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2774,7 +2745,6 @@
         {
           "in": "path",
           "name": "clientScopeId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2834,7 +2804,6 @@
         {
           "in": "path",
           "name": "path",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2894,7 +2863,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2918,7 +2886,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2942,7 +2909,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2966,7 +2932,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -2990,7 +2955,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3022,7 +2986,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3032,7 +2995,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3056,7 +3018,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3066,7 +3027,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3090,7 +3050,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3100,7 +3059,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3132,7 +3090,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3156,7 +3113,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3180,7 +3136,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3240,7 +3195,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3264,7 +3218,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3288,7 +3241,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3312,7 +3264,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3336,7 +3287,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3368,7 +3318,6 @@
         {
           "in": "path",
           "name": "alias",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3574,7 +3523,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3594,7 +3542,6 @@
         {
           "in": "path",
           "name": "role-id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3618,7 +3565,6 @@
         {
           "in": "path",
           "name": "role-id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3642,7 +3588,6 @@
         {
           "in": "path",
           "name": "role-id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3720,7 +3665,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3788,7 +3732,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3812,7 +3755,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3836,7 +3778,6 @@
         {
           "in": "path",
           "name": "role-name",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3868,7 +3809,6 @@
         {
           "in": "path",
           "name": "session",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3920,7 +3860,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3944,7 +3883,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3968,7 +3906,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -3992,7 +3929,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4016,7 +3952,6 @@
         {
           "in": "path",
           "name": "id",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4026,7 +3961,6 @@
         {
           "in": "path",
           "name": "parentId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4360,7 +4294,6 @@
         {
           "in": "path",
           "name": "groupId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4442,7 +4375,6 @@
         {
           "in": "path",
           "name": "clientId",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4556,7 +4488,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4590,7 +4521,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"
@@ -4624,7 +4554,6 @@
         {
           "in": "path",
           "name": "client",
-          "description": "",
           "required": true,
           "schema": {
             "type": "string"

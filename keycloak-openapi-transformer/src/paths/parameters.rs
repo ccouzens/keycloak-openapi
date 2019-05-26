@@ -37,7 +37,8 @@ pub fn parse_path(section: &scraper::element_ref::ElementRef<'_>) -> Vec<Referen
                         .text()
                         .collect(),
                     description: description_index
-                        .map(|i| row.select(&cell_selector).nth(i).unwrap().text().collect()),
+                        .map(|i| row.select(&cell_selector).nth(i).unwrap().text().collect())
+                        .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
                     required: true,
                     deprecated: None,
                     format: openapiv3::ParameterSchemaOrContent::Schema(
@@ -98,6 +99,14 @@ mod tests {
         parse_parameters_correctly(
           "#_paths + .sectionbody > .sect2 > #_user_storage_provider_resource + .sect3 [id^=_parameters] + table",
                     "/{id}/name"
+                );
+    }
+
+    #[test]
+    fn correctly_parses_when_description_is_blank() {
+        parse_parameters_correctly(
+          "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 + .sect3 [id^=_parameters] + table",
+                    "/{realm}/attack-detection/brute-force/users/{userId}"
                 );
     }
 }
