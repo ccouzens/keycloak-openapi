@@ -1,3 +1,4 @@
+use super::response;
 use scraper::Selector;
 
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Operation {
@@ -14,10 +15,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Opera
             default: None,
             responses: [(
                 "2XX".to_string(),
-                openapiv3::ReferenceOr::Item(openapiv3::Response {
-                    description: "success".to_string(),
-                    ..Default::default()
-                }),
+                openapiv3::ReferenceOr::Item(response::parse(&section)),
             )]
             .iter()
             .cloned()

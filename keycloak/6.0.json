@@ -11,7 +11,14 @@
         "summary": "Get themes, social providers, auth providers, and event listeners available on this server",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerInfoRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -39,7 +46,14 @@
         "summary": "Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -60,7 +74,14 @@
         "summary": "Get the top-level representation of the realm   It will not include nested information like User and Client representations.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealmRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -98,7 +119,17 @@
         "summary": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AdminEventRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -150,7 +181,14 @@
         "summary": "Get status of a username in brute force detection",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -189,7 +227,17 @@
         "summary": "Get authenticator providers   Returns a list of authenticator providers.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -211,7 +259,17 @@
         "summary": "Get client authenticator providers   Returns a list of client authenticator providers.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -233,7 +291,14 @@
         "summary": "Get authenticator provider’s configuration description",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticatorConfigInfoRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -264,7 +329,14 @@
         "summary": "Get authenticator configuration",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -334,7 +406,14 @@
         "summary": "Get Single Execution",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
           }
         }
       },
@@ -470,7 +549,17 @@
         "summary": "Get authentication flows   Returns a list of authentication flows.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuthenticationFlowRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -532,7 +621,14 @@
         "summary": "Get authentication executions for a flow",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
           }
         }
       },
@@ -636,7 +732,14 @@
         "summary": "Get authentication flow for id",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationFlowRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -684,7 +787,17 @@
         "summary": "Get form action providers   Returns a list of form action providers.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -706,7 +819,17 @@
         "summary": "Get form providers   Returns a list of form providers.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -728,7 +851,14 @@
         "summary": "Get configuration descriptions for all clients",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -772,7 +902,17 @@
         "summary": "Get required actions   Returns a list of required actions.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RequiredActionProviderRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -794,7 +934,14 @@
         "summary": "Get required action for alias",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequiredActionProviderRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -906,7 +1053,17 @@
         "summary": "Get unregistered required actions   Returns a list of unregistered required actions.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -994,7 +1151,14 @@
         "summary": "Base path for importing clients under this realm.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1016,7 +1180,17 @@
         "summary": "Base path for retrieve providers with the configProperties properly filled",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentTypeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1038,7 +1212,17 @@
         "summary": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1068,7 +1252,14 @@
         "summary": "Get representation of the client scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientScopeRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1148,7 +1339,17 @@
         "summary": "Get mappers",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1188,7 +1389,14 @@
         "summary": "Get mapper by id",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1236,7 +1444,17 @@
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1277,7 +1495,14 @@
         "summary": "Get all scope mappings for the client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MappingsRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1309,7 +1534,17 @@
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1366,7 +1601,17 @@
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1407,7 +1652,17 @@
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1448,7 +1703,17 @@
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1496,7 +1761,17 @@
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1528,7 +1803,17 @@
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1560,7 +1845,17 @@
         "summary": "Get client session stats   Returns a JSON map.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1582,7 +1877,17 @@
         "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1611,7 +1916,17 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientInitialAccessPresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1619,7 +1934,14 @@
         "summary": "Create a new initial access token.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInitialAccessPresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1671,7 +1993,14 @@
         "summary": "Get representation of the client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1719,7 +2048,14 @@
         "summary": "Get key info",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1760,7 +2096,15 @@
         "summary": "Get a keystore file for the client, containing private key and public certificate",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
           }
         }
       },
@@ -1801,7 +2145,14 @@
         "summary": "Generate a new certificate with new key pair",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1842,7 +2193,15 @@
         "summary": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
           }
         }
       },
@@ -1883,7 +2242,14 @@
         "summary": "Upload certificate and eventually private key",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1924,7 +2290,14 @@
         "summary": "Upload only certificate, not private key",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1965,7 +2338,14 @@
         "summary": "Get the client secret",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CredentialRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -1973,7 +2353,14 @@
         "summary": "Generate a new secret for the client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CredentialRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -2005,7 +2392,17 @@
         "summary": "Get default client scopes.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2084,7 +2481,14 @@
         "summary": "Create JSON with payload of example access token",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessToken"
+                }
+              }
+            }
           }
         }
       },
@@ -2116,7 +2520,17 @@
         "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2148,7 +2562,17 @@
         "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2190,7 +2614,17 @@
         "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2272,7 +2706,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -2280,7 +2721,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -2385,7 +2833,14 @@
         "summary": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -2417,7 +2872,17 @@
         "summary": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2449,7 +2914,17 @@
         "summary": "Get optional client scopes.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2560,7 +3035,17 @@
         "summary": "Get mappers",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2600,7 +3085,14 @@
         "summary": "Get mapper by id",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -2648,7 +3140,17 @@
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2689,7 +3191,14 @@
         "summary": "Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalRequestResult"
+                }
+              }
+            }
           }
         }
       },
@@ -2721,7 +3230,14 @@
         "summary": "Generate a new registration access token for the client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -2753,7 +3269,17 @@
         "summary": "Get all roles for the realm or client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2793,7 +3319,14 @@
         "summary": "Get a role by name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -2851,7 +3384,17 @@
         "summary": "Get composites of the role",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2909,7 +3452,17 @@
         "summary": "An app-level roles for the specified app for the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2960,7 +3513,17 @@
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3002,7 +3565,17 @@
         "summary": "Return List of Groups that have the specified role name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3043,7 +3616,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -3051,7 +3631,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -3092,7 +3679,17 @@
         "summary": "Return List of Users that have the specified role name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3133,7 +3730,14 @@
         "summary": "Get all scope mappings for the client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MappingsRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -3165,7 +3769,17 @@
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3222,7 +3836,17 @@
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3263,7 +3887,17 @@
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3304,7 +3938,17 @@
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3352,7 +3996,17 @@
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3384,7 +4038,17 @@
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3416,7 +4080,14 @@
         "summary": "Get a user dedicated to the service account",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -3448,7 +4119,14 @@
         "summary": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -3480,7 +4158,14 @@
         "summary": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalRequestResult"
+                }
+              }
+            }
           }
         }
       },
@@ -3512,7 +4197,17 @@
         "summary": "Get user sessions for client   Returns a list of user sessions associated with this client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3543,7 +4238,17 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3571,7 +4276,14 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -3616,7 +4328,17 @@
         "summary": "List of subcomponent types that are available to configure for a particular parent component.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComponentTypeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3647,7 +4369,17 @@
         "summary": "Get realm default client scopes.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3706,7 +4438,17 @@
         "summary": "Get group hierarchy.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3765,7 +4507,17 @@
         "summary": "Get realm optional client scopes.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3824,7 +4576,17 @@
         "summary": "Get events   Returns all events, or filters them based on URL query parameters listed here",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3854,7 +4616,14 @@
         "summary": "Get the events provider configuration   Returns JSON object with events provider configuration",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealmEventsConfigRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -3883,7 +4652,14 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -3914,7 +4690,17 @@
         "summary": "Get group hierarchy.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -3944,7 +4730,14 @@
         "summary": "Returns the groups counts.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -3965,7 +4758,14 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4011,7 +4811,14 @@
         "summary": "Set or create child.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
           }
         }
       },
@@ -4042,7 +4849,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -4050,7 +4864,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -4081,7 +4902,17 @@
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4112,7 +4943,14 @@
         "summary": "Get role mappings",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MappingsRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4143,7 +4981,17 @@
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4199,7 +5047,17 @@
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4239,7 +5097,17 @@
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4279,7 +5147,17 @@
         "summary": "Get realm-level role mappings",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4326,7 +5204,17 @@
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4357,7 +5245,17 @@
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4388,7 +5286,14 @@
         "summary": "Import identity provider from uploaded JSON file",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -4410,7 +5315,17 @@
         "summary": "Get identity providers",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentityProviderRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4440,7 +5355,14 @@
         "summary": "Get the identity provider",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4518,7 +5440,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -4526,7 +5455,14 @@
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -4588,7 +5524,17 @@
         "summary": "Get mappers for identity provider",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentityProviderMapperRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4627,7 +5573,14 @@
         "summary": "Get mapper by id for the identity provider",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProviderMapperRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4684,7 +5637,14 @@
         "summary": "Get identity providers",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
           }
         }
       },
@@ -4715,7 +5675,14 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeysMetadataRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4759,7 +5726,14 @@
         "summary": "Partial export of existing realm into a JSON file.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealmRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4825,7 +5799,17 @@
         "summary": "Get all roles for the realm or client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4855,7 +5839,14 @@
         "summary": "Get a specific role’s representation",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -4903,7 +5894,17 @@
         "summary": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4951,7 +5952,17 @@
         "summary": "Get client-level roles for the client that are in the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -4991,7 +6002,17 @@
         "summary": "Get realm-level roles that are in the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5022,7 +6043,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -5030,7 +6058,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -5061,7 +6096,14 @@
         "summary": "Get a role by name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -5109,7 +6151,17 @@
         "summary": "Get composites of the role",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5157,7 +6209,17 @@
         "summary": "An app-level roles for the specified app for the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5198,7 +6260,17 @@
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5230,7 +6302,17 @@
         "summary": "Return List of Groups that have the specified role name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5261,7 +6343,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -5269,7 +6358,14 @@
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -5300,7 +6396,17 @@
         "summary": "Return List of Users that have the specified role name",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5416,7 +6522,14 @@
         "summary": "Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -5478,7 +6591,14 @@
         "summary": "Trigger sync of users   Action can be \"triggerFullSync\" or \"triggerChangedUsersSync\"",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SynchronizationResult"
+                }
+              }
+            }
           }
         }
       },
@@ -5540,7 +6660,14 @@
         "summary": "Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is \"fedToKeycloak\" or \"keycloakToFed\"",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SynchronizationResult"
+                }
+              }
+            }
           }
         }
       },
@@ -5580,7 +6707,17 @@
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5609,14 +6746,28 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
       "put": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagementPermissionReference"
+                }
+              }
+            }
           }
         }
       },
@@ -5637,7 +6788,15 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
           }
         }
       },
@@ -5659,7 +6818,14 @@
         "summary": "Get representation of the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -5707,7 +6873,17 @@
         "summary": "Get consents granted by the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5845,7 +7021,17 @@
         "summary": "Get social logins associated with the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FederatedIdentityRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5926,7 +7112,17 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -5957,7 +7153,14 @@
       "get": {
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -6036,7 +7239,14 @@
         "summary": "Impersonate the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -6100,7 +7310,17 @@
         "summary": "Get offline sessions associated with the user and client",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6205,7 +7425,14 @@
         "summary": "Get role mappings",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MappingsRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -6237,7 +7464,17 @@
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6294,7 +7531,17 @@
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6335,7 +7582,17 @@
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6376,7 +7633,17 @@
         "summary": "Get realm-level role mappings",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6424,7 +7691,17 @@
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6456,7 +7733,17 @@
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RoleRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -6520,7 +7807,17 @@
         "summary": "Get sessions associated with the user",
         "responses": {
           "2XX": {
-            "description": "success"
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                  }
+                }
+              }
+            }
           }
         }
       },

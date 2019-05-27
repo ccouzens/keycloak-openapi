@@ -2,6 +2,7 @@ use scraper::Selector;
 
 mod operation;
 pub mod parameters;
+mod response;
 
 pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let path_section_selector =

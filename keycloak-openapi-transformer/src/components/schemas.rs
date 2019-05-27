@@ -59,8 +59,20 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
-fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
+fn byte_array(raw_type: &str) -> Option<openapiv3::Type> {
+    if raw_type == "< string(byte) > array" {
+        Some(openapiv3::Type::String(openapiv3::StringType {
+            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
+            ..Default::default()
+        }))
+    } else {
+        None
+    }
+}
+
+pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
     enum_type(&raw_type)
+        .or_else(|| byte_array(&raw_type))
         .or_else(|| array_type(&raw_type))
         .or_else(|| match raw_type {
             "integer(int32)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
