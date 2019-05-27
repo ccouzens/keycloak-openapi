@@ -406,14 +406,7 @@
         "summary": "Get Single Execution",
         "responses": {
           "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
+            "description": "success"
           }
         }
       },
@@ -621,14 +614,7 @@
         "summary": "Get authentication executions for a flow",
         "responses": {
           "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
+            "description": "success"
           }
         }
       },
@@ -4811,14 +4797,7 @@
         "summary": "Set or create child.",
         "responses": {
           "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
+            "description": "success"
           }
         }
       },
@@ -5637,14 +5616,7 @@
         "summary": "Get identity providers",
         "responses": {
           "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
+            "description": "success"
           }
         }
       },

@@ -27,37 +27,34 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
         .unwrap()
         .text()
         .collect();
-    if let Some(produces) = section
+    let raw_schema: String = response_table
+        .select(&schema_selector)
+        .next()
+        .unwrap()
+        .text()
+        .collect();
+    let media_type = section
         .select(&produces_selector)
         .next()
-        .map(|p| p.text().collect::<String>())
-    {
-        let raw_schema: String = response_table
-            .select(&schema_selector)
-            .next()
-            .unwrap()
-            .text()
-            .collect();
+        .map(|p| p.text().collect::<String>());
 
-        openapiv3::Response {
-            description,
-            content: [(
-                produces,
-                openapiv3::ReferenceOr::Item(openapiv3::MediaType {
-                    schema: Some(parse_type(&raw_schema)),
-                    ..Default::default()
-                }),
-            )]
-            .iter()
-            .cloned()
-            .collect(),
-            ..Default::default()
-        }
-    } else {
-        openapiv3::Response {
-            description,
-            ..Default::default()
-        }
+    let content = match (media_type, raw_schema.as_ref()) {
+        (None, _) | (_, "Response") => std::collections::BTreeMap::new(),
+        (Some(produces), _) => [(
+            produces,
+            openapiv3::ReferenceOr::Item(openapiv3::MediaType {
+                schema: Some(parse_type(&raw_schema)),
+                ..Default::default()
+            }),
+        )]
+        .iter()
+        .cloned()
+        .collect(),
+    };
+    openapiv3::Response {
+        description,
+        content,
+        ..Default::default()
     }
 }
 
@@ -131,4 +128,17 @@ mod test {
             .unwrap();
         assert_eq!(parse(&section).content, std::collections::BTreeMap::new());
     }
+
+    #[test]
+    fn no_content_response() {
+        const CSS_SELECTOR: &str =
+            "#_paths + .sectionbody > .sect2 > #_authentication_management_resource + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3";
+        let document = Html::parse_document(&HTML);
+        let section = document
+            .select(&Selector::parse(CSS_SELECTOR).unwrap())
+            .next()
+            .unwrap();
+        assert_eq!(parse(&section).content, std::collections::BTreeMap::new());
+    }
+
 }
