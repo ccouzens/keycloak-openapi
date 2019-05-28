@@ -1,7 +1,16 @@
 use openapiv3::{Parameter, ReferenceOr};
 use scraper::Selector;
 
-pub fn parse_path(section: &scraper::element_ref::ElementRef<'_>) -> Vec<ReferenceOr<Parameter>> {
+use regex::Regex;
+
+lazy_static! {
+    static ref PATH_PARAM_REGEX: Regex = Regex::new(r"\{([^}]+)}").unwrap();
+}
+
+pub fn parse_path(
+    section: &scraper::element_ref::ElementRef<'_>,
+    path: &str,
+) -> Vec<ReferenceOr<Parameter>> {
     let titles_selector = Selector::parse("thead > tr > th").unwrap();
     let titles = section
         .select(&titles_selector)
@@ -23,7 +32,7 @@ pub fn parse_path(section: &scraper::element_ref::ElementRef<'_>) -> Vec<Referen
             .collect::<String>()
             == "Path"
     });
-    path_rows
+    let mut params: Vec<_> = path_rows
         .map(|row| {
             ReferenceOr::Item(Parameter::Path {
                 parameter_data: openapiv3::ParameterData {
@@ -55,7 +64,35 @@ pub fn parse_path(section: &scraper::element_ref::ElementRef<'_>) -> Vec<Referen
                 style: Default::default(),
             })
         })
-        .collect()
+        .collect();
+
+    for (index, cap) in PATH_PARAM_REGEX
+        .captures_iter(path)
+        .enumerate()
+        .take(params.len())
+    {
+        let path_var = &cap[1];
+        let position = params
+            .iter()
+            .enumerate()
+            .find(|(_, param)| {
+                if let ReferenceOr::Item(Parameter::Path {
+                    parameter_data: openapiv3::ParameterData { name, .. },
+                    ..
+                }) = param
+                {
+                    name == path_var
+                } else {
+                    false
+                }
+            })
+            .map(|(i, _)| i);
+        if let Some(position) = position {
+            params.swap(index, position);
+        }
+    }
+
+    params
 }
 
 #[cfg(test)]
@@ -69,21 +106,23 @@ mod tests {
     const JSON: &str = include_str!("../../../keycloak/6.0.json");
 
     fn parse_parameters_correctly(html_selector: &str, path: &str) {
-        let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
-        let path = if let ReferenceOr::Item(path) = openapi.paths.get(path).unwrap() {
-            path
+        let openapi: OpenAPI = serde_json::from_str(JSON).unwrap();
+        if let Some(ReferenceOr::Item(openapiv3::PathItem { parameters, .. })) =
+            openapi.paths.get(path)
+        {
+            assert_eq!(
+                parameters,
+                &parse_path(
+                    &Html::parse_document(HTML)
+                        .select(&Selector::parse(html_selector).unwrap())
+                        .next()
+                        .unwrap(),
+                    path
+                )
+            );
         } else {
             panic!("Couldn't extract path")
         };
-        assert_eq!(
-            path.parameters,
-            parse_path(
-                &Html::parse_document(HTML)
-                    .select(&Selector::parse(html_selector).unwrap())
-                    .next()
-                    .unwrap()
-            )
-        );
     }
 
     #[test]

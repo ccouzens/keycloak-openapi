@@ -1,6 +1,8 @@
 use openapiv3::OpenAPI;
 use scraper::Html;
 use serde_json::to_string_pretty;
+#[macro_use]
+extern crate lazy_static;
 
 const HTML: &str = include_str!("../../keycloak/6.0.html");
 

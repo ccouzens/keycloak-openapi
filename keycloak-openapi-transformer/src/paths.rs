@@ -14,17 +14,19 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let sections = document.select(&path_section_selector).collect::<Vec<_>>();
     for section in sections.iter().rev() {
         let (verb, path) = verb_path_split(&section);
-        if let openapiv3::ReferenceOr::Item(path_item) = paths.entry(path).or_insert_with(|| {
-            let params_section = section.select(&params_table_selector).next();
-            openapiv3::ReferenceOr::Item(openapiv3::PathItem {
-                parameters: if let Some(s) = params_section {
-                    parameters::parse_path(&s)
-                } else {
-                    Default::default()
-                },
-                ..Default::default()
+        if let openapiv3::ReferenceOr::Item(path_item) =
+            paths.entry(path.clone()).or_insert_with(|| {
+                let params_section = section.select(&params_table_selector).next();
+                openapiv3::ReferenceOr::Item(openapiv3::PathItem {
+                    parameters: if let Some(s) = params_section {
+                        parameters::parse_path(&s, &path)
+                    } else {
+                        Default::default()
+                    },
+                    ..Default::default()
+                })
             })
-        }) {
+        {
             let operation = Some(operation::parse(&section));
             (match verb.as_ref() {
                 "DELETE" => {
@@ -97,7 +99,18 @@ mod tests {
             } else {
                 panic!("Couldn't extract path")
             };
-            assert_eq!(path.parameters.len(), 3);
+            let names: Vec<_> = path
+                .parameters
+                .iter()
+                .filter_map(|p| match p {
+                    openapiv3::ReferenceOr::Item(openapiv3::Parameter::Path {
+                        parameter_data: openapiv3::ParameterData { name, .. },
+                        ..
+                    }) => Some(name),
+                    _ => None,
+                })
+                .collect();
+            assert_eq!(names, vec!["realm", "id", "protocol"]);
         }
 
         #[test]

@@ -305,7 +305,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "providerId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -314,8 +315,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "providerId",
           "required": true,
           "schema": {
             "type": "string"
@@ -359,8 +359,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "Configuration id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -369,8 +369,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "Configuration id",
           "required": true,
           "schema": {
             "type": "string"
@@ -421,8 +421,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "executionId",
-          "description": "Execution id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -431,8 +431,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "executionId",
+          "description": "Execution id",
           "required": true,
           "schema": {
             "type": "string"
@@ -453,8 +453,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "executionId",
-          "description": "Execution id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -463,8 +463,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "executionId",
+          "description": "Execution id",
           "required": true,
           "schema": {
             "type": "string"
@@ -485,8 +485,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "executionId",
-          "description": "Execution id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -495,8 +495,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "executionId",
+          "description": "Execution id",
           "required": true,
           "schema": {
             "type": "string"
@@ -517,8 +517,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "executionId",
-          "description": "Execution id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -527,8 +527,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "executionId",
+          "description": "Execution id",
           "required": true,
           "schema": {
             "type": "string"
@@ -589,8 +589,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "flowAlias",
-          "description": "Name of the existing authentication flow",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -599,8 +599,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "flowAlias",
+          "description": "Name of the existing authentication flow",
           "required": true,
           "schema": {
             "type": "string"
@@ -629,8 +629,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "flowAlias",
-          "description": "Flow alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -639,8 +639,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "flowAlias",
+          "description": "Flow alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -661,8 +661,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "flowAlias",
-          "description": "Alias of parent flow",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -671,8 +671,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "flowAlias",
+          "description": "Alias of parent flow",
           "required": true,
           "schema": {
             "type": "string"
@@ -693,8 +693,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "flowAlias",
-          "description": "Alias of parent authentication flow",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -703,8 +703,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "flowAlias",
+          "description": "Alias of parent authentication flow",
           "required": true,
           "schema": {
             "type": "string"
@@ -748,8 +748,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "Flow id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -758,8 +758,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "Flow id",
           "required": true,
           "schema": {
             "type": "string"
@@ -950,8 +950,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
-          "description": "Alias of required action",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -960,8 +960,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
+          "description": "Alias of required action",
           "required": true,
           "schema": {
             "type": "string"
@@ -982,8 +982,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
-          "description": "Alias of required action",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -992,8 +992,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
+          "description": "Alias of required action",
           "required": true,
           "schema": {
             "type": "string"
@@ -1014,8 +1014,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
-          "description": "Alias of required action",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1024,8 +1024,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
+          "description": "Alias of required action",
           "required": true,
           "schema": {
             "type": "string"
@@ -1268,8 +1268,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1278,8 +1278,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1300,8 +1300,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1310,8 +1310,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1350,8 +1350,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1360,8 +1360,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1405,8 +1405,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "Mapper id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1415,8 +1415,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "Mapper id",
           "required": true,
           "schema": {
             "type": "string"
@@ -1447,6 +1447,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "id",
           "description": "id of client scope (not name)",
           "required": true,
@@ -1458,16 +1468,6 @@
         {
           "in": "path",
           "name": "protocol",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1495,8 +1495,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1505,8 +1505,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1553,7 +1553,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1572,8 +1573,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -1604,7 +1604,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1623,8 +1624,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -1655,7 +1655,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1674,8 +1675,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -1722,8 +1722,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1732,8 +1732,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1764,8 +1764,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1774,8 +1774,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1806,8 +1806,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client scope (not name)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1816,8 +1816,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client scope (not name)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1955,7 +1955,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -1964,8 +1965,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -2009,8 +2009,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2019,8 +2019,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2048,7 +2048,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2067,8 +2068,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2097,7 +2097,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2116,8 +2117,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2145,7 +2145,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2164,8 +2165,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2194,7 +2194,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2213,8 +2214,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2242,7 +2242,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2261,8 +2262,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2290,7 +2290,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "attr",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2309,8 +2310,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "attr",
           "required": true,
           "schema": {
             "type": "string"
@@ -2353,8 +2353,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2363,8 +2363,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2395,8 +2395,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2405,8 +2405,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2433,7 +2433,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "clientScopeId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2452,8 +2453,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "clientScopeId",
           "required": true,
           "schema": {
             "type": "string"
@@ -2481,8 +2481,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2491,8 +2491,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2523,8 +2523,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2533,8 +2533,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2565,8 +2565,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2575,8 +2575,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2617,8 +2617,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2627,8 +2627,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2658,6 +2658,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "id",
           "description": "id of client (not client-id)",
           "required": true,
@@ -2669,16 +2679,6 @@
         {
           "in": "path",
           "name": "providerId",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2721,8 +2721,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2731,8 +2731,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2753,8 +2753,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2763,8 +2763,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2785,6 +2785,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "id",
           "description": "id of client (not client-id)",
           "required": true,
@@ -2796,16 +2806,6 @@
         {
           "in": "path",
           "name": "node",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2833,8 +2833,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2843,8 +2843,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2875,8 +2875,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2885,8 +2885,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2917,8 +2917,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2927,8 +2927,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2955,7 +2955,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "clientScopeId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -2974,8 +2975,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "clientScopeId",
           "required": true,
           "schema": {
             "type": "string"
@@ -2996,8 +2996,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3006,8 +3006,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3046,8 +3046,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3056,8 +3056,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3101,8 +3101,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "Mapper id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3111,8 +3111,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "Mapper id",
           "required": true,
           "schema": {
             "type": "string"
@@ -3143,6 +3143,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "id",
           "description": "id of client (not client-id)",
           "required": true,
@@ -3154,16 +3164,6 @@
         {
           "in": "path",
           "name": "protocol",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3191,8 +3191,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3201,8 +3201,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3230,8 +3230,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3240,8 +3240,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3280,8 +3280,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3290,8 +3290,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3335,8 +3335,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3345,8 +3345,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3403,8 +3403,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3413,8 +3413,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3455,7 +3455,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3474,8 +3475,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "role-name",
+          "description": "role’s name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3484,8 +3485,7 @@
         },
         {
           "in": "path",
-          "name": "role-name",
-          "description": "role’s name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -3516,8 +3516,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3526,8 +3526,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3568,8 +3568,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3578,8 +3578,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3631,8 +3631,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3641,8 +3641,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3682,8 +3682,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3692,8 +3692,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3730,8 +3730,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3740,8 +3740,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3788,7 +3788,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3807,8 +3808,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -3839,7 +3839,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3858,8 +3859,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -3890,7 +3890,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3909,8 +3910,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -3957,8 +3957,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3967,8 +3967,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -3999,8 +3999,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4009,8 +4009,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4041,8 +4041,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4051,8 +4051,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4080,8 +4080,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4090,8 +4090,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4119,8 +4119,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4129,8 +4129,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4158,8 +4158,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4168,8 +4168,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4200,8 +4200,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "id of client (not client-id)",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4210,8 +4210,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "id of client (not client-id)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4290,7 +4290,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4299,8 +4300,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4331,7 +4331,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4340,8 +4341,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4400,7 +4400,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "clientScopeId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4409,8 +4410,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "clientScopeId",
           "required": true,
           "schema": {
             "type": "string"
@@ -4469,7 +4469,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "groupId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4478,8 +4479,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "groupId",
           "required": true,
           "schema": {
             "type": "string"
@@ -4538,7 +4538,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "clientScopeId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4547,8 +4548,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "clientScopeId",
           "required": true,
           "schema": {
             "type": "string"
@@ -4652,7 +4652,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4661,8 +4662,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "path",
           "required": true,
           "schema": {
             "type": "string"
@@ -4773,7 +4773,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4782,8 +4783,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4804,7 +4804,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4813,8 +4814,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4857,7 +4857,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4866,8 +4867,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4898,7 +4898,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4907,8 +4908,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4936,7 +4936,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -4945,8 +4946,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -4993,7 +4993,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5011,8 +5012,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -5043,7 +5043,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5061,8 +5062,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -5093,7 +5093,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5111,8 +5112,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -5159,7 +5159,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5168,8 +5169,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -5200,7 +5200,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5209,8 +5210,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -5241,7 +5241,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5250,8 +5251,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -5364,7 +5364,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5373,8 +5374,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -5395,7 +5395,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5404,8 +5405,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -5448,7 +5448,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5457,8 +5458,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -5479,7 +5479,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5488,8 +5489,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -5528,7 +5528,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "alias",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5537,8 +5538,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "alias",
           "required": true,
           "schema": {
             "type": "string"
@@ -5582,6 +5582,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "alias",
           "required": true,
           "schema": {
@@ -5593,16 +5603,6 @@
           "in": "path",
           "name": "id",
           "description": "Mapper id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5623,8 +5623,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "provider_id",
-          "description": "Provider id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -5633,8 +5633,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "provider_id",
+          "description": "Provider id",
           "required": true,
           "schema": {
             "type": "string"
@@ -5941,15 +5941,6 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
           "name": "realm",
           "description": "realm name (not id!)",
           "required": true,
@@ -5961,6 +5952,15 @@
         {
           "in": "path",
           "name": "role-id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -6198,15 +6198,6 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
           "name": "realm",
           "description": "realm name (not id!)",
           "required": true,
@@ -6219,6 +6210,15 @@
           "in": "path",
           "name": "role-name",
           "description": "role’s name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -6469,8 +6469,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "config",
-          "description": "SMTP server configuration",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6479,8 +6479,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "config",
+          "description": "SMTP server configuration",
           "required": true,
           "schema": {
             "type": "string"
@@ -6508,7 +6508,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6517,8 +6518,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6539,7 +6539,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6548,8 +6549,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6577,7 +6577,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6586,8 +6587,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6608,7 +6608,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6617,8 +6618,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6646,7 +6646,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6664,8 +6665,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6820,8 +6820,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6830,8 +6830,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6862,8 +6862,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6872,8 +6872,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6894,8 +6894,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
-          "description": "Client id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6914,8 +6914,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
+          "description": "Client id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6936,8 +6936,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6946,8 +6946,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -6968,8 +6968,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -6978,8 +6978,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7010,8 +7010,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7020,8 +7020,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7050,6 +7050,16 @@
       "parameters": [
         {
           "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
           "name": "id",
           "description": "User id",
           "required": true,
@@ -7062,16 +7072,6 @@
           "in": "path",
           "name": "provider",
           "description": "Social login provider id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7101,8 +7101,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7111,8 +7111,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7139,8 +7139,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7149,8 +7149,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7177,7 +7177,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "groupId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7196,8 +7197,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "groupId",
           "required": true,
           "schema": {
             "type": "string"
@@ -7225,8 +7225,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7235,8 +7235,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7257,8 +7257,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7267,8 +7267,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7299,7 +7299,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "clientId",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7318,8 +7319,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "clientId",
           "required": true,
           "schema": {
             "type": "string"
@@ -7340,8 +7340,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7350,8 +7350,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7372,8 +7372,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7382,8 +7382,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7411,8 +7411,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7421,8 +7421,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7469,7 +7469,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7488,8 +7489,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -7520,7 +7520,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7539,8 +7540,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -7571,7 +7571,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "client",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7590,8 +7591,7 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "client",
           "required": true,
           "schema": {
             "type": "string"
@@ -7638,8 +7638,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7648,8 +7648,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7680,8 +7680,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7690,8 +7690,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7722,8 +7722,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7732,8 +7732,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7754,8 +7754,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7764,8 +7764,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
@@ -7796,8 +7796,8 @@
       "parameters": [
         {
           "in": "path",
-          "name": "id",
-          "description": "User id",
+          "name": "realm",
+          "description": "realm name (not id!)",
           "required": true,
           "schema": {
             "type": "string"
@@ -7806,8 +7806,8 @@
         },
         {
           "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
+          "name": "id",
+          "description": "User id",
           "required": true,
           "schema": {
             "type": "string"
