@@ -106,9 +106,9 @@ mod tests {
     const JSON: &str = include_str!("../../../keycloak/6.0.json");
 
     fn parse_parameters_correctly(html_selector: &str, path: &str) {
-        let openapi: OpenAPI = serde_json::from_str(JSON).unwrap();
-        if let Some(ReferenceOr::Item(openapiv3::PathItem { parameters, .. })) =
-            openapi.paths.get(path)
+        let openapi: Result<OpenAPI, _> = serde_json::from_str(JSON);
+        if let Ok(Some(ReferenceOr::Item(openapiv3::PathItem { parameters, .. }))) =
+            openapi.as_ref().map(|o| o.paths.get(path))
         {
             assert_eq!(
                 parameters,
