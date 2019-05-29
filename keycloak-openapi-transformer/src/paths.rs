@@ -4,19 +4,22 @@ mod operation;
 pub mod parameters;
 mod response;
 
-pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
-    let path_section_selector =
-        Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
-    let params_table_selector = Selector::parse("h5[id^=_parameters] + table").unwrap();
+lazy_static! {
+    static ref PATH_SECTION_SELECTOR: Selector = Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
+    static ref PARAMS_TABLE_SELECTOR: Selector = Selector::parse("h5[id^=_parameters] + table").unwrap();
+        static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
+    static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
+}
 
+pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let mut paths = openapiv3::Paths::default();
 
-    let sections = document.select(&path_section_selector).collect::<Vec<_>>();
+    let sections = document.select(&PATH_SECTION_SELECTOR).collect::<Vec<_>>();
     for section in sections.iter().rev() {
         let (verb, path) = verb_path_split(&section);
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(path.clone()).or_insert_with(|| {
-                let params_section = section.select(&params_table_selector).next();
+                let params_section = section.select(&PARAMS_TABLE_SELECTOR).next();
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {
                     parameters: if let Some(s) = params_section {
                         parameters::parse_path(&s, &path)
@@ -54,9 +57,9 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
 
 fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> (String, String) {
     let verb_path = section
-        .select(&Selector::parse("pre").unwrap())
+        .select(&PRE_PATH_SELECTOR)
         .next()
-        .or_else(|| section.select(&Selector::parse("h4").unwrap()).next())
+        .or_else(|| section.select(&SUMMARY_SELECTOR).next())
         .unwrap()
         .text()
         .collect::<String>();

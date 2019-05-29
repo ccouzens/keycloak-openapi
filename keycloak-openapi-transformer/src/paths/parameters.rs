@@ -5,15 +5,18 @@ use regex::Regex;
 
 lazy_static! {
     static ref PATH_PARAM_REGEX: Regex = Regex::new(r"\{([^}]+)}").unwrap();
+    static ref TITLES_SELECTOR: Selector = Selector::parse("thead > tr > th").unwrap();
+    static ref ROWS_SELECTOR: Selector = Selector::parse("tbody > tr").unwrap();
+    static ref CELL_SELECTOR: Selector = Selector::parse("td").unwrap();
+    static ref NAME_SELECTOR: Selector = Selector::parse("strong").unwrap();
 }
 
 pub fn parse_path(
     section: &scraper::element_ref::ElementRef<'_>,
     path: &str,
 ) -> Vec<ReferenceOr<Parameter>> {
-    let titles_selector = Selector::parse("thead > tr > th").unwrap();
     let titles = section
-        .select(&titles_selector)
+        .select(&TITLES_SELECTOR)
         .map(|th| th.text().collect::<String>())
         .zip(0..)
         .collect::<std::collections::HashMap<_, _>>();
@@ -21,11 +24,8 @@ pub fn parse_path(
     let name_index = titles["Name"];
     let description_index = titles.get("Description").cloned();
     let schema_index = titles["Schema"];
-    let rows_selector = Selector::parse("tbody > tr").unwrap();
-    let cell_selector = Selector::parse("td").unwrap();
-    let name_selector = Selector::parse("strong").unwrap();
-    let path_rows = section.select(&rows_selector).filter(|row| {
-        row.select(&cell_selector)
+    let path_rows = section.select(&ROWS_SELECTOR).filter(|row| {
+        row.select(&CELL_SELECTOR)
             .nth(type_index)
             .unwrap()
             .text()
@@ -37,16 +37,16 @@ pub fn parse_path(
             ReferenceOr::Item(Parameter::Path {
                 parameter_data: openapiv3::ParameterData {
                     name: row
-                        .select(&cell_selector)
+                        .select(&CELL_SELECTOR)
                         .nth(name_index)
                         .unwrap()
-                        .select(&name_selector)
+                        .select(&NAME_SELECTOR)
                         .next()
                         .unwrap()
                         .text()
                         .collect(),
                     description: description_index
-                        .map(|i| row.select(&cell_selector).nth(i).unwrap().text().collect())
+                        .map(|i| row.select(&CELL_SELECTOR).nth(i).unwrap().text().collect())
                         .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
                     required: true,
                     deprecated: None,

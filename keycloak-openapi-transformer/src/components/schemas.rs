@@ -4,17 +4,24 @@ use openapiv3::SchemaKind;
 use scraper::Selector;
 use std::collections::BTreeMap;
 
+lazy_static! {
+    static ref SCHEMAS_SELECTOR: Selector =
+        Selector::parse("#_definitions + .sectionbody > .sect2").unwrap();
+    static ref TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
+    static ref ROW_SELECTOR: Selector = Selector::parse("table > tbody > tr").unwrap();
+    static ref PROPERTY_NAME_SELECTOR: Selector = Selector::parse("td:first-child strong").unwrap();
+    static ref TYPE_SELECTOR: Selector = Selector::parse("td:first-child + td").unwrap();
+}
+
 pub fn parse_schemas(
     document: &scraper::html::Html,
 ) -> BTreeMap<String, openapiv3::ReferenceOr<Schema>> {
-    let schemas_selector = Selector::parse("#_definitions + .sectionbody > .sect2").unwrap();
-    let title_selector = Selector::parse("h3").unwrap();
     document
-        .select(&schemas_selector)
+        .select(&SCHEMAS_SELECTOR)
         .map(|section| {
             (
                 section
-                    .select(&title_selector)
+                    .select(&TITLE_SELECTOR)
                     .next()
                     .unwrap()
                     .text()
@@ -109,20 +116,17 @@ fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
 }
 
 fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
-    let row_selector = Selector::parse("table > tbody > tr").unwrap();
-    let property_name_selector = Selector::parse("td:first-child strong").unwrap();
-    let type_selector = Selector::parse("td:first-child + td").unwrap();
     let properties = section
-        .select(&row_selector)
+        .select(&ROW_SELECTOR)
         .map(|row| {
             (
-                row.select(&property_name_selector)
+                row.select(&PROPERTY_NAME_SELECTOR)
                     .next()
                     .unwrap()
                     .text()
                     .collect::<String>(),
                 parse_type(
-                    &row.select(&type_selector)
+                    &row.select(&TYPE_SELECTOR)
                         .next()
                         .unwrap()
                         .text()

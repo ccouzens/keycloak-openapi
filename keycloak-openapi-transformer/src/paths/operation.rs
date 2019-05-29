@@ -1,15 +1,18 @@
 use super::response;
 use scraper::Selector;
 
-pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Operation {
-    let summary_selector = Selector::parse("h4:first-child").unwrap();
-    let pre_path_selector = Selector::parse("pre").unwrap();
+lazy_static! {
+    static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
+    static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
+}
 
+
+pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Operation {
     openapiv3::Operation {
         summary: section
-            .select(&pre_path_selector)
+            .select(&PRE_PATH_SELECTOR)
             .next()
-            .and_then(|_| section.select(&summary_selector).next())
+            .and_then(|_| section.select(&SUMMARY_SELECTOR).next())
             .map(|s| s.text().collect()),
         responses: openapiv3::Responses {
             default: None,

@@ -1,6 +1,14 @@
 use super::super::components::schemas;
 use scraper::Selector;
 
+lazy_static! {
+    static ref RESPONSES_SELECTOR: Selector = Selector::parse("h5[id^=_responses] + table > tbody > tr").unwrap();
+    static ref PRODUCES_SELECTOR: Selector = Selector::parse("h5[id^=_produces] + div code").unwrap();
+    static ref DESCRIPTION_SELECTOR: Selector = Selector::parse("td:first-child + td").unwrap();
+    static ref SCHEMA_SELECTOR: Selector = Selector::parse("td:first-child + td + td").unwrap();
+}
+
+
 fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
     if let Some(simple_type) = schemas::item_type(raw_type) {
         openapiv3::ReferenceOr::Item(openapiv3::Schema {
@@ -15,26 +23,21 @@ fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
 }
 
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Response {
-    let responses_selector = Selector::parse("h5[id^=_responses] + table > tbody > tr").unwrap();
-    let produces_selector = Selector::parse("h5[id^=_produces] + div code").unwrap();
-    let description_selector = Selector::parse("td:first-child + td").unwrap();
-    let schema_selector = Selector::parse("td:first-child + td + td").unwrap();
-
-    let response_table = section.select(&responses_selector).next().unwrap();
+    let response_table = section.select(&RESPONSES_SELECTOR).next().unwrap();
     let description = response_table
-        .select(&description_selector)
+        .select(&DESCRIPTION_SELECTOR)
         .next()
         .unwrap()
         .text()
         .collect();
     let raw_schema: String = response_table
-        .select(&schema_selector)
+        .select(&SCHEMA_SELECTOR)
         .next()
         .unwrap()
         .text()
         .collect();
     let media_type = section
-        .select(&produces_selector)
+        .select(&PRODUCES_SELECTOR)
         .next()
         .map(|p| p.text().collect::<String>());
 
