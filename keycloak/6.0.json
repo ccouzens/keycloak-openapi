@@ -1860,6 +1860,25 @@
     },
     "/{realm}/clients": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "clientId",
+            "description": "filter by clientId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "viewableOnly",
+            "description": "filter clients that cannot be viewed in full by admin",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          }
+        ],
         "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "responses": {
           "2XX": {
