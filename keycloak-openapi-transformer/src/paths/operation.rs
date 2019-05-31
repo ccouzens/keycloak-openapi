@@ -6,7 +6,6 @@ lazy_static! {
     static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
 }
 
-
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Operation {
     openapiv3::Operation {
         summary: section

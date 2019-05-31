@@ -5,9 +5,11 @@ pub mod parameters;
 mod response;
 
 lazy_static! {
-    static ref PATH_SECTION_SELECTOR: Selector = Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
-    static ref PARAMS_TABLE_SELECTOR: Selector = Selector::parse("h5[id^=_parameters] + table").unwrap();
-        static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
+    static ref PATH_SECTION_SELECTOR: Selector =
+        Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
+    static ref PARAMS_TABLE_SELECTOR: Selector =
+        Selector::parse("h5[id^=_parameters] + table").unwrap();
+    static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
     static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
 }
 

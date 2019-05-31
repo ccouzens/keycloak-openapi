@@ -1,12 +1,17 @@
-use cssparser;
 use openapiv3::Info;
 use scraper::Selector;
-use selectors;
+
+lazy_static! {
+    static ref TITLE_SELECTOR: Selector = Selector::parse("h1").unwrap();
+    static ref DESCRIPTION_SELECTOR: Selector =
+        Selector::parse("#_overview + .sectionbody > .paragraph").unwrap();
+    static ref VERSION_SELECTOR: Selector =
+        Selector::parse("#_version_information + .paragraph").unwrap();
+}
 
 #[derive(Debug, PartialEq)]
 pub enum TransformError {
-    SelectorErr(cssparser::ParseError<'static, selectors::parser::SelectorParseErrorKind<'static>>),
-    NoFindErr(&'static str),
+    NoFindErr(String),
 }
 
 impl std::fmt::Display for TransformError {
@@ -15,7 +20,6 @@ impl std::fmt::Display for TransformError {
             TransformError::NoFindErr(selector) => {
                 write!(f, "Could not find element by {}", selector)
             }
-            x => std::fmt::Display::fmt(x, f),
         }
     }
 }
@@ -24,12 +28,12 @@ impl std::error::Error for TransformError {}
 
 fn extract_string(
     document: &scraper::html::Html,
-    selector: &'static str,
+    selector: &Selector,
 ) -> Result<String, TransformError> {
     Ok(document
-        .select(&Selector::parse(selector).map_err(TransformError::SelectorErr)?)
+        .select(&selector)
         .next()
-        .ok_or_else(|| TransformError::NoFindErr(selector))?
+        .ok_or_else(|| TransformError::NoFindErr(format!("{:?}", selector)))?
         .text()
         .collect::<String>()
         .trim()
@@ -38,12 +42,9 @@ fn extract_string(
 
 pub fn parse(document: &scraper::html::Html) -> Result<Info, TransformError> {
     Ok(Info {
-        title: extract_string(document, "h1")?,
-        description: Some(extract_string(
-            document,
-            "#_overview + .sectionbody > .paragraph",
-        )?),
-        version: extract_string(document, "#_version_information + .paragraph")?
+        title: extract_string(document, &TITLE_SELECTOR)?,
+        description: Some(extract_string(document, &DESCRIPTION_SELECTOR)?),
+        version: extract_string(document, &VERSION_SELECTOR)?
             .split("Version: ")
             .collect(),
         ..Default::default()

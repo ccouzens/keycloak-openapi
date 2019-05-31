@@ -2,12 +2,13 @@ use super::super::components::schemas;
 use scraper::Selector;
 
 lazy_static! {
-    static ref RESPONSES_SELECTOR: Selector = Selector::parse("h5[id^=_responses] + table > tbody > tr").unwrap();
-    static ref PRODUCES_SELECTOR: Selector = Selector::parse("h5[id^=_produces] + div code").unwrap();
+    static ref RESPONSES_SELECTOR: Selector =
+        Selector::parse("h5[id^=_responses] + table > tbody > tr").unwrap();
+    static ref PRODUCES_SELECTOR: Selector =
+        Selector::parse("h5[id^=_produces] + div code").unwrap();
     static ref DESCRIPTION_SELECTOR: Selector = Selector::parse("td:first-child + td").unwrap();
     static ref SCHEMA_SELECTOR: Selector = Selector::parse("td:first-child + td + td").unwrap();
 }
-
 
 fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
     if let Some(simple_type) = schemas::item_type(raw_type) {
