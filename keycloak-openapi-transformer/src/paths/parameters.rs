@@ -1,7 +1,7 @@
+use super::super::components::schemas::parse_type;
 use openapiv3::{Parameter, ReferenceOr};
-use scraper::Selector;
-
 use regex::Regex;
+use scraper::Selector;
 
 lazy_static! {
     static ref PATH_PARAM_REGEX: Regex = Regex::new(r"\{([^}]+)}").unwrap();
@@ -39,6 +39,12 @@ pub fn parse_parameters(
         path_rows
             .map(|row| {
                 let name_cell = row.select(&CELL_SELECTOR).nth(name_index).unwrap();
+                let raw_schema = row
+                    .select(&CELL_SELECTOR)
+                    .nth(schema_index)
+                    .unwrap()
+                    .text()
+                    .collect::<String>();
                 let parameter_data = openapiv3::ParameterData {
                     name: name_cell
                         .select(&NAME_SELECTOR)
@@ -57,14 +63,7 @@ pub fn parse_parameters(
                         .collect::<String>()
                         == "required",
                     deprecated: None,
-                    format: openapiv3::ParameterSchemaOrContent::Schema(
-                        openapiv3::ReferenceOr::Item(openapiv3::Schema {
-                            schema_data: Default::default(),
-                            schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                                Default::default(),
-                            )),
-                        }),
-                    ),
+                    format: openapiv3::ParameterSchemaOrContent::Schema(parse_type(&raw_schema)),
                     example: None,
                     examples: Default::default(),
                 };

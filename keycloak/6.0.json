@@ -161,7 +161,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -170,7 +171,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -178,7 +180,10 @@
             "in": "query",
             "name": "operationTypes",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "style": "form"
           },
@@ -194,7 +199,10 @@
             "in": "query",
             "name": "resourceTypes",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "style": "form"
           }
@@ -3013,7 +3021,8 @@
             "name": "first",
             "description": "Paging offset",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -3022,7 +3031,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -3725,7 +3735,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -3734,7 +3745,7 @@
             "name": "full",
             "description": "if true, return a full representation of the GroupRepresentation objects",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -3742,7 +3753,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -3866,7 +3878,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -3874,7 +3887,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -4403,7 +4417,8 @@
             "name": "first",
             "description": "Paging offset",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -4412,7 +4427,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -4865,7 +4881,8 @@
             "name": "first",
             "description": "Paging offset",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -4883,7 +4900,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -4892,7 +4910,10 @@
             "name": "type",
             "description": "The types of events to return",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "style": "form"
           },
@@ -5025,7 +5046,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -5033,7 +5055,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -5099,7 +5122,7 @@
             "in": "query",
             "name": "top",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           }
@@ -5275,7 +5298,8 @@
             "name": "first",
             "description": "Pagination offset",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -5284,7 +5308,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -6122,7 +6147,7 @@
             "in": "query",
             "name": "exportClients",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -6130,7 +6155,7 @@
             "in": "query",
             "name": "exportGroupsAndRoles",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           }
@@ -6716,7 +6741,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -6725,7 +6751,7 @@
             "name": "full",
             "description": "if true, return a full representation of the GroupRepresentation objects",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -6733,7 +6759,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -6837,7 +6864,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -6845,7 +6873,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           }
@@ -7186,7 +7215,7 @@
             "in": "query",
             "name": "briefRepresentation",
             "schema": {
-              "type": "string"
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -7202,7 +7231,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -7227,7 +7257,8 @@
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -7546,7 +7577,8 @@
             "name": "lifespan",
             "description": "Number of seconds after which the generated token expires",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -7688,7 +7720,8 @@
             "in": "query",
             "name": "first",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -7696,7 +7729,8 @@
             "in": "query",
             "name": "max",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },

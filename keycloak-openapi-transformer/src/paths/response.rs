@@ -1,4 +1,4 @@
-use super::super::components::schemas;
+use super::super::components::schemas::parse_type;
 use scraper::Selector;
 
 lazy_static! {
@@ -8,19 +8,6 @@ lazy_static! {
         Selector::parse("h5[id^=_produces] + div code").unwrap();
     static ref DESCRIPTION_SELECTOR: Selector = Selector::parse("td:first-child + td").unwrap();
     static ref SCHEMA_SELECTOR: Selector = Selector::parse("td:first-child + td + td").unwrap();
-}
-
-fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
-    if let Some(simple_type) = schemas::item_type(raw_type) {
-        openapiv3::ReferenceOr::Item(openapiv3::Schema {
-            schema_data: Default::default(),
-            schema_kind: openapiv3::SchemaKind::Type(simple_type),
-        })
-    } else {
-        openapiv3::ReferenceOr::Reference {
-            reference: format!("#/components/schemas/{}", raw_type),
-        }
-    }
 }
 
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Response {

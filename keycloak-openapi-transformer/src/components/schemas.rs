@@ -56,7 +56,23 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     if raw_type.starts_with(START) && raw_type.ends_with(END) {
         let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
-            items: parse_type(inner_type),
+            items: parse_type_boxed(inner_type),
+            min_items: None,
+            max_items: None,
+            unique_items: false,
+        }))
+    } else {
+        None
+    }
+}
+
+fn csv_array(raw_type: &str) -> Option<openapiv3::Type> {
+    const START: &str = "< ";
+    const END: &str = " > array(csv)";
+    if raw_type.starts_with(START) && raw_type.ends_with(END) {
+        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+        Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: parse_type_boxed(inner_type),
             min_items: None,
             max_items: None,
             unique_items: false,
@@ -81,6 +97,7 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
     enum_type(&raw_type)
         .or_else(|| byte_array(&raw_type))
         .or_else(|| array_type(&raw_type))
+        .or_else(|| csv_array(&raw_type))
         .or_else(|| match raw_type {
             "integer(int32)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
@@ -102,7 +119,20 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
         })
 }
 
-fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
+pub fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
+    if let Some(simple_type) = item_type(raw_type) {
+        openapiv3::ReferenceOr::Item(openapiv3::Schema {
+            schema_data: Default::default(),
+            schema_kind: openapiv3::SchemaKind::Type(simple_type),
+        })
+    } else {
+        openapiv3::ReferenceOr::Reference {
+            reference: format!("#/components/schemas/{}", raw_type),
+        }
+    }
+}
+
+fn parse_type_boxed(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
     if let Some(simple_type) = item_type(raw_type) {
         openapiv3::ReferenceOr::Item(Box::new(Schema {
             schema_data: Default::default(),
@@ -125,7 +155,7 @@ fn parse_schema(section: scraper::element_ref::ElementRef<'_>) -> Schema {
                     .unwrap()
                     .text()
                     .collect::<String>(),
-                parse_type(
+                parse_type_boxed(
                     &row.select(&TYPE_SELECTOR)
                         .next()
                         .unwrap()
