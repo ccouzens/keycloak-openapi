@@ -19,6 +19,9 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let sections = document.select(&PATH_SECTION_SELECTOR).collect::<Vec<_>>();
     for section in sections.iter().rev() {
         let (verb, path) = verb_path_split(&section);
+        if path == "/{any}" {
+            continue;
+        };
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(path.clone()).or_insert_with(|| {
                 let params_section = section.select(&PARAMS_TABLE_SELECTOR).next();
@@ -85,7 +88,7 @@ mod tests {
         #[test]
         fn correctly_parses_when_there_are_no_parameters() {
             let paths = paths(&Html::parse_document(HTML));
-            let path = if let ReferenceOr::Item(path) = paths.get("/{any}").unwrap() {
+            let path = if let Some(ReferenceOr::Item(path)) = paths.get("/") {
                 path
             } else {
                 panic!("Couldn't extract path")
@@ -96,9 +99,8 @@ mod tests {
         #[test]
         fn correctly_parses_when_there_are_three_parameters() {
             let paths = paths(&Html::parse_document(HTML));
-            let path = if let ReferenceOr::Item(path) = paths
-                .get("/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}")
-                .unwrap()
+            let path = if let Some(ReferenceOr::Item(path)) =
+                paths.get("/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}")
             {
                 path
             } else {
@@ -121,9 +123,8 @@ mod tests {
         #[test]
         fn adds_descriptions_when_not_always_present() {
             let paths = paths(&Html::parse_document(HTML));
-            let path_item = if let ReferenceOr::Item(path) = paths
-                .get("/{realm}/roles-by-id/{role-id}/composites")
-                .unwrap()
+            let path_item = if let Some(ReferenceOr::Item(path)) =
+                paths.get("/{realm}/roles-by-id/{role-id}/composites")
             {
                 path
             } else {
@@ -148,7 +149,7 @@ mod tests {
 
         fn get_path(path: &str) -> openapiv3::PathItem {
             let paths = paths(&Html::parse_document(HTML));
-            if let ReferenceOr::Item(path) = paths.get(path).unwrap() {
+            if let Some(ReferenceOr::Item(path)) = paths.get(path) {
                 path.clone()
             } else {
                 panic!("Couldn't extract path")
@@ -173,16 +174,12 @@ mod tests {
             );
         }
 
+        // This path is problematic as it doesn't have it's parameter defined.
+        // Additionally, it couldn't be defined as sub paths can't be substituted in
         #[test]
-        fn correctly_parses_the_options_case() {
-            let path_item = get_path("/{any}");
-            assert_eq!(
-                path_item
-                    .options
-                    .as_ref()
-                    .and_then(|op| op.summary.as_ref()),
-                Some(&"CORS preflight".to_string())
-            );
+        fn does_not_parse_the_any_path() {
+            let paths = paths(&Html::parse_document(HTML));
+            assert!(!paths.contains_key("/{any}"));
         }
 
         #[test]

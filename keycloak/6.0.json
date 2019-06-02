@@ -31,16 +31,6 @@
         }
       }
     },
-    "/{any}": {
-      "options": {
-        "summary": "CORS preflight",
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      }
-    },
     "/{id}/name": {
       "get": {
         "summary": "Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328",
