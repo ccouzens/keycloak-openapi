@@ -11,6 +11,7 @@ lazy_static! {
     static ref ROWS_SELECTOR: Selector = Selector::parse("tbody > tr").unwrap();
     static ref CELL_SELECTOR: Selector = Selector::parse("td").unwrap();
     static ref NAME_SELECTOR: Selector = Selector::parse("strong").unwrap();
+    static ref REQUIRED_SELECTOR: Selector = Selector::parse("em").unwrap();
 }
 
 pub fn parse_parameters(
@@ -37,11 +38,9 @@ pub fn parse_parameters(
         });
         path_rows
             .map(|row| {
+                let name_cell = row.select(&CELL_SELECTOR).nth(name_index).unwrap();
                 let parameter_data = openapiv3::ParameterData {
-                    name: row
-                        .select(&CELL_SELECTOR)
-                        .nth(name_index)
-                        .unwrap()
+                    name: name_cell
                         .select(&NAME_SELECTOR)
                         .next()
                         .unwrap()
@@ -50,7 +49,13 @@ pub fn parse_parameters(
                     description: description_index
                         .map(|i| row.select(&CELL_SELECTOR).nth(i).unwrap().text().collect())
                         .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
-                    required: true,
+                    required: name_cell
+                        .select(&REQUIRED_SELECTOR)
+                        .next()
+                        .unwrap()
+                        .text()
+                        .collect::<String>()
+                        == "required",
                     deprecated: None,
                     format: openapiv3::ParameterSchemaOrContent::Schema(
                         openapiv3::ReferenceOr::Item(openapiv3::Schema {

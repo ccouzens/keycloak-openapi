@@ -111,7 +111,6 @@
           {
             "in": "query",
             "name": "authClient",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -120,7 +119,6 @@
           {
             "in": "query",
             "name": "authIpAddress",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -129,7 +127,6 @@
           {
             "in": "query",
             "name": "authRealm",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -139,7 +136,6 @@
             "in": "query",
             "name": "authUser",
             "description": "user id",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -148,7 +144,6 @@
           {
             "in": "query",
             "name": "dateFrom",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -157,7 +152,6 @@
           {
             "in": "query",
             "name": "dateTo",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -166,7 +160,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -176,7 +169,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -185,7 +177,6 @@
           {
             "in": "query",
             "name": "operationTypes",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -194,7 +185,6 @@
           {
             "in": "query",
             "name": "resourcePath",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -203,7 +193,6 @@
           {
             "in": "query",
             "name": "resourceTypes",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -2583,7 +2572,6 @@
           {
             "in": "query",
             "name": "scope",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -2592,7 +2580,6 @@
           {
             "in": "query",
             "name": "userId",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -2642,7 +2629,6 @@
           {
             "in": "query",
             "name": "scope",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -2695,7 +2681,6 @@
           {
             "in": "query",
             "name": "scope",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -2758,7 +2743,6 @@
           {
             "in": "query",
             "name": "scope",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3028,7 +3012,6 @@
             "in": "query",
             "name": "first",
             "description": "Paging offset",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3038,7 +3021,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3742,7 +3724,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3752,7 +3733,6 @@
             "in": "query",
             "name": "full",
             "description": "if true, return a full representation of the GroupRepresentation objects",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3761,7 +3741,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3886,7 +3865,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -3895,7 +3873,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4425,7 +4402,6 @@
             "in": "query",
             "name": "first",
             "description": "Paging offset",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4435,7 +4411,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4487,7 +4462,6 @@
           {
             "in": "query",
             "name": "name",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4496,7 +4470,6 @@
           {
             "in": "query",
             "name": "parent",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4505,7 +4478,6 @@
           {
             "in": "query",
             "name": "type",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4606,7 +4578,6 @@
           {
             "in": "query",
             "name": "type",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4866,7 +4837,6 @@
             "in": "query",
             "name": "client",
             "description": "App or oauth client name",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4876,7 +4846,6 @@
             "in": "query",
             "name": "dateFrom",
             "description": "From date",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4886,7 +4855,6 @@
             "in": "query",
             "name": "dateTo",
             "description": "To date",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4896,7 +4864,6 @@
             "in": "query",
             "name": "first",
             "description": "Paging offset",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4906,7 +4873,6 @@
             "in": "query",
             "name": "ipAddress",
             "description": "IP address",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4916,7 +4882,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4926,7 +4891,6 @@
             "in": "query",
             "name": "type",
             "description": "The types of events to return",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -4936,7 +4900,6 @@
             "in": "query",
             "name": "user",
             "description": "User id",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5061,7 +5024,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5070,7 +5032,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5079,7 +5040,6 @@
           {
             "in": "query",
             "name": "search",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5130,7 +5090,6 @@
           {
             "in": "query",
             "name": "search",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5139,7 +5098,6 @@
           {
             "in": "query",
             "name": "top",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5316,7 +5274,6 @@
             "in": "query",
             "name": "first",
             "description": "Pagination offset",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5326,7 +5283,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -5845,7 +5801,6 @@
             "in": "query",
             "name": "format",
             "description": "Format to use",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6166,7 +6121,6 @@
           {
             "in": "query",
             "name": "exportClients",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6175,7 +6129,6 @@
           {
             "in": "query",
             "name": "exportGroupsAndRoles",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6762,7 +6715,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6772,7 +6724,6 @@
             "in": "query",
             "name": "full",
             "description": "if true, return a full representation of the GroupRepresentation objects",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6781,7 +6732,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6886,7 +6836,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -6895,7 +6844,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7101,7 +7049,6 @@
           {
             "in": "query",
             "name": "action",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7181,7 +7128,6 @@
           {
             "in": "query",
             "name": "direction",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7239,7 +7185,6 @@
           {
             "in": "query",
             "name": "briefRepresentation",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7248,7 +7193,6 @@
           {
             "in": "query",
             "name": "email",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7257,7 +7201,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7266,7 +7209,6 @@
           {
             "in": "query",
             "name": "firstName",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7275,7 +7217,6 @@
           {
             "in": "query",
             "name": "lastName",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7285,7 +7226,6 @@
             "in": "query",
             "name": "max",
             "description": "Maximum results size (defaults to 100)",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7295,7 +7235,6 @@
             "in": "query",
             "name": "search",
             "description": "A String contained in username, first or last name, or email",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7304,7 +7243,6 @@
           {
             "in": "query",
             "name": "username",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7598,7 +7536,6 @@
             "in": "query",
             "name": "client_id",
             "description": "Client id",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7608,7 +7545,6 @@
             "in": "query",
             "name": "lifespan",
             "description": "Number of seconds after which the generated token expires",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7618,7 +7554,6 @@
             "in": "query",
             "name": "redirect_uri",
             "description": "Redirect uri",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7752,7 +7687,6 @@
           {
             "in": "query",
             "name": "first",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7761,7 +7695,6 @@
           {
             "in": "query",
             "name": "max",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7770,7 +7703,6 @@
           {
             "in": "query",
             "name": "search",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -7822,7 +7754,6 @@
           {
             "in": "query",
             "name": "search",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -8456,7 +8387,6 @@
             "in": "query",
             "name": "client_id",
             "description": "Client id",
-            "required": true,
             "schema": {
               "type": "string"
             },
@@ -8466,7 +8396,6 @@
             "in": "query",
             "name": "redirect_uri",
             "description": "Redirect uri",
-            "required": true,
             "schema": {
               "type": "string"
             },
