@@ -1966,7 +1966,6 @@
             "name": "viewableOnly",
             "description": "filter clients that cannot be viewed in full by admin",
             "schema": {
-              "default": false,
               "type": "boolean"
             },
             "style": "form"
