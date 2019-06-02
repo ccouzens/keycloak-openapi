@@ -5,37 +5,39 @@ use regex::Regex;
 
 lazy_static! {
     static ref PATH_PARAM_REGEX: Regex = Regex::new(r"\{([^}]+)}").unwrap();
+    static ref PARAMS_TABLE_SELECTOR: Selector =
+        Selector::parse("h5[id^=_parameters] + table").unwrap();
     static ref TITLES_SELECTOR: Selector = Selector::parse("thead > tr > th").unwrap();
     static ref ROWS_SELECTOR: Selector = Selector::parse("tbody > tr").unwrap();
     static ref CELL_SELECTOR: Selector = Selector::parse("td").unwrap();
     static ref NAME_SELECTOR: Selector = Selector::parse("strong").unwrap();
 }
 
-pub fn parse_path(
+pub fn parse_parameters(
     section: &scraper::element_ref::ElementRef<'_>,
-    path: &str,
+    param_type: &str,
 ) -> Vec<ReferenceOr<Parameter>> {
-    let titles = section
-        .select(&TITLES_SELECTOR)
-        .map(|th| th.text().collect::<String>())
-        .zip(0..)
-        .collect::<std::collections::HashMap<_, _>>();
-    let type_index = titles["Type"];
-    let name_index = titles["Name"];
-    let description_index = titles.get("Description").cloned();
-    let schema_index = titles["Schema"];
-    let path_rows = section.select(&ROWS_SELECTOR).filter(|row| {
-        row.select(&CELL_SELECTOR)
-            .nth(type_index)
-            .unwrap()
-            .text()
-            .collect::<String>()
-            == "Path"
-    });
-    let mut params: Vec<_> = path_rows
-        .map(|row| {
-            ReferenceOr::Item(Parameter::Path {
-                parameter_data: openapiv3::ParameterData {
+    if let Some(section) = section.select(&PARAMS_TABLE_SELECTOR).next() {
+        let titles = section
+            .select(&TITLES_SELECTOR)
+            .map(|th| th.text().collect::<String>())
+            .zip(0..)
+            .collect::<std::collections::HashMap<_, _>>();
+        let type_index = titles["Type"];
+        let name_index = titles["Name"];
+        let description_index = titles.get("Description").cloned();
+        let schema_index = titles["Schema"];
+        let path_rows = section.select(&ROWS_SELECTOR).filter(|row| {
+            row.select(&CELL_SELECTOR)
+                .nth(type_index)
+                .unwrap()
+                .text()
+                .collect::<String>()
+                == param_type
+        });
+        path_rows
+            .map(|row| {
+                let parameter_data = openapiv3::ParameterData {
                     name: row
                         .select(&CELL_SELECTOR)
                         .nth(name_index)
@@ -60,11 +62,33 @@ pub fn parse_path(
                     ),
                     example: None,
                     examples: Default::default(),
-                },
-                style: Default::default(),
+                };
+                let parameter = match param_type {
+                    "Path" => Parameter::Path {
+                        parameter_data,
+                        style: Default::default(),
+                    },
+                    "Query" => Parameter::Query {
+                        parameter_data,
+                        allow_reserved: false,
+                        style: Default::default(),
+                        allow_empty_value: None,
+                    },
+                    _ => panic!(format!("Don't know how to parse {}", param_type)),
+                };
+                ReferenceOr::Item(parameter)
             })
-        })
-        .collect();
+            .collect()
+    } else {
+        Vec::new()
+    }
+}
+
+pub fn parse_path(
+    section: &scraper::element_ref::ElementRef<'_>,
+    path: &str,
+) -> Vec<ReferenceOr<Parameter>> {
+    let mut params = parse_parameters(section, "Path");
 
     for (index, cap) in PATH_PARAM_REGEX
         .captures_iter(path)
@@ -128,24 +152,24 @@ mod tests {
     #[test]
     fn correctly_parses_realm() {
         parse_parameters_correctly(
-                    "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 [id^=_parameters] + table",
-                    "/{realm}/attack-detection/brute-force/users"
-                );
+            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3",
+            "/{realm}/attack-detection/brute-force/users",
+        );
     }
 
     #[test]
     fn correctly_parses_when_description_is_missing() {
         parse_parameters_correctly(
-          "#_paths + .sectionbody > .sect2 > #_user_storage_provider_resource + .sect3 [id^=_parameters] + table",
-                    "/{id}/name"
-                );
+            "#_paths + .sectionbody > .sect2 > #_user_storage_provider_resource + .sect3",
+            "/{id}/name",
+        );
     }
 
     #[test]
     fn correctly_parses_when_description_is_blank() {
         parse_parameters_correctly(
-          "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 + .sect3 [id^=_parameters] + table",
-                    "/{realm}/attack-detection/brute-force/users/{userId}"
-                );
+            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 + .sect3",
+            "/{realm}/attack-detection/brute-force/users/{userId}",
+        );
     }
 }

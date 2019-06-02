@@ -107,6 +107,109 @@
     "/{realm}/admin-events": {
       "get": {
         "summary": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "authClient",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authIpAddress",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authRealm",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authUser",
+            "description": "user id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateFrom",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateTo",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "operationTypes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "resourcePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "resourceTypes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -1850,6 +1953,7 @@
     },
     "/{realm}/clients": {
       "get": {
+        "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "parameters": [
           {
             "in": "query",
@@ -1857,7 +1961,8 @@
             "description": "filter by clientId",
             "schema": {
               "type": "string"
-            }
+            },
+            "style": "form"
           },
           {
             "in": "query",
@@ -1866,10 +1971,10 @@
             "schema": {
               "default": false,
               "type": "boolean"
-            }
+            },
+            "style": "form"
           }
         ],
-        "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "responses": {
           "2XX": {
             "description": "success",
@@ -2474,6 +2579,26 @@
     "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
       "get": {
         "summary": "Create JSON with payload of example access token",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2513,6 +2638,17 @@
     "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
       "get": {
         "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2555,6 +2691,17 @@
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
       "get": {
         "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2607,6 +2754,17 @@
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
       "get": {
         "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -2865,6 +3023,28 @@
     "/{realm}/clients/{id}/offline-sessions": {
       "get": {
         "summary": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -3558,6 +3738,36 @@
     "/{realm}/clients/{id}/roles/{role-name}/groups": {
       "get": {
         "summary": "Return List of Groups that have the specified role name",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "full",
+            "description": "if true, return a full representation of the GroupRepresentation objects",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -3672,6 +3882,26 @@
     "/{realm}/clients/{id}/roles/{role-name}/users": {
       "get": {
         "summary": "Return List of Users that have the specified role name",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4190,6 +4420,28 @@
     "/{realm}/clients/{id}/user-sessions": {
       "get": {
         "summary": "Get user sessions for client   Returns a list of user sessions associated with this client",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4231,6 +4483,35 @@
     },
     "/{realm}/components": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4321,6 +4602,17 @@
     "/{realm}/components/{id}/sub-component-types": {
       "get": {
         "summary": "List of subcomponent types that are available to configure for a particular parent component.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4569,6 +4861,88 @@
     "/{realm}/events": {
       "get": {
         "summary": "Get events   Returns all events, or filters them based on URL query parameters listed here",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client",
+            "description": "App or oauth client name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateFrom",
+            "description": "From date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateTo",
+            "description": "To date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "ipAddress",
+            "description": "IP address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "The types of events to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "user",
+            "description": "User id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4683,6 +5057,35 @@
     "/{realm}/groups": {
       "get": {
         "summary": "Get group hierarchy.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4723,6 +5126,26 @@
     "/{realm}/groups/count": {
       "get": {
         "summary": "Returns the groups counts.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4888,6 +5311,28 @@
     "/{realm}/groups/{id}/members": {
       "get": {
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Pagination offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -5395,6 +5840,18 @@
     "/{realm}/identity-provider/instances/{alias}/export": {
       "get": {
         "summary": "Export public broker configuration for identity provider",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "format",
+            "description": "Format to use",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -5705,6 +6162,26 @@
     "/{realm}/partial-export": {
       "post": {
         "summary": "Partial export of existing realm into a JSON file.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "exportClients",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "exportGroupsAndRoles",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6281,6 +6758,36 @@
     "/{realm}/roles/{role-name}/groups": {
       "get": {
         "summary": "Return List of Groups that have the specified role name",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "full",
+            "description": "if true, return a full representation of the GroupRepresentation objects",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6375,6 +6882,26 @@
     "/{realm}/roles/{role-name}/users": {
       "get": {
         "summary": "Return List of Users that have the specified role name",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6570,6 +7097,17 @@
     "/{realm}/user-storage/{id}/sync": {
       "post": {
         "summary": "Trigger sync of users   Action can be \"triggerFullSync\" or \"triggerChangedUsersSync\"",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6639,6 +7177,17 @@
     "/{realm}/user-storage/{parentId}/mappers/{id}/sync": {
       "post": {
         "summary": "Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is \"fedToKeycloak\" or \"keycloakToFed\"",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "direction",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6686,6 +7235,82 @@
     "/{realm}/users": {
       "get": {
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "A String contained in username, first or last name, or email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -6968,6 +7593,38 @@
     "/{realm}/users/{id}/execute-actions-email": {
       "put": {
         "summary": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client_id",
+            "description": "Client id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lifespan",
+            "description": "Number of seconds after which the generated token expires",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "Redirect uri",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"
@@ -7091,6 +7748,35 @@
     },
     "/{realm}/users/{id}/groups": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -7132,6 +7818,17 @@
     },
     "/{realm}/users/{id}/groups/count": {
       "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -7754,6 +8451,28 @@
     "/{realm}/users/{id}/send-verify-email": {
       "put": {
         "summary": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "client_id",
+            "description": "Client id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "Redirect uri",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success"

@@ -1,14 +1,12 @@
 use scraper::Selector;
 
 mod operation;
-pub mod parameters;
+mod parameters;
 mod response;
 
 lazy_static! {
     static ref PATH_SECTION_SELECTOR: Selector =
         Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
-    static ref PARAMS_TABLE_SELECTOR: Selector =
-        Selector::parse("h5[id^=_parameters] + table").unwrap();
     static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
     static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
 }
@@ -24,13 +22,8 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
         };
         if let openapiv3::ReferenceOr::Item(path_item) =
             paths.entry(path.clone()).or_insert_with(|| {
-                let params_section = section.select(&PARAMS_TABLE_SELECTOR).next();
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {
-                    parameters: if let Some(s) = params_section {
-                        parameters::parse_path(&s, &path)
-                    } else {
-                        Default::default()
-                    },
+                    parameters: parameters::parse_path(&section, &path),
                     ..Default::default()
                 })
             })
