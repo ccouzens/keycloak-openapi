@@ -18,3 +18,8 @@ Diligence](http://lists.jboss.org/pipermail/keycloak-user/2019-April/018073.html
 
 The scraper work not derived from Keycloak is licensed under the [MIT
 License](https://opensource.org/licenses/MIT).
+
+## Other
+
+See also this version 2 [specification](https://github.com/keycloak/keycloak/files/2327628/swagger-4.3.0.Final-SNAPSHOT.json.txt).
+Linked from this github [pull request](https://github.com/keycloak/keycloak/pull/5198).
