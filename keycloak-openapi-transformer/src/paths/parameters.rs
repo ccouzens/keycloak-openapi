@@ -15,11 +15,11 @@ lazy_static! {
 }
 
 pub struct ParameterRow {
-    parameter_type: String,
-    name: String,
-    required: bool,
-    description: Option<String>,
-    schema: String,
+    pub parameter_type: String,
+    pub name: String,
+    pub required: bool,
+    pub description: Option<String>,
+    pub schema: String,
 }
 
 pub fn parse_parameter_rows<'a>(
@@ -41,8 +41,7 @@ pub fn parse_parameter_rows<'a>(
 
         let raw_schema = row
             .select(&CELL_SELECTOR)
-            .nth(schema_index)
-            .unwrap()
+            .nth(schema_index)?
             .text()
             .collect::<String>();
         Some(ParameterRow {

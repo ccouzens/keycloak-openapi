@@ -24,6 +24,10 @@
       },
       "post": {
         "summary": "Import a realm   Imports a realm from a full representation of that realm.",
+        "requestBody": {
+          "description": "JSON representation of the realm",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -77,6 +81,9 @@
       },
       "put": {
         "summary": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -432,11 +439,6 @@
       },
       "put": {
         "summary": "Update authenticator configuration",
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        },
         "requestBody": {
           "description": "JSON describing new state of authenticator configuration",
           "required": true,
@@ -446,6 +448,11 @@
                 "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
               }
             }
+          }
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
           }
         }
       },
@@ -483,6 +490,10 @@
     "/{realm}/authentication/executions": {
       "post": {
         "summary": "Add new authentication execution",
+        "requestBody": {
+          "description": "JSON model describing authentication execution",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -545,6 +556,10 @@
     "/{realm}/authentication/executions/{executionId}/config": {
       "post": {
         "summary": "Update execution with new configuration",
+        "requestBody": {
+          "description": "JSON with new configuration",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -659,6 +674,10 @@
       },
       "post": {
         "summary": "Create a new authentication flow",
+        "requestBody": {
+          "description": "Authentication flow representation",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -681,6 +700,10 @@
     "/{realm}/authentication/flows/{flowAlias}/copy": {
       "post": {
         "summary": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object",
+        "requestBody": {
+          "description": "JSON containing 'newName' attribute",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -721,6 +744,9 @@
       },
       "put": {
         "summary": "Update authentication executions of a flow",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -753,6 +779,10 @@
     "/{realm}/authentication/flows/{flowAlias}/executions/execution": {
       "post": {
         "summary": "Add new authentication execution to a flow",
+        "requestBody": {
+          "description": "New execution JSON data containing 'provider' attribute",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -785,6 +815,10 @@
     "/{realm}/authentication/flows/{flowAlias}/executions/flow": {
       "post": {
         "summary": "Add new flow with new execution to existing flow",
+        "requestBody": {
+          "description": "New authentication flow / execution JSON data containing 'alias', 'type', 'provider', and 'description' attributes",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -832,6 +866,10 @@
       },
       "put": {
         "summary": "Update an authentication flow",
+        "requestBody": {
+          "description": "Authentication flow representation",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -965,6 +1003,10 @@
     "/{realm}/authentication/register-required-action": {
       "post": {
         "summary": "Register a new required actions",
+        "requestBody": {
+          "description": "JSON containing 'providerId', and 'name' attributes.",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1034,6 +1076,10 @@
       },
       "put": {
         "summary": "Update required action",
+        "requestBody": {
+          "description": "JSON describing new state of required action",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1236,6 +1282,9 @@
     "/{realm}/client-description-converter": {
       "post": {
         "summary": "Base path for importing clients under this realm.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -1315,6 +1364,9 @@
       },
       "post": {
         "summary": "Create a new client scope   Client Scope’s name must be unique!",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1352,6 +1404,9 @@
       },
       "put": {
         "summary": "Update the client scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1392,6 +1447,9 @@
     "/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
       "post": {
         "summary": "Create multiple mappers",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1442,6 +1500,9 @@
       },
       "post": {
         "summary": "Create a mapper",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1489,6 +1550,9 @@
       },
       "put": {
         "summary": "Update the mapper",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1637,6 +1701,9 @@
       },
       "post": {
         "summary": "Add client-level roles to the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1645,6 +1712,9 @@
       },
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1806,6 +1876,9 @@
       },
       "post": {
         "summary": "Add a set of realm-level roles to the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -1814,6 +1887,9 @@
       },
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2000,6 +2076,9 @@
       },
       "post": {
         "summary": "Create a new client   Client’s client_id must be unique!",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2039,6 +2118,9 @@
       },
       "post": {
         "summary": "Create a new initial access token.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2113,6 +2195,9 @@
       },
       "put": {
         "summary": "Update the client",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -2201,6 +2286,10 @@
     "/{realm}/clients/{id}/certificates/{attr}/download": {
       "post": {
         "summary": "Get a keystore file for the client, containing private key and public certificate",
+        "requestBody": {
+          "description": "Keystore configuration as JSON",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2298,6 +2387,10 @@
     "/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
       "post": {
         "summary": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
+        "requestBody": {
+          "description": "Keystore configuration as JSON",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2874,6 +2967,9 @@
       },
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -2913,6 +3009,9 @@
     "/{realm}/clients/{id}/nodes": {
       "post": {
         "summary": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3178,6 +3277,9 @@
     "/{realm}/clients/{id}/protocol-mappers/add-models": {
       "post": {
         "summary": "Create multiple mappers",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3228,6 +3330,9 @@
       },
       "post": {
         "summary": "Create a mapper",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3275,6 +3380,9 @@
       },
       "put": {
         "summary": "Update the mapper",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3462,6 +3570,9 @@
       },
       "post": {
         "summary": "Create a new role for the realm or client",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3509,6 +3620,9 @@
       },
       "put": {
         "summary": "Update a role by name",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3577,6 +3691,9 @@
       },
       "post": {
         "summary": "Add a composite to the role",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3585,6 +3702,10 @@
       },
       "delete": {
         "summary": "Remove roles from the role’s composite",
+        "requestBody": {
+          "description": "roles to remove",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -3835,6 +3956,9 @@
       },
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -4011,6 +4135,9 @@
       },
       "post": {
         "summary": "Add client-level roles to the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4019,6 +4146,9 @@
       },
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4180,6 +4310,9 @@
       },
       "post": {
         "summary": "Add a set of realm-level roles to the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4188,6 +4321,9 @@
       },
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4527,6 +4663,9 @@
         }
       },
       "post": {
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4562,6 +4701,9 @@
         }
       },
       "put": {
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -4992,6 +5134,9 @@
       },
       "put": {
         "summary": "Update the events provider   Change the events provider and/or its configuration",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5097,6 +5242,9 @@
       },
       "post": {
         "summary": "create or add a top level realm groupSet or create child.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5180,6 +5328,9 @@
       },
       "put": {
         "summary": "Update group, ignores subgroups.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5218,6 +5369,9 @@
     "/{realm}/groups/{id}/children": {
       "post": {
         "summary": "Set or create child.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5264,6 +5418,9 @@
       },
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -5421,6 +5578,9 @@
       },
       "post": {
         "summary": "Add client-level roles to the user role mapping",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5429,6 +5589,9 @@
       },
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5587,6 +5750,10 @@
       },
       "post": {
         "summary": "Add realm-level role mappings to the user",
+        "requestBody": {
+          "description": "Roles to add",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5595,6 +5762,9 @@
       },
       "delete": {
         "summary": "Delete realm-level role mappings",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5755,6 +5925,10 @@
       },
       "post": {
         "summary": "Create a new identity provider",
+        "requestBody": {
+          "description": "JSON body",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5792,6 +5966,9 @@
       },
       "put": {
         "summary": "Update the identity provider",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -5888,6 +6065,9 @@
       },
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -5975,6 +6155,9 @@
       },
       "post": {
         "summary": "Add a mapper to identity provider",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6021,6 +6204,9 @@
       },
       "put": {
         "summary": "Update a mapper for the identity provider",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6199,6 +6385,9 @@
     "/{realm}/partialImport": {
       "post": {
         "summary": "Partial import from a JSON file to an existing realm.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6261,6 +6450,9 @@
       },
       "post": {
         "summary": "Create a new role for the realm or client",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6298,6 +6490,9 @@
       },
       "put": {
         "summary": "Update the role",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6356,6 +6551,9 @@
       },
       "post": {
         "summary": "Make the role a composite role by associating some child roles",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6364,6 +6562,10 @@
       },
       "delete": {
         "summary": "Remove a set of roles from the role’s composite",
+        "requestBody": {
+          "description": "A set of roles to be removed",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6502,6 +6704,9 @@
       },
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -6555,6 +6760,9 @@
       },
       "put": {
         "summary": "Update a role by name",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6613,6 +6821,9 @@
       },
       "post": {
         "summary": "Add a composite to the role",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6621,6 +6832,10 @@
       },
       "delete": {
         "summary": "Remove roles from the role’s composite",
+        "requestBody": {
+          "description": "roles to remove",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -6831,6 +7046,9 @@
       },
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -7308,6 +7526,9 @@
       },
       "post": {
         "summary": "Create a new user   Username must be unique.",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7343,6 +7564,9 @@
         }
       },
       "put": {
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success",
@@ -7416,6 +7640,9 @@
       },
       "put": {
         "summary": "Update the user",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7540,6 +7767,9 @@
     "/{realm}/users/{id}/disable-credential-types": {
       "put": {
         "summary": "Disable all credentials for a user of a specific type",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7602,6 +7832,10 @@
             "style": "form"
           }
         ],
+        "requestBody": {
+          "description": "required actions the user needs to complete",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7676,6 +7910,9 @@
     "/{realm}/users/{id}/federated-identity/{provider}": {
       "post": {
         "summary": "Add a social login provider to the user",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8044,6 +8281,10 @@
     "/{realm}/users/{id}/reset-password": {
       "put": {
         "summary": "Set up a new password for the user.",
+        "requestBody": {
+          "description": "The representation must contain a value and the type equals to \"password\"",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8133,6 +8374,9 @@
       },
       "post": {
         "summary": "Add client-level roles to the user role mapping",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8141,6 +8385,9 @@
       },
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8302,6 +8549,10 @@
       },
       "post": {
         "summary": "Add realm-level role mappings to the user",
+        "requestBody": {
+          "description": "Roles to add",
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -8310,6 +8561,9 @@
       },
       "delete": {
         "summary": "Delete realm-level role mappings",
+        "requestBody": {
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"

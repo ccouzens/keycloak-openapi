@@ -1,4 +1,5 @@
 use super::parameters::parse_parameters;
+use super::request_body;
 use super::response;
 use scraper::Selector;
 
@@ -25,6 +26,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Opera
             .collect(),
         },
         parameters: parse_parameters(section, "Query"),
+        request_body: request_body::parse(section),
         ..Default::default()
     }
 }
