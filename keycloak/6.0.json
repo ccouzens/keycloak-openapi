@@ -436,6 +436,17 @@
           "2XX": {
             "description": "success"
           }
+        },
+        "requestBody": {
+          "description": "JSON describing new state of authenticator configuration",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
+              }
+            }
+          }
         }
       },
       "delete": {
