@@ -14,60 +14,71 @@ lazy_static! {
     static ref REQUIRED_SELECTOR: Selector = Selector::parse("em").unwrap();
 }
 
+pub struct ParameterRow {
+    parameter_type: String,
+    name: String,
+    required: bool,
+    description: Option<String>,
+    schema: String,
+}
+
+pub fn parse_parameter_rows<'a>(
+    section: &scraper::element_ref::ElementRef<'a>,
+) -> Option<impl Iterator<Item = ParameterRow> + 'a> {
+    let table = section.select(&PARAMS_TABLE_SELECTOR).next()?;
+    let titles = table
+        .select(&TITLES_SELECTOR)
+        .map(|th| th.text().collect::<String>())
+        .zip(0..)
+        .collect::<std::collections::HashMap<String, usize>>();
+    let &type_index = titles.get("Type")?;
+    let &name_index = titles.get("Name")?;
+    let description_index = titles.get("Description").cloned();
+    let &schema_index = titles.get("Schema")?;
+    Some(table.select(&ROWS_SELECTOR).filter_map(move |row| {
+        let cells = row.select(&CELL_SELECTOR).collect::<Vec<_>>();
+        let name_cell = cells.get(name_index)?;
+
+        let raw_schema = row
+            .select(&CELL_SELECTOR)
+            .nth(schema_index)
+            .unwrap()
+            .text()
+            .collect::<String>();
+        Some(ParameterRow {
+            parameter_type: cells.get(type_index)?.text().collect(),
+            name: name_cell.select(&NAME_SELECTOR).next()?.text().collect(),
+            required: name_cell
+                .select(&REQUIRED_SELECTOR)
+                .next()?
+                .text()
+                .collect::<String>()
+                == "required",
+            description: description_index
+                .and_then(|di| Some(cells.get(di)?.text().collect()))
+                .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
+            schema: cells.get(schema_index)?.text().collect(),
+        })
+    }))
+}
+
 pub fn parse_parameters(
     section: &scraper::element_ref::ElementRef<'_>,
     param_type: &str,
 ) -> Vec<ReferenceOr<Parameter>> {
-    if let Some(section) = section.select(&PARAMS_TABLE_SELECTOR).next() {
-        let titles = section
-            .select(&TITLES_SELECTOR)
-            .map(|th| th.text().collect::<String>())
-            .zip(0..)
-            .collect::<std::collections::HashMap<_, _>>();
-        let type_index = titles["Type"];
-        let name_index = titles["Name"];
-        let description_index = titles.get("Description").cloned();
-        let schema_index = titles["Schema"];
-        let path_rows = section.select(&ROWS_SELECTOR).filter(|row| {
-            row.select(&CELL_SELECTOR)
-                .nth(type_index)
-                .unwrap()
-                .text()
-                .collect::<String>()
-                == param_type
-        });
-        path_rows
+    if let Some(rows) = parse_parameter_rows(section) {
+        rows.filter(|row| row.parameter_type == param_type)
             .map(|row| {
-                let name_cell = row.select(&CELL_SELECTOR).nth(name_index).unwrap();
-                let raw_schema = row
-                    .select(&CELL_SELECTOR)
-                    .nth(schema_index)
-                    .unwrap()
-                    .text()
-                    .collect::<String>();
                 let parameter_data = openapiv3::ParameterData {
-                    name: name_cell
-                        .select(&NAME_SELECTOR)
-                        .next()
-                        .unwrap()
-                        .text()
-                        .collect(),
-                    description: description_index
-                        .map(|i| row.select(&CELL_SELECTOR).nth(i).unwrap().text().collect())
-                        .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
-                    required: name_cell
-                        .select(&REQUIRED_SELECTOR)
-                        .next()
-                        .unwrap()
-                        .text()
-                        .collect::<String>()
-                        == "required",
+                    name: row.name,
+                    description: row.description,
+                    required: row.required,
                     deprecated: None,
-                    format: openapiv3::ParameterSchemaOrContent::Schema(parse_type(&raw_schema)),
+                    format: openapiv3::ParameterSchemaOrContent::Schema(parse_type(&row.schema)),
                     example: None,
                     examples: Default::default(),
                 };
-                let parameter = match param_type {
+                let parameter = match row.parameter_type.as_ref() {
                     "Path" => Parameter::Path {
                         parameter_data,
                         style: Default::default(),
