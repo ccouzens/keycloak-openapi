@@ -1,5 +1,11 @@
 use super::parameters;
-use openapiv3::{ReferenceOr, RequestBody};
+use openapiv3::{MediaType, ReferenceOr, RequestBody};
+use scraper::Selector;
+
+lazy_static! {
+    static ref CONSUMES_SELECTOR: Selector =
+        Selector::parse("[id^=_consumes] + .ulist code").unwrap();
+}
 
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> Option<ReferenceOr<RequestBody>> {
     let body_row =
@@ -7,6 +13,16 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> Option<Reference
     Some(ReferenceOr::Item(RequestBody {
         description: body_row.description,
         required: body_row.required,
-        ..Default::default()
+        content: section
+            .select(&CONSUMES_SELECTOR)
+            .map(|content_section| {
+                (
+                    content_section.text().collect(),
+                    MediaType {
+                        ..Default::default()
+                    },
+                )
+            })
+            .collect(),
     }))
 }

@@ -26,6 +26,9 @@
         "summary": "Import a realm   Imports a realm from a full representation of that realm.",
         "requestBody": {
           "description": "JSON representation of the realm",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -82,6 +85,9 @@
       "put": {
         "summary": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -441,14 +447,14 @@
         "summary": "Update authenticator configuration",
         "requestBody": {
           "description": "JSON describing new state of authenticator configuration",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "2XX": {
@@ -492,6 +498,9 @@
         "summary": "Add new authentication execution",
         "requestBody": {
           "description": "JSON model describing authentication execution",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -558,6 +567,9 @@
         "summary": "Update execution with new configuration",
         "requestBody": {
           "description": "JSON with new configuration",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -676,6 +688,9 @@
         "summary": "Create a new authentication flow",
         "requestBody": {
           "description": "Authentication flow representation",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -702,6 +717,9 @@
         "summary": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object",
         "requestBody": {
           "description": "JSON containing 'newName' attribute",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -745,6 +763,9 @@
       "put": {
         "summary": "Update authentication executions of a flow",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -781,6 +802,9 @@
         "summary": "Add new authentication execution to a flow",
         "requestBody": {
           "description": "New execution JSON data containing 'provider' attribute",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -817,6 +841,9 @@
         "summary": "Add new flow with new execution to existing flow",
         "requestBody": {
           "description": "New authentication flow / execution JSON data containing 'alias', 'type', 'provider', and 'description' attributes",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -868,6 +895,9 @@
         "summary": "Update an authentication flow",
         "requestBody": {
           "description": "Authentication flow representation",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1005,6 +1035,9 @@
         "summary": "Register a new required actions",
         "requestBody": {
           "description": "JSON containing 'providerId', and 'name' attributes.",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1078,6 +1111,9 @@
         "summary": "Update required action",
         "requestBody": {
           "description": "JSON describing new state of required action",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1283,6 +1319,11 @@
       "post": {
         "summary": "Base path for importing clients under this realm.",
         "requestBody": {
+          "content": {
+            "application/json": {},
+            "application/xml": {},
+            "text/plain": {}
+          },
           "required": true
         },
         "responses": {
@@ -1365,6 +1406,9 @@
       "post": {
         "summary": "Create a new client scope   Client Scope’s name must be unique!",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1405,6 +1449,9 @@
       "put": {
         "summary": "Update the client scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1448,6 +1495,9 @@
       "post": {
         "summary": "Create multiple mappers",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1501,6 +1551,9 @@
       "post": {
         "summary": "Create a mapper",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1551,6 +1604,9 @@
       "put": {
         "summary": "Update the mapper",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1702,6 +1758,9 @@
       "post": {
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1713,6 +1772,9 @@
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1877,6 +1939,9 @@
       "post": {
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -1888,6 +1953,9 @@
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2077,6 +2145,9 @@
       "post": {
         "summary": "Create a new client   Client’s client_id must be unique!",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2119,6 +2190,9 @@
       "post": {
         "summary": "Create a new initial access token.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2196,6 +2270,9 @@
       "put": {
         "summary": "Update the client",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2288,6 +2365,9 @@
         "summary": "Get a keystore file for the client, containing private key and public certificate",
         "requestBody": {
           "description": "Keystore configuration as JSON",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2389,6 +2469,9 @@
         "summary": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
         "requestBody": {
           "description": "Keystore configuration as JSON",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -2968,6 +3051,9 @@
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3010,6 +3096,9 @@
       "post": {
         "summary": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3278,6 +3367,9 @@
       "post": {
         "summary": "Create multiple mappers",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3331,6 +3423,9 @@
       "post": {
         "summary": "Create a mapper",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3381,6 +3476,9 @@
       "put": {
         "summary": "Update the mapper",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3571,6 +3669,9 @@
       "post": {
         "summary": "Create a new role for the realm or client",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3621,6 +3722,9 @@
       "put": {
         "summary": "Update a role by name",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3692,6 +3796,9 @@
       "post": {
         "summary": "Add a composite to the role",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3704,6 +3811,9 @@
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
           "description": "roles to remove",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -3957,6 +4067,9 @@
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4136,6 +4249,9 @@
       "post": {
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4147,6 +4263,9 @@
       "delete": {
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4311,6 +4430,9 @@
       "post": {
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4322,6 +4444,9 @@
       "delete": {
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4664,6 +4789,9 @@
       },
       "post": {
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -4702,6 +4830,9 @@
       },
       "put": {
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5135,6 +5266,9 @@
       "put": {
         "summary": "Update the events provider   Change the events provider and/or its configuration",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5243,6 +5377,9 @@
       "post": {
         "summary": "create or add a top level realm groupSet or create child.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5329,6 +5466,9 @@
       "put": {
         "summary": "Update group, ignores subgroups.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5370,6 +5510,9 @@
       "post": {
         "summary": "Set or create child.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5419,6 +5562,9 @@
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5579,6 +5725,9 @@
       "post": {
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5590,6 +5739,9 @@
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5752,6 +5904,9 @@
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
           "description": "Roles to add",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5763,6 +5918,9 @@
       "delete": {
         "summary": "Delete realm-level role mappings",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5927,6 +6085,9 @@
         "summary": "Create a new identity provider",
         "requestBody": {
           "description": "JSON body",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -5967,6 +6128,9 @@
       "put": {
         "summary": "Update the identity provider",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6066,6 +6230,9 @@
       "put": {
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6156,6 +6323,9 @@
       "post": {
         "summary": "Add a mapper to identity provider",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6205,6 +6375,9 @@
       "put": {
         "summary": "Update a mapper for the identity provider",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6386,6 +6559,9 @@
       "post": {
         "summary": "Partial import from a JSON file to an existing realm.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6451,6 +6627,9 @@
       "post": {
         "summary": "Create a new role for the realm or client",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6491,6 +6670,9 @@
       "put": {
         "summary": "Update the role",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6552,6 +6734,9 @@
       "post": {
         "summary": "Make the role a composite role by associating some child roles",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6564,6 +6749,9 @@
         "summary": "Remove a set of roles from the role’s composite",
         "requestBody": {
           "description": "A set of roles to be removed",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6705,6 +6893,9 @@
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6761,6 +6952,9 @@
       "put": {
         "summary": "Update a role by name",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6822,6 +7016,9 @@
       "post": {
         "summary": "Add a composite to the role",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -6834,6 +7031,9 @@
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
           "description": "roles to remove",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7047,6 +7247,9 @@
       "put": {
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7527,6 +7730,9 @@
       "post": {
         "summary": "Create a new user   Username must be unique.",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7565,6 +7771,9 @@
       },
       "put": {
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7641,6 +7850,9 @@
       "put": {
         "summary": "Update the user",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7768,6 +7980,9 @@
       "put": {
         "summary": "Disable all credentials for a user of a specific type",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -7834,6 +8049,9 @@
         ],
         "requestBody": {
           "description": "required actions the user needs to complete",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -8283,6 +8501,9 @@
         "summary": "Set up a new password for the user.",
         "requestBody": {
           "description": "The representation must contain a value and the type equals to \"password\"",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -8375,6 +8596,9 @@
       "post": {
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -8386,6 +8610,9 @@
       "delete": {
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -8551,6 +8778,9 @@
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
           "description": "Roles to add",
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
@@ -8562,6 +8792,9 @@
       "delete": {
         "summary": "Delete realm-level role mappings",
         "requestBody": {
+          "content": {
+            "application/json": {}
+          },
           "required": true
         },
         "responses": {
