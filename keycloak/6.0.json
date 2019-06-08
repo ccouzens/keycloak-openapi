@@ -1368,16 +1368,6 @@
         "summary": "Base path for importing clients under this realm.",
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "type": "string"
-              }
-            },
             "text/plain": {
               "schema": {
                 "type": "string"
@@ -8491,6 +8481,13 @@
       "post": {
         "summary": "Add a social login provider to the user",
         "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FederatedIdentityRepresentation"
+              }
+            }
+          },
           "required": true
         },
         "responses": {
