@@ -39,11 +39,6 @@ pub fn parse_parameter_rows<'a>(
         let cells = row.select(&CELL_SELECTOR).collect::<Vec<_>>();
         let name_cell = cells.get(name_index)?;
 
-        let raw_schema = row
-            .select(&CELL_SELECTOR)
-            .nth(schema_index)?
-            .text()
-            .collect::<String>();
         Some(ParameterRow {
             parameter_type: cells.get(type_index)?.text().collect(),
             name: name_cell.select(&NAME_SELECTOR).next()?.text().collect(),
