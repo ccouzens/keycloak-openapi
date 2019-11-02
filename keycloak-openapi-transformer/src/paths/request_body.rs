@@ -38,7 +38,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> Option<Reference
 
 #[cfg(test)]
 mod tests {
-    const HTML: &str = include_str!("../../../keycloak/6.0.html");
+    const HTML: &str = include_str!("../../../keycloak/7.0.html");
     use super::parse;
     use openapiv3::{ReferenceOr, RequestBody};
     use scraper::Html;

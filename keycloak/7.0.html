@@ -9036,6 +9036,15 @@ Schemes: HTTP</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>briefRepresentation</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Only return basic information (only guaranteed to return id, username, created, first and last name,
+ email, enabled state, email verification state, federation link, and access.
+ Note that it means that namely user attributes, required actions, and not before are not returned.)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>first</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Pagination offset</p></td>
@@ -13821,6 +13830,13 @@ Schemes: HTTP</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>connectionUrl</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>startTls</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
@@ -25577,6 +25593,11 @@ _optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>decisionStrategy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">enum (AFFIRMATIVE, UNANIMOUS, CONSENSUS)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
@@ -26397,7 +26418,7 @@ _optional</em></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-24 06:25:42 UTC
+Last updated 2019-10-16 09:30:14 UTC
 </div>
 </div>
 </body>
