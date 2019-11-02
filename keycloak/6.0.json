@@ -51,7 +51,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -296,7 +297,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -344,7 +346,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -376,7 +379,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -740,7 +744,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               }
             }
           },
@@ -833,7 +838,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               }
             }
           },
@@ -876,7 +882,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               }
             }
           },
@@ -988,7 +995,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1020,7 +1028,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1050,7 +1059,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -1078,7 +1088,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               }
             }
           },
@@ -1276,7 +1287,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2183,7 +2195,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3224,7 +3237,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object"
+                "type": "object",
+                "additionalProperties": true
               }
             }
           },
@@ -3309,7 +3323,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -4808,7 +4823,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -5642,7 +5658,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -6296,7 +6313,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -7768,7 +7786,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -8241,7 +8260,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "object"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8624,7 +8644,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -8710,7 +8731,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -9493,7 +9515,8 @@
             "type": "string"
           },
           "otherClaims": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "phone_number": {
             "type": "string"
@@ -9814,7 +9837,8 @@
             "type": "string"
           },
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "id": {
             "type": "string"
@@ -9899,16 +9923,19 @@
         "type": "object",
         "properties": {
           "access": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "adminUrl": {
             "type": "string"
           },
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "authenticationFlowBindingOverrides": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "authorizationServicesEnabled": {
             "type": "boolean"
@@ -10003,7 +10030,8 @@
             }
           },
           "registeredNodes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "registrationAccessToken": {
             "type": "string"
@@ -10058,7 +10086,8 @@
         "type": "object",
         "properties": {
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "description": {
             "type": "string"
@@ -10139,7 +10168,8 @@
             "type": "string"
           },
           "metadata": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "properties": {
             "type": "array",
@@ -10234,7 +10264,8 @@
             "type": "string"
           },
           "details": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "error": {
             "type": "string"
@@ -10295,13 +10326,16 @@
         "type": "object",
         "properties": {
           "access": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "clientRoles": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "id": {
             "type": "string"
@@ -10330,7 +10364,8 @@
         "type": "object",
         "properties": {
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "id": {
             "type": "string"
@@ -10356,7 +10391,8 @@
             "type": "string"
           },
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "displayName": {
             "type": "string"
@@ -10414,7 +10450,8 @@
         "type": "object",
         "properties": {
           "active": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "keys": {
             "type": "array",
@@ -10464,7 +10501,8 @@
             "type": "string"
           },
           "scopePermissions": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -10472,7 +10510,8 @@
         "type": "object",
         "properties": {
           "clientMappings": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "realmMappings": {
             "type": "array",
@@ -10595,7 +10634,8 @@
         "type": "object",
         "properties": {
           "claims": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "rsid": {
             "type": "string"
@@ -10615,7 +10655,8 @@
         "type": "object",
         "properties": {
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "decisionStrategy": {
             "type": "string",
@@ -10697,7 +10738,8 @@
         "type": "object",
         "properties": {
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "id": {
             "type": "string"
@@ -10717,7 +10759,8 @@
         "type": "object",
         "properties": {
           "operationalInfo": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "order": {
             "type": "integer",
@@ -10799,7 +10842,8 @@
             "type": "string"
           },
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "authenticationFlows": {
             "type": "array",
@@ -10817,7 +10861,8 @@
             "type": "string"
           },
           "browserSecurityHeaders": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "bruteForceProtected": {
             "type": "boolean"
@@ -10826,7 +10871,8 @@
             "type": "string"
           },
           "clientScopeMappings": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "clientScopes": {
             "type": "array",
@@ -11074,7 +11120,8 @@
             }
           },
           "smtpServer": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "sslRequired": {
             "type": "string"
@@ -11138,7 +11185,8 @@
             "type": "string"
           },
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "defaultAction": {
             "type": "boolean"
@@ -11162,7 +11210,8 @@
         "type": "object",
         "properties": {
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "displayName": {
             "type": "string"
@@ -11243,7 +11292,8 @@
         "type": "object",
         "properties": {
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "clientRole": {
             "type": "boolean"
@@ -11272,7 +11322,8 @@
         "type": "object",
         "properties": {
           "client": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "realm": {
             "type": "array",
@@ -11286,7 +11337,8 @@
         "type": "object",
         "properties": {
           "client": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "realm": {
             "type": "array",
@@ -11349,27 +11401,33 @@
         "type": "object",
         "properties": {
           "builtinProtocolMappers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "clientImporters": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": true
             }
           },
           "clientInstallations": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "componentTypes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "enums": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "identityProviders": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": true
             }
           },
           "memoryInfo": {
@@ -11385,22 +11443,26 @@
             "$ref": "#/components/schemas/ProfileInfoRepresentation"
           },
           "protocolMapperTypes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "providers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "socialProviders": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": true
             }
           },
           "systemInfo": {
             "$ref": "#/components/schemas/SystemInfoRepresentation"
           },
           "themes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -11411,7 +11473,8 @@
             "type": "boolean"
           },
           "providers": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           }
         }
       },
@@ -11528,7 +11591,8 @@
         "type": "object",
         "properties": {
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "federationMapperType": {
             "type": "string"
@@ -11552,7 +11616,8 @@
             "format": "int32"
           },
           "config": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "displayName": {
             "type": "string"
@@ -11581,10 +11646,12 @@
         "type": "object",
         "properties": {
           "access": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "attributes": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "clientConsents": {
             "type": "array",
@@ -11593,7 +11660,8 @@
             }
           },
           "clientRoles": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "createdTimestamp": {
             "type": "integer",
@@ -11678,7 +11746,8 @@
         "type": "object",
         "properties": {
           "clients": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "id": {
             "type": "string"

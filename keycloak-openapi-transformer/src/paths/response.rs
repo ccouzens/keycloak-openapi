@@ -131,5 +131,4 @@ mod test {
             .unwrap();
         assert_eq!(parse(&section).content, std::collections::BTreeMap::new());
     }
-
 }
