@@ -10,7 +10,7 @@ mod components;
 mod info;
 mod paths;
 
-fn main() -> Result<(), Box<std::error::Error>> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let document = Html::parse_document(HTML);
     let spec = OpenAPI {
         openapi: "3.0.2".to_string(),
