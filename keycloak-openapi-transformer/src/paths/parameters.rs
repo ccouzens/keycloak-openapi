@@ -135,8 +135,8 @@ mod tests {
     use scraper::Html;
     use scraper::Selector;
 
-    const HTML: &str = include_str!("../../../keycloak/8.0.html");
-    const JSON: &str = include_str!("../../../keycloak/8.0.json");
+    const HTML: &str = include_str!("../../../keycloak/9.0.html");
+    const JSON: &str = include_str!("../../../keycloak/9.0.json");
 
     fn parse_parameters_correctly(html_selector: &str, path: &str) {
         let openapi: Result<OpenAPI, _> = serde_json::from_str(JSON);

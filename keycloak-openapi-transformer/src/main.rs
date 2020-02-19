@@ -4,7 +4,7 @@ use serde_json::to_string_pretty;
 #[macro_use]
 extern crate lazy_static;
 
-const HTML: &str = include_str!("../../keycloak/8.0.html");
+const HTML: &str = include_str!("../../keycloak/9.0.html");
 
 mod components;
 mod info;

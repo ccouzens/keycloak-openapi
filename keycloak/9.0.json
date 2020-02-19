@@ -2232,6 +2232,35 @@
           },
           {
             "in": "query",
+            "name": "first",
+            "description": "the first result",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "the max results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "whether this is a search query or a getClientById query",
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
             "name": "viewableOnly",
             "description": "filter clients that cannot be viewed in full by admin",
             "schema": {
@@ -3809,6 +3838,42 @@
     "/{realm}/clients/{id}/roles": {
       "get": {
         "summary": "Get all roles for the realm or client",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -4155,19 +4220,19 @@
         "parameters": [
           {
             "in": "query",
-            "name": "first",
+            "name": "briefRepresentation",
+            "description": "if false, return a full representation of the GroupRepresentation objects",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "boolean"
             },
             "style": "form"
           },
           {
             "in": "query",
-            "name": "full",
-            "description": "if true, return a full representation of the GroupRepresentation objects",
+            "name": "first",
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -5590,18 +5655,18 @@
         "parameters": [
           {
             "in": "query",
-            "name": "first",
+            "name": "briefRepresentation",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "boolean"
             },
             "style": "form"
           },
           {
             "in": "query",
-            "name": "full",
+            "name": "first",
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -6952,6 +7017,42 @@
     "/{realm}/roles": {
       "get": {
         "summary": "Get all roles for the realm or client",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -7552,19 +7653,19 @@
         "parameters": [
           {
             "in": "query",
-            "name": "first",
+            "name": "briefRepresentation",
+            "description": "if false, return a full representation of the GroupRepresentation objects",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "boolean"
             },
             "style": "form"
           },
           {
             "in": "query",
-            "name": "full",
-            "description": "if true, return a full representation of the GroupRepresentation objects",
+            "name": "first",
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "format": "int32"
             },
             "style": "form"
           },
@@ -7793,7 +7894,7 @@
         }
       ]
     },
-    "/{realm}/testSMTPConnection/{config}": {
+    "/{realm}/testSMTPConnection": {
       "post": {
         "summary": "Test SMTP connection with current logged in user",
         "responses": {
@@ -7807,16 +7908,6 @@
           "in": "path",
           "name": "realm",
           "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "config",
-          "description": "SMTP server configuration",
           "required": true,
           "schema": {
             "type": "string"
@@ -8205,6 +8296,54 @@
     },
     "/{realm}/users/count": {
       "get": {
+        "summary": "Returns the number of users that match the given criteria.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "description": "email filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "description": "first name filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "description": "last name filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "arbitrary search string for all the fields below",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "description": "username filter",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "success",
@@ -8271,6 +8410,48 @@
         "responses": {
           "2XX": {
             "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/configured-user-storage-credential-types": {
+      "get": {
+        "summary": "Return credential types, which are provided by the user storage where user is stored.",
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -8835,6 +9016,14 @@
     "/{realm}/users/{id}/groups": {
       "get": {
         "parameters": [
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form"
+          },
           {
             "in": "query",
             "name": "first",
@@ -10172,6 +10361,9 @@
           "adminUrl": {
             "type": "string"
           },
+          "alwaysDisplayInConsole": {
+            "type": "boolean"
+          },
           "attributes": {
             "type": "object",
             "additionalProperties": true
@@ -10925,10 +11117,22 @@
               "type": "string"
             }
           },
+          "resourcesData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceRepresentation"
+            }
+          },
           "scopes": {
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "scopesData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeRepresentation"
             }
           },
           "type": {
@@ -11422,6 +11626,43 @@
           "webAuthnPolicyCreateTimeout": {
             "type": "integer",
             "format": "int32"
+          },
+          "webAuthnPolicyPasswordlessAcceptableAaguids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "webAuthnPolicyPasswordlessAttestationConveyancePreference": {
+            "type": "string"
+          },
+          "webAuthnPolicyPasswordlessAuthenticatorAttachment": {
+            "type": "string"
+          },
+          "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister": {
+            "type": "boolean"
+          },
+          "webAuthnPolicyPasswordlessCreateTimeout": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "webAuthnPolicyPasswordlessRequireResidentKey": {
+            "type": "string"
+          },
+          "webAuthnPolicyPasswordlessRpEntityName": {
+            "type": "string"
+          },
+          "webAuthnPolicyPasswordlessRpId": {
+            "type": "string"
+          },
+          "webAuthnPolicyPasswordlessSignatureAlgorithms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "webAuthnPolicyPasswordlessUserVerificationRequirement": {
+            "type": "string"
           },
           "webAuthnPolicyRequireResidentKey": {
             "type": "string"

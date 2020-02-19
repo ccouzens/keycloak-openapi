@@ -51,7 +51,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
 
 #[cfg(test)]
 mod test {
-    const HTML: &str = include_str!("../../../keycloak/8.0.html");
+    const HTML: &str = include_str!("../../../keycloak/9.0.html");
     use super::parse;
     use scraper::Html;
     use scraper::Selector;
