@@ -5143,6 +5143,37 @@
         }
       ]
     },
+    "/{realm}/credential-registrators": {
+      "get": {
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/default-default-client-scopes": {
       "get": {
         "summary": "Get realm default client scopes.",
@@ -5563,6 +5594,14 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "full",
+            "schema": {
+              "type": "boolean"
             },
             "style": "form"
           },
@@ -8343,6 +8382,233 @@
         }
       ]
     },
+    "/{realm}/users/{id}/credentials": {
+      "get": {
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CredentialRepresentation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/credentials/{credentialId}": {
+      "delete": {
+        "summary": "Remove a credential for a user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "credentialId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}": {
+      "post": {
+        "summary": "Move a credential to a position behind another credential",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "credentialId",
+          "description": "The credential to move",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "newPreviousCredentialId",
+          "description": "The credential that will be the previous element in the list. If set to null, the moved credential will be the first element in the list.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/credentials/{credentialId}/moveToFirst": {
+      "post": {
+        "summary": "Move a credential to a first position in the credentials list of the user",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "credentialId",
+          "description": "The credential to move",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/users/{id}/credentials/{credentialId}/userLabel": {
+      "put": {
+        "summary": "Update a credential label for a user",
+        "requestBody": {
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "credentialId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/users/{id}/disable-credential-types": {
       "put": {
         "summary": "Disable all credentials for a user of a specific type",
@@ -8854,43 +9120,11 @@
         }
       ]
     },
-    "/{realm}/users/{id}/remove-totp": {
-      "put": {
-        "summary": "Remove TOTP from the user",
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "id",
-          "description": "User id",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        }
-      ]
-    },
     "/{realm}/users/{id}/reset-password": {
       "put": {
         "summary": "Set up a new password for the user.",
         "requestBody": {
-          "description": "The representation must contain a value and the type equals to \"password\"",
+          "description": "The representation must contain a rawPassword with the plain-text password",
           "content": {
             "application/json": {
               "schema": {
@@ -10220,45 +10454,30 @@
       "CredentialRepresentation": {
         "type": "object",
         "properties": {
-          "algorithm": {
-            "type": "string"
-          },
-          "config": {
-            "$ref": "#/components/schemas/MultivaluedHashMap"
-          },
-          "counter": {
-            "type": "integer",
-            "format": "int32"
-          },
           "createdDate": {
             "type": "integer",
             "format": "int64"
           },
-          "device": {
+          "credentialData": {
             "type": "string"
           },
-          "digits": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "hashIterations": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "hashedSaltedValue": {
+          "id": {
             "type": "string"
           },
-          "period": {
+          "priority": {
             "type": "integer",
             "format": "int32"
           },
-          "salt": {
+          "secretData": {
             "type": "string"
           },
           "temporary": {
             "type": "boolean"
           },
           "type": {
+            "type": "string"
+          },
+          "userLabel": {
             "type": "string"
           },
           "value": {
@@ -11184,6 +11403,43 @@
           "waitIncrementSeconds": {
             "type": "integer",
             "format": "int32"
+          },
+          "webAuthnPolicyAcceptableAaguids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "webAuthnPolicyAttestationConveyancePreference": {
+            "type": "string"
+          },
+          "webAuthnPolicyAuthenticatorAttachment": {
+            "type": "string"
+          },
+          "webAuthnPolicyAvoidSameAuthenticatorRegister": {
+            "type": "boolean"
+          },
+          "webAuthnPolicyCreateTimeout": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "webAuthnPolicyRequireResidentKey": {
+            "type": "string"
+          },
+          "webAuthnPolicyRpEntityName": {
+            "type": "string"
+          },
+          "webAuthnPolicyRpId": {
+            "type": "string"
+          },
+          "webAuthnPolicySignatureAlgorithms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "webAuthnPolicyUserVerificationRequirement": {
+            "type": "string"
           }
         }
       },
