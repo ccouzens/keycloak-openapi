@@ -4,6 +4,9 @@ mod operation;
 mod parameters;
 mod request_body;
 mod response;
+mod verb_path;
+
+use verb_path::VerbPath;
 
 lazy_static! {
     static ref PATH_SECTION_SELECTOR: Selector =
@@ -17,20 +20,20 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
 
     let sections = document.select(&PATH_SECTION_SELECTOR).collect::<Vec<_>>();
     for section in sections.iter().rev() {
-        let (verb, path) = verb_path_split(&section);
-        if path == "/{any}" {
+        let verb_path = verb_path_split(&section);
+        if verb_path.unrepresentable() {
             continue;
         };
         if let openapiv3::ReferenceOr::Item(path_item) =
-            paths.entry(path.clone()).or_insert_with(|| {
+            paths.entry(verb_path.path()).or_insert_with(|| {
                 openapiv3::ReferenceOr::Item(openapiv3::PathItem {
-                    parameters: parameters::parse_path(&section, &path),
+                    parameters: parameters::parse_path(&section, &verb_path),
                     ..Default::default()
                 })
             })
         {
             let operation = Some(operation::parse(&section));
-            (match verb.as_ref() {
+            (match verb_path.verb.as_ref() {
                 "DELETE" => {
                     path_item.delete = operation;
                 }
@@ -46,7 +49,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 "OPTIONS" => {
                     path_item.options = operation;
                 }
-                _ => panic!(format!("Unexpected HTTP verb: {:?}", verb)),
+                _ => panic!(format!("Unexpected HTTP verb: {:?}", verb_path.verb)),
             });
         }
     }
@@ -54,19 +57,16 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     paths
 }
 
-fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> (String, String) {
-    let verb_path = section
+fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> VerbPath {
+    section
         .select(&PRE_PATH_SELECTOR)
         .next()
         .or_else(|| section.select(&SUMMARY_SELECTOR).next())
         .unwrap()
         .text()
-        .collect::<String>();
-    let mut split = verb_path.split_whitespace();
-    (
-        split.next().unwrap().to_string(),
-        split.next().unwrap().to_string(),
-    )
+        .collect::<String>()
+        .parse()
+        .unwrap()
 }
 
 #[cfg(test)]
@@ -112,6 +112,30 @@ mod tests {
                 })
                 .collect();
             assert_eq!(names, vec!["realm", "id", "protocol"]);
+        }
+
+        #[test]
+        fn correctly_parse_when_there_are_repeating_ids_parameters() {
+            let paths = paths(&Html::parse_document(HTML));
+            let path = if let Some(ReferenceOr::Item(path)) =
+                paths.get("/{realm}/clients/{id1}/protocol-mappers/models/{id2}")
+            {
+                path
+            } else {
+                panic!("Couldn't extract path")
+            };
+            let names: Vec<_> = path
+                .parameters
+                .iter()
+                .filter_map(|p| match p {
+                    openapiv3::ReferenceOr::Item(openapiv3::Parameter::Path {
+                        parameter_data: openapiv3::ParameterData { name, .. },
+                        ..
+                    }) => Some(name),
+                    _ => None,
+                })
+                .collect();
+            assert_eq!(names, vec!["realm", "id1", "id2"]);
         }
 
         #[test]

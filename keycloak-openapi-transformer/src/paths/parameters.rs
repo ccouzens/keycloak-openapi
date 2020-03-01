@@ -1,5 +1,6 @@
 use super::super::components::schemas::parse_type;
-use openapiv3::{Parameter, ReferenceOr};
+use crate::paths::verb_path::VerbPath;
+use openapiv3::{Parameter, ParameterData, ReferenceOr};
 use regex::Regex;
 use scraper::Selector;
 
@@ -95,12 +96,43 @@ pub fn parse_parameters(
 
 pub fn parse_path(
     section: &scraper::element_ref::ElementRef<'_>,
-    path: &str,
+    verb_path: &VerbPath,
 ) -> Vec<ReferenceOr<Parameter>> {
     let mut params = parse_parameters(section, "Path");
 
+    if let Some(repeats) = verb_path.repeating_ids() {
+        params = params
+            .into_iter()
+            .filter(|p| {
+                if let ReferenceOr::Item(Parameter::Path {
+                    parameter_data: ParameterData { name, .. },
+                    ..
+                }) = p
+                {
+                    name != "id"
+                } else {
+                    true
+                }
+            })
+            .collect();
+        params.extend((1..=repeats).map(|i| {
+            ReferenceOr::Item(Parameter::Path {
+                parameter_data: ParameterData {
+                    name: format!("id{}", i),
+                    required: true,
+                    format: openapiv3::ParameterSchemaOrContent::Schema(parse_type("string")),
+                    description: None,
+                    deprecated: None,
+                    example: None,
+                    examples: Default::default(),
+                },
+                style: Default::default(),
+            })
+        }))
+    }
+
     for (index, cap) in PATH_PARAM_REGEX
-        .captures_iter(path)
+        .captures_iter(&verb_path.path())
         .enumerate()
         .take(params.len())
     {
@@ -131,6 +163,7 @@ pub fn parse_path(
 #[cfg(test)]
 mod tests {
     use super::parse_path;
+    use crate::paths::verb_path::VerbPath;
     use openapiv3::{OpenAPI, ReferenceOr};
     use scraper::Html;
     use scraper::Selector;
@@ -140,6 +173,7 @@ mod tests {
 
     fn parse_parameters_correctly(html_selector: &str, path: &str) {
         let openapi: Result<OpenAPI, _> = serde_json::from_str(JSON);
+        let verb_path: VerbPath = format!("GET {}", path).parse().unwrap();
         if let Ok(Some(ReferenceOr::Item(openapiv3::PathItem { parameters, .. }))) =
             openapi.as_ref().map(|o| o.paths.get(path))
         {
@@ -150,7 +184,7 @@ mod tests {
                         .select(&Selector::parse(html_selector).unwrap())
                         .next()
                         .unwrap(),
-                    path
+                    &verb_path
                 )
             );
         } else {

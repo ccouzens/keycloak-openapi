@@ -1496,6 +1496,79 @@
         }
       ]
     },
+    "/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the mapper",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
     "/{realm}/client-scopes/{id}": {
       "get": {
         "summary": "Get representation of the client scope",
@@ -1658,71 +1731,6 @@
           "in": "path",
           "name": "id",
           "description": "id of client scope (not name)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        }
-      ]
-    },
-    "/{realm}/client-scopes/{id}/protocol-mappers/models/{id}": {
-      "get": {
-        "summary": "Get mapper by id",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Update the mapper",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProtocolMapperRepresentation"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete the mapper",
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "id",
-          "description": "Mapper id",
           "required": true,
           "schema": {
             "type": "string"
@@ -2394,6 +2402,79 @@
         {
           "in": "path",
           "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/{realm}/clients/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the mapper",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "success"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "realm",
+          "description": "realm name (not id!)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id2",
           "required": true,
           "schema": {
             "type": "string"
@@ -3633,71 +3714,6 @@
           "in": "path",
           "name": "id",
           "description": "id of client (not client-id)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        }
-      ]
-    },
-    "/{realm}/clients/{id}/protocol-mappers/models/{id}": {
-      "get": {
-        "summary": "Get mapper by id",
-        "responses": {
-          "2XX": {
-            "description": "success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProtocolMapperRepresentation"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Update the mapper",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProtocolMapperRepresentation"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete the mapper",
-        "responses": {
-          "2XX": {
-            "description": "success"
-          }
-        }
-      },
-      "parameters": [
-        {
-          "in": "path",
-          "name": "realm",
-          "description": "realm name (not id!)",
-          "required": true,
-          "schema": {
-            "type": "string"
-          },
-          "style": "simple"
-        },
-        {
-          "in": "path",
-          "name": "id",
-          "description": "Mapper id",
           "required": true,
           "schema": {
             "type": "string"
