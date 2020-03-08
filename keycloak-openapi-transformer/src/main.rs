@@ -3,15 +3,16 @@ use scraper::Html;
 use serde_json::to_string_pretty;
 #[macro_use]
 extern crate lazy_static;
-
-const HTML: &str = include_str!("../../keycloak/9.0.html");
+use std::io::{self, Read};
 
 mod components;
 mod info;
 mod paths;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let document = Html::parse_document(HTML);
+    let mut html = String::new();
+    io::stdin().read_to_string(&mut html)?;
+    let document = Html::parse_document(&html);
     let spec = OpenAPI {
         openapi: "3.0.2".to_string(),
         info: info::parse(&document)?,

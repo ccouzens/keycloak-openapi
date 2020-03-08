@@ -3,14 +3,14 @@
 A tool to autogenerate an [OpenAPI
 Specification](https://github.com/OAI/OpenAPI-Specification) for
 [Keycloak](https://www.keycloak.org/)'s Admin API by scraping the [API
-documentation](https://www.keycloak.org/docs-api/6.0/rest-api/index.html),
-in order to create a [specification](keycloak/9.0.json).
+documentation](https://www.keycloak.org/docs-api/9.0/rest-api/index.html),
+in order to create [specifications](keycloak/).
 
 ## Licensing
 
 Keycloak's API documentation and anything I
 derive from it is licensed under [Keycloak's Apache 2.0
-license](https://github.com/keycloak/keycloak/blob/master/License.html).
+license](https://github.com/keycloak/keycloak/blob/master/LICENSE.txt).
 Anything Keycloak derived shall be placed in a top-level `keycloak`
 folder and carry its license.
 
