@@ -3,7 +3,8 @@
 A tool to autogenerate an [OpenAPI
 Specification](https://github.com/OAI/OpenAPI-Specification) for
 [Keycloak](https://www.keycloak.org/)'s Admin API by scraping the [API
-documentation](https://www.keycloak.org/docs-api/6.0/rest-api/index.html).
+documentation](https://www.keycloak.org/docs-api/6.0/rest-api/index.html),
+in order to create a [specification](keycloak/9.0.json).
 
 ## Licensing
 
