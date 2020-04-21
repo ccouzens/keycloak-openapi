@@ -3,12 +3,15 @@ specs = keycloak/5.0.json keycloak/6.0.json keycloak/7.0.json keycloak/8.0.json 
 html = keycloak/5.0.html keycloak/6.0.html keycloak/7.0.html keycloak/8.0.html keycloak/9.0.html
 
 .PHONY : all
-all : keycloak/LICENSE.txt $(specs)
+all : keycloak/LICENSE.txt $(specs) example_app/dist
 
 .PHONY : clean
 clean :
 	rm keycloak/*
 	cd keycloak-openapi-transformer; cargo clean
+	rm -r example_app/src/keycloak-client/
+	rm -r example_app/dist/
+	rm -r example_app/node_modules/
 
 .SECONDARY: $(html)
 
@@ -26,3 +29,8 @@ keycloak/%.json: keycloak/%.html $(transformer)
 
 $(transformer): keycloak-openapi-transformer/src keycloak-openapi-transformer/Cargo.toml keycloak-openapi-transformer/Cargo.lock
 	cd keycloak-openapi-transformer; cargo build --release
+
+example_app/dist: keycloak/9.0.json example_app/package.json example_app/package-lock.json example_app/src/index.ts
+	cd example_app; npm install
+	cd example_app; npm run generate-client
+	cd example_app; npm run compile

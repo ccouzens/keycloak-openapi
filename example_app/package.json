@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^1.0.12-4.3.0",
+    "@types/node": "^13.13.1",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "generate-client": "openapi-generator generate -i ../keycloak/9.0.json -g typescript-axios -o src/keycloak-client",
+    "prettier": "prettier --write -- '**/*.json' '**/*.ts' '../README.md'",
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "openid-client": "^3.14.2"
+  }
+}
