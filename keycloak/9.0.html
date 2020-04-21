@@ -515,6 +515,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_spiinforepresentation">SpiInfoRepresentation</a></li>
 <li><a href="#_synchronizationresult">SynchronizationResult</a></li>
 <li><a href="#_systeminforepresentation">SystemInfoRepresentation</a></li>
+<li><a href="#_testldapconnectionrepresentation">TestLdapConnectionRepresentation</a></li>
 <li><a href="#_userconsentrepresentation">UserConsentRepresentation</a></li>
 <li><a href="#_userfederationmapperrepresentation">UserFederationMapperRepresentation</a></li>
 <li><a href="#_userfederationproviderrepresentation">UserFederationProviderRepresentation</a></li>
@@ -8683,7 +8684,7 @@ Schemes: HTTP</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">success</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_response">Response</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -13896,60 +13897,11 @@ Schemes: HTTP</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>action</strong><br>
-<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>config</strong><br>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bindCredential</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bindDn</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>componentId</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>connectionTimeout</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>connectionUrl</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>startTls</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>useTruststoreSpi</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_testldapconnectionrepresentation">TestLdapConnectionRepresentation</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -13978,14 +13930,19 @@ Schemes: HTTP</p>
 </tbody>
 </table>
 </div>
+<div class="sect4">
+<h5 id="_consumes_52">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_testsmtpconnection">Test SMTP connection with current logged in user</h4>
-<div class="literalblock">
-<div class="content">
-<pre>POST /{realm}/testSMTPConnection</pre>
-</div>
-</div>
+<h4 id="_testsmtpconnection">POST /{realm}/testSMTPConnection</h4>
 <div class="sect4">
 <h5 id="_parameters_171">Parameters</h5>
 <table class="tableblock frame-all grid-all spread">
@@ -14012,11 +13969,11 @@ Schemes: HTTP</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>FormData</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>config</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SMTP server configuration</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>settings</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_map">Map</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -14044,6 +14001,16 @@ Schemes: HTTP</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect4">
+<h5 id="_consumes_53">Consumes</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -14173,7 +14140,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_52">Consumes</h5>
+<h5 id="_consumes_54">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -14347,7 +14314,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_53">Consumes</h5>
+<h5 id="_consumes_55">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -14508,7 +14475,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_54">Consumes</h5>
+<h5 id="_consumes_56">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -14823,7 +14790,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_55">Consumes</h5>
+<h5 id="_consumes_57">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -14984,7 +14951,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_56">Consumes</h5>
+<h5 id="_consumes_58">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -15225,7 +15192,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_57">Consumes</h5>
+<h5 id="_consumes_59">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -15513,7 +15480,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_58">Consumes</h5>
+<h5 id="_consumes_60">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -15678,7 +15645,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_59">Consumes</h5>
+<h5 id="_consumes_61">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -15853,7 +15820,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_60">Consumes</h5>
+<h5 id="_consumes_62">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -16316,7 +16283,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_61">Consumes</h5>
+<h5 id="_consumes_63">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -16501,7 +16468,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_62">Consumes</h5>
+<h5 id="_consumes_64">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -16767,7 +16734,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_63">Consumes</h5>
+<h5 id="_consumes_65">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -16918,7 +16885,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_64">Consumes</h5>
+<h5 id="_consumes_66">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -17079,7 +17046,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_65">Consumes</h5>
+<h5 id="_consumes_67">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -17506,7 +17473,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_66">Consumes</h5>
+<h5 id="_consumes_68">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -17771,7 +17738,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_67">Consumes</h5>
+<h5 id="_consumes_69">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -17922,7 +17889,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_68">Consumes</h5>
+<h5 id="_consumes_70">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -18083,7 +18050,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_69">Consumes</h5>
+<h5 id="_consumes_71">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -18405,7 +18372,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_70">Consumes</h5>
+<h5 id="_consumes_72">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -18586,7 +18553,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_71">Consumes</h5>
+<h5 id="_consumes_73">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -18761,7 +18728,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_72">Consumes</h5>
+<h5 id="_consumes_74">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -19013,7 +18980,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_73">Consumes</h5>
+<h5 id="_consumes_75">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -19174,7 +19141,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_74">Consumes</h5>
+<h5 id="_consumes_76">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -19503,7 +19470,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_75">Consumes</h5>
+<h5 id="_consumes_77">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -19678,7 +19645,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_76">Consumes</h5>
+<h5 id="_consumes_78">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -19930,7 +19897,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_77">Consumes</h5>
+<h5 id="_consumes_79">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -20091,7 +20058,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_78">Consumes</h5>
+<h5 id="_consumes_80">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -20788,7 +20755,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_79">Consumes</h5>
+<h5 id="_consumes_81">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -21197,7 +21164,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_80">Consumes</h5>
+<h5 id="_consumes_82">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -21891,7 +21858,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_81">Consumes</h5>
+<h5 id="_consumes_83">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -21975,7 +21942,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_82">Consumes</h5>
+<h5 id="_consumes_84">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -22088,7 +22055,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_83">Consumes</h5>
+<h5 id="_consumes_85">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -22957,7 +22924,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_84">Consumes</h5>
+<h5 id="_consumes_86">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -23055,7 +23022,7 @@ Schemes: HTTP</p>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_consumes_85">Consumes</h5>
+<h5 id="_consumes_87">Consumes</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -23262,7 +23229,7 @@ Schemes: HTTP</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>auth_time</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int32)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>authorization</strong><br>
@@ -23312,7 +23279,7 @@ Schemes: HTTP</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>exp</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int32)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>family_name</strong><br>
@@ -23332,7 +23299,7 @@ Schemes: HTTP</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>iat</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int32)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>iss</strong><br>
@@ -23358,6 +23325,11 @@ Schemes: HTTP</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nbf</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer(int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nickname</strong><br>
@@ -26834,6 +26806,63 @@ _optional</em></p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_testldapconnectionrepresentation">TestLdapConnectionRepresentation</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42%;">
+<col style="width: 57%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>action</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bindCredential</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bindDn</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>componentId</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>connectionTimeout</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>connectionUrl</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>startTls</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>useTruststoreSpi</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_userconsentrepresentation">UserConsentRepresentation</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -27158,7 +27187,7 @@ _optional</em></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-17 11:18:00 UTC
+Last updated 2020-04-14 08:57:02 UTC
 </div>
 </div>
 </body>

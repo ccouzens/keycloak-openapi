@@ -7891,6 +7891,16 @@
     "/{realm}/testLDAPConnection": {
       "post": {
         "summary": "Test LDAP connection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestLdapConnectionRepresentation"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -7912,7 +7922,17 @@
     },
     "/{realm}/testSMTPConnection": {
       "post": {
-        "summary": "Test SMTP connection with current logged in user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "2XX": {
             "description": "success"
@@ -9888,7 +9908,7 @@
           },
           "auth_time": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "authorization": {
             "$ref": "#/components/schemas/AccessToken-Authorization"
@@ -9926,7 +9946,7 @@
           },
           "exp": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "family_name": {
             "type": "string"
@@ -9939,7 +9959,7 @@
           },
           "iat": {
             "type": "integer",
-            "format": "int32"
+            "format": "int64"
           },
           "iss": {
             "type": "string"
@@ -9955,6 +9975,10 @@
           },
           "name": {
             "type": "string"
+          },
+          "nbf": {
+            "type": "integer",
+            "format": "int64"
           },
           "nickname": {
             "type": "string"
@@ -12091,6 +12115,35 @@
             "type": "string"
           },
           "version": {
+            "type": "string"
+          }
+        }
+      },
+      "TestLdapConnectionRepresentation": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "bindCredential": {
+            "type": "string"
+          },
+          "bindDn": {
+            "type": "string"
+          },
+          "componentId": {
+            "type": "string"
+          },
+          "connectionTimeout": {
+            "type": "string"
+          },
+          "connectionUrl": {
+            "type": "string"
+          },
+          "startTls": {
+            "type": "string"
+          },
+          "useTruststoreSpi": {
             "type": "string"
           }
         }
