@@ -9285,6 +9285,13 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "access_token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": null
+      }
+    },
     "schemas": {
       "AccessToken": {
         "type": "object",
@@ -11639,6 +11646,11 @@
       }
     }
   },
+  "security": [
+    {
+      "access_token": []
+    }
+  ],
   "externalDocs": {
     "description": "Schema source code",
     "url": "https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations"

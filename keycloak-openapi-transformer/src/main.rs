@@ -1,6 +1,7 @@
-use openapiv3::OpenAPI;
+use openapiv3::{OpenAPI, ReferenceOr, SecurityRequirement, SecurityScheme};
 use scraper::Html;
 use serde_json::to_string_pretty;
+use std::collections::BTreeMap;
 #[macro_use]
 extern crate lazy_static;
 use std::io::{self, Read};
@@ -9,15 +10,31 @@ mod components;
 mod info;
 mod paths;
 
+const ACCESS_TOKEN: &str = "access_token";
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut html = String::new();
     io::stdin().read_to_string(&mut html)?;
     let document = Html::parse_document(&html);
+
+    let mut security_schemes = BTreeMap::new();
+    security_schemes.insert(
+        ACCESS_TOKEN.to_string(),
+        ReferenceOr::Item(SecurityScheme::HTTP {
+            scheme: "bearer".to_string(),
+            bearer_format: None,
+        }),
+    );
+
+    let mut security_requirement: SecurityRequirement = BTreeMap::new();
+    security_requirement.insert(ACCESS_TOKEN.to_string(), Vec::new());
+
     let spec = OpenAPI {
         openapi: "3.0.2".to_string(),
         info: info::parse(&document)?,
         components: Some(openapiv3::Components {
             schemas: components::schemas::parse_schemas(&document),
+            security_schemes,
             ..Default::default()
         }),
         external_docs: Some(openapiv3::ExternalDocumentation {
@@ -25,6 +42,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             url: "https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations".to_string()
         }),
         paths: paths::paths(&document),
+        security: vec!(security_requirement),
         ..Default::default()
     };
 
