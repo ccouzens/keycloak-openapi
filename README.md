@@ -66,8 +66,11 @@ docker container run --rm -e KEYCLOAK_USER=admin-user -e KEYCLOAK_PASSWORD=admin
 # Open http://localhost:8080/ and wait for keycloak to start up
 
 # In a second terminal run
-make example_app/dist
-node example_app/dist/index.js
+cd example_app
+npm install
+npm run generate-client
+npm run compile
+node dist/index.js
 # prints out
 # The default clients:
 #   account
