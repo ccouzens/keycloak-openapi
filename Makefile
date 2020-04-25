@@ -1,4 +1,13 @@
-specs = keycloak/5.0.json keycloak/6.0.json keycloak/7.0.json keycloak/8.0.json keycloak/9.0.json keycloak/sso-6.json keycloak/sso-7.3.json
+specs = \
+keycloak/5.0.json \
+keycloak/6.0.json \
+keycloak/7.0.json \
+keycloak/8.0.json \
+keycloak/9.0.json \
+keycloak/sso-6.json \
+keycloak/sso-7.3.json \
+keycloak/sso-7.4.json
+
 html = keycloak/5.0.html keycloak/6.0.html keycloak/7.0.html keycloak/8.0.html keycloak/9.0.html
 
 .PHONY : all

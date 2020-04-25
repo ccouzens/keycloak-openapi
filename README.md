@@ -19,7 +19,7 @@ Admin API definitions are not distributed in this repository, but can
 be generated.
 
 ```bash
-make keycloak/sso-6.json keycloak/sso-7.3.json
+make keycloak/sso-6.json keycloak/sso-7.3.json keycloak/sso-7.4.json
 ```
 
 ## Licensing
