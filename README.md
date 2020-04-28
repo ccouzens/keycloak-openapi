@@ -93,8 +93,8 @@ All the OpenAPI definitions are generated from the published HTML
 documentation. This tool transforms the HTML documentation into OpenAPI
 definitions.
 
-HTML of the documentation is inputted through stdin and the JSON of the
-definition is outputted through stdout.
+HTML of the documentation is inputted through `stdin` and the JSON of the
+definition is outputted through `stdout`.
 
 ## Requirements
 
@@ -107,7 +107,7 @@ definitions requires:
 Building the transformer requires
 [`Rust`](https://www.rust-lang.org/tools/install).
 
-Building the example app requires `make`, `Node` and `Java`.
+Building the example app requires `Node` and `Java`.
 
 Running the keycloak instance that pairs with the example app requires
 `Docker`.
