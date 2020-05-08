@@ -9,8 +9,10 @@ mod verb_path;
 use verb_path::VerbPath;
 
 lazy_static! {
-    static ref PATH_SECTION_SELECTOR: Selector =
-        Selector::parse("#_paths + .sectionbody > .sect2 > .sect3").unwrap();
+    static ref TAG_SECTION_SELECTOR: Selector =
+        Selector::parse("#_paths + .sectionbody > .sect2").unwrap();
+    static ref TAG_TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
+    static ref PATH_SECTION_SELECTOR: Selector = Selector::parse(".sect3").unwrap();
     static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
     static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
 }
@@ -18,39 +20,52 @@ lazy_static! {
 pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let mut paths = openapiv3::Paths::default();
 
-    let sections = document.select(&PATH_SECTION_SELECTOR).collect::<Vec<_>>();
-    for section in sections.iter().rev() {
-        let verb_path = verb_path_split(&section);
-        if verb_path.unrepresentable() {
-            continue;
-        };
-        if let openapiv3::ReferenceOr::Item(path_item) =
-            paths.entry(verb_path.path()).or_insert_with(|| {
-                openapiv3::ReferenceOr::Item(openapiv3::PathItem {
-                    parameters: parameters::parse_path(&section, &verb_path),
-                    ..Default::default()
+    for tag_section in document.select(&TAG_SECTION_SELECTOR) {
+        let tag = tag_section
+            .select(&TAG_TITLE_SELECTOR)
+            .next()
+            .unwrap()
+            .text()
+            .collect::<String>();
+
+        let sections = tag_section
+            .select(&PATH_SECTION_SELECTOR)
+            .collect::<Vec<_>>();
+        for section in sections.iter().rev() {
+            let verb_path = verb_path_split(&section);
+            if verb_path.unrepresentable() {
+                continue;
+            };
+            if let openapiv3::ReferenceOr::Item(path_item) =
+                paths.entry(verb_path.path()).or_insert_with(|| {
+                    openapiv3::ReferenceOr::Item(openapiv3::PathItem {
+                        parameters: parameters::parse_path(&section, &verb_path),
+                        ..Default::default()
+                    })
                 })
-            })
-        {
-            let operation = Some(operation::parse(&section));
-            (match verb_path.verb.as_ref() {
-                "DELETE" => {
-                    path_item.delete = operation;
-                }
-                "GET" => {
-                    path_item.get = operation;
-                }
-                "POST" => {
-                    path_item.post = operation;
-                }
-                "PUT" => {
-                    path_item.put = operation;
-                }
-                "OPTIONS" => {
-                    path_item.options = operation;
-                }
-                _ => panic!(format!("Unexpected HTTP verb: {:?}", verb_path.verb)),
-            });
+            {
+                let mut operation = operation::parse(&section);
+                operation.tags = vec![tag.clone(), "Default".to_string()];
+                let operation = Some(operation);
+                match verb_path.verb.as_ref() {
+                    "DELETE" => {
+                        path_item.delete = operation;
+                    }
+                    "GET" => {
+                        path_item.get = operation;
+                    }
+                    "POST" => {
+                        path_item.post = operation;
+                    }
+                    "PUT" => {
+                        path_item.put = operation;
+                    }
+                    "OPTIONS" => {
+                        path_item.options = operation;
+                    }
+                    _ => panic!(format!("Unexpected HTTP verb: {:?}", verb_path.verb)),
+                };
+            }
         }
     }
 
