@@ -1,5 +1,4 @@
-import { DefaultApi } from "./keycloak-client/api";
-import { exit } from "process";
+import { ClientsApi, Configuration } from "./keycloak-client";
 import { Issuer } from "openid-client";
 
 (async () => {
@@ -17,12 +16,12 @@ import { Issuer } from "openid-client";
     password: "admin-password",
   });
 
-  const api = new DefaultApi(
-    { accessToken: token.access_token },
-    "http://localhost:8080/auth/admin/realms"
-  );
+  const config: Configuration = {
+    accessToken: token.access_token,
+    basePath: "http://localhost:8080/auth/admin/realms",
+  };
 
-  const clients = await api.realmClientsGet("master");
+  const clients = await new ClientsApi(config).realmClientsGet("master");
 
   console.log("The default clients:");
   for (const client of clients.data) {
@@ -30,5 +29,5 @@ import { Issuer } from "openid-client";
   }
 })().catch((err) => {
   console.error(err);
-  exit(1);
+  process.exit(1);
 });

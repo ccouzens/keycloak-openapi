@@ -9,8 +9,7 @@
     "/": {
       "get": {
         "tags": [
-          "Root",
-          "Default"
+          "Root"
         ],
         "summary": "Get themes, social providers, auth providers, and event listeners available on this server",
         "responses": {
@@ -28,8 +27,7 @@
       },
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Import a realm   Imports a realm from a full representation of that realm.",
         "requestBody": {
@@ -53,8 +51,7 @@
     "/{id}/name": {
       "get": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328",
         "responses": {
@@ -86,8 +83,7 @@
     "/{realm}": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get the top-level representation of the realm   It will not include nested information like User and Client representations.",
         "responses": {
@@ -105,8 +101,7 @@
       },
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.",
         "requestBody": {
@@ -127,8 +122,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Delete the realm",
         "responses": {
@@ -153,8 +147,7 @@
     "/{realm}/admin-events": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get admin events   Returns all admin events, or filters events based on URL query parameters listed here",
         "parameters": [
@@ -275,8 +268,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Delete all admin events",
         "responses": {
@@ -301,8 +293,7 @@
     "/{realm}/attack-detection/brute-force/users": {
       "delete": {
         "tags": [
-          "Attack Detection",
-          "Default"
+          "Attack Detection"
         ],
         "summary": "Clear any user login failures for all users   This can release temporary disabled users",
         "responses": {
@@ -327,8 +318,7 @@
     "/{realm}/attack-detection/brute-force/users/{userId}": {
       "get": {
         "tags": [
-          "Attack Detection",
-          "Default"
+          "Attack Detection"
         ],
         "summary": "Get status of a username in brute force detection",
         "responses": {
@@ -347,8 +337,7 @@
       },
       "delete": {
         "tags": [
-          "Attack Detection",
-          "Default"
+          "Attack Detection"
         ],
         "summary": "Clear any user login failures for the user   This can release temporary disabled user",
         "responses": {
@@ -382,8 +371,7 @@
     "/{realm}/authentication/authenticator-providers": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authenticator providers   Returns a list of authenticator providers.",
         "responses": {
@@ -419,8 +407,7 @@
     "/{realm}/authentication/client-authenticator-providers": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get client authenticator providers   Returns a list of client authenticator providers.",
         "responses": {
@@ -456,8 +443,7 @@
     "/{realm}/authentication/config-description/{providerId}": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authenticator provider’s configuration description",
         "responses": {
@@ -498,8 +484,7 @@
     "/{realm}/authentication/config/{id}": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authenticator configuration",
         "responses": {
@@ -517,8 +502,7 @@
       },
       "put": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Update authenticator configuration",
         "requestBody": {
@@ -540,8 +524,7 @@
       },
       "delete": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Delete authenticator configuration",
         "responses": {
@@ -576,8 +559,7 @@
     "/{realm}/authentication/executions": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Add new authentication execution",
         "requestBody": {
@@ -613,8 +595,7 @@
     "/{realm}/authentication/executions/{executionId}": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get Single Execution",
         "responses": {
@@ -625,8 +606,7 @@
       },
       "delete": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Delete execution",
         "responses": {
@@ -661,8 +641,7 @@
     "/{realm}/authentication/executions/{executionId}/config": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Update execution with new configuration",
         "requestBody": {
@@ -708,8 +687,7 @@
     "/{realm}/authentication/executions/{executionId}/lower-priority": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Lower execution’s priority",
         "responses": {
@@ -744,8 +722,7 @@
     "/{realm}/authentication/executions/{executionId}/raise-priority": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Raise execution’s priority",
         "responses": {
@@ -780,8 +757,7 @@
     "/{realm}/authentication/flows": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authentication flows   Returns a list of authentication flows.",
         "responses": {
@@ -802,8 +778,7 @@
       },
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Create a new authentication flow",
         "requestBody": {
@@ -839,8 +814,7 @@
     "/{realm}/authentication/flows/{flowAlias}/copy": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object",
         "requestBody": {
@@ -887,8 +861,7 @@
     "/{realm}/authentication/flows/{flowAlias}/executions": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authentication executions for a flow",
         "responses": {
@@ -899,8 +872,7 @@
       },
       "put": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Update authentication executions of a flow",
         "requestBody": {
@@ -945,8 +917,7 @@
     "/{realm}/authentication/flows/{flowAlias}/executions/execution": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Add new authentication execution to a flow",
         "requestBody": {
@@ -993,8 +964,7 @@
     "/{realm}/authentication/flows/{flowAlias}/executions/flow": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Add new flow with new execution to existing flow",
         "requestBody": {
@@ -1041,8 +1011,7 @@
     "/{realm}/authentication/flows/{id}": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get authentication flow for id",
         "responses": {
@@ -1060,8 +1029,7 @@
       },
       "put": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Update an authentication flow",
         "requestBody": {
@@ -1083,8 +1051,7 @@
       },
       "delete": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Delete an authentication flow",
         "responses": {
@@ -1119,8 +1086,7 @@
     "/{realm}/authentication/form-action-providers": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get form action providers   Returns a list of form action providers.",
         "responses": {
@@ -1156,8 +1122,7 @@
     "/{realm}/authentication/form-providers": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get form providers   Returns a list of form providers.",
         "responses": {
@@ -1193,8 +1158,7 @@
     "/{realm}/authentication/per-client-config-description": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get configuration descriptions for all clients",
         "responses": {
@@ -1227,8 +1191,7 @@
     "/{realm}/authentication/register-required-action": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Register a new required actions",
         "requestBody": {
@@ -1265,8 +1228,7 @@
     "/{realm}/authentication/required-actions": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get required actions   Returns a list of required actions.",
         "responses": {
@@ -1301,8 +1263,7 @@
     "/{realm}/authentication/required-actions/{alias}": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get required action for alias",
         "responses": {
@@ -1320,8 +1281,7 @@
       },
       "put": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Update required action",
         "requestBody": {
@@ -1343,8 +1303,7 @@
       },
       "delete": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Delete required action",
         "responses": {
@@ -1379,8 +1338,7 @@
     "/{realm}/authentication/required-actions/{alias}/lower-priority": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Lower required action’s priority",
         "responses": {
@@ -1415,8 +1373,7 @@
     "/{realm}/authentication/required-actions/{alias}/raise-priority": {
       "post": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Raise required action’s priority",
         "responses": {
@@ -1451,8 +1408,7 @@
     "/{realm}/authentication/unregistered-required-actions": {
       "get": {
         "tags": [
-          "Authentication Management",
-          "Default"
+          "Authentication Management"
         ],
         "summary": "Get unregistered required actions   Returns a list of unregistered required actions.",
         "responses": {
@@ -1488,8 +1444,7 @@
     "/{realm}/clear-keys-cache": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Clear cache of external public keys (Public keys of clients or Identity providers)",
         "responses": {
@@ -1514,8 +1469,7 @@
     "/{realm}/clear-realm-cache": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Clear realm cache",
         "responses": {
@@ -1540,8 +1494,7 @@
     "/{realm}/clear-user-cache": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Clear user cache",
         "responses": {
@@ -1566,8 +1519,7 @@
     "/{realm}/client-description-converter": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Base path for importing clients under this realm.",
         "requestBody": {
@@ -1609,8 +1561,7 @@
     "/{realm}/client-registration-policy/providers": {
       "get": {
         "tags": [
-          "Client Registration Policy",
-          "Default"
+          "Client Registration Policy"
         ],
         "summary": "Base path for retrieve providers with the configProperties properly filled",
         "responses": {
@@ -1645,8 +1596,7 @@
     "/{realm}/client-scopes": {
       "get": {
         "tags": [
-          "Client Scopes",
-          "Default"
+          "Client Scopes"
         ],
         "summary": "Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm",
         "responses": {
@@ -1667,8 +1617,7 @@
       },
       "post": {
         "tags": [
-          "Client Scopes",
-          "Default"
+          "Client Scopes"
         ],
         "summary": "Create a new client scope   Client Scope’s name must be unique!",
         "requestBody": {
@@ -1703,8 +1652,7 @@
     "/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mapper by id",
         "responses": {
@@ -1722,8 +1670,7 @@
       },
       "put": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Update the mapper",
         "requestBody": {
@@ -1744,8 +1691,7 @@
       },
       "delete": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Delete the mapper",
         "responses": {
@@ -1788,8 +1734,7 @@
     "/{realm}/client-scopes/{id}": {
       "get": {
         "tags": [
-          "Client Scopes",
-          "Default"
+          "Client Scopes"
         ],
         "summary": "Get representation of the client scope",
         "responses": {
@@ -1807,8 +1752,7 @@
       },
       "put": {
         "tags": [
-          "Client Scopes",
-          "Default"
+          "Client Scopes"
         ],
         "summary": "Update the client scope",
         "requestBody": {
@@ -1829,8 +1773,7 @@
       },
       "delete": {
         "tags": [
-          "Client Scopes",
-          "Default"
+          "Client Scopes"
         ],
         "summary": "Delete the client scope",
         "responses": {
@@ -1865,8 +1808,7 @@
     "/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
       "post": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Create multiple mappers",
         "requestBody": {
@@ -1914,8 +1856,7 @@
     "/{realm}/client-scopes/{id}/protocol-mappers/models": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mappers",
         "responses": {
@@ -1936,8 +1877,7 @@
       },
       "post": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Create a mapper",
         "requestBody": {
@@ -1982,8 +1922,7 @@
     "/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
@@ -2037,8 +1976,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get all scope mappings for the client",
         "responses": {
@@ -2080,8 +2018,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
@@ -2102,8 +2039,7 @@
       },
       "post": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
@@ -2127,8 +2063,7 @@
       },
       "delete": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
@@ -2185,8 +2120,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
@@ -2240,8 +2174,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "responses": {
@@ -2295,8 +2228,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/realm": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
@@ -2317,8 +2249,7 @@
       },
       "post": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
@@ -2342,8 +2273,7 @@
       },
       "delete": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
@@ -2391,8 +2321,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
@@ -2437,8 +2366,7 @@
     "/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "responses": {
@@ -2483,8 +2411,7 @@
     "/{realm}/client-session-stats": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get client session stats   Returns a JSON map.",
         "responses": {
@@ -2520,8 +2447,7 @@
     "/{realm}/clients": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get clients belonging to the realm   Returns a list of clients belonging to the realm",
         "parameters": [
@@ -2562,8 +2488,7 @@
       },
       "post": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Create a new client   Client’s client_id must be unique!",
         "requestBody": {
@@ -2598,8 +2523,7 @@
     "/{realm}/clients-initial-access": {
       "get": {
         "tags": [
-          "Client Initial Access",
-          "Default"
+          "Client Initial Access"
         ],
         "responses": {
           "2XX": {
@@ -2619,8 +2543,7 @@
       },
       "post": {
         "tags": [
-          "Client Initial Access",
-          "Default"
+          "Client Initial Access"
         ],
         "summary": "Create a new initial access token.",
         "requestBody": {
@@ -2662,8 +2585,7 @@
     "/{realm}/clients-initial-access/{id}": {
       "delete": {
         "tags": [
-          "Client Initial Access",
-          "Default"
+          "Client Initial Access"
         ],
         "responses": {
           "2XX": {
@@ -2696,8 +2618,7 @@
     "/{realm}/clients/{id1}/protocol-mappers/models/{id2}": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mapper by id",
         "responses": {
@@ -2715,8 +2636,7 @@
       },
       "put": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Update the mapper",
         "requestBody": {
@@ -2737,8 +2657,7 @@
       },
       "delete": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Delete the mapper",
         "responses": {
@@ -2781,8 +2700,7 @@
     "/{realm}/clients/{id}": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get representation of the client",
         "responses": {
@@ -2800,8 +2718,7 @@
       },
       "put": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Update the client",
         "requestBody": {
@@ -2822,8 +2739,7 @@
       },
       "delete": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Delete the client",
         "responses": {
@@ -2858,8 +2774,7 @@
     "/{realm}/clients/{id}/certificates/{attr}": {
       "get": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Get key info",
         "responses": {
@@ -2910,8 +2825,7 @@
     "/{realm}/clients/{id}/certificates/{attr}/download": {
       "post": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Get a keystore file for the client, containing private key and public certificate",
         "requestBody": {
@@ -2974,8 +2888,7 @@
     "/{realm}/clients/{id}/certificates/{attr}/generate": {
       "post": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Generate a new certificate with new key pair",
         "responses": {
@@ -3026,8 +2939,7 @@
     "/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
       "post": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.",
         "requestBody": {
@@ -3090,8 +3002,7 @@
     "/{realm}/clients/{id}/certificates/{attr}/upload": {
       "post": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Upload certificate and eventually private key",
         "responses": {
@@ -3142,8 +3053,7 @@
     "/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {
       "post": {
         "tags": [
-          "Client Attribute Certificate",
-          "Default"
+          "Client Attribute Certificate"
         ],
         "summary": "Upload only certificate, not private key",
         "responses": {
@@ -3194,8 +3104,7 @@
     "/{realm}/clients/{id}/client-secret": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get the client secret",
         "responses": {
@@ -3213,8 +3122,7 @@
       },
       "post": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Generate a new secret for the client",
         "responses": {
@@ -3256,8 +3164,7 @@
     "/{realm}/clients/{id}/default-client-scopes": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get default client scopes.",
         "responses": {
@@ -3302,8 +3209,7 @@
     "/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
       "put": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "responses": {
           "2XX": {
@@ -3313,8 +3219,7 @@
       },
       "delete": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "responses": {
           "2XX": {
@@ -3357,8 +3262,7 @@
     "/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Create JSON with payload of example access token",
         "parameters": [
@@ -3418,8 +3322,7 @@
     "/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
         "parameters": [
@@ -3474,8 +3377,7 @@
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
         "parameters": [
@@ -3540,8 +3442,7 @@
     "/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
         "parameters": [
@@ -3606,8 +3507,7 @@
     "/{realm}/clients/{id}/installation/providers/{providerId}": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "responses": {
           "2XX": {
@@ -3650,8 +3550,7 @@
     "/{realm}/clients/{id}/management/permissions": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
@@ -3669,8 +3568,7 @@
       },
       "put": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
@@ -3722,8 +3620,7 @@
     "/{realm}/clients/{id}/nodes": {
       "post": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak",
         "requestBody": {
@@ -3769,8 +3666,7 @@
     "/{realm}/clients/{id}/nodes/{node}": {
       "delete": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Unregister a cluster node from the client",
         "responses": {
@@ -3814,8 +3710,7 @@
     "/{realm}/clients/{id}/offline-session-count": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get application offline session count   Returns a number of offline user sessions associated with this client   {      \"count\": number  }",
         "responses": {
@@ -3858,8 +3753,7 @@
     "/{realm}/clients/{id}/offline-sessions": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get offline sessions for client   Returns a list of offline user sessions associated with this client",
         "parameters": [
@@ -3926,8 +3820,7 @@
     "/{realm}/clients/{id}/optional-client-scopes": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get optional client scopes.",
         "responses": {
@@ -3972,8 +3865,7 @@
     "/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
       "put": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "responses": {
           "2XX": {
@@ -3983,8 +3875,7 @@
       },
       "delete": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "responses": {
           "2XX": {
@@ -4027,8 +3918,7 @@
     "/{realm}/clients/{id}/protocol-mappers/add-models": {
       "post": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Create multiple mappers",
         "requestBody": {
@@ -4076,8 +3966,7 @@
     "/{realm}/clients/{id}/protocol-mappers/models": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mappers",
         "responses": {
@@ -4098,8 +3987,7 @@
       },
       "post": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Create a mapper",
         "requestBody": {
@@ -4144,8 +4032,7 @@
     "/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
       "get": {
         "tags": [
-          "Protocol Mappers",
-          "Default"
+          "Protocol Mappers"
         ],
         "summary": "Get mappers by name for a specific protocol",
         "responses": {
@@ -4199,8 +4086,7 @@
     "/{realm}/clients/{id}/push-revocation": {
       "post": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it.",
         "responses": {
@@ -4242,8 +4128,7 @@
     "/{realm}/clients/{id}/registration-access-token": {
       "post": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Generate a new registration access token for the client",
         "responses": {
@@ -4285,8 +4170,7 @@
     "/{realm}/clients/{id}/roles": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get all roles for the realm or client",
         "responses": {
@@ -4307,8 +4191,7 @@
       },
       "post": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Create a new role for the realm or client",
         "requestBody": {
@@ -4353,8 +4236,7 @@
     "/{realm}/clients/{id}/roles/{role-name}": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get a role by name",
         "responses": {
@@ -4372,8 +4254,7 @@
       },
       "put": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Update a role by name",
         "requestBody": {
@@ -4394,8 +4275,7 @@
       },
       "delete": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Delete a role by name",
         "responses": {
@@ -4440,8 +4320,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/composites": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get composites of the role",
         "responses": {
@@ -4462,8 +4341,7 @@
       },
       "post": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Add a composite to the role",
         "requestBody": {
@@ -4487,8 +4365,7 @@
       },
       "delete": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
@@ -4547,8 +4424,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/composites/clients/{client}": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "An app-level roles for the specified app for the role’s composite",
         "responses": {
@@ -4612,8 +4488,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
@@ -4668,8 +4543,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/groups": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return List of Groups that have the specified role name",
         "parameters": [
@@ -4752,8 +4626,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
@@ -4771,8 +4644,7 @@
       },
       "put": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
@@ -4833,8 +4705,7 @@
     "/{realm}/clients/{id}/roles/{role-name}/users": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return List of Users that have the specified role name",
         "parameters": [
@@ -4908,8 +4779,7 @@
     "/{realm}/clients/{id}/scope-mappings": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get all scope mappings for the client",
         "responses": {
@@ -4951,8 +4821,7 @@
     "/{realm}/clients/{id}/scope-mappings/clients/{client}": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get the roles associated with a client’s scope   Returns roles for the client.",
         "responses": {
@@ -4973,8 +4842,7 @@
       },
       "post": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Add client-level roles to the client’s scope",
         "requestBody": {
@@ -4998,8 +4866,7 @@
       },
       "delete": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Remove client-level roles from the client’s scope.",
         "requestBody": {
@@ -5056,8 +4923,7 @@
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "The available client-level roles   Returns the roles for the client that can be associated with the client’s scope",
         "responses": {
@@ -5111,8 +4977,7 @@
     "/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get effective client roles   Returns the roles for the client that are associated with the client’s scope.",
         "responses": {
@@ -5166,8 +5031,7 @@
     "/{realm}/clients/{id}/scope-mappings/realm": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get realm-level roles associated with the client’s scope",
         "responses": {
@@ -5188,8 +5052,7 @@
       },
       "post": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Add a set of realm-level roles to the client’s scope",
         "requestBody": {
@@ -5213,8 +5076,7 @@
       },
       "delete": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Remove a set of realm-level roles from the client’s scope",
         "requestBody": {
@@ -5262,8 +5124,7 @@
     "/{realm}/clients/{id}/scope-mappings/realm/available": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get realm-level roles that are available to attach to this client’s scope",
         "responses": {
@@ -5308,8 +5169,7 @@
     "/{realm}/clients/{id}/scope-mappings/realm/composite": {
       "get": {
         "tags": [
-          "Scope Mappings",
-          "Default"
+          "Scope Mappings"
         ],
         "summary": "Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.",
         "responses": {
@@ -5354,8 +5214,7 @@
     "/{realm}/clients/{id}/service-account-user": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get a user dedicated to the service account",
         "responses": {
@@ -5397,8 +5256,7 @@
     "/{realm}/clients/{id}/session-count": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get application session count   Returns a number of user sessions associated with this client   {      \"count\": number  }",
         "responses": {
@@ -5441,8 +5299,7 @@
     "/{realm}/clients/{id}/test-nodes-available": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.",
         "responses": {
@@ -5484,8 +5341,7 @@
     "/{realm}/clients/{id}/user-sessions": {
       "get": {
         "tags": [
-          "Clients",
-          "Default"
+          "Clients"
         ],
         "summary": "Get user sessions for client   Returns a list of user sessions associated with this client",
         "parameters": [
@@ -5552,8 +5408,7 @@
     "/{realm}/components": {
       "get": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "parameters": [
           {
@@ -5599,8 +5454,7 @@
       },
       "post": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "requestBody": {
           "content": {
@@ -5634,8 +5488,7 @@
     "/{realm}/components/{id}": {
       "get": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "responses": {
           "2XX": {
@@ -5652,8 +5505,7 @@
       },
       "put": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "requestBody": {
           "content": {
@@ -5673,8 +5525,7 @@
       },
       "delete": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "responses": {
           "2XX": {
@@ -5707,8 +5558,7 @@
     "/{realm}/components/{id}/sub-component-types": {
       "get": {
         "tags": [
-          "Component",
-          "Default"
+          "Component"
         ],
         "summary": "List of subcomponent types that are available to configure for a particular parent component.",
         "parameters": [
@@ -5762,8 +5612,7 @@
     "/{realm}/default-default-client-scopes": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get realm default client scopes.",
         "responses": {
@@ -5798,8 +5647,7 @@
     "/{realm}/default-default-client-scopes/{clientScopeId}": {
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -5809,8 +5657,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -5843,8 +5690,7 @@
     "/{realm}/default-groups": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get group hierarchy.",
         "responses": {
@@ -5879,8 +5725,7 @@
     "/{realm}/default-groups/{groupId}": {
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -5890,8 +5735,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -5924,8 +5768,7 @@
     "/{realm}/default-optional-client-scopes": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get realm optional client scopes.",
         "responses": {
@@ -5960,8 +5803,7 @@
     "/{realm}/default-optional-client-scopes/{clientScopeId}": {
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -5971,8 +5813,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -6005,8 +5846,7 @@
     "/{realm}/events": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get events   Returns all events, or filters them based on URL query parameters listed here",
         "parameters": [
@@ -6106,8 +5946,7 @@
       },
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Delete all events",
         "responses": {
@@ -6132,8 +5971,7 @@
     "/{realm}/events/config": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Get the events provider configuration   Returns JSON object with events provider configuration",
         "responses": {
@@ -6151,8 +5989,7 @@
       },
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Update the events provider   Change the events provider and/or its configuration",
         "requestBody": {
@@ -6187,8 +6024,7 @@
     "/{realm}/group-by-path/{path}": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -6228,8 +6064,7 @@
     "/{realm}/groups": {
       "get": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Get group hierarchy.",
         "parameters": [
@@ -6278,8 +6113,7 @@
       },
       "post": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "create or add a top level realm groupSet or create child.",
         "requestBody": {
@@ -6314,8 +6148,7 @@
     "/{realm}/groups/count": {
       "get": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Returns the groups counts.",
         "parameters": [
@@ -6366,8 +6199,7 @@
     "/{realm}/groups/{id}": {
       "get": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "responses": {
           "2XX": {
@@ -6384,8 +6216,7 @@
       },
       "put": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Update group, ignores subgroups.",
         "requestBody": {
@@ -6406,8 +6237,7 @@
       },
       "delete": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "responses": {
           "2XX": {
@@ -6440,8 +6270,7 @@
     "/{realm}/groups/{id}/children": {
       "post": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Set or create child.",
         "requestBody": {
@@ -6485,8 +6314,7 @@
     "/{realm}/groups/{id}/management/permissions": {
       "get": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
@@ -6504,8 +6332,7 @@
       },
       "put": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
@@ -6556,8 +6383,7 @@
     "/{realm}/groups/{id}/members": {
       "get": {
         "tags": [
-          "Groups",
-          "Default"
+          "Groups"
         ],
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
         "parameters": [
@@ -6632,8 +6458,7 @@
     "/{realm}/groups/{id}/role-mappings": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get role mappings",
         "responses": {
@@ -6674,8 +6499,7 @@
     "/{realm}/groups/{id}/role-mappings/clients/{client}": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
@@ -6696,8 +6520,7 @@
       },
       "post": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
@@ -6721,8 +6544,7 @@
       },
       "delete": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
@@ -6778,8 +6600,7 @@
     "/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
@@ -6832,8 +6653,7 @@
     "/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "responses": {
@@ -6886,8 +6706,7 @@
     "/{realm}/groups/{id}/role-mappings/realm": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get realm-level role mappings",
         "responses": {
@@ -6908,8 +6727,7 @@
       },
       "post": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
@@ -6934,8 +6752,7 @@
       },
       "delete": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Delete realm-level role mappings",
         "requestBody": {
@@ -6982,8 +6799,7 @@
     "/{realm}/groups/{id}/role-mappings/realm/available": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
@@ -7027,8 +6843,7 @@
     "/{realm}/groups/{id}/role-mappings/realm/composite": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "responses": {
@@ -7072,8 +6887,7 @@
     "/{realm}/identity-provider/import-config": {
       "post": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Import identity provider from uploaded JSON file",
         "responses": {
@@ -7106,8 +6920,7 @@
     "/{realm}/identity-provider/instances": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get identity providers",
         "responses": {
@@ -7128,8 +6941,7 @@
       },
       "post": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Create a new identity provider",
         "requestBody": {
@@ -7165,8 +6977,7 @@
     "/{realm}/identity-provider/instances/{alias}": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get the identity provider",
         "responses": {
@@ -7184,8 +6995,7 @@
       },
       "put": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Update the identity provider",
         "requestBody": {
@@ -7206,8 +7016,7 @@
       },
       "delete": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Delete the identity provider",
         "responses": {
@@ -7241,8 +7050,7 @@
     "/{realm}/identity-provider/instances/{alias}/export": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Export public broker configuration for identity provider",
         "parameters": [
@@ -7287,8 +7095,7 @@
     "/{realm}/identity-provider/instances/{alias}/management/permissions": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "responses": {
@@ -7306,8 +7113,7 @@
       },
       "put": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
         "requestBody": {
@@ -7358,8 +7164,7 @@
     "/{realm}/identity-provider/instances/{alias}/mapper-types": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get mapper types for identity provider",
         "responses": {
@@ -7393,8 +7198,7 @@
     "/{realm}/identity-provider/instances/{alias}/mappers": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get mappers for identity provider",
         "responses": {
@@ -7415,8 +7219,7 @@
       },
       "post": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Add a mapper to identity provider",
         "requestBody": {
@@ -7460,8 +7263,7 @@
     "/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get mapper by id for the identity provider",
         "responses": {
@@ -7479,8 +7281,7 @@
       },
       "put": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Update a mapper for the identity provider",
         "requestBody": {
@@ -7501,8 +7302,7 @@
       },
       "delete": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Delete a mapper for the identity provider",
         "responses": {
@@ -7546,8 +7346,7 @@
     "/{realm}/identity-provider/providers/{provider_id}": {
       "get": {
         "tags": [
-          "Identity Providers",
-          "Default"
+          "Identity Providers"
         ],
         "summary": "Get identity providers",
         "responses": {
@@ -7582,8 +7381,7 @@
     "/{realm}/keys": {
       "get": {
         "tags": [
-          "Key",
-          "Default"
+          "Key"
         ],
         "responses": {
           "2XX": {
@@ -7614,8 +7412,7 @@
     "/{realm}/logout-all": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Removes all user sessions.",
         "responses": {
@@ -7640,8 +7437,7 @@
     "/{realm}/partial-export": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Partial export of existing realm into a JSON file.",
         "parameters": [
@@ -7691,8 +7487,7 @@
     "/{realm}/partialImport": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Partial import from a JSON file to an existing realm.",
         "requestBody": {
@@ -7727,8 +7522,7 @@
     "/{realm}/push-revocation": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Push the realm’s revocation policy to any client that has an admin url associated with it.",
         "responses": {
@@ -7753,8 +7547,7 @@
     "/{realm}/roles": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get all roles for the realm or client",
         "responses": {
@@ -7775,8 +7568,7 @@
       },
       "post": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Create a new role for the realm or client",
         "requestBody": {
@@ -7811,8 +7603,7 @@
     "/{realm}/roles-by-id/{role-id}": {
       "get": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Get a specific role’s representation",
         "responses": {
@@ -7830,8 +7621,7 @@
       },
       "put": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Update the role",
         "requestBody": {
@@ -7852,8 +7642,7 @@
       },
       "delete": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Delete the role",
         "responses": {
@@ -7888,8 +7677,7 @@
     "/{realm}/roles-by-id/{role-id}/composites": {
       "get": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Get role’s children   Returns a set of role’s children provided the role is a composite.",
         "responses": {
@@ -7910,8 +7698,7 @@
       },
       "post": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Make the role a composite role by associating some child roles",
         "requestBody": {
@@ -7935,8 +7722,7 @@
       },
       "delete": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Remove a set of roles from the role’s composite",
         "requestBody": {
@@ -7985,8 +7771,7 @@
     "/{realm}/roles-by-id/{role-id}/composites/clients/{client}": {
       "get": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Get client-level roles for the client that are in the role’s composite",
         "responses": {
@@ -8039,8 +7824,7 @@
     "/{realm}/roles-by-id/{role-id}/composites/realm": {
       "get": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Get realm-level roles that are in the role’s composite",
         "responses": {
@@ -8084,8 +7868,7 @@
     "/{realm}/roles-by-id/{role-id}/management/permissions": {
       "get": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
@@ -8103,8 +7886,7 @@
       },
       "put": {
         "tags": [
-          "Roles (by ID)",
-          "Default"
+          "Roles (by ID)"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
@@ -8155,8 +7937,7 @@
     "/{realm}/roles/{role-name}": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get a role by name",
         "responses": {
@@ -8174,8 +7955,7 @@
       },
       "put": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Update a role by name",
         "requestBody": {
@@ -8196,8 +7976,7 @@
       },
       "delete": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Delete a role by name",
         "responses": {
@@ -8232,8 +8011,7 @@
     "/{realm}/roles/{role-name}/composites": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get composites of the role",
         "responses": {
@@ -8254,8 +8032,7 @@
       },
       "post": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Add a composite to the role",
         "requestBody": {
@@ -8279,8 +8056,7 @@
       },
       "delete": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Remove roles from the role’s composite",
         "requestBody": {
@@ -8329,8 +8105,7 @@
     "/{realm}/roles/{role-name}/composites/clients/{client}": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "An app-level roles for the specified app for the role’s composite",
         "responses": {
@@ -8384,8 +8159,7 @@
     "/{realm}/roles/{role-name}/composites/realm": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Get realm-level roles of the role’s composite",
         "responses": {
@@ -8430,8 +8204,7 @@
     "/{realm}/roles/{role-name}/groups": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return List of Groups that have the specified role name",
         "parameters": [
@@ -8504,8 +8277,7 @@
     "/{realm}/roles/{role-name}/management/permissions": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "responses": {
@@ -8523,8 +8295,7 @@
       },
       "put": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return object stating whether role Authoirzation permissions have been initialized or not and a reference",
         "requestBody": {
@@ -8575,8 +8346,7 @@
     "/{realm}/roles/{role-name}/users": {
       "get": {
         "tags": [
-          "Roles",
-          "Default"
+          "Roles"
         ],
         "summary": "Return List of Users that have the specified role name",
         "parameters": [
@@ -8640,8 +8410,7 @@
     "/{realm}/sessions/{session}": {
       "delete": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Remove a specific user session.",
         "responses": {
@@ -8675,8 +8444,7 @@
     "/{realm}/testLDAPConnection": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Test LDAP connection",
         "responses": {
@@ -8701,8 +8469,7 @@
     "/{realm}/testSMTPConnection/{config}": {
       "post": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "summary": "Test SMTP connection with current logged in user",
         "responses": {
@@ -8737,8 +8504,7 @@
     "/{realm}/user-storage/{id}/name": {
       "get": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328",
         "responses": {
@@ -8780,8 +8546,7 @@
     "/{realm}/user-storage/{id}/remove-imported-users": {
       "post": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Remove imported users",
         "responses": {
@@ -8815,8 +8580,7 @@
     "/{realm}/user-storage/{id}/sync": {
       "post": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Trigger sync of users   Action can be \"triggerFullSync\" or \"triggerChangedUsersSync\"",
         "parameters": [
@@ -8867,8 +8631,7 @@
     "/{realm}/user-storage/{id}/unlink-users": {
       "post": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Unlink imported users from a storage provider",
         "responses": {
@@ -8902,8 +8665,7 @@
     "/{realm}/user-storage/{parentId}/mappers/{id}/sync": {
       "post": {
         "tags": [
-          "User Storage Provider",
-          "Default"
+          "User Storage Provider"
         ],
         "summary": "Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is \"fedToKeycloak\" or \"keycloakToFed\"",
         "parameters": [
@@ -8963,8 +8725,7 @@
     "/{realm}/users": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get users   Returns a list of users, filtered according to query parameters",
         "parameters": [
@@ -9055,8 +8816,7 @@
       },
       "post": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Create a new user   Username must be unique.",
         "requestBody": {
@@ -9091,8 +8851,7 @@
     "/{realm}/users-management-permissions": {
       "get": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "responses": {
           "2XX": {
@@ -9109,8 +8868,7 @@
       },
       "put": {
         "tags": [
-          "Realms Admin",
-          "Default"
+          "Realms Admin"
         ],
         "requestBody": {
           "content": {
@@ -9151,8 +8909,7 @@
     "/{realm}/users/count": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "responses": {
           "2XX": {
@@ -9184,8 +8941,7 @@
     "/{realm}/users/{id}": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get representation of the user",
         "responses": {
@@ -9203,8 +8959,7 @@
       },
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Update the user",
         "requestBody": {
@@ -9225,8 +8980,7 @@
       },
       "delete": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Delete the user",
         "responses": {
@@ -9261,8 +9015,7 @@
     "/{realm}/users/{id}/consents": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get consents granted by the user",
         "responses": {
@@ -9308,8 +9061,7 @@
     "/{realm}/users/{id}/consents/{client}": {
       "delete": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Revoke consent and offline tokens for particular client from user",
         "responses": {
@@ -9354,8 +9106,7 @@
     "/{realm}/users/{id}/disable-credential-types": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Disable all credentials for a user of a specific type",
         "requestBody": {
@@ -9403,8 +9154,7 @@
     "/{realm}/users/{id}/execute-actions-email": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.",
         "parameters": [
@@ -9483,8 +9233,7 @@
     "/{realm}/users/{id}/federated-identity": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get social logins associated with the user",
         "responses": {
@@ -9529,8 +9278,7 @@
     "/{realm}/users/{id}/federated-identity/{provider}": {
       "post": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Add a social login provider to the user",
         "requestBody": {
@@ -9551,8 +9299,7 @@
       },
       "delete": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Remove a social login provider from user",
         "responses": {
@@ -9597,8 +9344,7 @@
     "/{realm}/users/{id}/groups": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "parameters": [
           {
@@ -9670,8 +9416,7 @@
     "/{realm}/users/{id}/groups/count": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "parameters": [
           {
@@ -9723,8 +9468,7 @@
     "/{realm}/users/{id}/groups/{groupId}": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "responses": {
           "2XX": {
@@ -9734,8 +9478,7 @@
       },
       "delete": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "responses": {
           "2XX": {
@@ -9778,8 +9521,7 @@
     "/{realm}/users/{id}/impersonation": {
       "post": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Impersonate the user",
         "responses": {
@@ -9822,8 +9564,7 @@
     "/{realm}/users/{id}/logout": {
       "post": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.",
         "responses": {
@@ -9858,8 +9599,7 @@
     "/{realm}/users/{id}/offline-sessions/{clientId}": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get offline sessions associated with the user and client",
         "responses": {
@@ -9913,8 +9653,7 @@
     "/{realm}/users/{id}/remove-totp": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Remove TOTP from the user",
         "responses": {
@@ -9949,8 +9688,7 @@
     "/{realm}/users/{id}/reset-password": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Set up a new password for the user.",
         "requestBody": {
@@ -9996,8 +9734,7 @@
     "/{realm}/users/{id}/role-mappings": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get role mappings",
         "responses": {
@@ -10039,8 +9776,7 @@
     "/{realm}/users/{id}/role-mappings/clients/{client}": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get client-level role mappings for the user, and the app",
         "responses": {
@@ -10061,8 +9797,7 @@
       },
       "post": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Add client-level roles to the user role mapping",
         "requestBody": {
@@ -10086,8 +9821,7 @@
       },
       "delete": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Delete client-level roles from user role mapping",
         "requestBody": {
@@ -10144,8 +9878,7 @@
     "/{realm}/users/{id}/role-mappings/clients/{client}/available": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get available client-level roles that can be mapped to the user",
         "responses": {
@@ -10199,8 +9932,7 @@
     "/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
       "get": {
         "tags": [
-          "Client Role Mappings",
-          "Default"
+          "Client Role Mappings"
         ],
         "summary": "Get effective client-level role mappings   This recurses any composite roles",
         "responses": {
@@ -10254,8 +9986,7 @@
     "/{realm}/users/{id}/role-mappings/realm": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get realm-level role mappings",
         "responses": {
@@ -10276,8 +10007,7 @@
       },
       "post": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Add realm-level role mappings to the user",
         "requestBody": {
@@ -10302,8 +10032,7 @@
       },
       "delete": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Delete realm-level role mappings",
         "requestBody": {
@@ -10351,8 +10080,7 @@
     "/{realm}/users/{id}/role-mappings/realm/available": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get realm-level roles that can be mapped",
         "responses": {
@@ -10397,8 +10125,7 @@
     "/{realm}/users/{id}/role-mappings/realm/composite": {
       "get": {
         "tags": [
-          "Role Mapper",
-          "Default"
+          "Role Mapper"
         ],
         "summary": "Get effective realm-level role mappings   This will recurse all composite roles to get the result.",
         "responses": {
@@ -10443,8 +10170,7 @@
     "/{realm}/users/{id}/send-verify-email": {
       "put": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Send an email-verification email to the user   An email contains a link the user can click to verify their email address.",
         "parameters": [
@@ -10499,8 +10225,7 @@
     "/{realm}/users/{id}/sessions": {
       "get": {
         "tags": [
-          "Users",
-          "Default"
+          "Users"
         ],
         "summary": "Get sessions associated with the user",
         "responses": {

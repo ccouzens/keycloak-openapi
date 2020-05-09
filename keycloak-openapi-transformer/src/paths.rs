@@ -45,7 +45,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 })
             {
                 let mut operation = operation::parse(&section);
-                operation.tags = vec![tag.clone(), "Default".to_string()];
+                operation.tags = vec![tag.clone()];
                 let operation = Some(operation);
                 match verb_path.verb.as_ref() {
                     "DELETE" => {

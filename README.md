@@ -22,15 +22,6 @@ be generated.
 make keycloak/sso-6.json keycloak/sso-7.3.json keycloak/sso-7.4.json
 ```
 
-## Licensing
-
-The OpenAPI definitions are [Apache 2.0 licensed](./keycloak/LICENSE.txt).
-
-The transformer is [MIT licensed](keycloak-openapi-transformer/LICENSE).
-
-The example app has a [CC0 waiver](example_app/WAIVER) (has had its
-copyright waived).
-
 ## General Usage
 
 Typically to use Keycloak's admin Rest API, you first get a token from
@@ -53,6 +44,11 @@ bearer token.
 
 Please see the [example app](example_app/src/index.ts).
 
+## Notable Changes
+
+2020 May - Added tags to operations.
+Users of OpenAPI Generator generated clients will need to swap from using the `DefaultApi` class to multiple classes such as `UsersApi` or `ClientsApi`.
+
 ## Example App
 
 [This example](./example_app/) uses
@@ -62,7 +58,7 @@ fetches a list of Keycloak-clients.
 
 ```bash
 # Create a keycloak instance to run against
-docker container run --rm -e KEYCLOAK_USER=admin-user -e KEYCLOAK_PASSWORD=admin-password -p 8080:8080 jboss/keycloak:10.0.0
+docker container run --rm -e KEYCLOAK_USER=admin-user -e KEYCLOAK_PASSWORD=admin-password -p 8080:8080 docker.io/jboss/keycloak:10.0.0
 # Open http://localhost:8080/ and wait for keycloak to start up
 
 # In a second terminal run
@@ -111,3 +107,12 @@ Building the example app requires `Node` and `Java`.
 
 Running the keycloak instance that pairs with the example app requires
 `Docker`.
+
+## Licensing
+
+The OpenAPI definitions are [Apache 2.0 licensed](./keycloak/LICENSE.txt).
+
+The transformer is [MIT licensed](keycloak-openapi-transformer/LICENSE).
+
+The example app has a [CC0 waiver](example_app/WAIVER) (has had its
+copyright waived).
