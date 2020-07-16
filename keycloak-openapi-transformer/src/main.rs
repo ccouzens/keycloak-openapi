@@ -1,9 +1,9 @@
 use openapiv3::{OpenAPI, ReferenceOr, SecurityRequirement, SecurityScheme};
 use scraper::Html;
 use serde_json::to_string_pretty;
-use std::collections::BTreeMap;
 #[macro_use]
 extern crate lazy_static;
+use indexmap::IndexMap;
 use std::io::{self, Read};
 
 mod components;
@@ -17,7 +17,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     io::stdin().read_to_string(&mut html)?;
     let document = Html::parse_document(&html);
 
-    let mut security_schemes = BTreeMap::new();
+    let mut security_schemes = IndexMap::new();
     security_schemes.insert(
         ACCESS_TOKEN.to_string(),
         ReferenceOr::Item(SecurityScheme::HTTP {
@@ -26,7 +26,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }),
     );
 
-    let mut security_requirement: SecurityRequirement = BTreeMap::new();
+    let mut security_requirement: SecurityRequirement = IndexMap::new();
     security_requirement.insert(ACCESS_TOKEN.to_string(), Vec::new());
 
     let spec = OpenAPI {

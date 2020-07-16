@@ -1,8 +1,8 @@
+use indexmap::IndexMap;
 use openapiv3::ObjectType;
 use openapiv3::Schema;
 use openapiv3::SchemaKind;
 use scraper::Selector;
-use std::collections::BTreeMap;
 
 lazy_static! {
     static ref SCHEMAS_SELECTOR: Selector =
@@ -15,7 +15,7 @@ lazy_static! {
 
 pub fn parse_schemas(
     document: &scraper::html::Html,
-) -> BTreeMap<String, openapiv3::ReferenceOr<Schema>> {
+) -> IndexMap<String, openapiv3::ReferenceOr<Schema>> {
     document
         .select(&SCHEMAS_SELECTOR)
         .map(|section| {

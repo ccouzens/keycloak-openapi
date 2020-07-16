@@ -68,6 +68,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
             }
         }
     }
+    paths.sort_keys();
 
     paths
 }

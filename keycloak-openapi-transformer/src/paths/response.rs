@@ -1,4 +1,5 @@
 use super::super::components::schemas::parse_type;
+use openapiv3::MediaType;
 use scraper::Selector;
 
 lazy_static! {
@@ -30,13 +31,13 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
         .map(|p| p.text().collect::<String>());
 
     let content = match (media_type, raw_schema.as_ref()) {
-        (None, _) | (_, "Response") => std::collections::BTreeMap::new(),
+        (None, _) | (_, "Response") => Default::default(),
         (Some(produces), _) => [(
             produces,
-            openapiv3::ReferenceOr::Item(openapiv3::MediaType {
+            MediaType {
                 schema: Some(parse_type(&raw_schema)),
                 ..Default::default()
-            }),
+            },
         )]
         .iter()
         .cloned()
@@ -53,6 +54,8 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
 mod test {
     const HTML: &str = include_str!("../../../keycloak/9.0.html");
     use super::parse;
+    use indexmap::IndexMap;
+    use openapiv3::MediaType;
     use scraper::Html;
     use scraper::Selector;
 
@@ -77,7 +80,7 @@ mod test {
             .unwrap();
         assert_eq!(
             parse(&section).content,
-            serde_json::from_str(EXPECTED).unwrap()
+            serde_json::from_str::<IndexMap<String, MediaType>>(EXPECTED).unwrap()
         );
     }
 
@@ -104,7 +107,7 @@ mod test {
             .unwrap();
         assert_eq!(
             parse(&section).content,
-            serde_json::from_str(EXPECTED).unwrap()
+            serde_json::from_str::<IndexMap<String, MediaType>>(EXPECTED).unwrap()
         );
     }
 
@@ -117,7 +120,7 @@ mod test {
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
             .unwrap();
-        assert_eq!(parse(&section).content, std::collections::BTreeMap::new());
+        assert!(parse(&section).content.is_empty());
     }
 
     #[test]
@@ -129,6 +132,6 @@ mod test {
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
             .unwrap();
-        assert_eq!(parse(&section).content, std::collections::BTreeMap::new());
+        assert!(parse(&section).content.is_empty());
     }
 }

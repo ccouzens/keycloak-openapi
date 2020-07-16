@@ -18,7 +18,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Opera
         responses: openapiv3::Responses {
             default: None,
             responses: [(
-                "2XX".to_string(),
+                openapiv3::StatusCode::Range(2),
                 openapiv3::ReferenceOr::Item(response::parse(&section)),
             )]
             .iter()

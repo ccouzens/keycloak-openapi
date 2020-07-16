@@ -12605,6 +12605,9 @@
       "ResourceRepresentation": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "attributes": {
             "type": "object",
             "additionalProperties": true
@@ -12613,9 +12616,6 @@
             "type": "string"
           },
           "icon_uri": {
-            "type": "string"
-          },
-          "id": {
             "type": "string"
           },
           "name": {

@@ -1,8 +1,8 @@
 use super::super::components::schemas::parse_type;
 use super::parameters;
+use indexmap::IndexMap;
 use openapiv3::{MediaType, ReferenceOr, RequestBody};
 use scraper::Selector;
-use std::collections::BTreeMap;
 
 lazy_static! {
     static ref CONSUMES_SELECTOR: Selector =
@@ -21,7 +21,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> Option<Reference
     } else {
         "application/json"
     };
-    let mut content = BTreeMap::new();
+    let mut content = IndexMap::new();
     content.insert(
         media_type.to_string(),
         MediaType {
