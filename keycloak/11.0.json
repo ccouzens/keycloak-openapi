@@ -4267,7 +4267,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stream"
+                  "type": "object"
                 }
               }
             }
@@ -7799,7 +7799,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Stream"
+                  "type": "object"
                 }
               }
             }
