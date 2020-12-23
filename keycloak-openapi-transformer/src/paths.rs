@@ -54,6 +54,9 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                     "GET" => {
                         path_item.get = operation;
                     }
+                    "PATCH" => {
+                        path_item.patch = operation;
+                    }
                     "POST" => {
                         path_item.post = operation;
                     }

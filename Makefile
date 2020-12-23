@@ -6,6 +6,7 @@ keycloak/8.0.json \
 keycloak/9.0.json \
 keycloak/10.0.json \
 keycloak/11.0.json \
+keycloak/12.0.json \
 keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 keycloak/sso-7.4.json \
@@ -18,6 +19,7 @@ keycloak/8.0.html \
 keycloak/9.0.html \
 keycloak/10.0.html \
 keycloak/11.0.html \
+keycloak/12.0.html \
 keycloak/sso-6.html \
 keycloak/sso-7.3.html \
 keycloak/sso-7.4.html \
