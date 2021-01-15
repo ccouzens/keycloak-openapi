@@ -6,7 +6,7 @@
     "typescript": "^3.9.6"
   },
   "scripts": {
-    "generate-client": "openapi-generator generate -i ../keycloak/11.0.json -g typescript-axios -o src/keycloak-client",
+    "generate-client": "openapi-generator generate -i ../keycloak/12.0.json -g typescript-axios -o src/keycloak-client",
     "prettier": "prettier --write -- '**/*.json' '**/*.ts' '../README.md'",
     "compile": "tsc"
   },

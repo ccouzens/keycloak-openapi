@@ -122,7 +122,12 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 unique_items: false,
                 items: openapiv3::ReferenceOr::Item(Box::new(openapiv3::Schema {
                     schema_data: Default::default(),
-                    schema_kind: openapiv3::SchemaKind::Any(Default::default()),
+                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
+                        openapiv3::ObjectType {
+                            additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
+                            ..Default::default()
+                        },
+                    )),
                 })),
             })),
             "Object" => Some(openapiv3::Type::Object(Default::default())),
