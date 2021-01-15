@@ -4267,7 +4267,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {}
                 }
               }
             }
@@ -7799,7 +7800,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {}
                 }
               }
             }

@@ -116,7 +116,15 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
                 ..Default::default()
             })),
-            "Stream" => Some(openapiv3::Type::Object(Default::default())),
+            "Stream" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
+                max_items: None,
+                min_items: None,
+                unique_items: false,
+                items: openapiv3::ReferenceOr::Item(Box::new(openapiv3::Schema {
+                    schema_data: Default::default(),
+                    schema_kind: openapiv3::SchemaKind::Any(Default::default()),
+                })),
+            })),
             "Object" => Some(openapiv3::Type::Object(Default::default())),
             "string" => Some(openapiv3::Type::String(Default::default())),
             _ => None,
