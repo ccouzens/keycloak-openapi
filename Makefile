@@ -29,7 +29,7 @@ all : keycloak/LICENSE.txt $(specs)
 
 .PHONY : clean
 clean :
-	rm keycloak/*
+	rm $(specs) $(html) keycloak/LICENSE.txt
 
 .PHONY : cleanAll
 cleanAll : clean
