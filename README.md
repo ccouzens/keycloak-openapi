@@ -44,6 +44,10 @@ bearer token.
 
 Please see the [example app](example_app/src/index.ts).
 
+## Help wanted
+
+The definitions are computer generated, but [could do with a human's input](https://github.com/ccouzens/keycloak-openapi/issues/10).
+
 ## Notable Changes
 
 2020 May - Added tags to operations.
