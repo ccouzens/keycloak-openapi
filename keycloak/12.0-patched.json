@@ -13536,6 +13536,9 @@
           "enabled": {
             "type": "boolean"
           },
+          "totp": {
+            "type": "boolean"
+          },
           "federatedIdentities": {
             "type": "array",
             "items": {
