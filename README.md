@@ -107,6 +107,7 @@ requires:
 
 - `make`
 - [`Rust`](https://www.rust-lang.org/tools/install)
+- [`yq`](https://kislyuk.github.io/yq/)
 
 Building the transformer requires
 [`Rust`](https://www.rust-lang.org/tools/install).

@@ -11,6 +11,20 @@ keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 keycloak/sso-7.4.json \
 
+yamls = \
+keycloak/5.0.yml \
+keycloak/6.0.yml \
+keycloak/7.0.yml \
+keycloak/8.0.yml \
+keycloak/9.0.yml \
+keycloak/10.0.yml \
+keycloak/11.0.yml \
+keycloak/12.0.yml \
+keycloak/12.0-patched.yml \
+keycloak/sso-6.yml \
+keycloak/sso-7.3.yml \
+keycloak/sso-7.4.yml \
+
 html = \
 keycloak/5.0.html \
 keycloak/6.0.html \
@@ -25,7 +39,7 @@ keycloak/sso-7.3.html \
 keycloak/sso-7.4.html \
 
 .PHONY : all
-all : keycloak/LICENSE.txt $(specs)
+all : keycloak/LICENSE.txt $(specs) $(yamls)
 
 .PHONY : clean
 clean :
@@ -48,3 +62,6 @@ keycloak/%.html:
 
 keycloak/%.json: keycloak/%.html
 	(cd keycloak-openapi-transformer; cargo run --release) < $(addsuffix .html,$(basename $@)) > $@
+
+keycloak/%.yml: keycloak/%.json
+	yq --yaml-output < $< > $@
