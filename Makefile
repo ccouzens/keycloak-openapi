@@ -43,7 +43,7 @@ all : keycloak/LICENSE.txt $(specs) $(yamls)
 
 .PHONY : clean
 clean :
-	rm $(specs) $(html) keycloak/LICENSE.txt
+	rm -f $(specs) $(html) keycloak/LICENSE.txt $(yamls)
 
 .PHONY : cleanAll
 cleanAll : clean
