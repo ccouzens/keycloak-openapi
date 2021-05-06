@@ -84,7 +84,7 @@ pub fn parse_parameters(
                         style: Default::default(),
                         allow_empty_value: None,
                     },
-                    _ => panic!(format!("Don't know how to parse {}", param_type)),
+                    _ => panic!("Don't know how to parse {}", param_type),
                 };
                 ReferenceOr::Item(parameter)
             })

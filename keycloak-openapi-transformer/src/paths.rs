@@ -66,7 +66,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                     "OPTIONS" => {
                         path_item.options = operation;
                     }
-                    _ => panic!(format!("Unexpected HTTP verb: {:?}", verb_path.verb)),
+                    _ => panic!("Unexpected HTTP verb: {:?}", verb_path.verb),
                 };
             }
         }
