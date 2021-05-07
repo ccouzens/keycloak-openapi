@@ -23,6 +23,7 @@ keycloak/11.0.yml \
 keycloak/12.0.yml \
 keycloak/12.0-patched.yml \
 keycloak/13.0.yml \
+keycloak/13.0-patched.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 keycloak/sso-7.4.yml \
