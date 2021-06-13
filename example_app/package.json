@@ -1,17 +1,17 @@
 {
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^1.0.15-4.3.1",
-    "@types/node": "^13.13.14",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.6"
+    "@openapitools/openapi-generator-cli": "2.3.3",
+    "@types/node": "15.12.2",
+    "prettier": "2.3.1",
+    "typescript": "4.3.2"
   },
   "scripts": {
-    "generate-client": "openapi-generator generate -i ../keycloak/13.0-patched.json -g typescript-axios -o src/keycloak-client",
+    "generate-client": "openapi-generator-cli generate -i ../keycloak/13.0-patched.json -g typescript-axios -o src/keycloak-client",
     "prettier": "prettier --write -- '**/*.json' '**/*.ts' '../README.md'",
     "compile": "tsc"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "openid-client": "^3.15.7"
+    "axios": "0.21.1",
+    "openid-client": "4.7.4"
   }
 }

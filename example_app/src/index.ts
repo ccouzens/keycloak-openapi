@@ -16,10 +16,10 @@ import { Issuer } from "openid-client";
     password: "admin-password",
   });
 
-  const config: Configuration = {
+  const config = new Configuration({
     accessToken: token.access_token,
     basePath: "http://localhost:8080/auth/admin/realms",
-  };
+  });
 
   const clients = await new ClientsApi(config).realmClientsGet("master");
 

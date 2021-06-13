@@ -1,3 +1,4 @@
 node_modules/
 src/keycloak-client/
 dist/
+openapitools.json
