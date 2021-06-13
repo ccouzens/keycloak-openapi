@@ -49,6 +49,8 @@ Please see the [example app](example_app/src/index.ts).
 The definitions are computer generated, but
 [could do with a human's input](https://github.com/ccouzens/keycloak-openapi/issues/10).
 
+[Please provide additional example apps](https://github.com/ccouzens/keycloak-openapi/issues/14).
+
 ## Notable Changes
 
 2021 Early - Renamed master branch to main. Anyone fetching the schema directly
