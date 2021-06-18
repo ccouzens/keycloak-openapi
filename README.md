@@ -9,7 +9,7 @@ mainstream programming langauge.
 OpenAPI definitions are sometimes known by their previous name of Swagger
 specifications.
 
-[Keycloak 13.0 Admin API](./keycloak/13.0.json)
+[Keycloak 14.0 Admin API](./keycloak/14.0.json)
 
 [Keycloak 13.0 Admin API with patches](./keycloak/13.0-patched.json)
 
