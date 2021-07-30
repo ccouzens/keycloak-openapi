@@ -9,6 +9,7 @@ keycloak/11.0.json \
 keycloak/12.0.json \
 keycloak/13.0.json \
 keycloak/14.0.json \
+keycloak/15.0.json \
 keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 keycloak/sso-7.4.json \
@@ -26,6 +27,7 @@ keycloak/12.0-patched.yml \
 keycloak/13.0.yml \
 keycloak/13.0-patched.yml \
 keycloak/14.0.yml \
+keycloak/15.0.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 keycloak/sso-7.4.yml \
@@ -41,6 +43,7 @@ keycloak/11.0.html \
 keycloak/12.0.html \
 keycloak/13.0.html \
 keycloak/14.0.html \
+keycloak/15.0.html \
 keycloak/sso-6.html \
 keycloak/sso-7.3.html \
 keycloak/sso-7.4.html \
