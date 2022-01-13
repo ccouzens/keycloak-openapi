@@ -51,6 +51,20 @@ The definitions are computer generated, but
 
 [Please provide additional example apps](https://github.com/ccouzens/keycloak-openapi/issues/14).
 
+## Adding new versions
+
+To add a new version of Keycloak perform these steps:
+
+1. Modify the [Makefile](./Makefile) with the
+   [new version](https://github.com/ccouzens/keycloak-openapi/commit/6f717533b13cd07bae3c4aa1f55907fb40338540#diff-76ed074a9305c04054cdebb9e9aad2d818052b07091de1f20cad0bbac34ffb52).
+2. Verify you have installed the [requirements](#requirements).
+3. Run the command `make`. It will automatically:
+   1. download the documentation in HTML format
+   2. compile the [transformer](#keycloak-openapi-transformer)
+   3. create the JSON definition
+   4. create the YML definition
+4. Commit your changes and open a pull request.
+
 ## Notable Changes
 
 2021 Early - Renamed master branch to main. Anyone fetching the schema directly
