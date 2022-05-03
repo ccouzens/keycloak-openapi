@@ -23,6 +23,12 @@ generated.
 make keycloak/sso-6.json keycloak/sso-7.3.json keycloak/sso-7.4.json
 ```
 
+## Alternatives
+
+DAHAG Rechtsservices AG
+[provide OpenAPI definitions](https://github.com/dahag-ag/keycloak-openapi) for
+recent versions of Keycloak which are more complete than what's here.
+
 ## General Usage
 
 Typically to use Keycloak's admin Rest API, you first get a token from a realm.
