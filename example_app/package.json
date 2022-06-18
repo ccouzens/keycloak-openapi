@@ -11,7 +11,7 @@
     "compile": "tsc"
   },
   "dependencies": {
-    "axios": "0.21.1",
+    "axios": "0.21.2",
     "openid-client": "4.7.4"
   }
 }
