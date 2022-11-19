@@ -258,7 +258,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/AdminEventRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -768,7 +769,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/AuthenticationFlowRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1240,7 +1242,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RequiredActionProviderRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1608,7 +1611,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1868,7 +1872,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -1934,7 +1939,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2030,7 +2036,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2132,7 +2139,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2197,7 +2205,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2251,7 +2260,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2344,7 +2354,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2400,7 +2411,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2530,7 +2542,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -2554,15 +2567,8 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": "created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientRepresentation"
-                }
-              }
-            }
+          "2XX": {
+            "description": "success"
           }
         }
       },
@@ -2592,7 +2598,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientInitialAccessPresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3402,7 +3409,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3457,7 +3465,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3522,7 +3531,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -3845,7 +3855,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4036,7 +4047,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4102,7 +4114,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4276,7 +4289,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4426,7 +4440,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4530,7 +4545,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4594,7 +4610,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4680,7 +4697,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4836,7 +4854,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -4933,7 +4952,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5035,7 +5055,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5100,7 +5121,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5154,7 +5176,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5247,7 +5270,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5303,7 +5327,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5497,7 +5522,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5567,7 +5593,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ComponentRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5745,7 +5772,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5780,7 +5808,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5858,7 +5887,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -5936,7 +5966,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ClientScopeRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6093,7 +6124,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/EventRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6268,7 +6300,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6590,7 +6623,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6675,7 +6709,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6776,7 +6811,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6840,7 +6876,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6893,7 +6930,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -6986,7 +7024,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7041,7 +7080,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7118,7 +7158,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IdentityProviderRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -7396,7 +7437,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IdentityProviderMapperRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8013,7 +8055,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8143,7 +8186,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8237,7 +8281,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8290,7 +8335,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8477,7 +8523,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8571,7 +8618,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8625,7 +8673,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8701,7 +8750,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -8837,7 +8887,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9328,7 +9379,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9352,15 +9404,8 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": "created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserRepresentation"
-                }
-              }
-            }
+          "2XX": {
+            "description": "success"
           }
         }
       },
@@ -9611,7 +9656,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -9746,7 +9792,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CredentialRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10116,7 +10163,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/FederatedIdentityRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10262,7 +10310,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GroupRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10490,7 +10539,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10632,7 +10682,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10734,7 +10785,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10799,7 +10851,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10853,7 +10906,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -10947,7 +11001,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -11003,7 +11058,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/RoleRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -11103,7 +11159,8 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserSessionRepresentation"
+                    "type": "object",
+                    "additionalProperties": true
                   }
                 }
               }
@@ -11350,53 +11407,6 @@
             "type": "string"
           },
           "street_address": {
-            "type": "string"
-          }
-        }
-      },
-      "AdminEventRepresentation": {
-        "type": "object",
-        "properties": {
-          "authDetails": {
-            "$ref": "#/components/schemas/AuthDetailsRepresentation"
-          },
-          "error": {
-            "type": "string"
-          },
-          "operationType": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "representation": {
-            "type": "string"
-          },
-          "resourcePath": {
-            "type": "string"
-          },
-          "resourceType": {
-            "type": "string"
-          },
-          "time": {
-            "type": "integer",
-            "format": "int64"
-          }
-        }
-      },
-      "AuthDetailsRepresentation": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "userId": {
             "type": "string"
           }
         }
@@ -11977,40 +11987,6 @@
           }
         }
       },
-      "EventRepresentation": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string"
-          },
-          "details": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "error": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "realmId": {
-            "type": "string"
-          },
-          "sessionId": {
-            "type": "string"
-          },
-          "time": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "type": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "string"
-          }
-        }
-      },
       "FederatedIdentityRepresentation": {
         "type": "object",
         "properties": {
@@ -12484,9 +12460,6 @@
           },
           "protocolMapper": {
             "type": "string"
-          },
-          "consentRequired": {
-            "type": "boolean"
           }
         }
       },
@@ -13553,9 +13526,6 @@
           "enabled": {
             "type": "boolean"
           },
-          "totp": {
-            "type": "boolean"
-          },
           "federatedIdentities": {
             "type": "array",
             "items": {
@@ -13603,35 +13573,6 @@
             "type": "string"
           },
           "serviceAccountClientId": {
-            "type": "string"
-          },
-          "username": {
-            "type": "string"
-          }
-        }
-      },
-      "UserSessionRepresentation": {
-        "type": "object",
-        "properties": {
-          "clients": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "ipAddress": {
-            "type": "string"
-          },
-          "lastAccess": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "start": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "userId": {
             "type": "string"
           },
           "username": {

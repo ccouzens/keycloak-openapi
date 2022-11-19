@@ -1660,8 +1660,12 @@ paths:
               $ref: '#/components/schemas/ClientRepresentation'
         required: true
       responses:
-        2XX:
-          description: success
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientRepresentation'
     parameters:
       - in: path
         name: realm
@@ -6059,8 +6063,12 @@ paths:
               $ref: '#/components/schemas/UserRepresentation'
         required: true
       responses:
-        2XX:
-          description: success
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRepresentation'
     parameters:
       - in: path
         name: realm
@@ -8121,6 +8129,8 @@ components:
           type: string
         protocolMapper:
           type: string
+        consentRequired:
+          type: boolean
     ProviderRepresentation:
       type: object
       properties:

@@ -13,6 +13,8 @@ specifications.
 
 [Keycloak 13.0 Admin API with patches](./keycloak/13.0-patched.json)
 
+[Keycloak 12.0 Admin API with patches](./keycloak/12.0-patched.json)
+
 [Other versions](./keycloak/)
 
 [Red Hat Single Sign-On](https://access.redhat.com/products/red-hat-single-sign-on)

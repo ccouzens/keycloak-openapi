@@ -2554,8 +2554,15 @@
           "required": true
         },
         "responses": {
-          "2XX": {
-            "description": "success"
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -9345,8 +9352,15 @@
           "required": true
         },
         "responses": {
-          "2XX": {
-            "description": "success"
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRepresentation"
+                }
+              }
+            }
           }
         }
       },
@@ -12470,6 +12484,9 @@
           },
           "protocolMapper": {
             "type": "string"
+          },
+          "consentRequired": {
+            "type": "boolean"
           }
         }
       },
