@@ -2,14 +2,13 @@ openapi: 3.0.2
 info:
   title: Keycloak Admin REST API
   description: This is a REST API reference for the Keycloak Admin
-  version: '1'
+  version: "1"
 paths:
   /:
     get:
       tags:
         - Root
-      summary: Get themes, social providers, auth providers, and event listeners available
-        on this server
+      summary: Get themes, social providers, auth providers, and event listeners available on this server
       responses:
         2XX:
           description: success
@@ -20,8 +19,7 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Import a realm   Imports a realm from a full representation of that
-        realm.
+      summary: Import a realm   Imports a realm from a full representation of that realm.
       requestBody:
         description: JSON representation of the realm
         content:
@@ -36,8 +34,7 @@ paths:
     get:
       tags:
         - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when
-        displaying client detail   KEYCLOAK-4328
+      summary: Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328
       responses:
         2XX:
           description: success
@@ -57,8 +54,7 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: Get the top-level representation of the realm   It will not include
-        nested information like User and Client representations.
+      summary: Get the top-level representation of the realm   It will not include nested information like User and Client representations.
       responses:
         2XX:
           description: success
@@ -69,8 +65,7 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: Update the top-level information of the realm   Any user, roles or
-        client information in the representation  will be ignored.
+      summary: Update the top-level information of the realm   Any user, roles or client information in the representation  will be ignored.
       requestBody:
         content:
           application/json:
@@ -99,8 +94,7 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: Get admin events   Returns all admin events, or filters events based
-        on URL query parameters listed here
+      summary: Get admin events   Returns all admin events, or filters events based on URL query parameters listed here
       parameters:
         - in: query
           name: authClient
@@ -193,8 +187,7 @@ paths:
     delete:
       tags:
         - Attack Detection
-      summary: Clear any user login failures for all users   This can release temporary
-        disabled users
+      summary: Clear any user login failures for all users   This can release temporary disabled users
       responses:
         2XX:
           description: success
@@ -222,8 +215,7 @@ paths:
     delete:
       tags:
         - Attack Detection
-      summary: Clear any user login failures for the user   This can release temporary
-        disabled user
+      summary: Clear any user login failures for the user   This can release temporary disabled user
       responses:
         2XX:
           description: success
@@ -268,8 +260,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get client authenticator providers   Returns a list of client authenticator
-        providers.
+      summary: Get client authenticator providers   Returns a list of client authenticator providers.
       responses:
         2XX:
           description: success
@@ -531,8 +522,7 @@ paths:
     post:
       tags:
         - Authentication Management
-      summary: Copy existing authentication flow under a new name   The new name is
-        given as 'newName' attribute of the passed JSON object
+      summary: Copy existing authentication flow under a new name   The new name is given as 'newName' attribute of the passed JSON object
       requestBody:
         description: JSON containing 'newName' attribute
         content:
@@ -632,8 +622,7 @@ paths:
         - Authentication Management
       summary: Add new flow with new execution to existing flow
       requestBody:
-        description: New authentication flow / execution JSON data containing 'alias',
-          'type', 'provider', and 'description' attributes
+        description: New authentication flow / execution JSON data containing 'alias', 'type', 'provider', and 'description' attributes
         content:
           application/json:
             schema:
@@ -917,8 +906,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get unregistered required actions   Returns a list of unregistered
-        required actions.
+      summary: Get unregistered required actions   Returns a list of unregistered required actions.
       responses:
         2XX:
           description: success
@@ -941,8 +929,7 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Clear cache of external public keys (Public keys of clients or Identity
-        providers)
+      summary: Clear cache of external public keys (Public keys of clients or Identity providers)
       responses:
         2XX:
           description: success
@@ -1016,8 +1003,7 @@ paths:
     get:
       tags:
         - Client Registration Policy
-      summary: Base path for retrieve providers with the configProperties properly
-        filled
+      summary: Base path for retrieve providers with the configProperties properly filled
       responses:
         2XX:
           description: success
@@ -1039,8 +1025,7 @@ paths:
     get:
       tags:
         - Client Scopes
-      summary: Get client scopes belonging to the realm   Returns a list of client
-        scopes belonging to the realm
+      summary: Get client scopes belonging to the realm   Returns a list of client scopes belonging to the realm
       responses:
         2XX:
           description: success
@@ -1309,8 +1294,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get the roles associated with a client’s scope   Returns roles for
-        the client.
+      summary: Get the roles associated with a client’s scope   Returns roles for the client.
       responses:
         2XX:
           description: success
@@ -1375,8 +1359,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: The available client-level roles   Returns the roles for the client
-        that can be associated with the client’s scope
+      summary: The available client-level roles   Returns the roles for the client that can be associated with the client’s scope
       responses:
         2XX:
           description: success
@@ -1411,8 +1394,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective client roles   Returns the roles for the client that
-        are associated with the client’s scope.
+      summary: Get effective client roles   Returns the roles for the client that are associated with the client’s scope.
       responses:
         2XX:
           description: success
@@ -1506,8 +1488,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles that are available to attach to this client’s
-        scope
+      summary: Get realm-level roles that are available to attach to this client’s scope
       responses:
         2XX:
           description: success
@@ -1536,9 +1517,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope   What
-        this does is recurse  any composite roles associated with the client’s scope
-        and adds the roles to this lists.
+      summary: Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.
       responses:
         2XX:
           description: success
@@ -1590,8 +1569,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get clients belonging to the realm   Returns a list of clients belonging
-        to the realm
+      summary: Get clients belonging to the realm   Returns a list of clients belonging to the realm
       parameters:
         - in: query
           name: clientId
@@ -1830,8 +1808,7 @@ paths:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Get a keystore file for the client, containing private key and public
-        certificate
+      summary: Get a keystore file for the client, containing private key and public certificate
       requestBody:
         description: Keystore configuration as JSON
         content:
@@ -1905,9 +1882,7 @@ paths:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Generate a new keypair and certificate, and get the private key file   Generates
-        a keypair and certificate and serves the private key in a specified keystore
-        format.
+      summary: Generate a new keypair and certificate, and get the private key file   Generates a keypair and certificate and serves the private key in a specified keystore format.
       requestBody:
         description: Keystore configuration as JSON
         content:
@@ -2153,8 +2128,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Return list of all protocol mappers, which will be used when generating
-        tokens issued for particular client.
+      summary: Return list of all protocol mappers, which will be used when generating tokens issued for particular client.
       parameters:
         - in: query
           name: scope
@@ -2189,9 +2163,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get effective scope mapping of all roles of particular role container,
-        which this client is defacto allowed to have in the accessToken issued for
-        him.
+      summary: Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.
       parameters:
         - in: query
           name: scope
@@ -2233,8 +2205,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get roles, which this client doesn’t have scope for and can’t have
-        them in the accessToken issued for him.
+      summary: Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.
       parameters:
         - in: query
           name: scope
@@ -2304,8 +2275,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -2316,8 +2286,7 @@ paths:
     put:
       tags:
         - Clients
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -2350,9 +2319,7 @@ paths:
     post:
       tags:
         - Clients
-      summary: Register a cluster node with the client   Manually register cluster
-        node to this client - usually it’s not needed to call this directly as adapter
-        should handle  by sending registration request to Keycloak
+      summary: Register a cluster node with the client   Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle  by sending registration request to Keycloak
       requestBody:
         content:
           application/json:
@@ -2411,8 +2378,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: 'Get application offline session count   Returns a number of offline
-        user sessions associated with this client   {      "count": number  }'
+      summary: 'Get application offline session count   Returns a number of offline user sessions associated with this client   {      "count": number  }'
       responses:
         2XX:
           description: success
@@ -2440,8 +2406,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get offline sessions for client   Returns a list of offline user sessions
-        associated with this client
+      summary: Get offline sessions for client   Returns a list of offline user sessions associated with this client
       parameters:
         - in: query
           name: first
@@ -2656,8 +2621,7 @@ paths:
     post:
       tags:
         - Clients
-      summary: Push the client’s revocation policy to its admin URL   If the client
-        has an admin URL, push revocation policy to it.
+      summary: Push the client’s revocation policy to its admin URL   If the client has an admin URL, push revocation policy to it.
       responses:
         2XX:
           description: success
@@ -2962,8 +2926,7 @@ paths:
           style: form
         - in: query
           name: full
-          description: if true, return a full representation of the GroupRepresentation
-            objects
+          description: if true, return a full representation of the GroupRepresentation objects
           schema:
             type: boolean
           style: form
@@ -3007,8 +2970,7 @@ paths:
     get:
       tags:
         - Roles
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -3019,8 +2981,7 @@ paths:
     put:
       tags:
         - Roles
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -3134,8 +3095,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get the roles associated with a client’s scope   Returns roles for
-        the client.
+      summary: Get the roles associated with a client’s scope   Returns roles for the client.
       responses:
         2XX:
           description: success
@@ -3200,8 +3160,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: The available client-level roles   Returns the roles for the client
-        that can be associated with the client’s scope
+      summary: The available client-level roles   Returns the roles for the client that can be associated with the client’s scope
       responses:
         2XX:
           description: success
@@ -3236,8 +3195,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective client roles   Returns the roles for the client that
-        are associated with the client’s scope.
+      summary: Get effective client roles   Returns the roles for the client that are associated with the client’s scope.
       responses:
         2XX:
           description: success
@@ -3331,8 +3289,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles that are available to attach to this client’s
-        scope
+      summary: Get realm-level roles that are available to attach to this client’s scope
       responses:
         2XX:
           description: success
@@ -3361,9 +3318,7 @@ paths:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope   What
-        this does is recurse  any composite roles associated with the client’s scope
-        and adds the roles to this lists.
+      summary: Get effective realm-level roles associated with the client’s scope   What this does is recurse  any composite roles associated with the client’s scope and adds the roles to this lists.
       responses:
         2XX:
           description: success
@@ -3419,8 +3374,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: 'Get application session count   Returns a number of user sessions
-        associated with this client   {      "count": number  }'
+      summary: 'Get application session count   Returns a number of user sessions associated with this client   {      "count": number  }'
       responses:
         2XX:
           description: success
@@ -3448,8 +3402,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Test if registered cluster nodes are available   Tests availability
-        by sending 'ping' request to all cluster nodes.
+      summary: Test if registered cluster nodes are available   Tests availability by sending 'ping' request to all cluster nodes.
       responses:
         2XX:
           description: success
@@ -3476,8 +3429,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get user sessions for client   Returns a list of user sessions associated
-        with this client
+      summary: Get user sessions for client   Returns a list of user sessions associated with this client
       parameters:
         - in: query
           name: first
@@ -3613,8 +3565,7 @@ paths:
     get:
       tags:
         - Component
-      summary: List of subcomponent types that are available to configure for a particular
-        parent component.
+      summary: List of subcomponent types that are available to configure for a particular parent component.
       parameters:
         - in: query
           name: type
@@ -3795,8 +3746,7 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: Get events   Returns all events, or filters them based on URL query
-        parameters listed here
+      summary: Get events   Returns all events, or filters them based on URL query parameters listed here
       parameters:
         - in: query
           name: client
@@ -3878,8 +3828,7 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: Get the events provider configuration   Returns JSON object with events
-        provider configuration
+      summary: Get the events provider configuration   Returns JSON object with events provider configuration
       responses:
         2XX:
           description: success
@@ -3890,8 +3839,7 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: Update the events provider   Change the events provider and/or its
-        configuration
+      summary: Update the events provider   Change the events provider and/or its configuration
       requestBody:
         content:
           application/json:
@@ -4095,8 +4043,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -4107,8 +4054,7 @@ paths:
     put:
       tags:
         - Groups
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -4307,8 +4253,7 @@ paths:
     get:
       tags:
         - Client Role Mappings
-      summary: Get effective client-level role mappings   This recurses any composite
-        roles
+      summary: Get effective client-level role mappings   This recurses any composite roles
       responses:
         2XX:
           description: success
@@ -4429,8 +4374,7 @@ paths:
     get:
       tags:
         - Role Mapper
-      summary: Get effective realm-level role mappings   This will recurse all composite
-        roles to get the result.
+      summary: Get effective realm-level role mappings   This will recurse all composite roles to get the result.
       responses:
         2XX:
           description: success
@@ -4590,8 +4534,7 @@ paths:
     get:
       tags:
         - Identity Providers
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -4602,8 +4545,7 @@ paths:
     put:
       tags:
         - Identity Providers
-      summary: Return object stating whether client Authorization permissions have
-        been initialized or not and a reference
+      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -4862,8 +4804,7 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Push the realm’s revocation policy to any client that has an admin
-        url associated with it.
+      summary: Push the realm’s revocation policy to any client that has an admin url associated with it.
       responses:
         2XX:
           description: success
@@ -4961,8 +4902,7 @@ paths:
     get:
       tags:
         - Roles (by ID)
-      summary: Get role’s children   Returns a set of role’s children provided the
-        role is a composite.
+      summary: Get role’s children   Returns a set of role’s children provided the role is a composite.
       responses:
         2XX:
           description: success
@@ -5084,8 +5024,7 @@ paths:
     get:
       tags:
         - Roles (by ID)
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -5096,8 +5035,7 @@ paths:
     put:
       tags:
         - Roles (by ID)
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -5310,8 +5248,7 @@ paths:
           style: form
         - in: query
           name: full
-          description: if true, return a full representation of the GroupRepresentation
-            objects
+          description: if true, return a full representation of the GroupRepresentation objects
           schema:
             type: boolean
           style: form
@@ -5348,8 +5285,7 @@ paths:
     get:
       tags:
         - Roles
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       responses:
         2XX:
           description: success
@@ -5360,8 +5296,7 @@ paths:
     put:
       tags:
         - Roles
-      summary: Return object stating whether role Authoirzation permissions have been
-        initialized or not and a reference
+      summary: Return object stating whether role Authoirzation permissions have been initialized or not and a reference
       requestBody:
         content:
           application/json:
@@ -5495,8 +5430,7 @@ paths:
     get:
       tags:
         - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when
-        displaying user detail   KEYCLOAK-4328
+      summary: Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328
       responses:
         2XX:
           description: success
@@ -5599,8 +5533,7 @@ paths:
     post:
       tags:
         - User Storage Provider
-      summary: Trigger sync of mapper data related to ldap mapper (roles, groups,
-        …​)   direction is "fedToKeycloak" or "keycloakToFed"
+      summary: Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is "fedToKeycloak" or "keycloakToFed"
       parameters:
         - in: query
           name: direction
@@ -5911,8 +5844,7 @@ paths:
     put:
       tags:
         - Users
-      summary: Send a update account email to the user   An email contains a link
-        the user can click to perform a set of required actions.
+      summary: Send a update account email to the user   An email contains a link the user can click to perform a set of required actions.
       parameters:
         - in: query
           name: client_id
@@ -6177,9 +6109,7 @@ paths:
     post:
       tags:
         - Users
-      summary: Remove all user sessions associated with the user   Also send notification
-        to all clients that have an admin URL to invalidate the sessions for the particular
-        user.
+      summary: Remove all user sessions associated with the user   Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.
       responses:
         2XX:
           description: success
@@ -6262,8 +6192,7 @@ paths:
         - Users
       summary: Set up a new password for the user.
       requestBody:
-        description: The representation must contain a value and the type equals to
-          "password"
+        description: The representation must contain a value and the type equals to "password"
         content:
           application/json:
             schema:
@@ -6418,8 +6347,7 @@ paths:
     get:
       tags:
         - Client Role Mappings
-      summary: Get effective client-level role mappings   This recurses any composite
-        roles
+      summary: Get effective client-level role mappings   This recurses any composite roles
       responses:
         2XX:
           description: success
@@ -6543,8 +6471,7 @@ paths:
     get:
       tags:
         - Role Mapper
-      summary: Get effective realm-level role mappings   This will recurse all composite
-        roles to get the result.
+      summary: Get effective realm-level role mappings   This will recurse all composite roles to get the result.
       responses:
         2XX:
           description: success
@@ -6573,8 +6500,7 @@ paths:
     put:
       tags:
         - Users
-      summary: Send an email-verification email to the user   An email contains a
-        link the user can click to verify their email address.
+      summary: Send an email-verification email to the user   An email contains a link the user can click to verify their email address.
       parameters:
         - in: query
           name: client_id

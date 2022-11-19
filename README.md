@@ -9,7 +9,7 @@ mainstream programming langauge.
 OpenAPI definitions are sometimes known by their previous name of Swagger
 specifications.
 
-[Keycloak 18.0 Admin API](./keycloak/18.0.json)
+[Keycloak 20.0.1 Admin API](./keycloak/20.0.1.json)
 
 [Keycloak 13.0 Admin API with patches](./keycloak/13.0-patched.json)
 
@@ -131,7 +131,7 @@ requires:
 
 - `make`
 - [`Rust`](https://www.rust-lang.org/tools/install)
-- [`yq`](https://kislyuk.github.io/yq/)
+- [`yq`](https://github.com/mikefarah/yq/)
 
 Building the transformer requires
 [`Rust`](https://www.rust-lang.org/tools/install).

@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
-  title: Keycloak Admin REST API
-  description: This is a REST API reference for the Keycloak Admin
+  title: ${product.name.full} Admin REST API
+  description: This is a REST API reference for the ${product.name.full} Admin REST API.
   version: "1"
 paths:
   /:
@@ -19,37 +19,16 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Import a realm   Imports a realm from a full representation of that realm.
+      summary: Import a realm.
       requestBody:
-        description: JSON representation of the realm
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RealmRepresentation'
+              $ref: '#/components/schemas/InputStream'
         required: true
       responses:
         2XX:
           description: success
-  /{id}/name:
-    get:
-      tags:
-        - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when displaying client detail   KEYCLOAK-4328
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties: true
-    parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}:
     get:
       tags:
@@ -167,7 +146,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AdminEventRepresentation'
+                  type: object
+                  additionalProperties: true
     delete:
       tags:
         - Realms Admin
@@ -237,7 +217,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get authenticator providers   Returns a list of authenticator providers.
+      summary: Get authenticator providers   Returns a stream of authenticator providers.
       responses:
         2XX:
           description: success
@@ -260,7 +240,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get client authenticator providers   Returns a list of client authenticator providers.
+      summary: Get client authenticator providers   Returns a stream of client authenticator providers.
       responses:
         2XX:
           description: success
@@ -486,7 +466,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get authentication flows   Returns a list of authentication flows.
+      summary: Get authentication flows   Returns a stream of authentication flows.
       responses:
         2XX:
           description: success
@@ -495,7 +475,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AuthenticationFlowRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Authentication Management
@@ -700,7 +681,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get form action providers   Returns a list of form action providers.
+      summary: Get form action providers   Returns a stream of form action providers.
       responses:
         2XX:
           description: success
@@ -723,7 +704,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get form providers   Returns a list of form providers.
+      summary: Get form providers   Returns a stream of form providers.
       responses:
         2XX:
           description: success
@@ -791,7 +772,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get required actions   Returns a list of required actions.
+      summary: Get required actions   Returns a stream of required actions.
       responses:
         2XX:
           description: success
@@ -800,7 +781,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RequiredActionProviderRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -907,7 +889,7 @@ paths:
     get:
       tags:
         - Authentication Management
-      summary: Get unregistered required actions   Returns a list of unregistered required actions.
+      summary: Get unregistered required actions   Returns a stream of unregistered required actions.
       responses:
         2XX:
           description: success
@@ -918,54 +900,6 @@ paths:
                 items:
                   type: object
                   additionalProperties: true
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/clear-keys-cache:
-    post:
-      tags:
-        - Realms Admin
-      summary: Clear cache of external public keys (Public keys of clients or Identity providers)
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/clear-realm-cache:
-    post:
-      tags:
-        - Realms Admin
-      summary: Clear realm cache
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/clear-user-cache:
-    post:
-      tags:
-        - Realms Admin
-      summary: Clear user cache
-      responses:
-        2XX:
-          description: success
     parameters:
       - in: path
         name: realm
@@ -1000,6 +934,74 @@ paths:
         schema:
           type: string
         style: simple
+  /{realm}/client-policies/policies:
+    get:
+      tags:
+        - Realms Admin
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientPoliciesRepresentation'
+    put:
+      tags:
+        - Realms Admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientPoliciesRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+  /{realm}/client-policies/profiles:
+    get:
+      tags:
+        - Realms Admin
+      parameters:
+        - in: query
+          name: include-global-profiles
+          schema:
+            type: boolean
+          style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientProfilesRepresentation'
+    put:
+      tags:
+        - Realms Admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientProfilesRepresentation'
+        required: true
+      responses:
+        2XX:
+          description: success
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
   /{realm}/client-registration-policy/providers:
     get:
       tags:
@@ -1013,7 +1015,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ComponentTypeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1035,7 +1038,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Client Scopes
@@ -1200,7 +1204,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Protocol Mappers
@@ -1242,7 +1247,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1264,33 +1270,6 @@ paths:
         schema:
           type: string
         style: simple
-  /{realm}/client-scopes/{id}/scope-mappings:
-    get:
-      tags:
-        - Scope Mappings
-      summary: Get all scope mappings for the client
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MappingsRepresentation'
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        description: id of client scope (not name)
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}/client-scopes/{id}/scope-mappings/clients/{client}:
     get:
       tags:
@@ -1304,7 +1283,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Scope Mappings
@@ -1369,7 +1349,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1411,7 +1392,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1446,7 +1428,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Scope Mappings
@@ -1505,7 +1488,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1541,7 +1525,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -1584,7 +1569,7 @@ paths:
     get:
       tags:
         - Clients
-      summary: Get clients belonging to the realm   Returns a list of clients belonging to the realm
+      summary: Get clients belonging to the realm.
       parameters:
         - in: query
           name: clientId
@@ -1607,6 +1592,11 @@ paths:
             format: int32
           style: form
         - in: query
+          name: q
+          schema:
+            type: string
+          style: form
+        - in: query
           name: search
           description: whether this is a search query or a getClientById query
           schema:
@@ -1626,7 +1616,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Clients
@@ -1638,12 +1629,8 @@ paths:
               $ref: '#/components/schemas/ClientRepresentation'
         required: true
       responses:
-        "201":
-          description: created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientRepresentation'
+        2XX:
+          description: success
     parameters:
       - in: path
         name: realm
@@ -1664,7 +1651,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientInitialAccessPresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Client Initial Access
@@ -2062,6 +2050,40 @@ paths:
         schema:
           type: string
         style: simple
+  /{realm}/clients/{id}/client-secret/rotated:
+    get:
+      tags:
+        - Clients
+      summary: Get the rotated client secret
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialRepresentation'
+    delete:
+      tags:
+        - Clients
+      summary: Invalidate the rotated secret for the client
+      responses:
+        2XX:
+          description: success
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+      - in: path
+        name: id
+        description: id of client (not client-id)
+        required: true
+        schema:
+          type: string
+        style: simple
   /{realm}/clients/{id}/default-client-scopes:
     get:
       tags:
@@ -2075,7 +2097,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2163,6 +2186,83 @@ paths:
         schema:
           type: string
         style: simple
+  /{realm}/clients/{id}/evaluate-scopes/generate-example-id-token:
+    get:
+      tags:
+        - Clients
+      summary: Create JSON with payload of example id token
+      parameters:
+        - in: query
+          name: scope
+          schema:
+            type: string
+          style: form
+        - in: query
+          name: userId
+          schema:
+            type: string
+          style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IDToken'
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+      - in: path
+        name: id
+        description: id of client (not client-id)
+        required: true
+        schema:
+          type: string
+        style: simple
+  /{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo:
+    get:
+      tags:
+        - Clients
+      summary: Create JSON with payload of example user info
+      parameters:
+        - in: query
+          name: scope
+          schema:
+            type: string
+          style: form
+        - in: query
+          name: userId
+          schema:
+            type: string
+          style: form
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+      - in: path
+        name: id
+        description: id of client (not client-id)
+        required: true
+        schema:
+          type: string
+        style: simple
   /{realm}/clients/{id}/evaluate-scopes/protocol-mappers:
     get:
       tags:
@@ -2182,7 +2282,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeEvaluateResource-ProtocolMapperEvaluationRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2217,7 +2318,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2259,7 +2361,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2469,7 +2572,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserSessionRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2498,7 +2602,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2592,7 +2697,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Protocol Mappers
@@ -2634,7 +2740,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ProtocolMapperRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2746,7 +2853,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Roles
@@ -2842,7 +2950,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Roles
@@ -2909,7 +3018,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2951,7 +3061,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3008,7 +3119,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GroupRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3109,7 +3221,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3132,33 +3245,6 @@ paths:
         schema:
           type: string
         style: simple
-  /{realm}/clients/{id}/scope-mappings:
-    get:
-      tags:
-        - Scope Mappings
-      summary: Get all scope mappings for the client
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MappingsRepresentation'
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        description: id of client (not client-id)
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}/clients/{id}/scope-mappings/clients/{client}:
     get:
       tags:
@@ -3172,7 +3258,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Scope Mappings
@@ -3237,7 +3324,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3279,7 +3367,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3314,7 +3403,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Scope Mappings
@@ -3373,7 +3463,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3409,7 +3500,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3535,7 +3627,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserSessionRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3579,7 +3672,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ComponentRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Component
@@ -3662,7 +3756,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ComponentTypeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3689,7 +3784,8 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3711,7 +3807,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3760,7 +3857,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GroupRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3809,7 +3907,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ClientScopeRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3911,7 +4010,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/EventRepresentation'
+                  type: object
+                  additionalProperties: true
     delete:
       tags:
         - Realms Admin
@@ -3997,6 +4097,11 @@ paths:
             type: boolean
           style: form
         - in: query
+          name: exact
+          schema:
+            type: boolean
+          style: form
+        - in: query
           name: first
           schema:
             type: integer
@@ -4007,6 +4112,11 @@ paths:
           schema:
             type: integer
             format: int32
+          style: form
+        - in: query
+          name: q
+          schema:
+            type: string
           style: form
         - in: query
           name: search
@@ -4021,7 +4131,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GroupRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Groups
@@ -4227,7 +4338,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4281,7 +4393,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Client Role Mappings
@@ -4345,7 +4458,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4386,7 +4500,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4420,7 +4535,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Role Mapper
@@ -4479,7 +4595,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4514,7 +4631,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4563,7 +4681,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/IdentityProviderRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Identity Providers
@@ -4739,7 +4858,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Identity Providers
@@ -4862,29 +4982,6 @@ paths:
         schema:
           type: string
         style: simple
-  /{realm}/ldap-server-capabilities:
-    post:
-      tags:
-        - Realms Admin
-      summary: Get LDAP supported extensions.
-      requestBody:
-        description: LDAP configuration
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TestLdapConnectionRepresentation'
-        required: true
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}/localization:
     get:
       tags:
@@ -4897,7 +4994,8 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4910,6 +5008,12 @@ paths:
     get:
       tags:
         - Realms Admin
+      parameters:
+        - in: query
+          name: useRealmDefaultLocaleFallback
+          schema:
+            type: boolean
+          style: form
       responses:
         2XX:
           description: success
@@ -4921,19 +5025,6 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Import localization from uploaded JSON file
-      responses:
-        2XX:
-          description: success
-    delete:
-      tags:
-        - Realms Admin
-      responses:
-        2XX:
-          description: success
-    patch:
-      tags:
-        - Realms Admin
       requestBody:
         content:
           application/json:
@@ -4941,6 +5032,12 @@ paths:
               type: object
               additionalProperties: true
         required: true
+      responses:
+        2XX:
+          description: success
+    delete:
+      tags:
+        - Realms Admin
       responses:
         2XX:
           description: success
@@ -5015,6 +5112,10 @@ paths:
       responses:
         2XX:
           description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalRequestResult'
     parameters:
       - in: path
         name: realm
@@ -5042,10 +5143,6 @@ paths:
       responses:
         2XX:
           description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RealmRepresentation'
     parameters:
       - in: path
         name: realm
@@ -5128,7 +5225,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Roles
@@ -5202,6 +5300,24 @@ paths:
       tags:
         - Roles (by ID)
       summary: Get role’s children   Returns a set of role’s children provided the role is a composite.
+      parameters:
+        - in: query
+          name: first
+          schema:
+            type: integer
+            format: int32
+          style: form
+        - in: query
+          name: max
+          schema:
+            type: integer
+            format: int32
+          style: form
+        - in: query
+          name: search
+          schema:
+            type: string
+          style: form
       responses:
         2XX:
           description: success
@@ -5210,7 +5326,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Roles (by ID)
@@ -5270,7 +5387,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5304,7 +5422,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5422,7 +5541,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Roles
@@ -5482,7 +5602,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5517,7 +5638,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5567,7 +5689,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GroupRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5654,7 +5777,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5692,28 +5816,6 @@ paths:
         schema:
           type: string
         style: simple
-  /{realm}/testLDAPConnection:
-    post:
-      tags:
-        - Realms Admin
-      summary: Test LDAP connection
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TestLdapConnectionRepresentation'
-        required: true
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}/testSMTPConnection:
     post:
       tags:
@@ -5736,152 +5838,11 @@ paths:
         schema:
           type: string
         style: simple
-  /{realm}/user-storage/{id}/name:
-    get:
-      tags:
-        - User Storage Provider
-      summary: Need this for admin console to display simple name of provider when displaying user detail   KEYCLOAK-4328
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties: true
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/user-storage/{id}/remove-imported-users:
-    post:
-      tags:
-        - User Storage Provider
-      summary: Remove imported users
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/user-storage/{id}/sync:
-    post:
-      tags:
-        - User Storage Provider
-      summary: Trigger sync of users   Action can be "triggerFullSync" or "triggerChangedUsersSync"
-      parameters:
-        - in: query
-          name: action
-          schema:
-            type: string
-          style: form
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SynchronizationResult'
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/user-storage/{id}/unlink-users:
-    post:
-      tags:
-        - User Storage Provider
-      summary: Unlink imported users from a storage provider
-      responses:
-        2XX:
-          description: success
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-  /{realm}/user-storage/{parentId}/mappers/{id}/sync:
-    post:
-      tags:
-        - User Storage Provider
-      summary: Trigger sync of mapper data related to ldap mapper (roles, groups, …​)   direction is "fedToKeycloak" or "keycloakToFed"
-      parameters:
-        - in: query
-          name: direction
-          schema:
-            type: string
-          style: form
-      responses:
-        2XX:
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SynchronizationResult'
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: parentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
   /{realm}/users:
     get:
       tags:
         - Users
-      summary: Get users   Returns a stream of users, filtered according to query parameters
+      summary: Get users   Returns a stream of users, filtered according to query parameters.
       parameters:
         - in: query
           name: briefRepresentation
@@ -5952,6 +5913,12 @@ paths:
             format: int32
           style: form
         - in: query
+          name: q
+          description: A query to search for custom attributes, in the format 'key1:value2 key2:value2'
+          schema:
+            type: string
+          style: form
+        - in: query
           name: search
           description: A String contained in username, first or last name, or email
           schema:
@@ -5971,7 +5938,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Users
@@ -5983,12 +5951,8 @@ paths:
               $ref: '#/components/schemas/UserRepresentation'
         required: true
       responses:
-        "201":
-          description: created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserRepresentation'
+        2XX:
+          description: success
     parameters:
       - in: path
         name: realm
@@ -6050,6 +6014,12 @@ paths:
             type: boolean
           style: form
         - in: query
+          name: enabled
+          description: Boolean representing if user is enabled or not
+          schema:
+            type: boolean
+          style: form
+        - in: query
           name: firstName
           description: first name filter
           schema:
@@ -6081,6 +6051,37 @@ paths:
               schema:
                 type: integer
                 format: int32
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+  /{realm}/users/profile:
+    get:
+      tags:
+        - Users
+      responses:
+        2XX:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+    put:
+      tags:
+        - Users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        2XX:
+          description: success
     parameters:
       - in: path
         name: realm
@@ -6149,7 +6150,8 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6237,7 +6239,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/CredentialRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6480,7 +6483,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FederatedIdentityRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6574,7 +6578,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GroupRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6721,7 +6726,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserSessionRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6813,7 +6819,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Client Role Mappings
@@ -6878,7 +6885,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6920,7 +6928,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -6955,7 +6964,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     post:
       tags:
         - Role Mapper
@@ -7015,7 +7025,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -7051,7 +7062,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RoleRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -7116,7 +7128,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserSessionRepresentation'
+                  type: object
+                  additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -7172,6 +7185,7 @@ components:
             - ADMIN
             - USERINFO
             - LOGOUT
+            - AUTHORIZATION_RESPONSE
         claims_locales:
           type: string
         cnf:
@@ -7230,6 +7244,8 @@ components:
           type: string
         session_state:
           type: string
+        sid:
+          type: string
         sub:
           type: string
         trusted-certs:
@@ -7281,37 +7297,6 @@ components:
           type: string
         street_address:
           type: string
-    AdminEventRepresentation:
-      type: object
-      properties:
-        authDetails:
-          $ref: '#/components/schemas/AuthDetailsRepresentation'
-        error:
-          type: string
-        operationType:
-          type: string
-        realmId:
-          type: string
-        representation:
-          type: string
-        resourcePath:
-          type: string
-        resourceType:
-          type: string
-        time:
-          type: integer
-          format: int64
-    AuthDetailsRepresentation:
-      type: object
-      properties:
-        clientId:
-          type: string
-        ipAddress:
-          type: string
-        realmId:
-          type: string
-        userId:
-          type: string
     AuthenticationExecutionExportRepresentation:
       type: object
       properties:
@@ -7320,8 +7305,6 @@ components:
         authenticatorConfig:
           type: string
         authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
           type: boolean
         flowAlias:
           type: string
@@ -7373,8 +7356,6 @@ components:
         authenticatorConfig:
           type: string
         authenticatorFlow:
-          type: boolean
-        autheticatorFlow:
           type: boolean
         flowId:
           type: string
@@ -7479,6 +7460,66 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RoleRepresentation'
+    ClientPoliciesRepresentation:
+      type: object
+      properties:
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyRepresentation'
+    ClientPolicyConditionRepresentation:
+      type: object
+      properties:
+        condition:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/JsonNode'
+    ClientPolicyExecutorRepresentation:
+      type: object
+      properties:
+        configuration:
+          $ref: '#/components/schemas/JsonNode'
+        executor:
+          type: string
+    ClientPolicyRepresentation:
+      type: object
+      properties:
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyConditionRepresentation'
+        description:
+          type: string
+        enabled:
+          type: boolean
+        name:
+          type: string
+        profiles:
+          type: array
+          items:
+            type: string
+    ClientProfileRepresentation:
+      type: object
+      properties:
+        description:
+          type: string
+        executors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyExecutorRepresentation'
+        name:
+          type: string
+    ClientProfilesRepresentation:
+      type: object
+      properties:
+        globalProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
     ClientRepresentation:
       type: object
       properties:
@@ -7513,10 +7554,6 @@ components:
           type: array
           items:
             type: string
-        defaultRoles:
-          type: array
-          items:
-            type: string
         description:
           type: string
         directAccessGrantsEnabled:
@@ -7539,6 +7576,8 @@ components:
         notBefore:
           type: integer
           format: int32
+        oauth2DeviceAuthorizationGrantEnabled:
+          type: boolean
         optionalClientScopes:
           type: array
           items:
@@ -7641,20 +7680,6 @@ components:
           type: string
         subType:
           type: string
-    ComponentTypeRepresentation:
-      type: object
-      properties:
-        helpText:
-          type: string
-        id:
-          type: string
-        metadata:
-          type: object
-          additionalProperties: true
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConfigPropertyRepresentation'
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -7670,6 +7695,8 @@ components:
           type: array
           items:
             type: string
+        readOnly:
+          type: boolean
         secret:
           type: boolean
         type:
@@ -7697,29 +7724,15 @@ components:
           type: string
         value:
           type: string
-    EventRepresentation:
+    CryptoInfoRepresentation:
       type: object
       properties:
-        clientId:
+        cryptoProvider:
           type: string
-        details:
-          type: object
-          additionalProperties: true
-        error:
-          type: string
-        ipAddress:
-          type: string
-        realmId:
-          type: string
-        sessionId:
-          type: string
-        time:
-          type: integer
-          format: int64
-        type:
-          type: string
-        userId:
-          type: string
+        supportedKeystoreTypes:
+          type: array
+          items:
+            type: string
     FederatedIdentityRepresentation:
       type: object
       properties:
@@ -7766,6 +7779,99 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
+    IDToken:
+      type: object
+      properties:
+        acr:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressClaimSet'
+        at_hash:
+          type: string
+        auth_time:
+          type: integer
+          format: int64
+        azp:
+          type: string
+        birthdate:
+          type: string
+        c_hash:
+          type: string
+        category:
+          type: string
+          enum:
+            - INTERNAL
+            - ACCESS
+            - ID
+            - ADMIN
+            - USERINFO
+            - LOGOUT
+            - AUTHORIZATION_RESPONSE
+        claims_locales:
+          type: string
+        email:
+          type: string
+        email_verified:
+          type: boolean
+        exp:
+          type: integer
+          format: int64
+        family_name:
+          type: string
+        gender:
+          type: string
+        given_name:
+          type: string
+        iat:
+          type: integer
+          format: int64
+        iss:
+          type: string
+        jti:
+          type: string
+        locale:
+          type: string
+        middle_name:
+          type: string
+        name:
+          type: string
+        nbf:
+          type: integer
+          format: int64
+        nickname:
+          type: string
+        nonce:
+          type: string
+        otherClaims:
+          type: object
+          additionalProperties: true
+        phone_number:
+          type: string
+        phone_number_verified:
+          type: boolean
+        picture:
+          type: string
+        preferred_username:
+          type: string
+        profile:
+          type: string
+        s_hash:
+          type: string
+        session_state:
+          type: string
+        sid:
+          type: string
+        sub:
+          type: string
+        typ:
+          type: string
+        updated_at:
+          type: integer
+          format: int64
+        website:
+          type: string
+        zoneinfo:
+          type: string
     IdentityProviderMapperRepresentation:
       type: object
       properties:
@@ -7807,6 +7913,63 @@ components:
         storeToken:
           type: boolean
         trustEmail:
+          type: boolean
+    JsonNode:
+      type: object
+      properties:
+        array:
+          type: boolean
+        bigDecimal:
+          type: boolean
+        bigInteger:
+          type: boolean
+        binary:
+          type: boolean
+        boolean:
+          type: boolean
+        containerNode:
+          type: boolean
+        double:
+          type: boolean
+        empty:
+          type: boolean
+        float:
+          type: boolean
+        floatingPointNumber:
+          type: boolean
+        int:
+          type: boolean
+        integralNumber:
+          type: boolean
+        long:
+          type: boolean
+        missingNode:
+          type: boolean
+        nodeType:
+          type: string
+          enum:
+            - ARRAY
+            - BINARY
+            - BOOLEAN
+            - MISSING
+            - "NULL"
+            - NUMBER
+            - OBJECT
+            - POJO
+            - STRING
+        "null":
+          type: boolean
+        number:
+          type: boolean
+        object:
+          type: boolean
+        pojo:
+          type: boolean
+        short:
+          type: boolean
+        textual:
+          type: boolean
+        valueNode:
           type: boolean
     KeyStoreConfig:
       type: object
@@ -7853,6 +8016,11 @@ components:
           type: string
         type:
           type: string
+        use:
+          type: string
+          enum:
+            - SIG
+            - ENC
     ManagementPermissionReference:
       type: object
       properties:
@@ -7916,6 +8084,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
+        identityProviderMappers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
         identityProviders:
           type: array
           items:
@@ -8039,8 +8211,6 @@ components:
           type: string
         protocolMapper:
           type: string
-        consentRequired:
-          type: boolean
     ProviderRepresentation:
       type: object
       properties:
@@ -8128,6 +8298,10 @@ components:
         clientOfflineSessionMaxLifespan:
           type: integer
           format: int32
+        clientPolicies:
+          $ref: '#/components/schemas/JsonNode'
+        clientProfiles:
+          $ref: '#/components/schemas/JsonNode'
         clientScopeMappings:
           type: object
           additionalProperties: true
@@ -8161,10 +8335,8 @@ components:
           type: array
           items:
             type: string
-        defaultRoles:
-          type: array
-          items:
-            type: string
+        defaultRole:
+          $ref: '#/components/schemas/RoleRepresentation'
         defaultSignatureAlgorithm:
           type: string
         directGrantFlow:
@@ -8237,6 +8409,18 @@ components:
         notBefore:
           type: integer
           format: int32
+        oAuth2DeviceCodeLifespan:
+          type: integer
+          format: int32
+        oAuth2DevicePollingInterval:
+          type: integer
+          format: int32
+        oauth2DeviceCodeLifespan:
+          type: integer
+          format: int32
+        oauth2DevicePollingInterval:
+          type: integer
+          format: int32
         offlineSessionIdleTimeout:
           type: integer
           format: int32
@@ -8247,6 +8431,8 @@ components:
           type: boolean
         otpPolicyAlgorithm:
           type: string
+        otpPolicyCodeReusable:
+          type: boolean
         otpPolicyDigits:
           type: integer
           format: int32
@@ -8564,6 +8750,8 @@ components:
         componentTypes:
           type: object
           additionalProperties: true
+        cryptoInfo:
+          $ref: '#/components/schemas/CryptoInfoRepresentation'
         enums:
           type: object
           additionalProperties: true
@@ -8604,25 +8792,6 @@ components:
         providers:
           type: object
           additionalProperties: true
-    SynchronizationResult:
-      type: object
-      properties:
-        added:
-          type: integer
-          format: int32
-        failed:
-          type: integer
-          format: int32
-        ignored:
-          type: boolean
-        removed:
-          type: integer
-          format: int32
-        status:
-          type: string
-        updated:
-          type: integer
-          format: int32
     SystemInfoRepresentation:
       type: object
       properties:
@@ -8662,27 +8831,6 @@ components:
         userTimezone:
           type: string
         version:
-          type: string
-    TestLdapConnectionRepresentation:
-      type: object
-      properties:
-        action:
-          type: string
-        authType:
-          type: string
-        bindCredential:
-          type: string
-        bindDn:
-          type: string
-        componentId:
-          type: string
-        connectionTimeout:
-          type: string
-        connectionUrl:
-          type: string
-        startTls:
-          type: string
-        useTruststoreSpi:
           type: string
     UserConsentRepresentation:
       type: object
@@ -8770,8 +8918,6 @@ components:
           type: boolean
         enabled:
           type: boolean
-        totp:
-          type: boolean
         federatedIdentities:
           type: array
           items:
@@ -8804,26 +8950,6 @@ components:
         self:
           type: string
         serviceAccountClientId:
-          type: string
-        username:
-          type: string
-    UserSessionRepresentation:
-      type: object
-      properties:
-        clients:
-          type: object
-          additionalProperties: true
-        id:
-          type: string
-        ipAddress:
-          type: string
-        lastAccess:
-          type: integer
-          format: int64
-        start:
-          type: integer
-          format: int64
-        userId:
           type: string
         username:
           type: string

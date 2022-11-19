@@ -11,6 +11,9 @@ keycloak/16.0.json \
 keycloak/16.1.json \
 keycloak/17.0.json \
 keycloak/18.0.json \
+keycloak/19.0.0.json \
+keycloak/20.0.0.json \
+keycloak/20.0.1.json \
 keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 
@@ -33,6 +36,9 @@ keycloak/16.0.yml \
 keycloak/16.1.yml \
 keycloak/17.0.yml \
 keycloak/18.0.yml \
+keycloak/19.0.0.yml \
+keycloak/20.0.0.yml \
+keycloak/20.0.1.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 
@@ -49,6 +55,9 @@ keycloak/16.0.html \
 keycloak/16.1.html \
 keycloak/17.0.html \
 keycloak/18.0.html \
+keycloak/19.0.0.html \
+keycloak/20.0.0.html \
+keycloak/20.0.1.html \
 keycloak/sso-6.html \
 keycloak/sso-7.3.html \
 
@@ -78,4 +87,4 @@ keycloak/%.json: keycloak/%.html
 	(cd keycloak-openapi-transformer; cargo run --release) < $(addsuffix .html,$(basename $@)) > $@
 
 keycloak/%.yml: keycloak/%.json
-	yq --yaml-output < $< > $@
+	yq -P '.' $< > $@
