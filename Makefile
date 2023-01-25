@@ -41,6 +41,8 @@ keycloak/18.0.yml \
 keycloak/19.0.0.yml \
 keycloak/20.0.0.yml \
 keycloak/20.0.1.yml \
+keycloak/20.0.2.yml \
+keycloak/20.0.3.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 
