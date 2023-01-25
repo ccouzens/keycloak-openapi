@@ -14,6 +14,8 @@ keycloak/18.0.json \
 keycloak/19.0.0.json \
 keycloak/20.0.0.json \
 keycloak/20.0.1.json \
+keycloak/20.0.2.json \
+keycloak/20.0.3.json \
 keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 
@@ -58,6 +60,8 @@ keycloak/18.0.html \
 keycloak/19.0.0.html \
 keycloak/20.0.0.html \
 keycloak/20.0.1.html \
+keycloak/20.0.2.html \
+keycloak/20.0.3.html \
 keycloak/sso-6.html \
 keycloak/sso-7.3.html \
 
