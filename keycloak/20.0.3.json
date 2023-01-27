@@ -34,7 +34,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InputStream"
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
               }
             }
           },

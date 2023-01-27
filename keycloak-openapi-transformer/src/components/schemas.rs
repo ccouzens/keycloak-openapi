@@ -116,7 +116,7 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
                 ..Default::default()
             })),
-            "Stream" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            "Stream" | "InputStream" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
                 max_items: None,
                 min_items: None,
                 unique_items: false,
