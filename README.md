@@ -33,7 +33,7 @@ recent versions of Keycloak which are more complete than what's here.
 
 ## Account API
 
-Keycloak also has an undocumented [Account API](https://github.com/keycloak/keycloak/blob/main/services/src/main/java/org/keycloak/services/resources/account/AccountRestService.java) that is used by the internal account console to display and update user information. This would be useful for anyone building a custom account console, or building account info/editing into their application. @xgp has created a Gist with [OpenAPI definitions of the Account API](https://gist.github.com/xgp/2d77cbebc6164160faae6aa77d127a57).
+Keycloak also has an undocumented [Account API](https://github.com/keycloak/keycloak/blob/main/services/src/main/java/org/keycloak/services/resources/account/AccountRestService.java) that is used by the internal account console to display and update user information. This is be useful for building a custom account console, or building account info/editing into an application. [@xgp](https://github.com/xgp) has created a [Gist of OpenAPI definitions of the Account API](https://gist.github.com/xgp/2d77cbebc6164160faae6aa77d127a57).
 
 ## General Usage
 
