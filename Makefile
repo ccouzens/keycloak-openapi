@@ -5,6 +5,12 @@ keycloak/20.0.0.json \
 keycloak/20.0.1.json \
 keycloak/20.0.2.json \
 keycloak/20.0.3.json \
+keycloak/21.0.0.json \
+keycloak/21.0.1.json \
+keycloak/21.0.2.json \
+keycloak/21.1.0.json \
+keycloak/21.1.1.json \
+keycloak/21.1.2.json \
 keycloak/sso-6.json \
 keycloak/sso-7.3.json \
 
@@ -32,6 +38,12 @@ keycloak/20.0.0.yml \
 keycloak/20.0.1.yml \
 keycloak/20.0.2.yml \
 keycloak/20.0.3.yml \
+keycloak/21.0.0.yml \
+keycloak/21.0.1.yml \
+keycloak/21.0.2.yml \
+keycloak/21.1.0.yml \
+keycloak/21.1.1.yml \
+keycloak/21.1.2.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 
@@ -42,6 +54,12 @@ keycloak/20.0.0.html \
 keycloak/20.0.1.html \
 keycloak/20.0.2.html \
 keycloak/20.0.3.html \
+keycloak/21.0.0.html \
+keycloak/21.0.1.html \
+keycloak/21.0.2.html \
+keycloak/21.1.0.html \
+keycloak/21.1.1.html \
+keycloak/21.1.2.html \
 keycloak/sso-6.html \
 keycloak/sso-7.3.html \
 
