@@ -1,15 +1,4 @@
 specs = \
-keycloak/9.0.json \
-keycloak/10.0.json \
-keycloak/11.0.json \
-keycloak/12.0.json \
-keycloak/13.0.json \
-keycloak/14.0.json \
-keycloak/15.0.json \
-keycloak/15.1.json \
-keycloak/16.0.json \
-keycloak/16.1.json \
-keycloak/17.0.json \
 keycloak/18.0.json \
 keycloak/19.0.0.json \
 keycloak/20.0.0.json \
@@ -47,17 +36,6 @@ keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 
 html = \
-keycloak/9.0.html \
-keycloak/10.0.html \
-keycloak/11.0.html \
-keycloak/12.0.html \
-keycloak/13.0.html \
-keycloak/14.0.html \
-keycloak/15.0.html \
-keycloak/15.1.html \
-keycloak/16.0.html \
-keycloak/16.1.html \
-keycloak/17.0.html \
 keycloak/18.0.html \
 keycloak/19.0.0.html \
 keycloak/20.0.0.html \
