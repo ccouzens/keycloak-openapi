@@ -1,0 +1,6296 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Keycloak Admin REST API",
+    "description": "This is a REST API reference for the Keycloak Admin REST API.",
+    "version": "1.0"
+  },
+  "paths": {
+    "/admin/realms": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/admin-events": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/attack-detection/brute-force/users": {
+      "delete": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/attack-detection/brute-force/users/{userId}": {
+      "get": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/authenticator-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/client-authenticator-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config-description/{providerId}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/config": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/config/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/lower-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/raise-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/copy": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/execution": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/form-action-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/form-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/per-client-config-description": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/register-required-action": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}/lower-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}/raise-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/unregistered-required-actions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-description-converter": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-policies/policies": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-policies/profiles": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-registration-policy/providers": {
+      "get": {
+        "tags": [
+          "Client Registration Policy"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/client-scopes/{id}": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-session-stats": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/client-templates/{id}": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients-initial-access": {
+      "get": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients-initial-access/{id}": {
+      "delete": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/clients/{id}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}": {
+      "get": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/download": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/client-secret": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/client-secret/rotated": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/default-client-scopes": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-id-token": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/installation/providers/{providerId}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/nodes": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/nodes/{node}": {
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/offline-session-count": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/offline-sessions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/optional-client-scopes": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/push-revocation": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/registration-access-token": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/groups": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/users": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/service-account-user": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/session-count": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/test-nodes-available": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/user-sessions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components/{id}": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components/{id}/sub-component-types": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/credential-registrators": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-default-client-scopes": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-default-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-groups": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-groups/{groupId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-optional-client-scopes": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/events": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/events/config": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/group-by-path/{path}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/count": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/children": {
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/members": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/import-config": {
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/export": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/management/permissions": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mapper-types": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mappers": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/providers/{provider_id}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/keys": {
+      "get": {
+        "tags": [
+          "Key"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization/{locale}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization/{locale}/{key}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/logout-all": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/partial-export": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/partialImport": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/push-revocation": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/groups": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/users": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/sessions/{session}": {
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/testSMTPConnection": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users-management-permissions": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/count": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/profile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/configured-user-storage-credential-types": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/consents": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/consents/{client}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveToFirst": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/userLabel": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/disable-credential-types": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/execute-actions-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/federated-identity": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/federated-identity/{provider}": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups/count": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups/{groupId}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/impersonation": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/logout": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/offline-sessions/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/reset-password": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/reset-password-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/send-verify-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/sessions": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "access_token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": null
+      }
+    },
+    "schemas": {
+      "Access": {
+        "type": "object",
+        "properties": {
+          "roles": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "verify_caller": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "AccessToken": {
+        "type": "object",
+        "properties": {
+          "jti": {
+            "$ref": "#/components/schemas/String"
+          },
+          "exp": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "nbf": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "iat": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "iss": {
+            "$ref": "#/components/schemas/String"
+          },
+          "sub": {
+            "$ref": "#/components/schemas/String"
+          },
+          "typ": {
+            "$ref": "#/components/schemas/String"
+          },
+          "azp": {
+            "$ref": "#/components/schemas/String"
+          },
+          "otherClaims": {
+            "$ref": "#/components/schemas/Map  of [object]"
+          },
+          "nonce": {
+            "$ref": "#/components/schemas/String"
+          },
+          "auth_time": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "session_state": {
+            "$ref": "#/components/schemas/String"
+          },
+          "at_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "c_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "given_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "family_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "middle_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "nickname": {
+            "$ref": "#/components/schemas/String"
+          },
+          "preferred_username": {
+            "$ref": "#/components/schemas/String"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/String"
+          },
+          "picture": {
+            "$ref": "#/components/schemas/String"
+          },
+          "website": {
+            "$ref": "#/components/schemas/String"
+          },
+          "email": {
+            "$ref": "#/components/schemas/String"
+          },
+          "email_verified": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/String"
+          },
+          "birthdate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "zoneinfo": {
+            "$ref": "#/components/schemas/String"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/String"
+          },
+          "phone_number": {
+            "$ref": "#/components/schemas/String"
+          },
+          "phone_number_verified": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressClaimSet"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "claims_locales": {
+            "$ref": "#/components/schemas/String"
+          },
+          "acr": {
+            "$ref": "#/components/schemas/String"
+          },
+          "s_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authTime": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "sid": {
+            "$ref": "#/components/schemas/String"
+          },
+          "trusted-certs": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "allowed-origins": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "realm_access": {
+            "$ref": "#/components/schemas/Access"
+          },
+          "resource_access": {
+            "$ref": "#/components/schemas/Map  of Access"
+          },
+          "authorization": {
+            "$ref": "#/components/schemas/Authorization"
+          },
+          "cnf": {
+            "$ref": "#/components/schemas/CertConf"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "AddressClaimSet": {
+        "type": "object",
+        "properties": {
+          "formatted": {
+            "$ref": "#/components/schemas/String"
+          },
+          "street_address": {
+            "$ref": "#/components/schemas/String"
+          },
+          "locality": {
+            "$ref": "#/components/schemas/String"
+          },
+          "region": {
+            "$ref": "#/components/schemas/String"
+          },
+          "postal_code": {
+            "$ref": "#/components/schemas/String"
+          },
+          "country": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "ApplicationRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "rootUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "adminUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "baseUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "surrogateAuthRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "alwaysDisplayInConsole": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "clientAuthenticatorType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "secret": {
+            "$ref": "#/components/schemas/String"
+          },
+          "registrationAccessToken": {
+            "$ref": "#/components/schemas/String"
+          },
+          "defaultRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "redirectUris": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webOrigins": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "notBefore": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "bearerOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "consentRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "standardFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "implicitFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directAccessGrantsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "serviceAccountsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "oauth2DeviceAuthorizationGrantEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authorizationServicesEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directGrantsOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "publicClient": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "frontchannelLogout": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "authenticationFlowBindingOverrides": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "fullScopeAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "nodeReRegistrationTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "registeredNodes": {
+            "$ref": "#/components/schemas/Map  of [integer]"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          },
+          "clientTemplate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "useTemplateConfig": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateScope": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateMappers": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "defaultClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "optionalClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "authorizationSettings": {
+            "$ref": "#/components/schemas/ResourceServerRepresentation"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Map  of [boolean]"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "claims": {
+            "$ref": "#/components/schemas/ApplicationRepresentation_claims"
+          }
+        }
+      },
+      "ApplicationRepresentationClaims": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "username": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "picture": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "website": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "phone": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "AuthenticationExecutionExportRepresentation": {
+        "type": "object",
+        "properties": {
+          "authenticatorConfig": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticator": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticatorFlow": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "requirement": {
+            "$ref": "#/components/schemas/String"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "autheticatorFlow": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "flowAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "userSetupAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "AuthenticationExecutionInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "requirement": {
+            "$ref": "#/components/schemas/String"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "alias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "requirementChoices": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "configurable": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authenticationFlow": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticationConfig": {
+            "$ref": "#/components/schemas/String"
+          },
+          "flowId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "level": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "index": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "AuthenticationExecutionRepresentation": {
+        "type": "object",
+        "properties": {
+          "authenticatorConfig": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticator": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticatorFlow": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "requirement": {
+            "$ref": "#/components/schemas/String"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "autheticatorFlow": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "flowId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "parentFlow": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "AuthenticationFlowRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "alias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "topLevel": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "builtIn": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authenticationExecutions": {
+            "$ref": "#/components/schemas/List  of AuthenticationExecutionExportRepresentation"
+          }
+        }
+      },
+      "AuthenticatorConfigInfoRepresentation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "helpText": {
+            "$ref": "#/components/schemas/String"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/List  of ConfigPropertyRepresentation"
+          }
+        }
+      },
+      "AuthenticatorConfigRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "alias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "Authorization": {
+        "type": "object",
+        "properties": {
+          "permissions": {
+            "$ref": "#/components/schemas/List  of Permission"
+          }
+        }
+      },
+      "CertConf": {
+        "type": "object",
+        "properties": {
+          "x5t#S256": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "CertificateRepresentation": {
+        "type": "object",
+        "properties": {
+          "privateKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "publicKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "certificate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "kid": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "ClaimRepresentation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "username": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "picture": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "website": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "email": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "phone": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "ClientInitialAccessCreatePresentation": {
+        "type": "object",
+        "properties": {
+          "expiration": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "count": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "ClientInitialAccessPresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "token": {
+            "$ref": "#/components/schemas/String"
+          },
+          "timestamp": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "expiration": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "count": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "remainingCount": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "ClientMappingsRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "client": {
+            "$ref": "#/components/schemas/String"
+          },
+          "mappings": {
+            "$ref": "#/components/schemas/List  of RoleRepresentation"
+          }
+        }
+      },
+      "ClientPoliciesRepresentation": {
+        "type": "object",
+        "properties": {
+          "policies": {
+            "$ref": "#/components/schemas/List  of ClientPolicyRepresentation"
+          }
+        }
+      },
+      "ClientPolicyConditionRepresentation": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "$ref": "#/components/schemas/String"
+          },
+          "configuration": {
+            "$ref": "#/components/schemas/List"
+          }
+        }
+      },
+      "ClientPolicyExecutorRepresentation": {
+        "type": "object",
+        "properties": {
+          "executor": {
+            "$ref": "#/components/schemas/String"
+          },
+          "configuration": {
+            "$ref": "#/components/schemas/List"
+          }
+        }
+      },
+      "ClientPolicyRepresentation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "conditions": {
+            "$ref": "#/components/schemas/List  of ClientPolicyConditionRepresentation"
+          },
+          "profiles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          }
+        }
+      },
+      "ClientProfileRepresentation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "executors": {
+            "$ref": "#/components/schemas/List  of ClientPolicyExecutorRepresentation"
+          }
+        }
+      },
+      "ClientProfilesRepresentation": {
+        "type": "object",
+        "properties": {
+          "profiles": {
+            "$ref": "#/components/schemas/List  of ClientProfileRepresentation"
+          },
+          "globalProfiles": {
+            "$ref": "#/components/schemas/List  of ClientProfileRepresentation"
+          }
+        }
+      },
+      "ClientRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "rootUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "adminUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "baseUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "surrogateAuthRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "alwaysDisplayInConsole": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "clientAuthenticatorType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "secret": {
+            "$ref": "#/components/schemas/String"
+          },
+          "registrationAccessToken": {
+            "$ref": "#/components/schemas/String"
+          },
+          "defaultRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "redirectUris": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webOrigins": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "notBefore": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "bearerOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "consentRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "standardFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "implicitFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directAccessGrantsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "serviceAccountsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "oauth2DeviceAuthorizationGrantEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authorizationServicesEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directGrantsOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "publicClient": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "frontchannelLogout": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "authenticationFlowBindingOverrides": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "fullScopeAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "nodeReRegistrationTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "registeredNodes": {
+            "$ref": "#/components/schemas/Map  of [integer]"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          },
+          "clientTemplate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "useTemplateConfig": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateScope": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateMappers": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "defaultClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "optionalClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "authorizationSettings": {
+            "$ref": "#/components/schemas/ResourceServerRepresentation"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Map  of [boolean]"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "ClientScopeRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          }
+        }
+      },
+      "ClientTemplateRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "fullScopeAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "bearerOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "consentRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "standardFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "implicitFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directAccessGrantsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "serviceAccountsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "publicClient": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "frontchannelLogout": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          }
+        }
+      },
+      "ComponentExportRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "subType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "subComponents": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          }
+        }
+      },
+      "ComponentRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "parentId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "subType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          }
+        }
+      },
+      "Composites": {
+        "type": "object",
+        "properties": {
+          "realm": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "client": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          }
+        }
+      },
+      "ConfigPropertyRepresentation": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "label": {
+            "$ref": "#/components/schemas/String"
+          },
+          "helpText": {
+            "$ref": "#/components/schemas/String"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "defaultValue": {
+            "type": "object"
+          },
+          "options": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "secret": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "readOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "CredentialRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "userLabel": {
+            "$ref": "#/components/schemas/String"
+          },
+          "createdDate": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "secretData": {
+            "$ref": "#/components/schemas/String"
+          },
+          "credentialData": {
+            "$ref": "#/components/schemas/String"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "value": {
+            "$ref": "#/components/schemas/String"
+          },
+          "temporary": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "device": {
+            "$ref": "#/components/schemas/String"
+          },
+          "hashedSaltedValue": {
+            "$ref": "#/components/schemas/String"
+          },
+          "salt": {
+            "$ref": "#/components/schemas/String"
+          },
+          "hashIterations": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "counter": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "algorithm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "digits": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "DecisionStrategy": {
+        "type": "object"
+      },
+      "EnforcementMode": {
+        "type": "object"
+      },
+      "FederatedIdentityRepresentation": {
+        "type": "object",
+        "properties": {
+          "identityProvider": {
+            "$ref": "#/components/schemas/String"
+          },
+          "userId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "userName": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "GlobalRequestResult": {
+        "type": "object",
+        "properties": {
+          "successRequests": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "failedRequests": {
+            "$ref": "#/components/schemas/List  of [string]"
+          }
+        }
+      },
+      "GroupRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "path": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "realmRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "clientRoles": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "subGroups": {
+            "$ref": "#/components/schemas/List  of GroupRepresentation"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Map  of [boolean]"
+          }
+        }
+      },
+      "IDToken": {
+        "type": "object",
+        "properties": {
+          "jti": {
+            "$ref": "#/components/schemas/String"
+          },
+          "exp": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "nbf": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "iat": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "iss": {
+            "$ref": "#/components/schemas/String"
+          },
+          "sub": {
+            "$ref": "#/components/schemas/String"
+          },
+          "typ": {
+            "$ref": "#/components/schemas/String"
+          },
+          "azp": {
+            "$ref": "#/components/schemas/String"
+          },
+          "otherClaims": {
+            "$ref": "#/components/schemas/Map  of [object]"
+          },
+          "nonce": {
+            "$ref": "#/components/schemas/String"
+          },
+          "auth_time": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "session_state": {
+            "$ref": "#/components/schemas/String"
+          },
+          "at_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "c_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "given_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "family_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "middle_name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "nickname": {
+            "$ref": "#/components/schemas/String"
+          },
+          "preferred_username": {
+            "$ref": "#/components/schemas/String"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/String"
+          },
+          "picture": {
+            "$ref": "#/components/schemas/String"
+          },
+          "website": {
+            "$ref": "#/components/schemas/String"
+          },
+          "email": {
+            "$ref": "#/components/schemas/String"
+          },
+          "email_verified": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/String"
+          },
+          "birthdate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "zoneinfo": {
+            "$ref": "#/components/schemas/String"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/String"
+          },
+          "phone_number": {
+            "$ref": "#/components/schemas/String"
+          },
+          "phone_number_verified": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressClaimSet"
+          },
+          "updated_at": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "claims_locales": {
+            "$ref": "#/components/schemas/String"
+          },
+          "acr": {
+            "$ref": "#/components/schemas/String"
+          },
+          "s_hash": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authTime": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "sid": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "IdentityProviderMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "identityProviderAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "identityProviderMapper": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "IdentityProviderMapperTypeRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "category": {
+            "$ref": "#/components/schemas/String"
+          },
+          "helpText": {
+            "$ref": "#/components/schemas/String"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/List  of ConfigPropertyRepresentation"
+          }
+        }
+      },
+      "IdentityProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "internalId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "updateProfileFirstLoginMode": {
+            "$ref": "#/components/schemas/String"
+          },
+          "trustEmail": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "storeToken": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "addReadTokenRoleOnCreate": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authenticateByDefault": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "linkOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "firstBrokerLoginFlowAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "postBrokerLoginFlowAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "updateProfileFirstLogin": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "InstallationAdapterConfig": {
+        "type": "object",
+        "properties": {
+          "realm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "realm-public-key": {
+            "$ref": "#/components/schemas/String"
+          },
+          "auth-server-url": {
+            "$ref": "#/components/schemas/String"
+          },
+          "ssl-required": {
+            "$ref": "#/components/schemas/String"
+          },
+          "bearer-only": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/String"
+          },
+          "public-client": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "verify-token-audience": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/Map  of [object]"
+          },
+          "use-resource-role-mappings": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "confidential-port": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "policy-enforcer": {
+            "$ref": "#/components/schemas/PolicyEnforcerConfig"
+          }
+        }
+      },
+      "KeyMetadataRepresentation": {
+        "type": "object",
+        "properties": {
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerPriority": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "kid": {
+            "$ref": "#/components/schemas/String"
+          },
+          "status": {
+            "$ref": "#/components/schemas/String"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "algorithm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "publicKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "certificate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "use": {
+            "$ref": "#/components/schemas/KeyUse"
+          }
+        }
+      },
+      "KeyStoreConfig": {
+        "type": "object",
+        "properties": {
+          "realmCertificate": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "storePassword": {
+            "$ref": "#/components/schemas/String"
+          },
+          "keyPassword": {
+            "$ref": "#/components/schemas/String"
+          },
+          "keyAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "realmAlias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "format": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "KeyUse": {
+        "type": "object"
+      },
+      "KeysMetadataRepresentation": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "keys": {
+            "$ref": "#/components/schemas/List  of KeyMetadataRepresentation"
+          }
+        }
+      },
+      "Logic": {
+        "type": "object"
+      },
+      "ManagementPermissionReference": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopePermissions": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "MappingsRepresentation": {
+        "type": "object",
+        "properties": {
+          "realmMappings": {
+            "$ref": "#/components/schemas/List  of RoleRepresentation"
+          },
+          "clientMappings": {
+            "$ref": "#/components/schemas/Map  of ClientMappingsRepresentation"
+          }
+        }
+      },
+      "MethodConfig": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "scopes-enforcement-mode": {
+            "$ref": "#/components/schemas/ScopeEnforcementMode"
+          }
+        }
+      },
+      "OAuthClientRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "rootUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "adminUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "baseUrl": {
+            "$ref": "#/components/schemas/String"
+          },
+          "surrogateAuthRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "alwaysDisplayInConsole": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "clientAuthenticatorType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "secret": {
+            "$ref": "#/components/schemas/String"
+          },
+          "registrationAccessToken": {
+            "$ref": "#/components/schemas/String"
+          },
+          "defaultRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "redirectUris": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webOrigins": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "notBefore": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "bearerOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "consentRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "standardFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "implicitFlowEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directAccessGrantsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "serviceAccountsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "oauth2DeviceAuthorizationGrantEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "authorizationServicesEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "directGrantsOnly": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "publicClient": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "frontchannelLogout": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "authenticationFlowBindingOverrides": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "fullScopeAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "nodeReRegistrationTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "registeredNodes": {
+            "$ref": "#/components/schemas/Map  of [integer]"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          },
+          "clientTemplate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "useTemplateConfig": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateScope": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "useTemplateMappers": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "defaultClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "optionalClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "authorizationSettings": {
+            "$ref": "#/components/schemas/ResourceServerRepresentation"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Map  of [boolean]"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "claims": {
+            "$ref": "#/components/schemas/ApplicationRepresentation_claims"
+          }
+        }
+      },
+      "PathCacheConfig": {
+        "type": "object",
+        "properties": {
+          "max-entries": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "lifespan": {
+            "$ref": "#/components/schemas/Long"
+          }
+        }
+      },
+      "PathConfig": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "path": {
+            "$ref": "#/components/schemas/String"
+          },
+          "methods": {
+            "$ref": "#/components/schemas/List  of MethodConfig"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "enforcement-mode": {
+            "$ref": "#/components/schemas/EnforcementMode"
+          },
+          "claim-information-point": {
+            "$ref": "#/components/schemas/Map  of [map]"
+          },
+          "invalidated": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "staticPath": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "static": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "Permission": {
+        "type": "object",
+        "properties": {
+          "rsid": {
+            "$ref": "#/components/schemas/String"
+          },
+          "rsname": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "claims": {
+            "$ref": "#/components/schemas/Map  of [set]"
+          }
+        }
+      },
+      "PolicyEnforcementMode": {
+        "type": "object"
+      },
+      "PolicyEnforcerConfig": {
+        "type": "object",
+        "properties": {
+          "enforcement-mode": {
+            "$ref": "#/components/schemas/EnforcementMode"
+          },
+          "paths": {
+            "$ref": "#/components/schemas/List  of PathConfig"
+          },
+          "path-cache": {
+            "$ref": "#/components/schemas/PathCacheConfig"
+          },
+          "lazy-load-paths": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "on-deny-redirect-to": {
+            "$ref": "#/components/schemas/String"
+          },
+          "user-managed-access": {
+            "type": "object"
+          },
+          "claim-information-point": {
+            "$ref": "#/components/schemas/Map  of [map]"
+          },
+          "http-method-as-scope": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "realm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "auth-server-url": {
+            "$ref": "#/components/schemas/String"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/Map  of [object]"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "PolicyRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "policies": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "logic": {
+            "$ref": "#/components/schemas/Logic"
+          },
+          "decisionStrategy": {
+            "$ref": "#/components/schemas/DecisionStrategy"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/String"
+          },
+          "resourcesData": {
+            "$ref": "#/components/schemas/Set  of ResourceRepresentation"
+          },
+          "scopesData": {
+            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "ProtocolMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "protocol": {
+            "$ref": "#/components/schemas/String"
+          },
+          "protocolMapper": {
+            "$ref": "#/components/schemas/String"
+          },
+          "consentRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "consentText": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "PublishedRealmRepresentation": {
+        "type": "object",
+        "properties": {
+          "realm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "public_key": {
+            "$ref": "#/components/schemas/String"
+          },
+          "token-service": {
+            "$ref": "#/components/schemas/String"
+          },
+          "account-service": {
+            "$ref": "#/components/schemas/String"
+          },
+          "tokens-not-before": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "RealmEventsConfigRepresentation": {
+        "type": "object",
+        "properties": {
+          "eventsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "eventsExpiration": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "eventsListeners": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "enabledEventTypes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "adminEventsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "adminEventsDetailsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          }
+        }
+      },
+      "RealmRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "realm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "displayNameHtml": {
+            "$ref": "#/components/schemas/String"
+          },
+          "notBefore": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "defaultSignatureAlgorithm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "revokeRefreshToken": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "refreshTokenMaxReuse": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "accessTokenLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "accessTokenLifespanForImplicitFlow": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "ssoSessionIdleTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "ssoSessionMaxLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "ssoSessionIdleTimeoutRememberMe": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "ssoSessionMaxLifespanRememberMe": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "offlineSessionIdleTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "offlineSessionMaxLifespanEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "offlineSessionMaxLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "clientSessionIdleTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "clientSessionMaxLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "clientOfflineSessionIdleTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "clientOfflineSessionMaxLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "accessCodeLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "accessCodeLifespanUserAction": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "accessCodeLifespanLogin": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "actionTokenGeneratedByAdminLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "actionTokenGeneratedByUserLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "oauth2DeviceCodeLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "oauth2DevicePollingInterval": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "sslRequired": {
+            "$ref": "#/components/schemas/String"
+          },
+          "passwordCredentialGrantAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "registrationAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "registrationEmailAsUsername": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "rememberMe": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "verifyEmail": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "loginWithEmailAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "duplicateEmailsAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "resetPasswordAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "editUsernameAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "userCacheEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "realmCacheEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "bruteForceProtected": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "permanentLockout": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "maxFailureWaitSeconds": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "minimumQuickLoginWaitSeconds": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "waitIncrementSeconds": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "quickLoginCheckMilliSeconds": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "maxDeltaTimeSeconds": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "failureFactor": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "privateKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "publicKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "certificate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "codeSecret": {
+            "$ref": "#/components/schemas/String"
+          },
+          "roles": {
+            "$ref": "#/components/schemas/RolesRepresentation"
+          },
+          "groups": {
+            "$ref": "#/components/schemas/List  of GroupRepresentation"
+          },
+          "defaultRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "defaultRole": {
+            "$ref": "#/components/schemas/RoleRepresentation"
+          },
+          "defaultGroups": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "requiredCredentials": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "passwordPolicy": {
+            "$ref": "#/components/schemas/String"
+          },
+          "otpPolicyType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "otpPolicyAlgorithm": {
+            "$ref": "#/components/schemas/String"
+          },
+          "otpPolicyInitialCounter": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "otpPolicyDigits": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "otpPolicyLookAheadWindow": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "otpPolicyPeriod": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "otpPolicyCodeReusable": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "otpSupportedApplications": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webAuthnPolicyRpEntityName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicySignatureAlgorithms": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webAuthnPolicyRpId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyAttestationConveyancePreference": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyAuthenticatorAttachment": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyRequireResidentKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyUserVerificationRequirement": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyCreateTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "webAuthnPolicyAvoidSameAuthenticatorRegister": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "webAuthnPolicyAcceptableAaguids": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webAuthnPolicyPasswordlessRpEntityName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessSignatureAlgorithms": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "webAuthnPolicyPasswordlessRpId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessAttestationConveyancePreference": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessAuthenticatorAttachment": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessRequireResidentKey": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessUserVerificationRequirement": {
+            "$ref": "#/components/schemas/String"
+          },
+          "webAuthnPolicyPasswordlessCreateTimeout": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "webAuthnPolicyPasswordlessAcceptableAaguids": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "clientProfiles": {
+            "$ref": "#/components/schemas/List"
+          },
+          "clientPolicies": {
+            "$ref": "#/components/schemas/List"
+          },
+          "users": {
+            "$ref": "#/components/schemas/List  of UserRepresentation"
+          },
+          "federatedUsers": {
+            "$ref": "#/components/schemas/List  of UserRepresentation"
+          },
+          "scopeMappings": {
+            "$ref": "#/components/schemas/List  of ScopeMappingRepresentation"
+          },
+          "clientScopeMappings": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "clients": {
+            "$ref": "#/components/schemas/List  of ClientRepresentation"
+          },
+          "clientScopes": {
+            "$ref": "#/components/schemas/List  of ClientScopeRepresentation"
+          },
+          "defaultDefaultClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "defaultOptionalClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "browserSecurityHeaders": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "smtpServer": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "userFederationProviders": {
+            "$ref": "#/components/schemas/List  of UserFederationProviderRepresentation"
+          },
+          "userFederationMappers": {
+            "$ref": "#/components/schemas/List  of UserFederationMapperRepresentation"
+          },
+          "loginTheme": {
+            "$ref": "#/components/schemas/String"
+          },
+          "accountTheme": {
+            "$ref": "#/components/schemas/String"
+          },
+          "adminTheme": {
+            "$ref": "#/components/schemas/String"
+          },
+          "emailTheme": {
+            "$ref": "#/components/schemas/String"
+          },
+          "eventsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "eventsExpiration": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "eventsListeners": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "enabledEventTypes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "adminEventsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "adminEventsDetailsEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "identityProviders": {
+            "$ref": "#/components/schemas/List  of IdentityProviderRepresentation"
+          },
+          "identityProviderMappers": {
+            "$ref": "#/components/schemas/List  of IdentityProviderMapperRepresentation"
+          },
+          "protocolMappers": {
+            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+          },
+          "components": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "internationalizationEnabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "supportedLocales": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "defaultLocale": {
+            "$ref": "#/components/schemas/String"
+          },
+          "authenticationFlows": {
+            "$ref": "#/components/schemas/List  of AuthenticationFlowRepresentation"
+          },
+          "authenticatorConfig": {
+            "$ref": "#/components/schemas/List  of AuthenticatorConfigRepresentation"
+          },
+          "requiredActions": {
+            "$ref": "#/components/schemas/List  of RequiredActionProviderRepresentation"
+          },
+          "browserFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "registrationFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "directGrantFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "resetCredentialsFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientAuthenticationFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "dockerAuthenticationFlow": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "keycloakVersion": {
+            "$ref": "#/components/schemas/String"
+          },
+          "userManagedAccessAllowed": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "social": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "updateProfileOnInitialSocialLogin": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "socialProviders": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "applicationScopeMappings": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "applications": {
+            "$ref": "#/components/schemas/List  of ApplicationRepresentation"
+          },
+          "oauthClients": {
+            "$ref": "#/components/schemas/List  of OAuthClientRepresentation"
+          },
+          "clientTemplates": {
+            "$ref": "#/components/schemas/List  of ClientTemplateRepresentation"
+          },
+          "oAuth2DeviceCodeLifespan": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "oAuth2DevicePollingInterval": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "RequiredActionProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "defaultAction": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "ResourceOwnerRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "ResourceRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "uris": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "type": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+          },
+          "icon_uri": {
+            "$ref": "#/components/schemas/String"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/ResourceRepresentation_owner"
+          },
+          "ownerManagedAccess": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "uri": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopesUma": {
+            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+          }
+        }
+      },
+      "ResourceRepresentationOwner": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "ResourceServerRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "allowRemoteResourceManagement": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "policyEnforcementMode": {
+            "$ref": "#/components/schemas/PolicyEnforcementMode"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/List  of ResourceRepresentation"
+          },
+          "policies": {
+            "$ref": "#/components/schemas/List  of PolicyRepresentation"
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/List  of ScopeRepresentation"
+          },
+          "decisionStrategy": {
+            "$ref": "#/components/schemas/DecisionStrategy"
+          }
+        }
+      },
+      "RoleRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "description": {
+            "$ref": "#/components/schemas/String"
+          },
+          "scopeParamRequired": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "composite": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "composites": {
+            "$ref": "#/components/schemas/Composites"
+          },
+          "clientRole": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "containerId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          }
+        }
+      },
+      "RolesRepresentation": {
+        "type": "object",
+        "properties": {
+          "realm": {
+            "$ref": "#/components/schemas/List  of RoleRepresentation"
+          },
+          "client": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          }
+        }
+      },
+      "ScopeEnforcementMode": {
+        "type": "object"
+      },
+      "ScopeMappingRepresentation": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "$ref": "#/components/schemas/String"
+          },
+          "client": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientTemplate": {
+            "$ref": "#/components/schemas/String"
+          },
+          "clientScope": {
+            "$ref": "#/components/schemas/String"
+          },
+          "roles": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          }
+        }
+      },
+      "ScopeRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "iconUri": {
+            "$ref": "#/components/schemas/String"
+          },
+          "policies": {
+            "$ref": "#/components/schemas/List  of PolicyRepresentation"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/List  of ResourceRepresentation"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "SocialLinkRepresentation": {
+        "type": "object",
+        "properties": {
+          "socialProvider": {
+            "$ref": "#/components/schemas/String"
+          },
+          "socialUserId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "socialUsername": {
+            "$ref": "#/components/schemas/String"
+          }
+        }
+      },
+      "UserConsentRepresentation": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "grantedClientScopes": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "createdDate": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "lastUpdatedDate": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "grantedRealmRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          }
+        }
+      },
+      "UserFederationMapperRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "name": {
+            "$ref": "#/components/schemas/String"
+          },
+          "federationProviderDisplayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "federationMapperType": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          }
+        }
+      },
+      "UserFederationProviderRepresentation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "displayName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "providerName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "config": {
+            "$ref": "#/components/schemas/Map  of [string]"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "fullSyncPeriod": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "changedSyncPeriod": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "lastSync": {
+            "$ref": "#/components/schemas/Integer"
+          }
+        }
+      },
+      "UserRepresentation": {
+        "type": "object",
+        "properties": {
+          "self": {
+            "$ref": "#/components/schemas/String"
+          },
+          "id": {
+            "$ref": "#/components/schemas/String"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/String"
+          },
+          "createdTimestamp": {
+            "$ref": "#/components/schemas/Long"
+          },
+          "username": {
+            "$ref": "#/components/schemas/String"
+          },
+          "enabled": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "totp": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "emailVerified": {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          "firstName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "lastName": {
+            "$ref": "#/components/schemas/String"
+          },
+          "email": {
+            "$ref": "#/components/schemas/String"
+          },
+          "federationLink": {
+            "$ref": "#/components/schemas/String"
+          },
+          "serviceAccountClientId": {
+            "$ref": "#/components/schemas/String"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "credentials": {
+            "$ref": "#/components/schemas/List  of CredentialRepresentation"
+          },
+          "disableableCredentialTypes": {
+            "$ref": "#/components/schemas/Set  of [string]"
+          },
+          "requiredActions": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "federatedIdentities": {
+            "$ref": "#/components/schemas/List  of FederatedIdentityRepresentation"
+          },
+          "realmRoles": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "clientRoles": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "clientConsents": {
+            "$ref": "#/components/schemas/List  of UserConsentRepresentation"
+          },
+          "notBefore": {
+            "$ref": "#/components/schemas/Integer"
+          },
+          "applicationRoles": {
+            "$ref": "#/components/schemas/Map  of [array]"
+          },
+          "socialLinks": {
+            "$ref": "#/components/schemas/List  of SocialLinkRepresentation"
+          },
+          "groups": {
+            "$ref": "#/components/schemas/List  of [string]"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Map  of [boolean]"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "access_token": []
+    }
+  ],
+  "externalDocs": {
+    "description": "Schema source code",
+    "url": "https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations"
+  }
+}
