@@ -10,7 +10,7 @@ use verb_path::VerbPath;
 
 lazy_static! {
     static ref TAG_SECTION_SELECTOR: Selector =
-        Selector::parse("#_paths + .sectionbody > .sect2").unwrap();
+        Selector::parse("#_resources + .sectionbody > .sect2").unwrap();
     static ref TAG_TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
     static ref PATH_SECTION_SELECTOR: Selector = Selector::parse(".sect3").unwrap();
     static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();

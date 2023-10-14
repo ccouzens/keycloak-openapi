@@ -17,14 +17,6 @@ specifications.
 
 [Other versions](./keycloak/)
 
-[Red Hat Single Sign-On](https://access.redhat.com/products/red-hat-single-sign-on)
-Admin API definitions are not distributed in this repository, but can be
-generated.
-
-```bash
-make keycloak/sso-6.json keycloak/sso-7.3.json keycloak/sso-7.4.json
-```
-
 ## Alternatives
 
 DAHAG Rechtsservices AG

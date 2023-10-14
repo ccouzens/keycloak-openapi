@@ -1,0 +1,3952 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Keycloak Admin REST API",
+    "description": "This is a REST API reference for the Keycloak Admin REST API.",
+    "version": "1.0"
+  },
+  "paths": {
+    "/admin/realms": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Import a realm. Imports a realm from a full representation of that realm.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get the top-level representation of the realm It will not include nested information like User and Client representations.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Update the top-level information of the realm Any user, roles or client information in the representation will be ignored.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Delete the realm",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/admin-events": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get admin events Returns all admin events, or filters events based on URL query parameters listed here",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Delete all admin events",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/attack-detection/brute-force/users": {
+      "delete": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "summary": "Clear any user login failures for all users This can release temporary disabled users",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/attack-detection/brute-force/users/{userId}": {
+      "get": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "summary": "Get status of a username in brute force detection",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Attack Detection"
+        ],
+        "summary": "Clear any user login failures for the user This can release temporary disabled user",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/authenticator-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authenticator providers Returns a stream of authenticator providers.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/client-authenticator-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get client authenticator providers Returns a stream of client authenticator providers.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Create new authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config-description/{providerId}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authenticator provider’s configuration description",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/config/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Update authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Delete authenticator configuration",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Add new authentication execution",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get Single Execution",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Delete execution",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/config": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Update execution with new configuration",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/config/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get execution’s configuration",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/lower-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Lower execution’s priority",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/executions/{executionId}/raise-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Raise execution’s priority",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authentication flows Returns a stream of authentication flows.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Create a new authentication flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/copy": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authentication executions for a flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Update authentication executions of a Flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/execution": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Add new authentication execution to a flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Add new flow with new execution to existing flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/flows/{id}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get authentication flow for id",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Update an authentication flow",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Delete an authentication flow",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/form-action-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get form action providers Returns a stream of form action providers.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/form-providers": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get form providers Returns a stream of form providers.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/per-client-config-description": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get configuration descriptions for all clients",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/register-required-action": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Register a new required actions",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get required actions Returns a stream of required actions.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get required action for alias",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Update required action",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Delete required action",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}/lower-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Lower required action’s priority",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/required-actions/{alias}/raise-priority": {
+      "post": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Raise required action’s priority",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/authentication/unregistered-required-actions": {
+      "get": {
+        "tags": [
+          "Authentication Management"
+        ],
+        "summary": "Get unregistered required actions Returns a stream of unregistered required actions.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-description-converter": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Base path for importing clients under this realm.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-policies/policies": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nClientPoliciesRepresentation\noptional\nClientPoliciesRepresentation",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-policies/profiles": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\ninclude-global-profiles\noptional\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nClientProfilesRepresentation\noptional\nClientProfilesRepresentation",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-registration-policy/providers": {
+      "get": {
+        "tags": [
+          "Client Registration Policy"
+        ],
+        "summary": "Base path for retrieve providers with the configProperties properly filled",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Create a new client scope Client Scope’s name must be unique!",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Update the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/client-scopes/{id}": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Get representation of the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Update the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Delete the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create multiple mappers",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create a mapper",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers by name for a specific protocol",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get all scope mappings for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get the roles associated with a client’s scope Returns roles for the client.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add client-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove client-level roles from the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "The available client-level roles Returns the roles for the client that can be associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective client roles Returns the roles for the client that are associated with the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add a set of realm-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove a set of realm-level roles from the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles that are available to attach to this client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-session-stats": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get client session stats Returns a JSON map.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Create a new client scope Client Scope’s name must be unique!",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Update the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/client-templates/{id}": {
+      "get": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Get representation of the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Update the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Scopes"
+        ],
+        "summary": "Delete the client scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create multiple mappers",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create a mapper",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers by name for a specific protocol",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get all scope mappings for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get the roles associated with a client’s scope Returns roles for the client.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add client-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove client-level roles from the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "The available client-level roles Returns the roles for the client that can be associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective client roles Returns the roles for the client that are associated with the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add a set of realm-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove a set of realm-level roles from the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles that are available to attach to this client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get clients belonging to the realm.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create a new client Client’s client_id must be unique!",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients-initial-access": {
+      "get": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "summary": "Create a new initial access token.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients-initial-access/{id}": {
+      "delete": {
+        "tags": [
+          "Client Initial Access"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id1}/protocol-mappers/models/{id2}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mapper by id",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Update the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Delete the mapper",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id2",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "in": "path",
+          "name": "id1",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ]
+    },
+    "/admin/realms/{realm}/clients/{id}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get representation of the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Update the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Delete the client",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}": {
+      "get": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Get key info",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/download": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Get a keystore file for the client, containing private key and public certificate",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Generate a new certificate with new key pair",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/generate-and-download": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Generate a new keypair and certificate, and get the private key file  Generates a keypair and certificate and serves the private key in a specified keystore format. Only generated public certificate is saved in Keycloak DB - the private key is not.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Upload certificate and eventually private key",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/certificates/{attr}/upload-certificate": {
+      "post": {
+        "tags": [
+          "Client Attribute Certificate"
+        ],
+        "summary": "Upload only certificate, not private key",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/client-secret": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get the client secret",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Generate a new secret for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/client-secret/rotated": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get the rotated client secret",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Invalidate the rotated secret for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/default-client-scopes": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get default client scopes.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/default-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create JSON with payload of example access token",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-id-token": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create JSON with payload of example id token",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Create JSON with payload of example user info",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/protocol-mappers": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Return list of all protocol mappers, which will be used when generating tokens issued for particular client.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/installation/providers/{providerId}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nproviderId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/nodes": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/nodes/{node}": {
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Unregister a cluster node from the client",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/offline-session-count": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get application offline session count Returns a number of offline user sessions associated with this client { \\\"count\\\": number }",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/offline-sessions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get offline sessions for client Returns a list of offline user sessions associated with this client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/optional-client-scopes": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get optional client scopes.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/add-models": {
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create multiple mappers",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/models": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Create a mapper",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}": {
+      "get": {
+        "tags": [
+          "Protocol Mappers"
+        ],
+        "summary": "Get mappers by name for a specific protocol",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/push-revocation": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/registration-access-token": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Generate a new registration access token for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get all roles for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Create a new role for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Update a role by name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Delete a role by name",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get composites of the role",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Add a composite to the role",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Remove roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get client-level roles for the client that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get realm-level roles of the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/groups": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of groups that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/roles/{role-name}/users": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of users that have the specified role name.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get all scope mappings for the client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get the roles associated with a client’s scope Returns roles for the client.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add client-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove client-level roles from the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "The available client-level roles Returns the roles for the client that can be associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective client roles Returns the roles for the client that are associated with the client’s scope.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles associated with the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Add a set of realm-level roles to the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Remove a set of realm-level roles from the client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get realm-level roles that are available to attach to this client’s scope",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/scope-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Scope Mappings"
+        ],
+        "summary": "Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/service-account-user": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get a user dedicated to the service account",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/session-count": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get application session count Returns a number of user sessions associated with this client { \\\"count\\\": number }",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/test-nodes-available": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/clients/{id}/user-sessions": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get user sessions for client Returns a list of user sessions associated with this client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nname\noptional\n\nnull\n\n\n\nparent\noptional\n\nnull\n\n\n\ntype\noptional\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nComponentRepresentation\noptional\nComponentRepresentation",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components/{id}": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nComponentRepresentation\noptional\nComponentRepresentation",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/components/{id}/sub-component-types": {
+      "get": {
+        "tags": [
+          "Component"
+        ],
+        "summary": "List of subcomponent types that are available to configure for a particular parent component.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/credential-registrators": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-default-client-scopes": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get realm default client scopes.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-default-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-groups": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get group hierarchy.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-groups/{groupId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\ngroupId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\ngroupId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-optional-client-scopes": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get realm optional client scopes.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/default-optional-client-scopes/{clientScopeId}": {
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/events": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get events Returns all events, or filters them based on URL query parameters listed here",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Delete all events",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/events/config": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Get the events provider configuration Returns JSON object with events provider configuration",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Description\n\nUpdate the events provider Change the events provider and/or its configuration",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/group-by-path/{path}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\npath\nrequired\n\nnull\n/.*/",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Get group hierarchy.  Only name and ids are returned.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "create or add a top level realm groupSet or create child.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/count": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Returns the groups counts.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Update group, ignores subgroups.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/children": {
+      "post": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Set or create child.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/members": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Get users Returns a stream of users, filtered according to query parameters",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get role mappings",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get client-level role mappings for the user, and the app",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Add client-level roles to the user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Delete client-level roles from user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get available client-level roles that can be mapped to the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get effective client-level role mappings This recurses any composite roles",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Add realm-level role mappings to the user",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Delete realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get realm-level roles that can be mapped",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/groups/{id}/role-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get effective realm-level role mappings This will recurse all composite roles to get the result.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/import-config": {
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Import identity provider from JSON body",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get identity providers",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Create a new identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Update the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Delete the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/export": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Export public broker configuration for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/management/permissions": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Return object stating whether client Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mapper-types": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get mapper types for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mappers": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get mappers for identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Add a mapper to identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get mapper by id for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Update a mapper for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Delete a mapper for the identity provider",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/identity-provider/providers/{provider_id}": {
+      "get": {
+        "tags": [
+          "Identity Providers"
+        ],
+        "summary": "Get identity providers",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/keys": {
+      "get": {
+        "tags": [
+          "Key"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization/{locale}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nlocale\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nuseRealmDefaultLocaleFallback\noptional\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Import localization from uploaded JSON file",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nlocale\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/localization/{locale}/{key}": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbody\noptional\n[string]",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/logout-all": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Removes all user sessions.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/partial-export": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Partial export of existing realm into a JSON file.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/partialImport": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Partial import from a JSON file to an existing realm.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/push-revocation": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Push the realm’s revocation policy to any client that has an admin url associated with it.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get all roles for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Create a new role for the realm or client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Get a specific role’s representation",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Update the role",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Delete the role",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Get role’s children Returns a set of role’s children provided the role is a composite.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Make the role a composite role by associating some child roles",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Remove a set of roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Get client-level roles for the client that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Get realm-level roles that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles-by-id/{role-id}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles (by ID)"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get a role by name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Update a role by name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Delete a role by name",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get composites of the role",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Add a composite to the role",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Remove roles from the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites/clients/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get client-level roles for the client that are in the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/composites/realm": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get realm-level roles of the role’s composite",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/groups": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of groups that have the specified role name",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/management/permissions": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Return object stating whether role Authorization permissions have been initialized or not and a reference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/roles/{role-name}/users": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Returns a stream of users that have the specified role name.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/sessions/{session}": {
+      "delete": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Remove a specific user session.",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/testSMTPConnection": {
+      "post": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Test SMTP connection with current logged in user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get users Returns a stream of users, filtered according to query parameters.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a new user Username must be unique.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users-management-permissions": {
+      "get": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Realms Admin"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nManagementPermissionReference\noptional\nManagementPermissionReference",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/count": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Returns the number of users that match the given criteria.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/profile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbody\noptional\n[string]",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get representation of the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Delete the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/configured-user-storage-credential-types": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Return credential types, which are provided by the user storage where user is stored.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/consents": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get consents granted by the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/consents/{client}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Revoke consent and offline tokens for particular client from user",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Remove a credential for a user",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Move a credential to a position behind another credential",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveToFirst": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Move a credential to a first position in the credentials list of the user",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/credentials/{credentialId}/userLabel": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update a credential label for a user",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/disable-credential-types": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Disable all credentials for a user of a specific type",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/execute-actions-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Send an email to the user with a link they can click to execute particular actions.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/federated-identity": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get social logins associated with the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/federated-identity/{provider}": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Add a social login provider to the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Remove a social login provider from user",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbriefRepresentation\noptional\n\ntrue\n\n\n\nfirst\noptional\n\nnull\n\n\n\nmax\noptional\n\nnull\n\n\n\nsearch\noptional\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups/count": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nsearch\noptional\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/groups/{groupId}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\ngroupId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\ngroupId\nrequired\n\nnull",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/impersonation": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Impersonate the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/logout": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/offline-sessions/{clientUuid}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get offline sessions associated with the user and client",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/reset-password": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Set up a new password for the user.",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/reset-password-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Send an email to the user with a link they can click to reset their password.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get role mappings",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get client-level role mappings for the user, and the app",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Add client-level roles to the user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Delete client-level roles from user role mapping",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/available": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get available client-level roles that can be mapped to the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/composite": {
+      "get": {
+        "tags": [
+          "Client Role Mappings"
+        ],
+        "summary": "Get effective client-level role mappings This recurses any composite roles",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Add realm-level role mappings to the user",
+        "responses": {
+          "2XX": {
+            "description": "Created"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Delete realm-level role mappings",
+        "responses": {
+          "2XX": {
+            "description": "No Content"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm/available": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get realm-level roles that can be mapped",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/role-mappings/realm/composite": {
+      "get": {
+        "tags": [
+          "Role Mapper"
+        ],
+        "summary": "Get effective realm-level role mappings This will recurse all composite roles to get the result.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/send-verify-email": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Send an email-verification email to the user An email contains a link the user can click to verify their email address.",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/admin/realms/{realm}/users/{id}/sessions": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get sessions associated with the user",
+        "responses": {
+          "2XX": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "access_token": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": null
+      }
+    }
+  },
+  "security": [
+    {
+      "access_token": []
+    }
+  ]
+}

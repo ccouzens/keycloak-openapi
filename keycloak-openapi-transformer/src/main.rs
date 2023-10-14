@@ -37,12 +37,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             security_schemes,
             ..Default::default()
         }),
-        external_docs: Some(openapiv3::ExternalDocumentation {
-            description: Some("Schema source code".to_string()),
-            url: "https://github.com/keycloak/keycloak/tree/6.0.1/core/src/main/java/org/keycloak/representations".to_string()
-        }),
         paths: paths::paths(&document),
-        security: vec!(security_requirement),
+        security: vec![security_requirement],
         ..Default::default()
     };
 
