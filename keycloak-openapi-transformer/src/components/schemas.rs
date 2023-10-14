@@ -6,6 +6,8 @@ use scraper::Selector;
 
 lazy_static! {
     static ref SCHEMAS_SELECTOR: Selector =
+        Selector::parse("#models + .sectionbody > .sect2").unwrap();
+    static ref SCHEMAS_SELECTOR_DEPRECATED: Selector =
         Selector::parse("#_definitions + .sectionbody > .sect2").unwrap();
     static ref TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
     static ref ROW_SELECTOR: Selector = Selector::parse("table > tbody > tr").unwrap();
@@ -16,8 +18,13 @@ lazy_static! {
 pub fn parse_schemas(
     document: &scraper::html::Html,
 ) -> IndexMap<String, openapiv3::ReferenceOr<Schema>> {
-    document
-        .select(&SCHEMAS_SELECTOR)
+    let mut tag_sections = document.select(&SCHEMAS_SELECTOR).peekable();
+
+    if tag_sections.peek().is_none() {
+        tag_sections = document.select(&SCHEMAS_SELECTOR_DEPRECATED).peekable();
+    }
+
+    tag_sections
         .map(|section| {
             (
                 section

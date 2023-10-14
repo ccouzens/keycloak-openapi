@@ -9,8 +9,10 @@ mod verb_path;
 use verb_path::VerbPath;
 
 lazy_static! {
-    static ref TAG_SECTION_SELECTOR: Selector =
+    static ref TAG_SECTION_SELECTOR_DEPRECATED: Selector =
         Selector::parse("#_paths + .sectionbody > .sect2").unwrap();
+    static ref TAG_SECTION_SELECTOR: Selector =
+        Selector::parse("#_resources + .sectionbody > .sect2").unwrap();
     static ref TAG_TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
     static ref PATH_SECTION_SELECTOR: Selector = Selector::parse(".sect3").unwrap();
     static ref SUMMARY_SELECTOR: Selector = Selector::parse("h4:first-child").unwrap();
@@ -20,7 +22,13 @@ lazy_static! {
 pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     let mut paths = openapiv3::Paths::default();
 
-    for tag_section in document.select(&TAG_SECTION_SELECTOR) {
+    let mut tag_sections = document.select(&TAG_SECTION_SELECTOR).peekable();
+
+    if tag_sections.peek().is_none() {
+        tag_sections = document.select(&TAG_SECTION_SELECTOR_DEPRECATED).peekable();
+    }
+
+    for tag_section in tag_sections {
         let tag = tag_section
             .select(&TAG_TITLE_SELECTOR)
             .next()
