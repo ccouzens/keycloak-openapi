@@ -6,7 +6,7 @@ lazy_static! {
     static ref RESPONSES_SELECTOR: Selector =
         Selector::parse("h5[id^=_responses] + table > tbody > tr").unwrap();
     static ref PRODUCES_SELECTOR: Selector =
-        Selector::parse("h5[id^=_produces] + div code").unwrap();
+        Selector::parse("h5[id^=_content_type] + div code").unwrap();
     static ref DESCRIPTION_SELECTOR: Selector = Selector::parse("td:first-child + td").unwrap();
     static ref SCHEMA_SELECTOR: Selector = Selector::parse("td:first-child + td + td").unwrap();
 }

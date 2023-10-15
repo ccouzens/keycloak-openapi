@@ -112,7 +112,7 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 ..Default::default()
             })),
             "boolean" => Some(openapiv3::Type::Boolean {}),
-            "Map" => Some(openapiv3::Type::Object(openapiv3::ObjectType {
+            "Map" | "Map[<<>>]" => Some(openapiv3::Type::Object(openapiv3::ObjectType {
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
                 ..Default::default()
             })),
@@ -130,7 +130,7 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                     )),
                 })),
             })),
-            "Object" => Some(openapiv3::Type::Object(Default::default())),
+            "Object" | "[Object]" => Some(openapiv3::Type::Object(Default::default())),
             "string" => Some(openapiv3::Type::String(Default::default())),
             _ => None,
         })
