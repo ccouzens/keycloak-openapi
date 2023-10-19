@@ -9,6 +9,7 @@ use std::io::{self, Read};
 mod components;
 mod info;
 mod paths;
+mod table;
 
 const ACCESS_TOKEN: &str = "access_token";
 

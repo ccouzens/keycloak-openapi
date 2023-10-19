@@ -1,5 +1,5 @@
 use super::super::components::schemas::parse_type;
-use crate::paths::verb_path::VerbPath;
+use crate::{paths::verb_path::VerbPath, table::parse_table_rows};
 use openapiv3::{Parameter, ParameterData, ReferenceOr};
 use regex::Regex;
 use scraper::Selector;
@@ -7,7 +7,7 @@ use scraper::Selector;
 lazy_static! {
     static ref PATH_PARAM_REGEX: Regex = Regex::new(r"\{([^}]+)}").unwrap();
     static ref PARAMS_TABLE_SELECTOR: Selector =
-        Selector::parse("h5[id^=_parameters] + table").unwrap();
+        Selector::parse("h6[id^=_path_parameters] + table").unwrap();
     static ref TITLES_SELECTOR: Selector = Selector::parse("thead > tr > th").unwrap();
     static ref ROWS_SELECTOR: Selector = Selector::parse("tbody > tr").unwrap();
     static ref CELL_SELECTOR: Selector = Selector::parse("td").unwrap();
@@ -57,41 +57,76 @@ pub fn parse_parameter_rows<'a>(
     }))
 }
 
+pub fn parse_query_and_path_params(
+    section: &scraper::element_ref::ElementRef<'_>,
+) -> Vec<ReferenceOr<Parameter>> {
+    let mut out = Vec::new();
+
+    for row in parse_table_rows(section, &PARAMS_TABLE_SELECTOR) {
+        out.push(ReferenceOr::Item(Parameter::Path {
+            parameter_data: openapiv3::ParameterData {
+                name: row["Name"].split('\n').next().unwrap().to_string(),
+                description: if row["Description"].is_empty() {
+                    None
+                } else {
+                    Some(row["Description"].clone())
+                },
+                required: true,
+                deprecated: None,
+                format: openapiv3::ParameterSchemaOrContent::Schema(openapiv3::ReferenceOr::Item(
+                    openapiv3::Schema {
+                        schema_data: Default::default(),
+                        schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                            openapiv3::StringType::default(),
+                        )),
+                    },
+                )),
+                example: None,
+                examples: Default::default(),
+            },
+            style: Default::default(),
+        }));
+    }
+
+    out
+}
+
 pub fn parse_parameters(
     section: &scraper::element_ref::ElementRef<'_>,
     param_type: &str,
 ) -> Vec<ReferenceOr<Parameter>> {
-    if let Some(rows) = parse_parameter_rows(section) {
-        rows.filter(|row| row.parameter_type == param_type)
-            .map(|row| {
-                let parameter_data = openapiv3::ParameterData {
-                    name: row.name,
-                    description: row.description,
-                    required: row.required,
-                    deprecated: None,
-                    format: openapiv3::ParameterSchemaOrContent::Schema(parse_type(&row.schema)),
-                    example: None,
-                    examples: Default::default(),
-                };
-                let parameter = match row.parameter_type.as_ref() {
-                    "Path" => Parameter::Path {
-                        parameter_data,
-                        style: Default::default(),
-                    },
-                    "Query" => Parameter::Query {
-                        parameter_data,
-                        allow_reserved: false,
-                        style: Default::default(),
-                        allow_empty_value: None,
-                    },
-                    _ => panic!("Don't know how to parse {}", param_type),
-                };
-                ReferenceOr::Item(parameter)
-            })
-            .collect()
-    } else {
-        Vec::new()
-    }
+    parse_query_and_path_params(section)
+    // if let Some(rows) = parse_parameter_rows(section) {
+    //     rows.filter(|row| row.parameter_type == param_type)
+    //         .map(|row| {
+    //             let parameter_data = openapiv3::ParameterData {
+    //                 name: row.name,
+    //                 description: row.description,
+    //                 required: row.required,
+    //                 deprecated: None,
+    //                 format: openapiv3::ParameterSchemaOrContent::Schema(parse_type(&row.schema)),
+    //                 example: None,
+    //                 examples: Default::default(),
+    //             };
+    //             let parameter = match row.parameter_type.as_ref() {
+    //                 "Path" => Parameter::Path {
+    //                     parameter_data,
+    //                     style: Default::default(),
+    //                 },
+    //                 "Query" => Parameter::Query {
+    //                     parameter_data,
+    //                     allow_reserved: false,
+    //                     style: Default::default(),
+    //                     allow_empty_value: None,
+    //                 },
+    //                 _ => panic!("Don't know how to parse {}", param_type),
+    //             };
+    //             ReferenceOr::Item(parameter)
+    //         })
+    //         .collect()
+    // } else {
+    //     Vec::new()
+    // }
 }
 
 pub fn parse_path(
