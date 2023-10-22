@@ -12,6 +12,17 @@
           "Realms Admin"
         ],
         "summary": "Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          }
+        ],
         "responses": {
           "2XX": {
             "description": "OK",
@@ -143,6 +154,109 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "authClient",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authIpAddress",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authRealm",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "authUser",
+            "description": "user id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateFrom",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateTo",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "operationTypes",
+            "description": "[String]",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "resourcePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "resourceTypes",
+            "description": "[String]",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -191,6 +305,109 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "authClient",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "authIpAddress",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "authRealm",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "authUser",
+          "description": "user id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "dateFrom",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "dateTo",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "Maximum results size (defaults to 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "operationTypes",
+          "description": "[String]",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "resourcePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "resourceTypes",
+          "description": "[String]",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -2107,6 +2324,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "include-global-profiles",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -3100,6 +3326,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -3143,6 +3379,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -3359,6 +3605,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -3393,6 +3649,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -4338,6 +4604,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -4381,6 +4657,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -4597,6 +4883,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -4631,6 +4927,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -4650,6 +4956,65 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "clientId",
+            "description": "filter by clientId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "the first result",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "the max results to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "whether this is a search query or a getClientById query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "viewableOnly",
+            "description": "filter clients that cannot be viewed in full by admin",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -5970,6 +6335,24 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6004,6 +6387,24 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "userId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6032,6 +6433,24 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6066,6 +6485,24 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "userId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6094,6 +6531,24 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6129,6 +6584,24 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "userId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6157,6 +6630,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6191,6 +6673,15 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6229,6 +6720,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6273,6 +6773,15 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6311,6 +6820,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6355,6 +6873,15 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "scope",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -6747,6 +7274,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6781,6 +7328,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "Paging offset",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "Maximum results size (defaults to 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -7338,6 +7905,42 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -7956,6 +8559,36 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -8000,6 +8633,36 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "first result to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -8166,6 +8829,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -8210,6 +8893,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "first result to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -8551,6 +9254,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -8594,6 +9307,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -8810,6 +9533,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -8844,6 +9577,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -9058,6 +9801,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -9092,6 +9855,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "Paging offset",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "Maximum results size (defaults to 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -9111,6 +9894,33 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -9313,6 +10123,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -9347,6 +10166,15 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "type",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -9803,6 +10631,86 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "client",
+            "description": "App or oauth client name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateFrom",
+            "description": "From date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "dateTo",
+            "description": "To date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Paging offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "ipAddress",
+            "description": "IP Address",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "description": "The types of events to return [String]",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "user",
+            "description": "User id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -9851,6 +10759,86 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "client",
+          "description": "App or oauth client name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "dateFrom",
+          "description": "From date",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "dateTo",
+          "description": "To date",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "Paging offset",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "ipAddress",
+          "description": "IP Address",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "Maximum results size (defaults to 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "type",
+          "description": "The types of events to return [String]",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "user",
+          "description": "User id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -9999,6 +10987,69 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "exact",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "populateHierarchy",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -10066,6 +11117,24 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "top",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -10091,6 +11160,24 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "search",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "top",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -10401,6 +11488,36 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Pagination offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -10435,6 +11552,36 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "Only return basic information (only guaranteed to return id, username, created, first and last name, email, enabled state, email verification state, federation link, and access. Note that it means that namely user attributes, required actions, and not before are not returned.)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "Pagination offset",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "Maximum results size (defaults to 100)",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -10776,6 +11923,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -10819,6 +11976,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -11035,6 +12202,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -11069,6 +12246,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -11334,6 +12521,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "description": "Format to use",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -11361,6 +12558,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "format",
+          "description": "Format to use",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -11956,6 +13163,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "useRealmDefaultLocaleFallback",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -12279,6 +13495,24 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "exportClients",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "exportGroupsAndRoles",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -12297,6 +13531,24 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "exportClients",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "exportGroupsAndRoles",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -12397,6 +13649,42 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -12603,6 +13891,33 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13380,6 +14695,36 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13415,6 +14760,36 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return a full representation of the {@code GroupRepresentation} objects.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "first result to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -13545,6 +14920,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "first result to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13580,6 +14975,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "description": "first result to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "description": "maximum number of results to return. Ignored if negative or {@code null}.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -13691,6 +15106,146 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "Boolean which defines whether brief representations are returned (default: false)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "A String contained in email, or the complete email, if param &quot;exact&quot; is true",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "emailVerified",
+            "description": "whether the email has been verified",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "enabled",
+            "description": "Boolean representing if user is enabled or not",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "exact",
+            "description": "Boolean which defines whether the params &quot;last&quot;, &quot;first&quot;, &quot;email&quot; and &quot;username&quot; must match exactly",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "description": "Pagination offset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "description": "A String contained in firstName, or the complete firstName, if param &quot;exact&quot; is true",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "idpAlias",
+            "description": "The alias of an Identity Provider linked to the user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "idpUserId",
+            "description": "The userId at an Identity Provider linked to the user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "description": "A String contained in lastName, or the complete lastName, if param &quot;exact&quot; is true",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "description": "Maximum results size (defaults to 100)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "description": "A query to search for custom attributes, in the format 'key1:value2 key2:value2'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "A String contained in username, first or last name, or email. Default search behavior is prefix-based (e.g., foo or foo*). Use foo for infix search and &quot;foo&quot; for exact search.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "description": "A String contained in username, or the complete username, if param &quot;exact&quot; is true",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13832,6 +15387,84 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "description": "email filter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "emailVerified",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "enabled",
+            "description": "Boolean representing if user is enabled or not",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "description": "first name filter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "description": "last name filter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "description": "arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo*). Use foo for infix search and &quot;foo&quot; for exact search.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "description": "username filter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13857,6 +15490,84 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "email",
+          "description": "email filter",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "emailVerified",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "enabled",
+          "description": "Boolean representing if user is enabled or not",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "firstName",
+          "description": "first name filter",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "lastName",
+          "description": "last name filter",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "search",
+          "description": "arbitrary search string for all the fields below. Default search behavior is prefix-based (e.g., foo or foo*). Use foo for infix search and &quot;foo&quot; for exact search.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "username",
+          "description": "username filter",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -14710,6 +16421,36 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "client_id",
+            "description": "Client id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "lifespan",
+            "description": "Number of seconds after which the generated token expires",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "Redirect uri",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14737,6 +16478,36 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "client_id",
+          "description": "Client id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "lifespan",
+          "description": "Number of seconds after which the generated token expires",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "redirect_uri",
+          "description": "Redirect uri",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -14944,6 +16715,42 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "first",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14978,6 +16785,42 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "first",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "max",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "search",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -15006,6 +16849,15 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -15040,6 +16892,15 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "search",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -15435,6 +17296,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "client_id",
+            "description": "client id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "redirect uri",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -15462,6 +17343,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "client_id",
+          "description": "client id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "redirect_uri",
+          "description": "redirect uri",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -15803,6 +17704,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -15846,6 +17757,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -16062,6 +17983,16 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "briefRepresentation",
+            "description": "if false, return roles with their attributes",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -16096,6 +18027,16 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "briefRepresentation",
+          "description": "if false, return roles with their attributes",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
@@ -16124,6 +18065,26 @@
               "type": "string"
             },
             "style": "simple"
+          },
+          {
+            "in": "query",
+            "name": "client_id",
+            "description": "Client id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
+          },
+          {
+            "in": "query",
+            "name": "redirect_uri",
+            "description": "Redirect uri",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -16151,6 +18112,26 @@
             "type": "string"
           },
           "style": "simple"
+        },
+        {
+          "in": "query",
+          "name": "client_id",
+          "description": "Client id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
+        },
+        {
+          "in": "query",
+          "name": "redirect_uri",
+          "description": "Redirect uri",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "form"
         }
       ]
     },
