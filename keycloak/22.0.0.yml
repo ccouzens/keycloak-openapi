@@ -954,31 +954,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -989,58 +964,6 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        ClientPoliciesRepresentation
-        optional
-        ClientPoliciesRepresentation
       requestBody:
         description: ClientPoliciesRepresentation
         content:
@@ -1062,59 +985,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Query Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        include-global-profiles
-        optional
-
-        null
       parameters:
         - in: query
           name: include-global-profiles
@@ -1131,58 +1001,6 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        ClientProfilesRepresentation
-        optional
-        ClientProfilesRepresentation
       requestBody:
         description: ClientProfilesRepresentation
         content:
@@ -2305,31 +2123,6 @@ paths:
     get:
       tags:
         - Client Initial Access
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -2366,38 +2159,6 @@ paths:
     delete:
       tags:
         - Client Initial Access
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -2817,90 +2578,12 @@ paths:
     put:
       tags:
         - Clients
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Clients
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -3150,45 +2833,6 @@ paths:
     get:
       tags:
         - Clients
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        providerId
-        required
-
-        null
       responses:
         2XX:
           description: OK
@@ -3406,90 +3050,12 @@ paths:
     put:
       tags:
         - Clients
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Clients
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -4442,73 +4008,6 @@ paths:
     get:
       tags:
         - Component
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Query Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        name
-        optional
-
-        null
-
-
-
-        parent
-        optional
-
-        null
-
-
-
-        type
-        optional
-
-        null
       parameters:
         - in: query
           name: name
@@ -4535,58 +4034,6 @@ paths:
     post:
       tags:
         - Component
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        ComponentRepresentation
-        optional
-        ComponentRepresentation
       requestBody:
         description: ComponentRepresentation
         content:
@@ -4608,38 +4055,6 @@ paths:
     get:
       tags:
         - Component
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: OK
@@ -4650,65 +4065,6 @@ paths:
     put:
       tags:
         - Component
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        ComponentRepresentation
-        optional
-        ComponentRepresentation
       requestBody:
         description: ComponentRepresentation
         content:
@@ -4721,38 +4077,6 @@ paths:
     delete:
       tags:
         - Component
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -4806,31 +4130,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -4870,76 +4169,12 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -4981,76 +4216,12 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        groupId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        groupId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -5092,76 +4263,12 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        clientScopeId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -5270,10 +4377,6 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Description
-
-        Update the events provider Change the events provider and/or its configuration
       requestBody:
         description: RealmEventsConfigRepresentation
         content:
@@ -5295,39 +4398,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        path
-        required
-
-        null
-        /.*/
       responses:
         2XX:
           description: OK
@@ -5453,38 +4523,6 @@ paths:
     get:
       tags:
         - Groups
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: OK
@@ -5508,38 +4546,6 @@ paths:
     delete:
       tags:
         - Groups
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -6261,31 +5267,6 @@ paths:
     get:
       tags:
         - Key
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -6305,31 +5286,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -6349,66 +5305,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        locale
-        required
-
-        null
-
-
-
-
-
-
-        Query Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        useRealmDefaultLocaleFallback
-        optional
-
-        null
       parameters:
         - in: query
           name: useRealmDefaultLocaleFallback
@@ -6438,38 +5334,6 @@ paths:
     delete:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        locale
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -6491,45 +5355,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        key
-        required
-
-        null
-
-
-
-        locale
-        required
-
-        null
       responses:
         2XX:
           description: OK
@@ -6540,72 +5365,6 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        key
-        required
-
-        null
-
-
-
-        locale
-        required
-
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        body
-        optional
-        [string]
       requestBody:
         description: '[string]'
         content:
@@ -6618,45 +5377,6 @@ paths:
     delete:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        key
-        required
-
-        null
-
-
-
-        locale
-        required
-
-        null
       responses:
         2XX:
           description: No Content
@@ -7494,31 +6214,6 @@ paths:
     get:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -7529,58 +6224,6 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        ManagementPermissionReference
-        optional
-        ManagementPermissionReference
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -7673,31 +6316,6 @@ paths:
     get:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
       responses:
         2XX:
           description: OK
@@ -7708,58 +6326,6 @@ paths:
     put:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-
-
-
-        Body Parameter
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        body
-        optional
-        [string]
       requestBody:
         description: '[string]'
         content:
@@ -7908,38 +6474,6 @@ paths:
     get:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
       responses:
         2XX:
           description: OK
@@ -8229,87 +6763,6 @@ paths:
     get:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-
-
-
-        Query Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        briefRepresentation
-        optional
-
-        true
-
-
-
-        first
-        optional
-
-        null
-
-
-
-        max
-        optional
-
-        null
-
-
-
-        search
-        optional
-
-        null
       parameters:
         - in: query
           name: briefRepresentation
@@ -8356,66 +6809,6 @@ paths:
     get:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-
-
-
-        Query Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        search
-        optional
-
-        null
       parameters:
         - in: query
           name: search
@@ -8447,90 +6840,12 @@ paths:
     put:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        groupId
-        required
-
-        null
       responses:
         2XX:
           description: No Content
     delete:
       tags:
         - Users
-      summary: |-
-        Parameters
-
-        Path Parameters
-
-
-
-
-
-
-
-
-
-        Name
-        Description
-        Default
-        Pattern
-
-
-
-
-        realm
-        required
-        realm name (not id!)
-        null
-
-
-
-        id
-        required
-
-        null
-
-
-
-        groupId
-        required
-
-        null
       responses:
         2XX:
           description: No Content

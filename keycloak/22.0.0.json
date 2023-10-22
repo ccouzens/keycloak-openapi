@@ -1500,7 +1500,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -1518,7 +1517,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nClientPoliciesRepresentation\noptional\nClientPoliciesRepresentation",
         "requestBody": {
           "description": "ClientPoliciesRepresentation",
           "content": {
@@ -1553,7 +1551,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\ninclude-global-profiles\noptional\n\nnull",
         "parameters": [
           {
             "in": "query",
@@ -1581,7 +1578,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nClientProfilesRepresentation\noptional\nClientProfilesRepresentation",
         "requestBody": {
           "description": "ClientProfilesRepresentation",
           "content": {
@@ -3356,7 +3352,6 @@
         "tags": [
           "Client Initial Access"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -3416,7 +3411,6 @@
         "tags": [
           "Client Initial Access"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -4077,7 +4071,6 @@
         "tags": [
           "Clients"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -4088,7 +4081,6 @@
         "tags": [
           "Clients"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -4482,7 +4474,6 @@
         "tags": [
           "Clients"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nproviderId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "OK"
@@ -4824,7 +4815,6 @@
         "tags": [
           "Clients"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -4835,7 +4825,6 @@
         "tags": [
           "Clients"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6332,7 +6321,6 @@
         "tags": [
           "Component"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nname\noptional\n\nnull\n\n\n\nparent\noptional\n\nnull\n\n\n\ntype\noptional\n\nnull",
         "parameters": [
           {
             "in": "query",
@@ -6376,7 +6364,6 @@
         "tags": [
           "Component"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nComponentRepresentation\noptional\nComponentRepresentation",
         "requestBody": {
           "description": "ComponentRepresentation",
           "content": {
@@ -6411,7 +6398,6 @@
         "tags": [
           "Component"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -6429,7 +6415,6 @@
         "tags": [
           "Component"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nComponentRepresentation\noptional\nComponentRepresentation",
         "requestBody": {
           "description": "ComponentRepresentation",
           "content": {
@@ -6450,7 +6435,6 @@
         "tags": [
           "Component"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6535,7 +6519,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -6599,7 +6582,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6610,7 +6592,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6676,7 +6657,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\ngroupId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6687,7 +6667,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\ngroupId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6753,7 +6732,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6764,7 +6742,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nclientScopeId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -6933,7 +6910,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Description\n\nUpdate the events provider Change the events provider and/or its configuration",
         "requestBody": {
           "description": "RealmEventsConfigRepresentation",
           "content": {
@@ -6968,7 +6944,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\npath\nrequired\n\nnull\n/.*/",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -7170,7 +7145,6 @@
         "tags": [
           "Groups"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -7209,7 +7183,6 @@
         "tags": [
           "Groups"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -8349,7 +8322,6 @@
         "tags": [
           "Key"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -8381,7 +8353,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -8413,7 +8384,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nlocale\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nuseRealmDefaultLocaleFallback\noptional\n\nnull",
         "parameters": [
           {
             "in": "query",
@@ -8462,7 +8432,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nlocale\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -8496,7 +8465,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -8514,7 +8482,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbody\noptional\n[string]",
         "requestBody": {
           "description": "[string]",
           "content": {
@@ -8535,7 +8502,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nkey\nrequired\n\nnull\n\n\n\nlocale\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -9853,7 +9819,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -9871,7 +9836,6 @@
         "tags": [
           "Realms Admin"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nManagementPermissionReference\noptional\nManagementPermissionReference",
         "requestBody": {
           "description": "ManagementPermissionReference",
           "content": {
@@ -10017,7 +9981,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -10035,7 +9998,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\n\n\n\nBody Parameter\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbody\noptional\n[string]",
         "requestBody": {
           "description": "[string]",
           "content": {
@@ -10269,7 +10231,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "OK",
@@ -10717,7 +10678,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nbriefRepresentation\noptional\n\ntrue\n\n\n\nfirst\noptional\n\nnull\n\n\n\nmax\noptional\n\nnull\n\n\n\nsearch\noptional\n\nnull",
         "parameters": [
           {
             "in": "query",
@@ -10792,7 +10752,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\n\n\n\nQuery Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nsearch\noptional\n\nnull",
         "parameters": [
           {
             "in": "query",
@@ -10843,7 +10802,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\ngroupId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
@@ -10854,7 +10812,6 @@
         "tags": [
           "Users"
         ],
-        "summary": "Parameters\n\nPath Parameters\n\n\n\n\n\n\n\n\n\nName\nDescription\nDefault\nPattern\n\n\n\n\nrealm\nrequired\nrealm name (not id!)\nnull\n\n\n\nid\nrequired\n\nnull\n\n\n\ngroupId\nrequired\n\nnull",
         "responses": {
           "2XX": {
             "description": "No Content"
