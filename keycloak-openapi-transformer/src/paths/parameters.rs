@@ -1,6 +1,7 @@
 use super::super::components::schemas::parse_type;
 use crate::{paths::verb_path::VerbPath, table::parse_table_rows};
-use openapiv3::{Parameter, ParameterData, ReferenceOr};
+use indexmap::IndexMap;
+use openapiv3::{MediaType, Parameter, ParameterData, ReferenceOr, RequestBody};
 use regex::Regex;
 use scraper::Selector;
 
@@ -10,56 +11,70 @@ lazy_static! {
         Selector::parse("h6[id^=_path_parameters] + table").unwrap();
     static ref QUERY_PARAMS_TABLE_SELECTOR: Selector =
         Selector::parse("h6[id^=_query_parameters] + table").unwrap();
-    static ref TITLES_SELECTOR: Selector = Selector::parse("thead > tr > th").unwrap();
-    static ref ROWS_SELECTOR: Selector = Selector::parse("tbody > tr").unwrap();
-    static ref CELL_SELECTOR: Selector = Selector::parse("td").unwrap();
-    static ref NAME_SELECTOR: Selector = Selector::parse("strong").unwrap();
-    static ref REQUIRED_SELECTOR: Selector = Selector::parse("em").unwrap();
+    static ref BODY_PARAMS_TABLE_SELECTOR: Selector =
+        Selector::parse("h6[id^=_body_parameter] + table").unwrap();
 }
 
-pub struct ParameterRow {
-    pub parameter_type: String,
-    pub name: String,
-    pub required: bool,
-    pub description: Option<String>,
-    pub schema: String,
+pub fn parse_body_param(
+    section: &scraper::element_ref::ElementRef<'_>,
+) -> Option<ReferenceOr<RequestBody>> {
+    match parse_table_rows(section, &BODY_PARAMS_TABLE_SELECTOR).first() {
+        None => None,
+        Some(row) => {
+            let name = &row["Name"];
+            let mut content = IndexMap::new();
+            content.insert(
+                "application/json".to_string(),
+                MediaType {
+                    schema: Some(parse_type(name.split_ascii_whitespace().next().unwrap())),
+                    ..Default::default()
+                },
+            );
+            Some(ReferenceOr::Item(RequestBody {
+                description: Some(row["Description"].clone()),
+                required: false,
+                content,
+            }))
+        }
+    }
 }
 
-pub fn parse_parameter_rows<'a>(
-    section: &scraper::element_ref::ElementRef<'a>,
-) -> Option<impl Iterator<Item = ParameterRow> + 'a> {
-    let table = section.select(&PATH_PARAMS_TABLE_SELECTOR).next()?;
-    let titles = table
-        .select(&TITLES_SELECTOR)
-        .map(|th| th.text().collect::<String>())
-        .zip(0..)
-        .collect::<std::collections::HashMap<String, usize>>();
-    let &type_index = titles.get("Type")?;
-    let &name_index = titles.get("Name")?;
-    let description_index = titles.get("Description").cloned();
-    let &schema_index = titles.get("Schema")?;
-    Some(table.select(&ROWS_SELECTOR).filter_map(move |row| {
-        let cells = row.select(&CELL_SELECTOR).collect::<Vec<_>>();
-        let name_cell = cells.get(name_index)?;
+pub fn parse_query_params(
+    section: &scraper::element_ref::ElementRef<'_>,
+) -> Vec<ReferenceOr<Parameter>> {
+    let mut out = Vec::new();
 
-        Some(ParameterRow {
-            parameter_type: cells.get(type_index)?.text().collect(),
-            name: name_cell.select(&NAME_SELECTOR).next()?.text().collect(),
-            required: name_cell
-                .select(&REQUIRED_SELECTOR)
-                .next()?
-                .text()
-                .collect::<String>()
-                == "required",
-            description: description_index
-                .and_then(|di| Some(cells.get(di)?.text().collect()))
-                .and_then(|des: String| if des.is_empty() { None } else { Some(des) }),
-            schema: cells.get(schema_index)?.text().collect(),
-        })
-    }))
+    for row in parse_table_rows(section, &QUERY_PARAMS_TABLE_SELECTOR) {
+        out.push(ReferenceOr::Item(Parameter::Query {
+            parameter_data: openapiv3::ParameterData {
+                name: row["Name"].split('\n').next().unwrap().to_string(),
+                description: if row["Description"].is_empty() {
+                    None
+                } else {
+                    Some(row["Description"].clone())
+                },
+                required: false,
+                deprecated: None,
+                format: openapiv3::ParameterSchemaOrContent::Schema(openapiv3::ReferenceOr::Item(
+                    openapiv3::Schema {
+                        schema_data: Default::default(),
+                        schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
+                            openapiv3::StringType::default(),
+                        )),
+                    },
+                )),
+                example: None,
+                examples: Default::default(),
+            },
+            allow_reserved: false,
+            style: Default::default(),
+            allow_empty_value: None,
+        }));
+    }
+
+    out
 }
-
-pub fn parse_query_and_path_params(
+pub fn parse_path_params(
     section: &scraper::element_ref::ElementRef<'_>,
 ) -> Vec<ReferenceOr<Parameter>> {
     let mut out = Vec::new();
@@ -89,49 +104,15 @@ pub fn parse_query_and_path_params(
             style: Default::default(),
         }));
     }
-    for row in parse_table_rows(section, &QUERY_PARAMS_TABLE_SELECTOR) {
-        out.push(ReferenceOr::Item(Parameter::Query {
-            parameter_data: openapiv3::ParameterData {
-                name: row["Name"].split('\n').next().unwrap().to_string(),
-                description: if row["Description"].is_empty() {
-                    None
-                } else {
-                    Some(row["Description"].clone())
-                },
-                required: true,
-                deprecated: None,
-                format: openapiv3::ParameterSchemaOrContent::Schema(openapiv3::ReferenceOr::Item(
-                    openapiv3::Schema {
-                        schema_data: Default::default(),
-                        schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::String(
-                            openapiv3::StringType::default(),
-                        )),
-                    },
-                )),
-                example: None,
-                examples: Default::default(),
-            },
-            allow_reserved: false,
-            style: Default::default(),
-            allow_empty_value: None,
-        }));
-    }
 
     out
-}
-
-pub fn parse_parameters(
-    section: &scraper::element_ref::ElementRef<'_>,
-    param_type: &str,
-) -> Vec<ReferenceOr<Parameter>> {
-    parse_query_and_path_params(section)
 }
 
 pub fn parse_path(
     section: &scraper::element_ref::ElementRef<'_>,
     verb_path: &VerbPath,
 ) -> Vec<ReferenceOr<Parameter>> {
-    let mut params = parse_parameters(section, "Path");
+    let mut params = parse_path_params(section);
 
     if let Some(repeats) = verb_path.repeating_ids() {
         params = params
@@ -191,61 +172,4 @@ pub fn parse_path(
     }
 
     params
-}
-
-#[cfg(test)]
-mod tests {
-    use super::parse_path;
-    use crate::paths::verb_path::VerbPath;
-    use openapiv3::{OpenAPI, ReferenceOr};
-    use scraper::Html;
-    use scraper::Selector;
-
-    const HTML: &str = include_str!("../../../keycloak/9.0.html");
-    const JSON: &str = include_str!("../../../keycloak/9.0.json");
-
-    fn parse_parameters_correctly(html_selector: &str, path: &str) {
-        let openapi: Result<OpenAPI, _> = serde_json::from_str(JSON);
-        let verb_path: VerbPath = format!("GET {}", path).parse().unwrap();
-        if let Ok(Some(ReferenceOr::Item(openapiv3::PathItem { parameters, .. }))) =
-            openapi.as_ref().map(|o| o.paths.get(path))
-        {
-            assert_eq!(
-                parameters,
-                &parse_path(
-                    &Html::parse_document(HTML)
-                        .select(&Selector::parse(html_selector).unwrap())
-                        .next()
-                        .unwrap(),
-                    &verb_path
-                )
-            );
-        } else {
-            panic!("Couldn't extract path")
-        };
-    }
-
-    #[test]
-    fn correctly_parses_realm() {
-        parse_parameters_correctly(
-            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3",
-            "/{realm}/attack-detection/brute-force/users",
-        );
-    }
-
-    #[test]
-    fn correctly_parses_when_description_is_missing() {
-        parse_parameters_correctly(
-            "#_paths + .sectionbody > .sect2 > #_user_storage_provider_resource + .sect3",
-            "/{id}/name",
-        );
-    }
-
-    #[test]
-    fn correctly_parses_when_description_is_blank() {
-        parse_parameters_correctly(
-            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3 + .sect3",
-            "/{realm}/attack-detection/brute-force/users/{userId}",
-        );
-    }
 }

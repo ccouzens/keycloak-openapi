@@ -2,7 +2,6 @@ use scraper::Selector;
 
 mod operation;
 mod parameters;
-mod request_body;
 mod response;
 mod verb_path;
 
