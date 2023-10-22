@@ -6,7 +6,7 @@ use scraper::Selector;
 
 lazy_static! {
     static ref SCHEMAS_SELECTOR: Selector =
-        Selector::parse("#_definitions + .sectionbody > .sect2").unwrap();
+        Selector::parse("#models + .sectionbody > .sect2").unwrap();
     static ref TITLE_SELECTOR: Selector = Selector::parse("h3").unwrap();
     static ref ROW_SELECTOR: Selector = Selector::parse("table > tbody > tr").unwrap();
     static ref PROPERTY_NAME_SELECTOR: Selector = Selector::parse("td:first-child strong").unwrap();
