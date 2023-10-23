@@ -61,4 +61,4 @@ keycloak/%.json: keycloak/%.html
 	(cd keycloak-openapi-transformer; cargo run --release) < $(addsuffix .html,$(basename $@)) > $@
 
 keycloak/%.yml: keycloak/%.json
-	yq -P '.' $< > $@
+	yq --output-format=yaml -P '.' $< > $@
