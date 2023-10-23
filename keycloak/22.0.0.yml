@@ -190,7 +190,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: object
     delete:
       tags:
         - Attack Detection
@@ -2324,7 +2325,8 @@ paths:
           content:
             application/octet-stream:
               schema:
-                $ref: '#/components/schemas/[File]'
+                type: string
+                format: byte
     parameters:
       - in: path
         name: realm
@@ -2394,7 +2396,8 @@ paths:
           content:
             application/octet-stream:
               schema:
-                $ref: '#/components/schemas/[File]'
+                type: string
+                format: byte
     parameters:
       - in: path
         name: realm
@@ -2705,7 +2708,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: object
     parameters:
       - in: path
         name: realm
@@ -6890,7 +6894,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: object
     parameters:
       - in: path
         name: realm
@@ -7354,7 +7359,6 @@ components:
     access_token:
       type: http
       scheme: bearer
-      bearerFormat: null
   schemas:
     Access:
       type: object

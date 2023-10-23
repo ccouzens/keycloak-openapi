@@ -31,7 +31,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
         .map(|p| p.text().collect::<String>());
 
     let content = match (media_type, raw_schema.as_ref()) {
-        (None, _) | (_, "Response") => Default::default(),
+        (None, _) | (_, "<<>>") => Default::default(),
         (Some(produces), _) => [(
             produces,
             MediaType {
@@ -73,7 +73,7 @@ mod test {
             }
         }
         "#;
-        let document = Html::parse_document(&HTML);
+        let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
@@ -100,7 +100,7 @@ mod test {
             }
         }
         "##;
-        let document = Html::parse_document(&HTML);
+        let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
@@ -115,7 +115,7 @@ mod test {
     fn no_content() {
         const CSS_SELECTOR: &str =
             "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3";
-        let document = Html::parse_document(&HTML);
+        let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
@@ -127,7 +127,7 @@ mod test {
     fn no_content_response() {
         const CSS_SELECTOR: &str =
             "#_paths + .sectionbody > .sect2 > #_authentication_management_resource + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3";
-        let document = Html::parse_document(&HTML);
+        let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()

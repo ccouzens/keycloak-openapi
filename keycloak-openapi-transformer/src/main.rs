@@ -24,6 +24,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         ReferenceOr::Item(SecurityScheme::HTTP {
             scheme: "bearer".to_string(),
             bearer_format: None,
+            description: None,
         }),
     );
 
@@ -39,7 +40,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             ..Default::default()
         }),
         paths: paths::paths(&document),
-        security: vec![security_requirement],
+        security: Some(vec![security_requirement]),
         ..Default::default()
     };
 

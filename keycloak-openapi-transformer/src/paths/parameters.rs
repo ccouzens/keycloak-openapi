@@ -34,6 +34,7 @@ pub fn parse_body_param(
                 description: Some(row["Description"].clone()),
                 required: false,
                 content,
+                extensions: Default::default(),
             }))
         }
     }
@@ -65,6 +66,8 @@ pub fn parse_query_params(
                 )),
                 example: None,
                 examples: Default::default(),
+                explode: Default::default(),
+                extensions: Default::default(),
             },
             allow_reserved: false,
             style: Default::default(),
@@ -100,6 +103,8 @@ pub fn parse_path_params(
                 )),
                 example: None,
                 examples: Default::default(),
+                explode: Default::default(),
+                extensions: Default::default(),
             },
             style: Default::default(),
         }));
@@ -115,20 +120,17 @@ pub fn parse_path(
     let mut params = parse_path_params(section);
 
     if let Some(repeats) = verb_path.repeating_ids() {
-        params = params
-            .into_iter()
-            .filter(|p| {
-                if let ReferenceOr::Item(Parameter::Path {
-                    parameter_data: ParameterData { name, .. },
-                    ..
-                }) = p
-                {
-                    name != "id"
-                } else {
-                    true
-                }
-            })
-            .collect();
+        params.retain(|p| {
+            if let ReferenceOr::Item(Parameter::Path {
+                parameter_data: ParameterData { name, .. },
+                ..
+            }) = p
+            {
+                name != "id"
+            } else {
+                true
+            }
+        });
         params.extend((1..=repeats).map(|i| {
             ReferenceOr::Item(Parameter::Path {
                 parameter_data: ParameterData {
@@ -139,6 +141,8 @@ pub fn parse_path(
                     deprecated: None,
                     example: None,
                     examples: Default::default(),
+                    explode: Default::default(),
+                    extensions: Default::default(),
                 },
                 style: Default::default(),
             })

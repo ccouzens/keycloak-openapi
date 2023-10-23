@@ -31,7 +31,7 @@ fn extract_string(
     selector: &Selector,
 ) -> Result<String, TransformError> {
     Ok(document
-        .select(&selector)
+        .select(selector)
         .next()
         .ok_or_else(|| TransformError::NoFindErr(format!("{:?}", selector)))?
         .text()

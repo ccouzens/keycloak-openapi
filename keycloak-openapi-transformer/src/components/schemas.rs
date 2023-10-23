@@ -1,4 +1,5 @@
 use indexmap::IndexMap;
+use openapiv3::ArrayType;
 use openapiv3::ObjectType;
 use openapiv3::Schema;
 use openapiv3::SchemaKind;
