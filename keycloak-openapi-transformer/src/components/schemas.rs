@@ -64,9 +64,21 @@ fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
+fn map_type(raw_type: &str) -> Option<openapiv3::Type> {
+    if raw_type.starts_with("Map  of") {
+        Some(openapiv3::Type::Object(openapiv3::ObjectType {
+            additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
+            ..Default::default()
+        }))
+    } else {
+        None
+    }
+}
+
 pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
     array_type(&raw_type)
         .or_else(|| set_type(&raw_type))
+        .or_else(|| map_type(&raw_type))
         .or_else(|| match raw_type {
             "integer(int32)" | "Integer" => {
                 Some(openapiv3::Type::Integer(openapiv3::IntegerType {

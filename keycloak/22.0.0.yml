@@ -7380,7 +7380,8 @@ components:
         azp:
           type: string
         otherClaims:
-          $ref: '#/components/schemas/Map  of [object]'
+          type: object
+          additionalProperties: true
         nonce:
           type: string
         auth_time:
@@ -7455,7 +7456,8 @@ components:
         realm_access:
           $ref: '#/components/schemas/Access'
         resource_access:
-          $ref: '#/components/schemas/Map  of Access'
+          type: object
+          additionalProperties: true
         authorization:
           $ref: '#/components/schemas/Authorization'
         cnf:
@@ -7544,16 +7546,19 @@ components:
         protocol:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         authenticationFlowBindingOverrides:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
           type: integer
           format: int32
         registeredNodes:
-          $ref: '#/components/schemas/Map  of [integer]'
+          type: object
+          additionalProperties: true
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
@@ -7575,7 +7580,8 @@ components:
         authorizationSettings:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
-          $ref: '#/components/schemas/Map  of [boolean]'
+          type: object
+          additionalProperties: true
         origin:
           type: string
         name:
@@ -7716,7 +7722,8 @@ components:
         alias:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     Authorization:
       type: object
       properties:
@@ -7917,16 +7924,19 @@ components:
         protocol:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         authenticationFlowBindingOverrides:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
           type: integer
           format: int32
         registeredNodes:
-          $ref: '#/components/schemas/Map  of [integer]'
+          type: object
+          additionalProperties: true
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
@@ -7948,7 +7958,8 @@ components:
         authorizationSettings:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
-          $ref: '#/components/schemas/Map  of [boolean]'
+          type: object
+          additionalProperties: true
         origin:
           type: string
     ClientScopeRepresentation:
@@ -7963,7 +7974,8 @@ components:
         protocol:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
     ClientTemplateRepresentation:
@@ -7996,7 +8008,8 @@ components:
         frontchannelLogout:
           type: boolean
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
     ComponentExportRepresentation:
@@ -8011,9 +8024,11 @@ components:
         subType:
           type: string
         subComponents:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         config:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
     ComponentRepresentation:
       type: object
       properties:
@@ -8030,7 +8045,8 @@ components:
         subType:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
     Composites:
       type: object
       properties:
@@ -8040,9 +8056,11 @@ components:
             type: string
           uniqueItems: true
         client:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         application:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -8144,17 +8162,20 @@ components:
         path:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         realmRoles:
           type: array
           items:
             type: string
         clientRoles:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         subGroups:
           $ref: '#/components/schemas/List  of GroupRepresentation'
         access:
-          $ref: '#/components/schemas/Map  of [boolean]'
+          type: object
+          additionalProperties: true
     IDToken:
       type: object
       properties:
@@ -8178,7 +8199,8 @@ components:
         azp:
           type: string
         otherClaims:
-          $ref: '#/components/schemas/Map  of [object]'
+          type: object
+          additionalProperties: true
         nonce:
           type: string
         auth_time:
@@ -8252,7 +8274,8 @@ components:
         identityProviderMapper:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     IdentityProviderMapperTypeRepresentation:
       type: object
       properties:
@@ -8296,7 +8319,8 @@ components:
         postBrokerLoginFlowAlias:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         updateProfileFirstLogin:
           type: boolean
     InstallationAdapterConfig:
@@ -8319,7 +8343,8 @@ components:
         verify-token-audience:
           type: boolean
         credentials:
-          $ref: '#/components/schemas/Map  of [object]'
+          type: object
+          additionalProperties: true
         use-resource-role-mappings:
           type: boolean
         confidential-port:
@@ -8370,7 +8395,8 @@ components:
       type: object
       properties:
         active:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         keys:
           $ref: '#/components/schemas/List  of KeyMetadataRepresentation'
     Logic:
@@ -8383,14 +8409,16 @@ components:
         resource:
           type: string
         scopePermissions:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     MappingsRepresentation:
       type: object
       properties:
         realmMappings:
           $ref: '#/components/schemas/List  of RoleRepresentation'
         clientMappings:
-          $ref: '#/components/schemas/Map  of ClientMappingsRepresentation'
+          type: object
+          additionalProperties: true
     MethodConfig:
       type: object
       properties:
@@ -8469,16 +8497,19 @@ components:
         protocol:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         authenticationFlowBindingOverrides:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
           type: integer
           format: int32
         registeredNodes:
-          $ref: '#/components/schemas/Map  of [integer]'
+          type: object
+          additionalProperties: true
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
@@ -8500,7 +8531,8 @@ components:
         authorizationSettings:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
-          $ref: '#/components/schemas/Map  of [boolean]'
+          type: object
+          additionalProperties: true
         origin:
           type: string
         name:
@@ -8536,7 +8568,8 @@ components:
         enforcement-mode:
           $ref: '#/components/schemas/EnforcementMode'
         claim-information-point:
-          $ref: '#/components/schemas/Map  of [map]'
+          type: object
+          additionalProperties: true
         invalidated:
           type: boolean
         staticPath:
@@ -8556,7 +8589,8 @@ components:
             type: string
           uniqueItems: true
         claims:
-          $ref: '#/components/schemas/Map  of [set]'
+          type: object
+          additionalProperties: true
     PolicyEnforcementMode:
       type: object
     PolicyEnforcerConfig:
@@ -8575,7 +8609,8 @@ components:
         user-managed-access:
           type: object
         claim-information-point:
-          $ref: '#/components/schemas/Map  of [map]'
+          type: object
+          additionalProperties: true
         http-method-as-scope:
           type: boolean
         realm:
@@ -8583,7 +8618,8 @@ components:
         auth-server-url:
           type: string
         credentials:
-          $ref: '#/components/schemas/Map  of [object]'
+          type: object
+          additionalProperties: true
         resource:
           type: string
     PolicyRepresentation:
@@ -8623,7 +8659,8 @@ components:
         scopesData:
           $ref: '#/components/schemas/Set  of ScopeRepresentation'
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     ProtocolMapperRepresentation:
       type: object
       properties:
@@ -8640,7 +8677,8 @@ components:
         consentText:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     PublishedRealmRepresentation:
       type: object
       properties:
@@ -8915,7 +8953,8 @@ components:
         scopeMappings:
           $ref: '#/components/schemas/List  of ScopeMappingRepresentation'
         clientScopeMappings:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         clients:
           $ref: '#/components/schemas/List  of ClientRepresentation'
         clientScopes:
@@ -8929,9 +8968,11 @@ components:
           items:
             type: string
         browserSecurityHeaders:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         smtpServer:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         userFederationProviders:
           $ref: '#/components/schemas/List  of UserFederationProviderRepresentation'
         userFederationMappers:
@@ -8968,7 +9009,8 @@ components:
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         components:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         internationalizationEnabled:
           type: boolean
         supportedLocales:
@@ -8997,7 +9039,8 @@ components:
         dockerAuthenticationFlow:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         keycloakVersion:
           type: string
         userManagedAccessAllowed:
@@ -9007,9 +9050,11 @@ components:
         updateProfileOnInitialSocialLogin:
           type: boolean
         socialProviders:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         applicationScopeMappings:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         applications:
           $ref: '#/components/schemas/List  of ApplicationRepresentation'
         oauthClients:
@@ -9039,7 +9084,8 @@ components:
           type: integer
           format: int32
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     ResourceOwnerRepresentation:
       type: object
       properties:
@@ -9072,7 +9118,8 @@ components:
         displayName:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         uri:
           type: string
         scopesUma:
@@ -9125,16 +9172,19 @@ components:
         containerId:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
     RolesRepresentation:
       type: object
       properties:
         realm:
           $ref: '#/components/schemas/List  of RoleRepresentation'
         client:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         application:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
     ScopeEnforcementMode:
       type: object
     ScopeMappingRepresentation:
@@ -9208,7 +9258,8 @@ components:
         federationMapperType:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
     UserFederationProviderRepresentation:
       type: object
       properties:
@@ -9219,7 +9270,8 @@ components:
         providerName:
           type: string
         config:
-          $ref: '#/components/schemas/Map  of [string]'
+          type: object
+          additionalProperties: true
         priority:
           type: integer
           format: int32
@@ -9263,7 +9315,8 @@ components:
         serviceAccountClientId:
           type: string
         attributes:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         credentials:
           $ref: '#/components/schemas/List  of CredentialRepresentation'
         disableableCredentialTypes:
@@ -9282,14 +9335,16 @@ components:
           items:
             type: string
         clientRoles:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         clientConsents:
           $ref: '#/components/schemas/List  of UserConsentRepresentation'
         notBefore:
           type: integer
           format: int32
         applicationRoles:
-          $ref: '#/components/schemas/Map  of [array]'
+          type: object
+          additionalProperties: true
         socialLinks:
           $ref: '#/components/schemas/List  of SocialLinkRepresentation'
         groups:
@@ -9297,6 +9352,7 @@ components:
           items:
             type: string
         access:
-          $ref: '#/components/schemas/Map  of [boolean]'
+          type: object
+          additionalProperties: true
 security:
   - access_token: []
