@@ -11602,7 +11602,11 @@
         "type": "object",
         "properties": {
           "roles": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "verify_caller": {
             "type": "boolean"
@@ -11733,10 +11737,18 @@
             "type": "string"
           },
           "trusted-certs": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "allowed-origins": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "realm_access": {
             "$ref": "#/components/schemas/Access"
@@ -11818,13 +11830,22 @@
             "type": "string"
           },
           "defaultRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "redirectUris": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webOrigins": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notBefore": {
             "type": "integer",
@@ -11898,10 +11919,16 @@
             "type": "boolean"
           },
           "defaultClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "optionalClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "authorizationSettings": {
             "$ref": "#/components/schemas/ResourceServerRepresentation"
@@ -12004,7 +12031,10 @@
             "type": "string"
           },
           "requirementChoices": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "configurable": {
             "type": "boolean"
@@ -12289,7 +12319,10 @@
             "$ref": "#/components/schemas/List  of ClientPolicyConditionRepresentation"
           },
           "profiles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12361,13 +12394,22 @@
             "type": "string"
           },
           "defaultRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "redirectUris": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webOrigins": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notBefore": {
             "type": "integer",
@@ -12441,10 +12483,16 @@
             "type": "boolean"
           },
           "defaultClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "optionalClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "authorizationSettings": {
             "$ref": "#/components/schemas/ResourceServerRepresentation"
@@ -12583,7 +12631,11 @@
         "type": "object",
         "properties": {
           "realm": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "client": {
             "$ref": "#/components/schemas/Map  of [array]"
@@ -12612,7 +12664,10 @@
             "type": "object"
           },
           "options": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "secret": {
             "type": "boolean"
@@ -12712,10 +12767,16 @@
         "type": "object",
         "properties": {
           "successRequests": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "failedRequests": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12735,7 +12796,10 @@
             "$ref": "#/components/schemas/Map  of [array]"
           },
           "realmRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "clientRoles": {
             "$ref": "#/components/schemas/Map  of [array]"
@@ -13110,7 +13174,10 @@
             "type": "string"
           },
           "scopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "scopes-enforcement-mode": {
             "$ref": "#/components/schemas/ScopeEnforcementMode"
@@ -13157,13 +13224,22 @@
             "type": "string"
           },
           "defaultRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "redirectUris": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webOrigins": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notBefore": {
             "type": "integer",
@@ -13237,10 +13313,16 @@
             "type": "boolean"
           },
           "defaultClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "optionalClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "authorizationSettings": {
             "$ref": "#/components/schemas/ResourceServerRepresentation"
@@ -13288,7 +13370,10 @@
             "$ref": "#/components/schemas/List  of MethodConfig"
           },
           "scopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "id": {
             "type": "string"
@@ -13320,7 +13405,11 @@
             "type": "string"
           },
           "scopes": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "claims": {
             "$ref": "#/components/schemas/Map  of [set]"
@@ -13387,13 +13476,25 @@
             "type": "string"
           },
           "policies": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "resources": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "scopes": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "logic": {
             "$ref": "#/components/schemas/Logic"
@@ -13473,10 +13574,16 @@
             "format": "int64"
           },
           "eventsListeners": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "enabledEventTypes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "adminEventsEnabled": {
             "type": "boolean"
@@ -13682,16 +13789,26 @@
             "$ref": "#/components/schemas/List  of GroupRepresentation"
           },
           "defaultRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "defaultRole": {
             "$ref": "#/components/schemas/RoleRepresentation"
           },
           "defaultGroups": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "requiredCredentials": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "passwordPolicy": {
             "type": "string"
@@ -13722,13 +13839,19 @@
             "type": "boolean"
           },
           "otpSupportedApplications": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webAuthnPolicyRpEntityName": {
             "type": "string"
           },
           "webAuthnPolicySignatureAlgorithms": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webAuthnPolicyRpId": {
             "type": "string"
@@ -13753,13 +13876,19 @@
             "type": "boolean"
           },
           "webAuthnPolicyAcceptableAaguids": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webAuthnPolicyPasswordlessRpEntityName": {
             "type": "string"
           },
           "webAuthnPolicyPasswordlessSignatureAlgorithms": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "webAuthnPolicyPasswordlessRpId": {
             "type": "string"
@@ -13784,7 +13913,10 @@
             "type": "boolean"
           },
           "webAuthnPolicyPasswordlessAcceptableAaguids": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "clientProfiles": {
             "$ref": "#/components/schemas/List"
@@ -13811,10 +13943,16 @@
             "$ref": "#/components/schemas/List  of ClientScopeRepresentation"
           },
           "defaultDefaultClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "defaultOptionalClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "browserSecurityHeaders": {
             "$ref": "#/components/schemas/Map  of [string]"
@@ -13848,10 +13986,16 @@
             "format": "int64"
           },
           "eventsListeners": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "enabledEventTypes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "adminEventsEnabled": {
             "type": "boolean"
@@ -13875,7 +14019,11 @@
             "type": "boolean"
           },
           "supportedLocales": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "defaultLocale": {
             "type": "string"
@@ -13995,7 +14143,11 @@
             "type": "string"
           },
           "uris": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "type": {
             "type": "string"
@@ -14134,7 +14286,11 @@
             "type": "string"
           },
           "roles": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           }
         }
       },
@@ -14182,7 +14338,10 @@
             "type": "string"
           },
           "grantedClientScopes": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "createdDate": {
             "type": "integer",
@@ -14193,7 +14352,10 @@
             "format": "int64"
           },
           "grantedRealmRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14300,16 +14462,26 @@
             "$ref": "#/components/schemas/List  of CredentialRepresentation"
           },
           "disableableCredentialTypes": {
-            "$ref": "#/components/schemas/Set  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           },
           "requiredActions": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "federatedIdentities": {
             "$ref": "#/components/schemas/List  of FederatedIdentityRepresentation"
           },
           "realmRoles": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "clientRoles": {
             "$ref": "#/components/schemas/Map  of [array]"
@@ -14328,7 +14500,10 @@
             "$ref": "#/components/schemas/List  of SocialLinkRepresentation"
           },
           "groups": {
-            "$ref": "#/components/schemas/List  of [string]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "access": {
             "$ref": "#/components/schemas/Map  of [boolean]"

@@ -33,8 +33,8 @@ pub fn parse_schemas(
 }
 
 fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "< ";
-    const END: &str = " > array";
+    const START: &str = "List  of [";
+    const END: &str = "]";
     if raw_type.starts_with(START) && raw_type.ends_with(END) {
         let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
@@ -48,11 +48,16 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
-fn byte_array(raw_type: &str) -> Option<openapiv3::Type> {
-    if raw_type == "< string(byte) > array" {
-        Some(openapiv3::Type::String(openapiv3::StringType {
-            format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Byte),
-            ..Default::default()
+fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
+    const START: &str = "Set  of [";
+    const END: &str = "]";
+    if raw_type.starts_with(START) && raw_type.ends_with(END) {
+        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+        Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: parse_type_boxed(inner_type),
+            min_items: None,
+            max_items: None,
+            unique_items: true,
         }))
     } else {
         None
@@ -60,8 +65,8 @@ fn byte_array(raw_type: &str) -> Option<openapiv3::Type> {
 }
 
 pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
-    byte_array(&raw_type)
-        .or_else(|| array_type(&raw_type))
+    array_type(&raw_type)
+        .or_else(|| set_type(&raw_type))
         .or_else(|| match raw_type {
             "integer(int32)" | "Integer" => {
                 Some(openapiv3::Type::Integer(openapiv3::IntegerType {
