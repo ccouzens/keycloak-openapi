@@ -80,36 +80,18 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
         .or_else(|| set_type(&raw_type))
         .or_else(|| map_type(&raw_type))
         .or_else(|| match raw_type {
-            "integer(int32)" | "Integer" => {
-                Some(openapiv3::Type::Integer(openapiv3::IntegerType {
-                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
-                        openapiv3::IntegerFormat::Int32,
-                    ),
-                    ..Default::default()
-                }))
-            }
-            "integer(int64)" | "Long" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+            "Integer" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
+                ..Default::default()
+            })),
+            "Long" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 ..Default::default()
             })),
-            "boolean" | "Boolean" => Some(openapiv3::Type::Boolean {}),
+            "Boolean" => Some(openapiv3::Type::Boolean {}),
             "Map" | "Map[<<>>]" => Some(openapiv3::Type::Object(openapiv3::ObjectType {
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
                 ..Default::default()
-            })),
-            "Stream" | "InputStream" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
-                max_items: None,
-                min_items: None,
-                unique_items: false,
-                items: openapiv3::ReferenceOr::Item(Box::new(openapiv3::Schema {
-                    schema_data: Default::default(),
-                    schema_kind: openapiv3::SchemaKind::Type(openapiv3::Type::Object(
-                        openapiv3::ObjectType {
-                            additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
-                            ..Default::default()
-                        },
-                    )),
-                })),
             })),
             "Object" | "[Object]" => Some(openapiv3::Type::Object(Default::default())),
             "string" | "String" => Some(openapiv3::Type::String(Default::default())),
