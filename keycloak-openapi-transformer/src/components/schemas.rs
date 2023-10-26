@@ -99,19 +99,19 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
         .or_else(|| array_type(&raw_type))
         .or_else(|| csv_array(&raw_type))
         .or_else(|| match raw_type {
-            "integer(int32)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
-                ..Default::default()
-            })),
-            "integer(int64)" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+            "integer(int32)" | "Integer" => {
+                Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+                    format: openapiv3::VariantOrUnknownOrEmpty::Item(
+                        openapiv3::IntegerFormat::Int32,
+                    ),
+                    ..Default::default()
+                }))
+            }
+            "integer(int64)" | "Long" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 ..Default::default()
             })),
-            "number(float)" => Some(openapiv3::Type::Number(openapiv3::NumberType {
-                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::NumberFormat::Float),
-                ..Default::default()
-            })),
-            "boolean" => Some(openapiv3::Type::Boolean {}),
+            "boolean" | "Boolean" => Some(openapiv3::Type::Boolean {}),
             "Map" | "Map[<<>>]" => Some(openapiv3::Type::Object(openapiv3::ObjectType {
                 additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
                 ..Default::default()
@@ -131,7 +131,7 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 })),
             })),
             "Object" | "[Object]" => Some(openapiv3::Type::Object(Default::default())),
-            "string" => Some(openapiv3::Type::String(Default::default())),
+            "string" | "String" => Some(openapiv3::Type::String(Default::default())),
             _ => None,
         })
 }

@@ -7353,86 +7353,92 @@ components:
         roles:
           $ref: '#/components/schemas/Set  of [string]'
         verify_caller:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     AccessToken:
       type: object
       properties:
         jti:
-          $ref: '#/components/schemas/String'
+          type: string
         exp:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         nbf:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         iat:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         iss:
-          $ref: '#/components/schemas/String'
+          type: string
         sub:
-          $ref: '#/components/schemas/String'
+          type: string
         typ:
-          $ref: '#/components/schemas/String'
+          type: string
         azp:
-          $ref: '#/components/schemas/String'
+          type: string
         otherClaims:
           $ref: '#/components/schemas/Map  of [object]'
         nonce:
-          $ref: '#/components/schemas/String'
+          type: string
         auth_time:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         session_state:
-          $ref: '#/components/schemas/String'
+          type: string
         at_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         c_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         given_name:
-          $ref: '#/components/schemas/String'
+          type: string
         family_name:
-          $ref: '#/components/schemas/String'
+          type: string
         middle_name:
-          $ref: '#/components/schemas/String'
+          type: string
         nickname:
-          $ref: '#/components/schemas/String'
+          type: string
         preferred_username:
-          $ref: '#/components/schemas/String'
+          type: string
         profile:
-          $ref: '#/components/schemas/String'
+          type: string
         picture:
-          $ref: '#/components/schemas/String'
+          type: string
         website:
-          $ref: '#/components/schemas/String'
+          type: string
         email:
-          $ref: '#/components/schemas/String'
+          type: string
         email_verified:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         gender:
-          $ref: '#/components/schemas/String'
+          type: string
         birthdate:
-          $ref: '#/components/schemas/String'
+          type: string
         zoneinfo:
-          $ref: '#/components/schemas/String'
+          type: string
         locale:
-          $ref: '#/components/schemas/String'
+          type: string
         phone_number:
-          $ref: '#/components/schemas/String'
+          type: string
         phone_number_verified:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         address:
           $ref: '#/components/schemas/AddressClaimSet'
         updated_at:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         claims_locales:
-          $ref: '#/components/schemas/String'
+          type: string
         acr:
-          $ref: '#/components/schemas/String'
+          type: string
         s_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         authTime:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         sid:
-          $ref: '#/components/schemas/String'
+          type: string
         trusted-certs:
           $ref: '#/components/schemas/Set  of [string]'
         allowed-origins:
@@ -7446,49 +7452,49 @@ components:
         cnf:
           $ref: '#/components/schemas/CertConf'
         scope:
-          $ref: '#/components/schemas/String'
+          type: string
     AddressClaimSet:
       type: object
       properties:
         formatted:
-          $ref: '#/components/schemas/String'
+          type: string
         street_address:
-          $ref: '#/components/schemas/String'
+          type: string
         locality:
-          $ref: '#/components/schemas/String'
+          type: string
         region:
-          $ref: '#/components/schemas/String'
+          type: string
         postal_code:
-          $ref: '#/components/schemas/String'
+          type: string
         country:
-          $ref: '#/components/schemas/String'
+          type: string
     ApplicationRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         clientId:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         rootUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         adminUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         baseUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         surrogateAuthRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         alwaysDisplayInConsole:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         clientAuthenticatorType:
-          $ref: '#/components/schemas/String'
+          type: string
         secret:
-          $ref: '#/components/schemas/String'
+          type: string
         registrationAccessToken:
-          $ref: '#/components/schemas/String'
+          type: string
         defaultRoles:
           $ref: '#/components/schemas/List  of [string]'
         redirectUris:
@@ -7496,51 +7502,53 @@ components:
         webOrigins:
           $ref: '#/components/schemas/List  of [string]'
         notBefore:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         bearerOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         consentRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         standardFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         implicitFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directAccessGrantsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         serviceAccountsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         oauth2DeviceAuthorizationGrantEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authorizationServicesEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directGrantsOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         publicClient:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         frontchannelLogout:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         authenticationFlowBindingOverrides:
           $ref: '#/components/schemas/Map  of [string]'
         fullScopeAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         nodeReRegistrationTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         registeredNodes:
           $ref: '#/components/schemas/Map  of [integer]'
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
-          $ref: '#/components/schemas/String'
+          type: string
         useTemplateConfig:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateScope:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateMappers:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         defaultClientScopes:
           $ref: '#/components/schemas/List  of [string]'
         optionalClientScopes:
@@ -7550,138 +7558,142 @@ components:
         access:
           $ref: '#/components/schemas/Map  of [boolean]'
         origin:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         claims:
           $ref: '#/components/schemas/ApplicationRepresentation_claims'
     ApplicationRepresentationClaims:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         username:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         profile:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         picture:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         website:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         email:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         gender:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         locale:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         address:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         phone:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     AuthenticationExecutionExportRepresentation:
       type: object
       properties:
         authenticatorConfig:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticator:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticatorFlow:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         requirement:
-          $ref: '#/components/schemas/String'
+          type: string
         priority:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         autheticatorFlow:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         flowAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         userSetupAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     AuthenticationExecutionInfoRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         requirement:
-          $ref: '#/components/schemas/String'
+          type: string
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
         alias:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         requirementChoices:
           $ref: '#/components/schemas/List  of [string]'
         configurable:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authenticationFlow:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticationConfig:
-          $ref: '#/components/schemas/String'
+          type: string
         flowId:
-          $ref: '#/components/schemas/String'
+          type: string
         level:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         index:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     AuthenticationExecutionRepresentation:
       type: object
       properties:
         authenticatorConfig:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticator:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticatorFlow:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         requirement:
-          $ref: '#/components/schemas/String'
+          type: string
         priority:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         autheticatorFlow:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         flowId:
-          $ref: '#/components/schemas/String'
+          type: string
         parentFlow:
-          $ref: '#/components/schemas/String'
+          type: string
     AuthenticationFlowRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         alias:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         topLevel:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         builtIn:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authenticationExecutions:
           $ref: '#/components/schemas/List  of AuthenticationExecutionExportRepresentation'
     AuthenticatorConfigInfoRepresentation:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         helpText:
-          $ref: '#/components/schemas/String'
+          type: string
         properties:
           $ref: '#/components/schemas/List  of ConfigPropertyRepresentation'
     AuthenticatorConfigRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         alias:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
     Authorization:
@@ -7693,70 +7705,76 @@ components:
       type: object
       properties:
         x5t#S256:
-          $ref: '#/components/schemas/String'
+          type: string
     CertificateRepresentation:
       type: object
       properties:
         privateKey:
-          $ref: '#/components/schemas/String'
+          type: string
         publicKey:
-          $ref: '#/components/schemas/String'
+          type: string
         certificate:
-          $ref: '#/components/schemas/String'
+          type: string
         kid:
-          $ref: '#/components/schemas/String'
+          type: string
     ClaimRepresentation:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         username:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         profile:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         picture:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         website:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         email:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         gender:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         locale:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         address:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         phone:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     ClientInitialAccessCreatePresentation:
       type: object
       properties:
         expiration:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         count:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     ClientInitialAccessPresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         token:
-          $ref: '#/components/schemas/String'
+          type: string
         timestamp:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         expiration:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         count:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         remainingCount:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     ClientMappingsRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         client:
-          $ref: '#/components/schemas/String'
+          type: string
         mappings:
           $ref: '#/components/schemas/List  of RoleRepresentation'
     ClientPoliciesRepresentation:
@@ -7768,25 +7786,25 @@ components:
       type: object
       properties:
         condition:
-          $ref: '#/components/schemas/String'
+          type: string
         configuration:
           $ref: '#/components/schemas/List'
     ClientPolicyExecutorRepresentation:
       type: object
       properties:
         executor:
-          $ref: '#/components/schemas/String'
+          type: string
         configuration:
           $ref: '#/components/schemas/List'
     ClientPolicyRepresentation:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         conditions:
           $ref: '#/components/schemas/List  of ClientPolicyConditionRepresentation'
         profiles:
@@ -7795,9 +7813,9 @@ components:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         executors:
           $ref: '#/components/schemas/List  of ClientPolicyExecutorRepresentation'
     ClientProfilesRepresentation:
@@ -7811,31 +7829,31 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         clientId:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         rootUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         adminUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         baseUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         surrogateAuthRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         alwaysDisplayInConsole:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         clientAuthenticatorType:
-          $ref: '#/components/schemas/String'
+          type: string
         secret:
-          $ref: '#/components/schemas/String'
+          type: string
         registrationAccessToken:
-          $ref: '#/components/schemas/String'
+          type: string
         defaultRoles:
           $ref: '#/components/schemas/List  of [string]'
         redirectUris:
@@ -7843,51 +7861,53 @@ components:
         webOrigins:
           $ref: '#/components/schemas/List  of [string]'
         notBefore:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         bearerOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         consentRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         standardFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         implicitFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directAccessGrantsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         serviceAccountsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         oauth2DeviceAuthorizationGrantEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authorizationServicesEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directGrantsOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         publicClient:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         frontchannelLogout:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         authenticationFlowBindingOverrides:
           $ref: '#/components/schemas/Map  of [string]'
         fullScopeAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         nodeReRegistrationTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         registeredNodes:
           $ref: '#/components/schemas/Map  of [integer]'
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
-          $ref: '#/components/schemas/String'
+          type: string
         useTemplateConfig:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateScope:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateMappers:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         defaultClientScopes:
           $ref: '#/components/schemas/List  of [string]'
         optionalClientScopes:
@@ -7897,18 +7917,18 @@ components:
         access:
           $ref: '#/components/schemas/Map  of [boolean]'
         origin:
-          $ref: '#/components/schemas/String'
+          type: string
     ClientScopeRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         protocolMappers:
@@ -7917,31 +7937,31 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         fullScopeAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         bearerOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         consentRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         standardFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         implicitFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directAccessGrantsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         serviceAccountsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         publicClient:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         frontchannelLogout:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         protocolMappers:
@@ -7950,13 +7970,13 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         subType:
-          $ref: '#/components/schemas/String'
+          type: string
         subComponents:
           $ref: '#/components/schemas/Map  of [array]'
         config:
@@ -7965,17 +7985,17 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         providerType:
-          $ref: '#/components/schemas/String'
+          type: string
         parentId:
-          $ref: '#/components/schemas/String'
+          type: string
         subType:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [array]'
     Composites:
@@ -7991,58 +8011,64 @@ components:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         label:
-          $ref: '#/components/schemas/String'
+          type: string
         helpText:
-          $ref: '#/components/schemas/String'
+          type: string
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         defaultValue:
           type: object
         options:
           $ref: '#/components/schemas/List  of [string]'
         secret:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         readOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     CredentialRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         userLabel:
-          $ref: '#/components/schemas/String'
+          type: string
         createdDate:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         secretData:
-          $ref: '#/components/schemas/String'
+          type: string
         credentialData:
-          $ref: '#/components/schemas/String'
+          type: string
         priority:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         value:
-          $ref: '#/components/schemas/String'
+          type: string
         temporary:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         device:
-          $ref: '#/components/schemas/String'
+          type: string
         hashedSaltedValue:
-          $ref: '#/components/schemas/String'
+          type: string
         salt:
-          $ref: '#/components/schemas/String'
+          type: string
         hashIterations:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         counter:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         algorithm:
-          $ref: '#/components/schemas/String'
+          type: string
         digits:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         period:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         config:
           type: object
           additionalProperties: true
@@ -8054,11 +8080,11 @@ components:
       type: object
       properties:
         identityProvider:
-          $ref: '#/components/schemas/String'
+          type: string
         userId:
-          $ref: '#/components/schemas/String'
+          type: string
         userName:
-          $ref: '#/components/schemas/String'
+          type: string
     GlobalRequestResult:
       type: object
       properties:
@@ -8070,11 +8096,11 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         path:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [array]'
         realmRoles:
@@ -8089,203 +8115,211 @@ components:
       type: object
       properties:
         jti:
-          $ref: '#/components/schemas/String'
+          type: string
         exp:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         nbf:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         iat:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         iss:
-          $ref: '#/components/schemas/String'
+          type: string
         sub:
-          $ref: '#/components/schemas/String'
+          type: string
         typ:
-          $ref: '#/components/schemas/String'
+          type: string
         azp:
-          $ref: '#/components/schemas/String'
+          type: string
         otherClaims:
           $ref: '#/components/schemas/Map  of [object]'
         nonce:
-          $ref: '#/components/schemas/String'
+          type: string
         auth_time:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         session_state:
-          $ref: '#/components/schemas/String'
+          type: string
         at_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         c_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         given_name:
-          $ref: '#/components/schemas/String'
+          type: string
         family_name:
-          $ref: '#/components/schemas/String'
+          type: string
         middle_name:
-          $ref: '#/components/schemas/String'
+          type: string
         nickname:
-          $ref: '#/components/schemas/String'
+          type: string
         preferred_username:
-          $ref: '#/components/schemas/String'
+          type: string
         profile:
-          $ref: '#/components/schemas/String'
+          type: string
         picture:
-          $ref: '#/components/schemas/String'
+          type: string
         website:
-          $ref: '#/components/schemas/String'
+          type: string
         email:
-          $ref: '#/components/schemas/String'
+          type: string
         email_verified:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         gender:
-          $ref: '#/components/schemas/String'
+          type: string
         birthdate:
-          $ref: '#/components/schemas/String'
+          type: string
         zoneinfo:
-          $ref: '#/components/schemas/String'
+          type: string
         locale:
-          $ref: '#/components/schemas/String'
+          type: string
         phone_number:
-          $ref: '#/components/schemas/String'
+          type: string
         phone_number_verified:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         address:
           $ref: '#/components/schemas/AddressClaimSet'
         updated_at:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         claims_locales:
-          $ref: '#/components/schemas/String'
+          type: string
         acr:
-          $ref: '#/components/schemas/String'
+          type: string
         s_hash:
-          $ref: '#/components/schemas/String'
+          type: string
         authTime:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         sid:
-          $ref: '#/components/schemas/String'
+          type: string
     IdentityProviderMapperRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         identityProviderAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         identityProviderMapper:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
     IdentityProviderMapperTypeRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         category:
-          $ref: '#/components/schemas/String'
+          type: string
         helpText:
-          $ref: '#/components/schemas/String'
+          type: string
         properties:
           $ref: '#/components/schemas/List  of ConfigPropertyRepresentation'
     IdentityProviderRepresentation:
       type: object
       properties:
         alias:
-          $ref: '#/components/schemas/String'
+          type: string
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
         internalId:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         updateProfileFirstLoginMode:
-          $ref: '#/components/schemas/String'
+          type: string
         trustEmail:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         storeToken:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         addReadTokenRoleOnCreate:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authenticateByDefault:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         linkOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         firstBrokerLoginFlowAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         postBrokerLoginFlowAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
         updateProfileFirstLogin:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     InstallationAdapterConfig:
       type: object
       properties:
         realm:
-          $ref: '#/components/schemas/String'
+          type: string
         realm-public-key:
-          $ref: '#/components/schemas/String'
+          type: string
         auth-server-url:
-          $ref: '#/components/schemas/String'
+          type: string
         ssl-required:
-          $ref: '#/components/schemas/String'
+          type: string
         bearer-only:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         resource:
-          $ref: '#/components/schemas/String'
+          type: string
         public-client:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         verify-token-audience:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         credentials:
           $ref: '#/components/schemas/Map  of [object]'
         use-resource-role-mappings:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         confidential-port:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         policy-enforcer:
           $ref: '#/components/schemas/PolicyEnforcerConfig'
     KeyMetadataRepresentation:
       type: object
       properties:
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         providerPriority:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         kid:
-          $ref: '#/components/schemas/String'
+          type: string
         status:
-          $ref: '#/components/schemas/String'
+          type: string
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         algorithm:
-          $ref: '#/components/schemas/String'
+          type: string
         publicKey:
-          $ref: '#/components/schemas/String'
+          type: string
         certificate:
-          $ref: '#/components/schemas/String'
+          type: string
         use:
           $ref: '#/components/schemas/KeyUse'
     KeyStoreConfig:
       type: object
       properties:
         realmCertificate:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         storePassword:
-          $ref: '#/components/schemas/String'
+          type: string
         keyPassword:
-          $ref: '#/components/schemas/String'
+          type: string
         keyAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         realmAlias:
-          $ref: '#/components/schemas/String'
+          type: string
         format:
-          $ref: '#/components/schemas/String'
+          type: string
     KeyUse:
       type: object
     KeysMetadataRepresentation:
@@ -8301,9 +8335,9 @@ components:
       type: object
       properties:
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         resource:
-          $ref: '#/components/schemas/String'
+          type: string
         scopePermissions:
           $ref: '#/components/schemas/Map  of [string]'
     MappingsRepresentation:
@@ -8317,7 +8351,7 @@ components:
       type: object
       properties:
         method:
-          $ref: '#/components/schemas/String'
+          type: string
         scopes:
           $ref: '#/components/schemas/List  of [string]'
         scopes-enforcement-mode:
@@ -8326,29 +8360,29 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         clientId:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         rootUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         adminUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         baseUrl:
-          $ref: '#/components/schemas/String'
+          type: string
         surrogateAuthRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         alwaysDisplayInConsole:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         clientAuthenticatorType:
-          $ref: '#/components/schemas/String'
+          type: string
         secret:
-          $ref: '#/components/schemas/String'
+          type: string
         registrationAccessToken:
-          $ref: '#/components/schemas/String'
+          type: string
         defaultRoles:
           $ref: '#/components/schemas/List  of [string]'
         redirectUris:
@@ -8356,51 +8390,53 @@ components:
         webOrigins:
           $ref: '#/components/schemas/List  of [string]'
         notBefore:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         bearerOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         consentRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         standardFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         implicitFlowEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directAccessGrantsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         serviceAccountsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         oauth2DeviceAuthorizationGrantEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         authorizationServicesEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         directGrantsOnly:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         publicClient:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         frontchannelLogout:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         authenticationFlowBindingOverrides:
           $ref: '#/components/schemas/Map  of [string]'
         fullScopeAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         nodeReRegistrationTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         registeredNodes:
           $ref: '#/components/schemas/Map  of [integer]'
         protocolMappers:
           $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
         clientTemplate:
-          $ref: '#/components/schemas/String'
+          type: string
         useTemplateConfig:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateScope:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         useTemplateMappers:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         defaultClientScopes:
           $ref: '#/components/schemas/List  of [string]'
         optionalClientScopes:
@@ -8410,50 +8446,52 @@ components:
         access:
           $ref: '#/components/schemas/Map  of [boolean]'
         origin:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         claims:
           $ref: '#/components/schemas/ApplicationRepresentation_claims'
     PathCacheConfig:
       type: object
       properties:
         max-entries:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         lifespan:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
     PathConfig:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         path:
-          $ref: '#/components/schemas/String'
+          type: string
         methods:
           $ref: '#/components/schemas/List  of MethodConfig'
         scopes:
           $ref: '#/components/schemas/List  of [string]'
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         enforcement-mode:
           $ref: '#/components/schemas/EnforcementMode'
         claim-information-point:
           $ref: '#/components/schemas/Map  of [map]'
         invalidated:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         staticPath:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         static:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     Permission:
       type: object
       properties:
         rsid:
-          $ref: '#/components/schemas/String'
+          type: string
         rsname:
-          $ref: '#/components/schemas/String'
+          type: string
         scopes:
           $ref: '#/components/schemas/Set  of [string]'
         claims:
@@ -8470,34 +8508,34 @@ components:
         path-cache:
           $ref: '#/components/schemas/PathCacheConfig'
         lazy-load-paths:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         on-deny-redirect-to:
-          $ref: '#/components/schemas/String'
+          type: string
         user-managed-access:
           type: object
         claim-information-point:
           $ref: '#/components/schemas/Map  of [map]'
         http-method-as-scope:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         realm:
-          $ref: '#/components/schemas/String'
+          type: string
         auth-server-url:
-          $ref: '#/components/schemas/String'
+          type: string
         credentials:
           $ref: '#/components/schemas/Map  of [object]'
         resource:
-          $ref: '#/components/schemas/String'
+          type: string
     PolicyRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         policies:
           $ref: '#/components/schemas/Set  of [string]'
         resources:
@@ -8509,7 +8547,7 @@ components:
         decisionStrategy:
           $ref: '#/components/schemas/DecisionStrategy'
         owner:
-          $ref: '#/components/schemas/String'
+          type: string
         resourcesData:
           $ref: '#/components/schemas/Set  of ResourceRepresentation'
         scopesData:
@@ -8520,156 +8558,185 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         protocol:
-          $ref: '#/components/schemas/String'
+          type: string
         protocolMapper:
-          $ref: '#/components/schemas/String'
+          type: string
         consentRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         consentText:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
     PublishedRealmRepresentation:
       type: object
       properties:
         realm:
-          $ref: '#/components/schemas/String'
+          type: string
         public_key:
-          $ref: '#/components/schemas/String'
+          type: string
         token-service:
-          $ref: '#/components/schemas/String'
+          type: string
         account-service:
-          $ref: '#/components/schemas/String'
+          type: string
         tokens-not-before:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     RealmEventsConfigRepresentation:
       type: object
       properties:
         eventsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         eventsExpiration:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         eventsListeners:
           $ref: '#/components/schemas/List  of [string]'
         enabledEventTypes:
           $ref: '#/components/schemas/List  of [string]'
         adminEventsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         adminEventsDetailsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
     RealmRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         realm:
-          $ref: '#/components/schemas/String'
+          type: string
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
         displayNameHtml:
-          $ref: '#/components/schemas/String'
+          type: string
         notBefore:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         defaultSignatureAlgorithm:
-          $ref: '#/components/schemas/String'
+          type: string
         revokeRefreshToken:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         refreshTokenMaxReuse:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         accessTokenLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         accessTokenLifespanForImplicitFlow:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         ssoSessionIdleTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         ssoSessionMaxLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         ssoSessionIdleTimeoutRememberMe:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         ssoSessionMaxLifespanRememberMe:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         offlineSessionIdleTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         offlineSessionMaxLifespanEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         offlineSessionMaxLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         clientSessionIdleTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         clientSessionMaxLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         clientOfflineSessionIdleTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         clientOfflineSessionMaxLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         accessCodeLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         accessCodeLifespanUserAction:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         accessCodeLifespanLogin:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         actionTokenGeneratedByAdminLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         actionTokenGeneratedByUserLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         oauth2DeviceCodeLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         oauth2DevicePollingInterval:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         sslRequired:
-          $ref: '#/components/schemas/String'
+          type: string
         passwordCredentialGrantAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         registrationAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         registrationEmailAsUsername:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         rememberMe:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         verifyEmail:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         loginWithEmailAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         duplicateEmailsAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         resetPasswordAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         editUsernameAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         userCacheEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         realmCacheEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         bruteForceProtected:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         permanentLockout:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         maxFailureWaitSeconds:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         minimumQuickLoginWaitSeconds:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         waitIncrementSeconds:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         quickLoginCheckMilliSeconds:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         maxDeltaTimeSeconds:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         failureFactor:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         privateKey:
-          $ref: '#/components/schemas/String'
+          type: string
         publicKey:
-          $ref: '#/components/schemas/String'
+          type: string
         certificate:
-          $ref: '#/components/schemas/String'
+          type: string
         codeSecret:
-          $ref: '#/components/schemas/String'
+          type: string
         roles:
           $ref: '#/components/schemas/RolesRepresentation'
         groups:
@@ -8683,61 +8750,67 @@ components:
         requiredCredentials:
           $ref: '#/components/schemas/Set  of [string]'
         passwordPolicy:
-          $ref: '#/components/schemas/String'
+          type: string
         otpPolicyType:
-          $ref: '#/components/schemas/String'
+          type: string
         otpPolicyAlgorithm:
-          $ref: '#/components/schemas/String'
+          type: string
         otpPolicyInitialCounter:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         otpPolicyDigits:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         otpPolicyLookAheadWindow:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         otpPolicyPeriod:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         otpPolicyCodeReusable:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         otpSupportedApplications:
           $ref: '#/components/schemas/List  of [string]'
         webAuthnPolicyRpEntityName:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicySignatureAlgorithms:
           $ref: '#/components/schemas/List  of [string]'
         webAuthnPolicyRpId:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyAttestationConveyancePreference:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyAuthenticatorAttachment:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyRequireResidentKey:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyUserVerificationRequirement:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyCreateTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         webAuthnPolicyAvoidSameAuthenticatorRegister:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         webAuthnPolicyAcceptableAaguids:
           $ref: '#/components/schemas/List  of [string]'
         webAuthnPolicyPasswordlessRpEntityName:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessSignatureAlgorithms:
           $ref: '#/components/schemas/List  of [string]'
         webAuthnPolicyPasswordlessRpId:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessAttestationConveyancePreference:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessAuthenticatorAttachment:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessRequireResidentKey:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessUserVerificationRequirement:
-          $ref: '#/components/schemas/String'
+          type: string
         webAuthnPolicyPasswordlessCreateTimeout:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         webAuthnPolicyPasswordlessAcceptableAaguids:
           $ref: '#/components/schemas/List  of [string]'
         clientProfiles:
@@ -8769,25 +8842,26 @@ components:
         userFederationMappers:
           $ref: '#/components/schemas/List  of UserFederationMapperRepresentation'
         loginTheme:
-          $ref: '#/components/schemas/String'
+          type: string
         accountTheme:
-          $ref: '#/components/schemas/String'
+          type: string
         adminTheme:
-          $ref: '#/components/schemas/String'
+          type: string
         emailTheme:
-          $ref: '#/components/schemas/String'
+          type: string
         eventsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         eventsExpiration:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         eventsListeners:
           $ref: '#/components/schemas/List  of [string]'
         enabledEventTypes:
           $ref: '#/components/schemas/List  of [string]'
         adminEventsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         adminEventsDetailsEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         identityProviders:
           $ref: '#/components/schemas/List  of IdentityProviderRepresentation'
         identityProviderMappers:
@@ -8797,11 +8871,11 @@ components:
         components:
           $ref: '#/components/schemas/Map  of [array]'
         internationalizationEnabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         supportedLocales:
           $ref: '#/components/schemas/Set  of [string]'
         defaultLocale:
-          $ref: '#/components/schemas/String'
+          type: string
         authenticationFlows:
           $ref: '#/components/schemas/List  of AuthenticationFlowRepresentation'
         authenticatorConfig:
@@ -8809,27 +8883,27 @@ components:
         requiredActions:
           $ref: '#/components/schemas/List  of RequiredActionProviderRepresentation'
         browserFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         registrationFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         directGrantFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         resetCredentialsFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         clientAuthenticationFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         dockerAuthenticationFlow:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [string]'
         keycloakVersion:
-          $ref: '#/components/schemas/String'
+          type: string
         userManagedAccessAllowed:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         social:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         updateProfileOnInitialSocialLogin:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         socialProviders:
           $ref: '#/components/schemas/Map  of [string]'
         applicationScopeMappings:
@@ -8841,78 +8915,81 @@ components:
         clientTemplates:
           $ref: '#/components/schemas/List  of ClientTemplateRepresentation'
         oAuth2DeviceCodeLifespan:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         oAuth2DevicePollingInterval:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     RequiredActionProviderRepresentation:
       type: object
       properties:
         alias:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         providerId:
-          $ref: '#/components/schemas/String'
+          type: string
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         defaultAction:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         priority:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         config:
           $ref: '#/components/schemas/Map  of [string]'
     ResourceOwnerRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
     ResourceRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         uris:
           $ref: '#/components/schemas/Set  of [string]'
         type:
-          $ref: '#/components/schemas/String'
+          type: string
         scopes:
           $ref: '#/components/schemas/Set  of ScopeRepresentation'
         icon_uri:
-          $ref: '#/components/schemas/String'
+          type: string
         owner:
           $ref: '#/components/schemas/ResourceRepresentation_owner'
         ownerManagedAccess:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [array]'
         uri:
-          $ref: '#/components/schemas/String'
+          type: string
         scopesUma:
           $ref: '#/components/schemas/Set  of ScopeRepresentation'
     ResourceRepresentationOwner:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
     ResourceServerRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         clientId:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         allowRemoteResourceManagement:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         policyEnforcementMode:
           $ref: '#/components/schemas/PolicyEnforcementMode'
         resources:
@@ -8927,21 +9004,21 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         description:
-          $ref: '#/components/schemas/String'
+          type: string
         scopeParamRequired:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         composite:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         composites:
           $ref: '#/components/schemas/Composites'
         clientRole:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         containerId:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [array]'
     RolesRepresentation:
@@ -8959,113 +9036,120 @@ components:
       type: object
       properties:
         self:
-          $ref: '#/components/schemas/String'
+          type: string
         client:
-          $ref: '#/components/schemas/String'
+          type: string
         clientTemplate:
-          $ref: '#/components/schemas/String'
+          type: string
         clientScope:
-          $ref: '#/components/schemas/String'
+          type: string
         roles:
           $ref: '#/components/schemas/Set  of [string]'
     ScopeRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         iconUri:
-          $ref: '#/components/schemas/String'
+          type: string
         policies:
           $ref: '#/components/schemas/List  of PolicyRepresentation'
         resources:
           $ref: '#/components/schemas/List  of ResourceRepresentation'
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
     SocialLinkRepresentation:
       type: object
       properties:
         socialProvider:
-          $ref: '#/components/schemas/String'
+          type: string
         socialUserId:
-          $ref: '#/components/schemas/String'
+          type: string
         socialUsername:
-          $ref: '#/components/schemas/String'
+          type: string
     UserConsentRepresentation:
       type: object
       properties:
         clientId:
-          $ref: '#/components/schemas/String'
+          type: string
         grantedClientScopes:
           $ref: '#/components/schemas/List  of [string]'
         createdDate:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         lastUpdatedDate:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         grantedRealmRoles:
           $ref: '#/components/schemas/List  of [string]'
     UserFederationMapperRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         name:
-          $ref: '#/components/schemas/String'
+          type: string
         federationProviderDisplayName:
-          $ref: '#/components/schemas/String'
+          type: string
         federationMapperType:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
     UserFederationProviderRepresentation:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         displayName:
-          $ref: '#/components/schemas/String'
+          type: string
         providerName:
-          $ref: '#/components/schemas/String'
+          type: string
         config:
           $ref: '#/components/schemas/Map  of [string]'
         priority:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         fullSyncPeriod:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         changedSyncPeriod:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         lastSync:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
     UserRepresentation:
       type: object
       properties:
         self:
-          $ref: '#/components/schemas/String'
+          type: string
         id:
-          $ref: '#/components/schemas/String'
+          type: string
         origin:
-          $ref: '#/components/schemas/String'
+          type: string
         createdTimestamp:
-          $ref: '#/components/schemas/Long'
+          type: integer
+          format: int64
         username:
-          $ref: '#/components/schemas/String'
+          type: string
         enabled:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         totp:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         emailVerified:
-          $ref: '#/components/schemas/Boolean'
+          type: boolean
         firstName:
-          $ref: '#/components/schemas/String'
+          type: string
         lastName:
-          $ref: '#/components/schemas/String'
+          type: string
         email:
-          $ref: '#/components/schemas/String'
+          type: string
         federationLink:
-          $ref: '#/components/schemas/String'
+          type: string
         serviceAccountClientId:
-          $ref: '#/components/schemas/String'
+          type: string
         attributes:
           $ref: '#/components/schemas/Map  of [array]'
         credentials:
@@ -9083,7 +9167,8 @@ components:
         clientConsents:
           $ref: '#/components/schemas/List  of UserConsentRepresentation'
         notBefore:
-          $ref: '#/components/schemas/Integer'
+          type: integer
+          format: int32
         applicationRoles:
           $ref: '#/components/schemas/Map  of [array]'
         socialLinks:
