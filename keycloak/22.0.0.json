@@ -8471,7 +8471,7 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/[String]"
+                  "type": "string"
                 }
               }
             }
@@ -9956,7 +9956,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/[Integer]"
+                  "type": "integer",
+                  "format": "int32"
                 }
               }
             }
@@ -9987,7 +9988,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/[String]"
+                  "type": "string"
                 }
               }
             }
@@ -11909,7 +11910,10 @@
             "additionalProperties": true
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           },
           "clientTemplate": {
             "type": "string"
@@ -12122,7 +12126,10 @@
             "type": "boolean"
           },
           "authenticationExecutions": {
-            "$ref": "#/components/schemas/List  of AuthenticationExecutionExportRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthenticationExecutionExportRepresentation"
+            }
           }
         }
       },
@@ -12139,7 +12146,10 @@
             "type": "string"
           },
           "properties": {
-            "$ref": "#/components/schemas/List  of ConfigPropertyRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigPropertyRepresentation"
+            }
           }
         }
       },
@@ -12162,7 +12172,10 @@
         "type": "object",
         "properties": {
           "permissions": {
-            "$ref": "#/components/schemas/List  of Permission"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            }
           }
         }
       },
@@ -12276,7 +12289,10 @@
             "type": "string"
           },
           "mappings": {
-            "$ref": "#/components/schemas/List  of RoleRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleRepresentation"
+            }
           }
         }
       },
@@ -12284,7 +12300,10 @@
         "type": "object",
         "properties": {
           "policies": {
-            "$ref": "#/components/schemas/List  of ClientPolicyRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyRepresentation"
+            }
           }
         }
       },
@@ -12323,7 +12342,10 @@
             "type": "boolean"
           },
           "conditions": {
-            "$ref": "#/components/schemas/List  of ClientPolicyConditionRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyConditionRepresentation"
+            }
           },
           "profiles": {
             "type": "array",
@@ -12343,7 +12365,10 @@
             "type": "string"
           },
           "executors": {
-            "$ref": "#/components/schemas/List  of ClientPolicyExecutorRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientPolicyExecutorRepresentation"
+            }
           }
         }
       },
@@ -12351,10 +12376,16 @@
         "type": "object",
         "properties": {
           "profiles": {
-            "$ref": "#/components/schemas/List  of ClientProfileRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientProfileRepresentation"
+            }
           },
           "globalProfiles": {
-            "$ref": "#/components/schemas/List  of ClientProfileRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientProfileRepresentation"
+            }
           }
         }
       },
@@ -12478,7 +12509,10 @@
             "additionalProperties": true
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           },
           "clientTemplate": {
             "type": "string"
@@ -12536,7 +12570,10 @@
             "additionalProperties": true
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           }
         }
       },
@@ -12587,7 +12624,10 @@
             "additionalProperties": true
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           }
         }
       },
@@ -12825,7 +12865,10 @@
             "additionalProperties": true
           },
           "subGroups": {
-            "$ref": "#/components/schemas/List  of GroupRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupRepresentation"
+            }
           },
           "access": {
             "type": "object",
@@ -12996,7 +13039,10 @@
             "type": "string"
           },
           "properties": {
-            "$ref": "#/components/schemas/List  of ConfigPropertyRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConfigPropertyRepresentation"
+            }
           }
         }
       },
@@ -13161,7 +13207,10 @@
             "additionalProperties": true
           },
           "keys": {
-            "$ref": "#/components/schemas/List  of KeyMetadataRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyMetadataRepresentation"
+            }
           }
         }
       },
@@ -13187,7 +13236,10 @@
         "type": "object",
         "properties": {
           "realmMappings": {
-            "$ref": "#/components/schemas/List  of RoleRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleRepresentation"
+            }
           },
           "clientMappings": {
             "type": "object",
@@ -13329,7 +13381,10 @@
             "additionalProperties": true
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           },
           "clientTemplate": {
             "type": "string"
@@ -13399,7 +13454,10 @@
             "type": "string"
           },
           "methods": {
-            "$ref": "#/components/schemas/List  of MethodConfig"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MethodConfig"
+            }
           },
           "scopes": {
             "type": "array",
@@ -13460,7 +13518,10 @@
             "$ref": "#/components/schemas/EnforcementMode"
           },
           "paths": {
-            "$ref": "#/components/schemas/List  of PathConfig"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PathConfig"
+            }
           },
           "path-cache": {
             "$ref": "#/components/schemas/PathCacheConfig"
@@ -13542,10 +13603,18 @@
             "type": "string"
           },
           "resourcesData": {
-            "$ref": "#/components/schemas/Set  of ResourceRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceRepresentation"
+            },
+            "uniqueItems": true
           },
           "scopesData": {
-            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeRepresentation"
+            },
+            "uniqueItems": true
           },
           "config": {
             "type": "object",
@@ -13824,7 +13893,10 @@
             "$ref": "#/components/schemas/RolesRepresentation"
           },
           "groups": {
-            "$ref": "#/components/schemas/List  of GroupRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GroupRepresentation"
+            }
           },
           "defaultRoles": {
             "type": "array",
@@ -13963,23 +14035,38 @@
             "$ref": "#/components/schemas/List"
           },
           "users": {
-            "$ref": "#/components/schemas/List  of UserRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRepresentation"
+            }
           },
           "federatedUsers": {
-            "$ref": "#/components/schemas/List  of UserRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRepresentation"
+            }
           },
           "scopeMappings": {
-            "$ref": "#/components/schemas/List  of ScopeMappingRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeMappingRepresentation"
+            }
           },
           "clientScopeMappings": {
             "type": "object",
             "additionalProperties": true
           },
           "clients": {
-            "$ref": "#/components/schemas/List  of ClientRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientRepresentation"
+            }
           },
           "clientScopes": {
-            "$ref": "#/components/schemas/List  of ClientScopeRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientScopeRepresentation"
+            }
           },
           "defaultDefaultClientScopes": {
             "type": "array",
@@ -14002,10 +14089,16 @@
             "additionalProperties": true
           },
           "userFederationProviders": {
-            "$ref": "#/components/schemas/List  of UserFederationProviderRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserFederationProviderRepresentation"
+            }
           },
           "userFederationMappers": {
-            "$ref": "#/components/schemas/List  of UserFederationMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserFederationMapperRepresentation"
+            }
           },
           "loginTheme": {
             "type": "string"
@@ -14045,13 +14138,22 @@
             "type": "boolean"
           },
           "identityProviders": {
-            "$ref": "#/components/schemas/List  of IdentityProviderRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderRepresentation"
+            }
           },
           "identityProviderMappers": {
-            "$ref": "#/components/schemas/List  of IdentityProviderMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IdentityProviderMapperRepresentation"
+            }
           },
           "protocolMappers": {
-            "$ref": "#/components/schemas/List  of ProtocolMapperRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProtocolMapperRepresentation"
+            }
           },
           "components": {
             "type": "object",
@@ -14071,13 +14173,22 @@
             "type": "string"
           },
           "authenticationFlows": {
-            "$ref": "#/components/schemas/List  of AuthenticationFlowRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthenticationFlowRepresentation"
+            }
           },
           "authenticatorConfig": {
-            "$ref": "#/components/schemas/List  of AuthenticatorConfigRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
+            }
           },
           "requiredActions": {
-            "$ref": "#/components/schemas/List  of RequiredActionProviderRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RequiredActionProviderRepresentation"
+            }
           },
           "browserFlow": {
             "type": "string"
@@ -14122,13 +14233,22 @@
             "additionalProperties": true
           },
           "applications": {
-            "$ref": "#/components/schemas/List  of ApplicationRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationRepresentation"
+            }
           },
           "oauthClients": {
-            "$ref": "#/components/schemas/List  of OAuthClientRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuthClientRepresentation"
+            }
           },
           "clientTemplates": {
-            "$ref": "#/components/schemas/List  of ClientTemplateRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientTemplateRepresentation"
+            }
           },
           "oAuth2DeviceCodeLifespan": {
             "type": "integer",
@@ -14199,7 +14319,11 @@
             "type": "string"
           },
           "scopes": {
-            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeRepresentation"
+            },
+            "uniqueItems": true
           },
           "icon_uri": {
             "type": "string"
@@ -14221,7 +14345,11 @@
             "type": "string"
           },
           "scopesUma": {
-            "$ref": "#/components/schemas/Set  of ScopeRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeRepresentation"
+            },
+            "uniqueItems": true
           }
         }
       },
@@ -14255,13 +14383,22 @@
             "$ref": "#/components/schemas/PolicyEnforcementMode"
           },
           "resources": {
-            "$ref": "#/components/schemas/List  of ResourceRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceRepresentation"
+            }
           },
           "policies": {
-            "$ref": "#/components/schemas/List  of PolicyRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PolicyRepresentation"
+            }
           },
           "scopes": {
-            "$ref": "#/components/schemas/List  of ScopeRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScopeRepresentation"
+            }
           },
           "decisionStrategy": {
             "$ref": "#/components/schemas/DecisionStrategy"
@@ -14305,7 +14442,10 @@
         "type": "object",
         "properties": {
           "realm": {
-            "$ref": "#/components/schemas/List  of RoleRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleRepresentation"
+            }
           },
           "client": {
             "type": "object",
@@ -14357,10 +14497,16 @@
             "type": "string"
           },
           "policies": {
-            "$ref": "#/components/schemas/List  of PolicyRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PolicyRepresentation"
+            }
           },
           "resources": {
-            "$ref": "#/components/schemas/List  of ResourceRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceRepresentation"
+            }
           },
           "displayName": {
             "type": "string"
@@ -14512,7 +14658,10 @@
             "additionalProperties": true
           },
           "credentials": {
-            "$ref": "#/components/schemas/List  of CredentialRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CredentialRepresentation"
+            }
           },
           "disableableCredentialTypes": {
             "type": "array",
@@ -14528,7 +14677,10 @@
             }
           },
           "federatedIdentities": {
-            "$ref": "#/components/schemas/List  of FederatedIdentityRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FederatedIdentityRepresentation"
+            }
           },
           "realmRoles": {
             "type": "array",
@@ -14541,7 +14693,10 @@
             "additionalProperties": true
           },
           "clientConsents": {
-            "$ref": "#/components/schemas/List  of UserConsentRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserConsentRepresentation"
+            }
           },
           "notBefore": {
             "type": "integer",
@@ -14552,7 +14707,10 @@
             "additionalProperties": true
           },
           "socialLinks": {
-            "$ref": "#/components/schemas/List  of SocialLinkRepresentation"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SocialLinkRepresentation"
+            }
           },
           "groups": {
             "type": "array",

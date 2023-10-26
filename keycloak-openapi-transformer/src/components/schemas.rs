@@ -33,10 +33,9 @@ pub fn parse_schemas(
 }
 
 fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "List  of [";
-    const END: &str = "]";
-    if raw_type.starts_with(START) && raw_type.ends_with(END) {
-        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+    const START: &str = "List  of ";
+    if raw_type.starts_with(START) {
+        let inner_type = raw_type.get(START.len()..)?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
             items: parse_type_boxed(inner_type),
             min_items: None,
@@ -49,10 +48,9 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
 }
 
 fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "Set  of [";
-    const END: &str = "]";
-    if raw_type.starts_with(START) && raw_type.ends_with(END) {
-        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+    const START: &str = "Set  of ";
+    if raw_type.starts_with(START) {
+        let inner_type = raw_type.get(START.len()..)?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
             items: parse_type_boxed(inner_type),
             min_items: None,
@@ -75,8 +73,20 @@ fn map_type(raw_type: &str) -> Option<openapiv3::Type> {
     }
 }
 
+fn wrapper(raw_type: &str) -> Option<openapiv3::Type> {
+    const START: &str = "[";
+    const END: &str = "]";
+    if raw_type.starts_with(START) && raw_type.ends_with(END) {
+        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
+        item_type(inner_type)
+    } else {
+        None
+    }
+}
+
 pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
-    array_type(&raw_type)
+    wrapper(&raw_type)
+        .or_else(|| array_type(&raw_type))
         .or_else(|| set_type(&raw_type))
         .or_else(|| map_type(&raw_type))
         .or_else(|| match raw_type {

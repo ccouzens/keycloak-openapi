@@ -5361,7 +5361,7 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/[String]'
+                type: string
     put:
       tags:
         - Realms Admin
@@ -6303,7 +6303,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/[Integer]'
+                type: integer
+                format: int32
     parameters:
       - in: path
         name: realm
@@ -6322,7 +6323,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/[String]'
+                type: string
     put:
       tags:
         - Users
@@ -7560,7 +7561,9 @@ components:
           type: object
           additionalProperties: true
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
         clientTemplate:
           type: string
         useTemplateConfig:
@@ -7702,7 +7705,9 @@ components:
         builtIn:
           type: boolean
         authenticationExecutions:
-          $ref: '#/components/schemas/List  of AuthenticationExecutionExportRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationExecutionExportRepresentation'
     AuthenticatorConfigInfoRepresentation:
       type: object
       properties:
@@ -7713,7 +7718,9 @@ components:
         helpText:
           type: string
         properties:
-          $ref: '#/components/schemas/List  of ConfigPropertyRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
     AuthenticatorConfigRepresentation:
       type: object
       properties:
@@ -7728,7 +7735,9 @@ components:
       type: object
       properties:
         permissions:
-          $ref: '#/components/schemas/List  of Permission'
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
     CertConf:
       type: object
       properties:
@@ -7804,12 +7813,16 @@ components:
         client:
           type: string
         mappings:
-          $ref: '#/components/schemas/List  of RoleRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
     ClientPoliciesRepresentation:
       type: object
       properties:
         policies:
-          $ref: '#/components/schemas/List  of ClientPolicyRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyRepresentation'
     ClientPolicyConditionRepresentation:
       type: object
       properties:
@@ -7834,7 +7847,9 @@ components:
         enabled:
           type: boolean
         conditions:
-          $ref: '#/components/schemas/List  of ClientPolicyConditionRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyConditionRepresentation'
         profiles:
           type: array
           items:
@@ -7847,14 +7862,20 @@ components:
         description:
           type: string
         executors:
-          $ref: '#/components/schemas/List  of ClientPolicyExecutorRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientPolicyExecutorRepresentation'
     ClientProfilesRepresentation:
       type: object
       properties:
         profiles:
-          $ref: '#/components/schemas/List  of ClientProfileRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
         globalProfiles:
-          $ref: '#/components/schemas/List  of ClientProfileRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProfileRepresentation'
     ClientRepresentation:
       type: object
       properties:
@@ -7938,7 +7959,9 @@ components:
           type: object
           additionalProperties: true
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
         clientTemplate:
           type: string
         useTemplateConfig:
@@ -7977,7 +8000,9 @@ components:
           type: object
           additionalProperties: true
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
     ClientTemplateRepresentation:
       type: object
       properties:
@@ -8011,7 +8036,9 @@ components:
           type: object
           additionalProperties: true
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
     ComponentExportRepresentation:
       type: object
       properties:
@@ -8172,7 +8199,9 @@ components:
           type: object
           additionalProperties: true
         subGroups:
-          $ref: '#/components/schemas/List  of GroupRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
         access:
           type: object
           additionalProperties: true
@@ -8288,7 +8317,9 @@ components:
         helpText:
           type: string
         properties:
-          $ref: '#/components/schemas/List  of ConfigPropertyRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigPropertyRepresentation'
     IdentityProviderRepresentation:
       type: object
       properties:
@@ -8398,7 +8429,9 @@ components:
           type: object
           additionalProperties: true
         keys:
-          $ref: '#/components/schemas/List  of KeyMetadataRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyMetadataRepresentation'
     Logic:
       type: object
     ManagementPermissionReference:
@@ -8415,7 +8448,9 @@ components:
       type: object
       properties:
         realmMappings:
-          $ref: '#/components/schemas/List  of RoleRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
         clientMappings:
           type: object
           additionalProperties: true
@@ -8511,7 +8546,9 @@ components:
           type: object
           additionalProperties: true
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
         clientTemplate:
           type: string
         useTemplateConfig:
@@ -8558,7 +8595,9 @@ components:
         path:
           type: string
         methods:
-          $ref: '#/components/schemas/List  of MethodConfig'
+          type: array
+          items:
+            $ref: '#/components/schemas/MethodConfig'
         scopes:
           type: array
           items:
@@ -8599,7 +8638,9 @@ components:
         enforcement-mode:
           $ref: '#/components/schemas/EnforcementMode'
         paths:
-          $ref: '#/components/schemas/List  of PathConfig'
+          type: array
+          items:
+            $ref: '#/components/schemas/PathConfig'
         path-cache:
           $ref: '#/components/schemas/PathCacheConfig'
         lazy-load-paths:
@@ -8655,9 +8696,15 @@ components:
         owner:
           type: string
         resourcesData:
-          $ref: '#/components/schemas/Set  of ResourceRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRepresentation'
+          uniqueItems: true
         scopesData:
-          $ref: '#/components/schemas/Set  of ScopeRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
+          uniqueItems: true
         config:
           type: object
           additionalProperties: true
@@ -8852,7 +8899,9 @@ components:
         roles:
           $ref: '#/components/schemas/RolesRepresentation'
         groups:
-          $ref: '#/components/schemas/List  of GroupRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupRepresentation'
         defaultRoles:
           type: array
           items:
@@ -8947,18 +8996,28 @@ components:
         clientPolicies:
           $ref: '#/components/schemas/List'
         users:
-          $ref: '#/components/schemas/List  of UserRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRepresentation'
         federatedUsers:
-          $ref: '#/components/schemas/List  of UserRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRepresentation'
         scopeMappings:
-          $ref: '#/components/schemas/List  of ScopeMappingRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeMappingRepresentation'
         clientScopeMappings:
           type: object
           additionalProperties: true
         clients:
-          $ref: '#/components/schemas/List  of ClientRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientRepresentation'
         clientScopes:
-          $ref: '#/components/schemas/List  of ClientScopeRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientScopeRepresentation'
         defaultDefaultClientScopes:
           type: array
           items:
@@ -8974,9 +9033,13 @@ components:
           type: object
           additionalProperties: true
         userFederationProviders:
-          $ref: '#/components/schemas/List  of UserFederationProviderRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/UserFederationProviderRepresentation'
         userFederationMappers:
-          $ref: '#/components/schemas/List  of UserFederationMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/UserFederationMapperRepresentation'
         loginTheme:
           type: string
         accountTheme:
@@ -9003,11 +9066,17 @@ components:
         adminEventsDetailsEnabled:
           type: boolean
         identityProviders:
-          $ref: '#/components/schemas/List  of IdentityProviderRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityProviderRepresentation'
         identityProviderMappers:
-          $ref: '#/components/schemas/List  of IdentityProviderMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
         protocolMappers:
-          $ref: '#/components/schemas/List  of ProtocolMapperRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ProtocolMapperRepresentation'
         components:
           type: object
           additionalProperties: true
@@ -9021,11 +9090,17 @@ components:
         defaultLocale:
           type: string
         authenticationFlows:
-          $ref: '#/components/schemas/List  of AuthenticationFlowRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationFlowRepresentation'
         authenticatorConfig:
-          $ref: '#/components/schemas/List  of AuthenticatorConfigRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
         requiredActions:
-          $ref: '#/components/schemas/List  of RequiredActionProviderRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredActionProviderRepresentation'
         browserFlow:
           type: string
         registrationFlow:
@@ -9056,11 +9131,17 @@ components:
           type: object
           additionalProperties: true
         applications:
-          $ref: '#/components/schemas/List  of ApplicationRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationRepresentation'
         oauthClients:
-          $ref: '#/components/schemas/List  of OAuthClientRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClientRepresentation'
         clientTemplates:
-          $ref: '#/components/schemas/List  of ClientTemplateRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientTemplateRepresentation'
         oAuth2DeviceCodeLifespan:
           type: integer
           format: int32
@@ -9108,7 +9189,10 @@ components:
         type:
           type: string
         scopes:
-          $ref: '#/components/schemas/Set  of ScopeRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
+          uniqueItems: true
         icon_uri:
           type: string
         owner:
@@ -9123,7 +9207,10 @@ components:
         uri:
           type: string
         scopesUma:
-          $ref: '#/components/schemas/Set  of ScopeRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
+          uniqueItems: true
     ResourceRepresentationOwner:
       type: object
       properties:
@@ -9145,11 +9232,17 @@ components:
         policyEnforcementMode:
           $ref: '#/components/schemas/PolicyEnforcementMode'
         resources:
-          $ref: '#/components/schemas/List  of ResourceRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRepresentation'
         policies:
-          $ref: '#/components/schemas/List  of PolicyRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyRepresentation'
         scopes:
-          $ref: '#/components/schemas/List  of ScopeRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopeRepresentation'
         decisionStrategy:
           $ref: '#/components/schemas/DecisionStrategy'
     RoleRepresentation:
@@ -9178,7 +9271,9 @@ components:
       type: object
       properties:
         realm:
-          $ref: '#/components/schemas/List  of RoleRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/RoleRepresentation'
         client:
           type: object
           additionalProperties: true
@@ -9213,9 +9308,13 @@ components:
         iconUri:
           type: string
         policies:
-          $ref: '#/components/schemas/List  of PolicyRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyRepresentation'
         resources:
-          $ref: '#/components/schemas/List  of ResourceRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRepresentation'
         displayName:
           type: string
     SocialLinkRepresentation:
@@ -9318,7 +9417,9 @@ components:
           type: object
           additionalProperties: true
         credentials:
-          $ref: '#/components/schemas/List  of CredentialRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialRepresentation'
         disableableCredentialTypes:
           type: array
           items:
@@ -9329,7 +9430,9 @@ components:
           items:
             type: string
         federatedIdentities:
-          $ref: '#/components/schemas/List  of FederatedIdentityRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/FederatedIdentityRepresentation'
         realmRoles:
           type: array
           items:
@@ -9338,7 +9441,9 @@ components:
           type: object
           additionalProperties: true
         clientConsents:
-          $ref: '#/components/schemas/List  of UserConsentRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/UserConsentRepresentation'
         notBefore:
           type: integer
           format: int32
@@ -9346,7 +9451,9 @@ components:
           type: object
           additionalProperties: true
         socialLinks:
-          $ref: '#/components/schemas/List  of SocialLinkRepresentation'
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialLinkRepresentation'
         groups:
           type: array
           items:
