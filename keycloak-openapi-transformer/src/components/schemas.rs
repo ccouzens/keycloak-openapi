@@ -1,5 +1,4 @@
 use indexmap::IndexMap;
-use openapiv3::ArrayType;
 use openapiv3::ObjectType;
 use openapiv3::Schema;
 use openapiv3::SchemaKind;
@@ -34,26 +33,42 @@ pub fn parse_schemas(
 }
 
 fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "List  of ";
-    if raw_type.starts_with(START) {
-        let inner_type = raw_type.get(START.len()..)?;
-        Some(openapiv3::Type::Array(openapiv3::ArrayType {
-            items: parse_type_boxed(inner_type),
+    if raw_type == "array" {
+        return Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: Default::default(),
             min_items: None,
             max_items: None,
             unique_items: false,
-        }))
-    } else {
-        None
+        }));
     }
+
+    if let Some(inner_type) = raw_type.strip_prefix("List  of ") {
+        return Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: Some(parse_type_boxed(inner_type)),
+            min_items: None,
+            max_items: None,
+            unique_items: false,
+        }));
+    }
+
+    None
 }
 
 fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
+    if raw_type == "set" {
+        return Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: Default::default(),
+            min_items: None,
+            max_items: None,
+            unique_items: true,
+        }));
+    }
+
     const START: &str = "Set  of ";
     if raw_type.starts_with(START) {
         let inner_type = raw_type.get(START.len()..)?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
-            items: parse_type_boxed(inner_type),
+            items: Some(parse_type_boxed(inner_type)),
             min_items: None,
             max_items: None,
             unique_items: true,
@@ -64,55 +79,85 @@ fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
 }
 
 fn map_type(raw_type: &str) -> Option<openapiv3::Type> {
-    if raw_type.starts_with("Map  of") || raw_type.starts_with("Map[") || raw_type == "Map" {
-        Some(openapiv3::Type::Object(openapiv3::ObjectType {
+    if raw_type == "Map" || raw_type == "map" {
+        return Some(openapiv3::Type::Object(openapiv3::ObjectType {
             additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
             ..Default::default()
-        }))
-    } else {
-        None
+        }));
     }
+
+    if !raw_type.starts_with("Map  of ") && !raw_type.starts_with("Map[") {
+        return None;
+    }
+
+    let inner_type_str = raw_type
+        .strip_prefix("Map  of ")
+        .or(raw_type.strip_prefix("Map"))?;
+
+    let inner_type = parse_type(strip_wrapper_if_any(inner_type_str));
+
+    Some(openapiv3::Type::Object(openapiv3::ObjectType {
+        additional_properties: Some(openapiv3::AdditionalProperties::Schema(Box::new(
+            inner_type,
+        ))),
+        ..Default::default()
+    }))
+}
+
+fn strip_wrapper(raw_type: &str) -> Option<&str> {
+    raw_type.strip_prefix('[')?.strip_suffix(']')
+}
+
+fn strip_wrapper_if_any(raw_type: &str) -> &str {
+    strip_wrapper(raw_type).unwrap_or(raw_type)
 }
 
 fn wrapper(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "[";
-    const END: &str = "]";
-    if raw_type.starts_with(START) && raw_type.ends_with(END) {
-        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
-        item_type(inner_type)
-    } else {
-        None
-    }
+    item_type(strip_wrapper(raw_type)?)
 }
 
 pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
-    wrapper(&raw_type)
-        .or_else(|| array_type(&raw_type))
-        .or_else(|| set_type(&raw_type))
-        .or_else(|| map_type(&raw_type))
-        .or_else(|| match raw_type {
-            "Integer" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+    wrapper(raw_type)
+        .or_else(|| array_type(raw_type))
+        .or_else(|| set_type(raw_type))
+        .or_else(|| map_type(raw_type))
+        .or_else(|| match raw_type.to_lowercase().as_str() {
+            "integer" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int32),
                 ..Default::default()
             })),
-            "Long" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
+            "long" => Some(openapiv3::Type::Integer(openapiv3::IntegerType {
                 format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::IntegerFormat::Int64),
                 ..Default::default()
             })),
-            "Boolean" => Some(openapiv3::Type::Boolean {}),
-            "Object" | "[Object]" => Some(openapiv3::Type::Object(Default::default())),
-            "string" | "String" => Some(openapiv3::Type::String(Default::default())),
-            "List" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
-                items: parse_type_boxed("Object"),
+            "boolean" => Some(openapiv3::Type::Boolean {}),
+            "object" | "[object]" | "<<>>" => Some(openapiv3::Type::Object(Default::default())),
+            "string" => Some(openapiv3::Type::String(Default::default())),
+            "list" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
+                items: Some(parse_type_boxed("Object")),
                 min_items: None,
                 max_items: None,
                 unique_items: false,
+            })),
+            "[file]" | "file" => Some(openapiv3::Type::String(openapiv3::StringType {
+                format: openapiv3::VariantOrUnknownOrEmpty::Item(openapiv3::StringFormat::Binary),
+                ..Default::default()
             })),
             _ => None,
         })
 }
 
+fn apply_raw_type_patches(raw_type: &str) -> &str {
+    match raw_type {
+        "ResourceRepresentation_owner" => "ResourceRepresentationOwner",
+        "ApplicationRepresentation_claims" => "ApplicationRepresentationClaims",
+        _ => raw_type,
+    }
+}
+
 pub fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
+    let raw_type = apply_raw_type_patches(raw_type);
+
     if let Some(simple_type) = item_type(raw_type) {
         openapiv3::ReferenceOr::Item(openapiv3::Schema {
             schema_data: Default::default(),
@@ -126,6 +171,8 @@ pub fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
 }
 
 fn parse_type_boxed(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
+    let raw_type = apply_raw_type_patches(raw_type);
+
     if let Some(simple_type) = item_type(raw_type) {
         openapiv3::ReferenceOr::Item(Box::new(Schema {
             schema_data: Default::default(),

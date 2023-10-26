@@ -21,12 +21,12 @@ pub fn parse_body_param(
     match parse_table_rows(section, &BODY_PARAMS_TABLE_SELECTOR).first() {
         None => None,
         Some(row) => {
-            let name = &row["Name"];
+            let type_string = &row["Description"];
             let mut content = IndexMap::new();
             content.insert(
                 "application/json".to_string(),
                 MediaType {
-                    schema: Some(parse_type(name.split_ascii_whitespace().next().unwrap())),
+                    schema: Some(parse_type(type_string)),
                     ..Default::default()
                 },
             );
