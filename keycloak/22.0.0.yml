@@ -760,7 +760,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[ConfigPropertyRepresentation]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -2966,7 +2967,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[long]]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -3924,7 +3926,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[long]]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4510,7 +4513,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[long]]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -4962,7 +4966,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[string]]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5133,7 +5138,8 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/Map[IdentityProviderMapperTypeRepresentation]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -5317,7 +5323,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[string]]'
+                type: object
+                additionalProperties: true
     post:
       tags:
         - Realms Admin
@@ -6822,7 +6829,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Map[[long]]'
+                type: object
+                additionalProperties: true
     parameters:
       - in: path
         name: realm
@@ -7829,14 +7837,18 @@ components:
         condition:
           type: string
         configuration:
-          $ref: '#/components/schemas/List'
+          type: array
+          items:
+            type: object
     ClientPolicyExecutorRepresentation:
       type: object
       properties:
         executor:
           type: string
         configuration:
-          $ref: '#/components/schemas/List'
+          type: array
+          items:
+            type: object
     ClientPolicyRepresentation:
       type: object
       properties:
@@ -8992,9 +9004,13 @@ components:
           items:
             type: string
         clientProfiles:
-          $ref: '#/components/schemas/List'
+          type: array
+          items:
+            type: object
         clientPolicies:
-          $ref: '#/components/schemas/List'
+          type: array
+          items:
+            type: object
         users:
           type: array
           items:

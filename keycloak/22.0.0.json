@@ -1190,7 +1190,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[ConfigPropertyRepresentation]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -4679,7 +4680,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[long]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -6185,7 +6187,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[long]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -7120,7 +7123,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[long]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -7836,7 +7840,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[string]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -8108,7 +8113,8 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[IdentityProviderMapperTypeRepresentation]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -8400,7 +8406,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[string]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -10769,7 +10776,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Map[[long]]"
+                  "type": "object",
+                  "additionalProperties": true
                 }
               }
             }
@@ -12314,7 +12322,10 @@
             "type": "string"
           },
           "configuration": {
-            "$ref": "#/components/schemas/List"
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
@@ -12325,7 +12336,10 @@
             "type": "string"
           },
           "configuration": {
-            "$ref": "#/components/schemas/List"
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
@@ -14029,10 +14043,16 @@
             }
           },
           "clientProfiles": {
-            "$ref": "#/components/schemas/List"
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           },
           "clientPolicies": {
-            "$ref": "#/components/schemas/List"
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           },
           "users": {
             "type": "array",

@@ -63,7 +63,7 @@ fn set_type(raw_type: &str) -> Option<openapiv3::Type> {
 }
 
 fn map_type(raw_type: &str) -> Option<openapiv3::Type> {
-    if raw_type.starts_with("Map  of") {
+    if raw_type.starts_with("Map  of") || raw_type.starts_with("Map[") || raw_type == "Map" {
         Some(openapiv3::Type::Object(openapiv3::ObjectType {
             additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
             ..Default::default()
@@ -99,12 +99,14 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 ..Default::default()
             })),
             "Boolean" => Some(openapiv3::Type::Boolean {}),
-            "Map" | "Map[<<>>]" => Some(openapiv3::Type::Object(openapiv3::ObjectType {
-                additional_properties: Some(openapiv3::AdditionalProperties::Any(true)),
-                ..Default::default()
-            })),
             "Object" | "[Object]" => Some(openapiv3::Type::Object(Default::default())),
             "string" | "String" => Some(openapiv3::Type::String(Default::default())),
+            "List" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
+                items: parse_type_boxed("Object"),
+                min_items: None,
+                max_items: None,
+                unique_items: false,
+            })),
             _ => None,
         })
 }
@@ -116,6 +118,7 @@ pub fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
             schema_kind: openapiv3::SchemaKind::Type(simple_type),
         })
     } else {
+        dbg!(&raw_type);
         openapiv3::ReferenceOr::Reference {
             reference: format!("#/components/schemas/{}", raw_type),
         }
@@ -129,6 +132,7 @@ fn parse_type_boxed(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
             schema_kind: SchemaKind::Type(simple_type),
         }))
     } else {
+        dbg!(&raw_type);
         openapiv3::ReferenceOr::Reference {
             reference: format!("#/components/schemas/{}", raw_type),
         }
