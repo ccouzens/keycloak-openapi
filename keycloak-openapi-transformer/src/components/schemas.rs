@@ -32,43 +32,9 @@ pub fn parse_schemas(
         .collect()
 }
 
-fn enum_type(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "enum (";
-    const END: &str = ")";
-    if raw_type.starts_with(START) && raw_type.ends_with(END) {
-        let enumerations = raw_type
-            .get(START.len()..raw_type.len() - END.len())?
-            .split(", ")
-            .map(std::string::ToString::to_string)
-            .collect();
-        Some(openapiv3::Type::String(openapiv3::StringType {
-            enumeration: enumerations,
-            ..Default::default()
-        }))
-    } else {
-        None
-    }
-}
-
 fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
     const START: &str = "< ";
     const END: &str = " > array";
-    if raw_type.starts_with(START) && raw_type.ends_with(END) {
-        let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
-        Some(openapiv3::Type::Array(openapiv3::ArrayType {
-            items: parse_type_boxed(inner_type),
-            min_items: None,
-            max_items: None,
-            unique_items: false,
-        }))
-    } else {
-        None
-    }
-}
-
-fn csv_array(raw_type: &str) -> Option<openapiv3::Type> {
-    const START: &str = "< ";
-    const END: &str = " > array(csv)";
     if raw_type.starts_with(START) && raw_type.ends_with(END) {
         let inner_type = raw_type.get(START.len()..raw_type.len() - END.len())?;
         Some(openapiv3::Type::Array(openapiv3::ArrayType {
@@ -94,10 +60,8 @@ fn byte_array(raw_type: &str) -> Option<openapiv3::Type> {
 }
 
 pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
-    enum_type(&raw_type)
-        .or_else(|| byte_array(&raw_type))
+    byte_array(&raw_type)
         .or_else(|| array_type(&raw_type))
-        .or_else(|| csv_array(&raw_type))
         .or_else(|| match raw_type {
             "integer(int32)" | "Integer" => {
                 Some(openapiv3::Type::Integer(openapiv3::IntegerType {
