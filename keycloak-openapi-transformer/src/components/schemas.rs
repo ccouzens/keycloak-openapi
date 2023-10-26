@@ -118,7 +118,6 @@ pub fn parse_type(raw_type: &str) -> openapiv3::ReferenceOr<openapiv3::Schema> {
             schema_kind: openapiv3::SchemaKind::Type(simple_type),
         })
     } else {
-        dbg!(&raw_type);
         openapiv3::ReferenceOr::Reference {
             reference: format!("#/components/schemas/{}", raw_type),
         }
@@ -132,7 +131,6 @@ fn parse_type_boxed(raw_type: &str) -> openapiv3::ReferenceOr<Box<Schema>> {
             schema_kind: SchemaKind::Type(simple_type),
         }))
     } else {
-        dbg!(&raw_type);
         openapiv3::ReferenceOr::Reference {
             reference: format!("#/components/schemas/{}", raw_type),
         }
