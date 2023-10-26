@@ -45,7 +45,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string",
+                "format": "binary"
               }
             }
           }
@@ -863,7 +864,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -964,7 +965,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -1009,7 +1010,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -1193,7 +1194,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/ConfigPropertyRepresentation"
+                  }
                 }
               }
             }
@@ -1224,7 +1227,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -1467,7 +1470,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string"
               }
             }
           }
@@ -3670,7 +3673,7 @@
               "application/octet-stream": {
                 "schema": {
                   "type": "string",
-                  "format": "byte"
+                  "format": "binary"
                 }
               }
             }
@@ -3781,7 +3784,7 @@
               "application/octet-stream": {
                 "schema": {
                   "type": "string",
-                  "format": "byte"
+                  "format": "binary"
                 }
               }
             }
@@ -4598,7 +4601,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -4687,7 +4690,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
                 }
               }
             }
@@ -6194,7 +6200,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
                 }
               }
             }
@@ -7130,7 +7139,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
                 }
               }
             }
@@ -7835,7 +7847,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "object"
               }
             }
           }
@@ -7847,7 +7859,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -8120,7 +8134,9 @@
               "*/*": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/IdentityProviderMapperTypeRepresentation"
+                  }
                 }
               }
             }
@@ -8413,7 +8429,9 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -8430,7 +8448,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -8500,7 +8518,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string"
               }
             }
           }
@@ -8638,7 +8656,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string",
+                "format": "binary"
               }
             }
           }
@@ -9622,7 +9641,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/request_body"
+                "type": "string"
               }
             }
           }
@@ -10017,7 +10036,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string"
               }
             }
           }
@@ -10432,7 +10451,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/body"
+                "type": "string"
               }
             }
           }
@@ -10783,7 +10802,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "additionalProperties": true
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
                 }
               }
             }
@@ -11661,7 +11683,9 @@
           },
           "otherClaims": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object"
+            }
           },
           "nonce": {
             "type": "string"
@@ -11772,7 +11796,9 @@
           },
           "resource_access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Access"
+            }
           },
           "authorization": {
             "$ref": "#/components/schemas/Authorization"
@@ -11907,11 +11933,15 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "authenticationFlowBindingOverrides": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "fullScopeAllowed": {
             "type": "boolean"
@@ -11922,7 +11952,10 @@
           },
           "registeredNodes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
           },
           "protocolMappers": {
             "type": "array",
@@ -11959,7 +11992,9 @@
           },
           "access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "boolean"
+            }
           },
           "origin": {
             "type": "string"
@@ -11968,7 +12003,7 @@
             "type": "string"
           },
           "claims": {
-            "$ref": "#/components/schemas/ApplicationRepresentation_claims"
+            "$ref": "#/components/schemas/ApplicationRepresentationClaims"
           }
         }
       },
@@ -12179,7 +12214,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -12512,11 +12549,15 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "authenticationFlowBindingOverrides": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "fullScopeAllowed": {
             "type": "boolean"
@@ -12527,7 +12568,10 @@
           },
           "registeredNodes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
           },
           "protocolMappers": {
             "type": "array",
@@ -12564,7 +12608,9 @@
           },
           "access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "boolean"
+            }
           },
           "origin": {
             "type": "string"
@@ -12588,7 +12634,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "protocolMappers": {
             "type": "array",
@@ -12642,7 +12690,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "protocolMappers": {
             "type": "array",
@@ -12669,11 +12719,15 @@
           },
           "subComponents": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           }
         }
       },
@@ -12700,7 +12754,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           }
         }
       },
@@ -12716,11 +12772,15 @@
           },
           "client": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "application": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           }
         }
       },
@@ -12873,7 +12933,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "realmRoles": {
             "type": "array",
@@ -12883,7 +12945,9 @@
           },
           "clientRoles": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "subGroups": {
             "type": "array",
@@ -12893,7 +12957,9 @@
           },
           "access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "boolean"
+            }
           }
         }
       },
@@ -12929,7 +12995,9 @@
           },
           "otherClaims": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object"
+            }
           },
           "nonce": {
             "type": "string"
@@ -13040,7 +13108,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13111,7 +13181,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "updateProfileFirstLogin": {
             "type": "boolean"
@@ -13147,7 +13219,9 @@
           },
           "credentials": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object"
+            }
           },
           "use-resource-role-mappings": {
             "type": "boolean"
@@ -13225,7 +13299,9 @@
         "properties": {
           "active": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "keys": {
             "type": "array",
@@ -13249,7 +13325,9 @@
           },
           "scopePermissions": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13264,7 +13342,9 @@
           },
           "clientMappings": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ClientMappingsRepresentation"
+            }
           }
         }
       },
@@ -13384,11 +13464,15 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "authenticationFlowBindingOverrides": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "fullScopeAllowed": {
             "type": "boolean"
@@ -13399,7 +13483,10 @@
           },
           "registeredNodes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
           },
           "protocolMappers": {
             "type": "array",
@@ -13436,7 +13523,9 @@
           },
           "access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "boolean"
+            }
           },
           "origin": {
             "type": "string"
@@ -13445,7 +13534,7 @@
             "type": "string"
           },
           "claims": {
-            "$ref": "#/components/schemas/ApplicationRepresentation_claims"
+            "$ref": "#/components/schemas/ApplicationRepresentationClaims"
           }
         }
       },
@@ -13494,7 +13583,10 @@
           },
           "claim-information-point": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": true
+            }
           },
           "invalidated": {
             "type": "boolean"
@@ -13525,7 +13617,10 @@
           },
           "claims": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array",
+              "uniqueItems": true
+            }
           }
         }
       },
@@ -13558,7 +13653,10 @@
           },
           "claim-information-point": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": true
+            }
           },
           "http-method-as-scope": {
             "type": "boolean"
@@ -13571,7 +13669,9 @@
           },
           "credentials": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "object"
+            }
           },
           "resource": {
             "type": "string"
@@ -13639,7 +13739,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -13666,7 +13768,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14081,7 +14185,9 @@
           },
           "clientScopeMappings": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "clients": {
             "type": "array",
@@ -14109,11 +14215,15 @@
           },
           "browserSecurityHeaders": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "smtpServer": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "userFederationProviders": {
             "type": "array",
@@ -14184,7 +14294,9 @@
           },
           "components": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "internationalizationEnabled": {
             "type": "boolean"
@@ -14237,7 +14349,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "keycloakVersion": {
             "type": "string"
@@ -14253,11 +14367,15 @@
           },
           "socialProviders": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "applicationScopeMappings": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "applications": {
             "type": "array",
@@ -14311,7 +14429,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14356,7 +14476,7 @@
             "type": "string"
           },
           "owner": {
-            "$ref": "#/components/schemas/ResourceRepresentation_owner"
+            "$ref": "#/components/schemas/ResourceRepresentationOwner"
           },
           "ownerManagedAccess": {
             "type": "boolean"
@@ -14366,7 +14486,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "uri": {
             "type": "string"
@@ -14461,7 +14583,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           }
         }
       },
@@ -14476,11 +14600,15 @@
           },
           "client": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "application": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           }
         }
       },
@@ -14599,7 +14727,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -14617,7 +14747,9 @@
           },
           "config": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "priority": {
             "type": "integer",
@@ -14682,7 +14814,9 @@
           },
           "attributes": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "credentials": {
             "type": "array",
@@ -14717,7 +14851,9 @@
           },
           "clientRoles": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "clientConsents": {
             "type": "array",
@@ -14731,7 +14867,9 @@
           },
           "applicationRoles": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "array"
+            }
           },
           "socialLinks": {
             "type": "array",
@@ -14747,7 +14885,9 @@
           },
           "access": {
             "type": "object",
-            "additionalProperties": true
+            "additionalProperties": {
+              "type": "boolean"
+            }
           }
         }
       }

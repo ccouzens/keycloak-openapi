@@ -31,7 +31,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
+              format: binary
       responses:
         2XX:
           description: OK
@@ -551,7 +552,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -616,7 +617,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -645,7 +646,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -762,7 +763,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  $ref: '#/components/schemas/ConfigPropertyRepresentation'
     parameters:
       - in: path
         name: realm
@@ -781,7 +783,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: Created
@@ -936,7 +938,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -2326,7 +2328,7 @@ paths:
             application/octet-stream:
               schema:
                 type: string
-                format: byte
+                format: binary
     parameters:
       - in: path
         name: realm
@@ -2397,7 +2399,7 @@ paths:
             application/octet-stream:
               schema:
                 type: string
-                format: byte
+                format: binary
     parameters:
       - in: path
         name: realm
@@ -2914,7 +2916,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: Created
@@ -2972,7 +2974,9 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: integer
+                  format: int64
     parameters:
       - in: path
         name: realm
@@ -3931,7 +3935,9 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: integer
+                  format: int64
     parameters:
       - in: path
         name: realm
@@ -4518,7 +4524,9 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: integer
+                  format: int64
     parameters:
       - in: path
         name: realm
@@ -4963,7 +4971,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: object
       responses:
         2XX:
           description: OK
@@ -4971,7 +4979,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: string
     parameters:
       - in: path
         name: realm
@@ -5143,7 +5152,8 @@ paths:
             '*/*':
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  $ref: '#/components/schemas/IdentityProviderMapperTypeRepresentation'
     parameters:
       - in: path
         name: realm
@@ -5328,7 +5338,8 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: string
     post:
       tags:
         - Realms Admin
@@ -5338,7 +5349,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: Created
@@ -5381,7 +5392,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
       responses:
         2XX:
           description: No Content
@@ -5468,7 +5479,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
+              format: binary
       responses:
         2XX:
           description: OK
@@ -6091,7 +6103,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/request_body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -6343,7 +6355,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
       responses:
         2XX:
           description: OK
@@ -6610,7 +6622,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              type: string
       responses:
         2XX:
           description: No Content
@@ -6834,7 +6846,9 @@ paths:
             application/json:
               schema:
                 type: object
-                additionalProperties: true
+                additionalProperties:
+                  type: integer
+                  format: int64
     parameters:
       - in: path
         name: realm
@@ -7394,7 +7408,8 @@ components:
           type: string
         otherClaims:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
         nonce:
           type: string
         auth_time:
@@ -7470,7 +7485,8 @@ components:
           $ref: '#/components/schemas/Access'
         resource_access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            $ref: '#/components/schemas/Access'
         authorization:
           $ref: '#/components/schemas/Authorization'
         cnf:
@@ -7560,10 +7576,12 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         authenticationFlowBindingOverrides:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
@@ -7571,7 +7589,9 @@ components:
           format: int32
         registeredNodes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: integer
+            format: int32
         protocolMappers:
           type: array
           items:
@@ -7596,13 +7616,14 @@ components:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: boolean
         origin:
           type: string
         name:
           type: string
         claims:
-          $ref: '#/components/schemas/ApplicationRepresentation_claims'
+          $ref: '#/components/schemas/ApplicationRepresentationClaims'
     ApplicationRepresentationClaims:
       type: object
       properties:
@@ -7742,7 +7763,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     Authorization:
       type: object
       properties:
@@ -7962,10 +7984,12 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         authenticationFlowBindingOverrides:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
@@ -7973,7 +7997,9 @@ components:
           format: int32
         registeredNodes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: integer
+            format: int32
         protocolMappers:
           type: array
           items:
@@ -7998,7 +8024,8 @@ components:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: boolean
         origin:
           type: string
     ClientScopeRepresentation:
@@ -8014,7 +8041,8 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         protocolMappers:
           type: array
           items:
@@ -8050,7 +8078,8 @@ components:
           type: boolean
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         protocolMappers:
           type: array
           items:
@@ -8068,10 +8097,12 @@ components:
           type: string
         subComponents:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
     ComponentRepresentation:
       type: object
       properties:
@@ -8089,7 +8120,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
     Composites:
       type: object
       properties:
@@ -8100,10 +8132,12 @@ components:
           uniqueItems: true
         client:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         application:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
     ConfigPropertyRepresentation:
       type: object
       properties:
@@ -8206,21 +8240,24 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         realmRoles:
           type: array
           items:
             type: string
         clientRoles:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         subGroups:
           type: array
           items:
             $ref: '#/components/schemas/GroupRepresentation'
         access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: boolean
     IDToken:
       type: object
       properties:
@@ -8245,7 +8282,8 @@ components:
           type: string
         otherClaims:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
         nonce:
           type: string
         auth_time:
@@ -8320,7 +8358,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     IdentityProviderMapperTypeRepresentation:
       type: object
       properties:
@@ -8367,7 +8406,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         updateProfileFirstLogin:
           type: boolean
     InstallationAdapterConfig:
@@ -8391,7 +8431,8 @@ components:
           type: boolean
         credentials:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
         use-resource-role-mappings:
           type: boolean
         confidential-port:
@@ -8443,7 +8484,8 @@ components:
       properties:
         active:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         keys:
           type: array
           items:
@@ -8459,7 +8501,8 @@ components:
           type: string
         scopePermissions:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     MappingsRepresentation:
       type: object
       properties:
@@ -8469,7 +8512,8 @@ components:
             $ref: '#/components/schemas/RoleRepresentation'
         clientMappings:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            $ref: '#/components/schemas/ClientMappingsRepresentation'
     MethodConfig:
       type: object
       properties:
@@ -8549,10 +8593,12 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         authenticationFlowBindingOverrides:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         fullScopeAllowed:
           type: boolean
         nodeReRegistrationTimeout:
@@ -8560,7 +8606,9 @@ components:
           format: int32
         registeredNodes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: integer
+            format: int32
         protocolMappers:
           type: array
           items:
@@ -8585,13 +8633,14 @@ components:
           $ref: '#/components/schemas/ResourceServerRepresentation'
         access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: boolean
         origin:
           type: string
         name:
           type: string
         claims:
-          $ref: '#/components/schemas/ApplicationRepresentation_claims'
+          $ref: '#/components/schemas/ApplicationRepresentationClaims'
     PathCacheConfig:
       type: object
       properties:
@@ -8624,7 +8673,9 @@ components:
           $ref: '#/components/schemas/EnforcementMode'
         claim-information-point:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
+            additionalProperties: true
         invalidated:
           type: boolean
         staticPath:
@@ -8645,7 +8696,9 @@ components:
           uniqueItems: true
         claims:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
+            uniqueItems: true
     PolicyEnforcementMode:
       type: object
     PolicyEnforcerConfig:
@@ -8667,7 +8720,9 @@ components:
           type: object
         claim-information-point:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
+            additionalProperties: true
         http-method-as-scope:
           type: boolean
         realm:
@@ -8676,7 +8731,8 @@ components:
           type: string
         credentials:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: object
         resource:
           type: string
     PolicyRepresentation:
@@ -8723,7 +8779,8 @@ components:
           uniqueItems: true
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     ProtocolMapperRepresentation:
       type: object
       properties:
@@ -8741,7 +8798,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     PublishedRealmRepresentation:
       type: object
       properties:
@@ -9029,7 +9087,8 @@ components:
             $ref: '#/components/schemas/ScopeMappingRepresentation'
         clientScopeMappings:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         clients:
           type: array
           items:
@@ -9048,10 +9107,12 @@ components:
             type: string
         browserSecurityHeaders:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         smtpServer:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         userFederationProviders:
           type: array
           items:
@@ -9099,7 +9160,8 @@ components:
             $ref: '#/components/schemas/ProtocolMapperRepresentation'
         components:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         internationalizationEnabled:
           type: boolean
         supportedLocales:
@@ -9135,7 +9197,8 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         keycloakVersion:
           type: string
         userManagedAccessAllowed:
@@ -9146,10 +9209,12 @@ components:
           type: boolean
         socialProviders:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         applicationScopeMappings:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         applications:
           type: array
           items:
@@ -9186,7 +9251,8 @@ components:
           format: int32
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     ResourceOwnerRepresentation:
       type: object
       properties:
@@ -9216,14 +9282,15 @@ components:
         icon_uri:
           type: string
         owner:
-          $ref: '#/components/schemas/ResourceRepresentation_owner'
+          $ref: '#/components/schemas/ResourceRepresentationOwner'
         ownerManagedAccess:
           type: boolean
         displayName:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         uri:
           type: string
         scopesUma:
@@ -9286,7 +9353,8 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
     RolesRepresentation:
       type: object
       properties:
@@ -9296,10 +9364,12 @@ components:
             $ref: '#/components/schemas/RoleRepresentation'
         client:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         application:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
     ScopeEnforcementMode:
       type: object
     ScopeMappingRepresentation:
@@ -9378,7 +9448,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
     UserFederationProviderRepresentation:
       type: object
       properties:
@@ -9390,7 +9461,8 @@ components:
           type: string
         config:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: string
         priority:
           type: integer
           format: int32
@@ -9435,7 +9507,8 @@ components:
           type: string
         attributes:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         credentials:
           type: array
           items:
@@ -9459,7 +9532,8 @@ components:
             type: string
         clientRoles:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         clientConsents:
           type: array
           items:
@@ -9469,7 +9543,8 @@ components:
           format: int32
         applicationRoles:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: array
         socialLinks:
           type: array
           items:
@@ -9480,6 +9555,7 @@ components:
             type: string
         access:
           type: object
-          additionalProperties: true
+          additionalProperties:
+            type: boolean
 security:
   - access_token: []
