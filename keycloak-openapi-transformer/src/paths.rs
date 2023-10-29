@@ -1,3 +1,6 @@
+use std::collections::{HashMap, HashSet};
+
+use heck::ToLowerCamelCase;
 use scraper::Selector;
 
 mod operation;
@@ -16,8 +19,31 @@ lazy_static! {
     static ref PRE_PATH_SELECTOR: Selector = Selector::parse("pre").unwrap();
 }
 
-pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
+pub fn paths(document: &scraper::html::Html) -> (openapiv3::Paths, HashSet<String>) {
     let mut paths = openapiv3::Paths::default();
+    let mut tag_set = HashSet::new();
+    let mut id_state_map: HashMap<String, usize> = HashMap::new();
+
+    // First pass to find operation id collisions
+    for tag_section in document.select(&TAG_SECTION_SELECTOR) {
+        let sections = tag_section
+            .select(&PATH_SECTION_SELECTOR)
+            .collect::<Vec<_>>();
+
+        for section in sections.iter().rev() {
+            let verb_path = verb_path_split(section);
+
+            if verb_path.unrepresentable() {
+                continue;
+            };
+
+            for id in generate_operation_ids(&verb_path.verb, &verb_path.path()) {
+                let seen: usize = *id_state_map.get(&id).unwrap_or(&0);
+
+                id_state_map.insert(id.clone(), seen + 1);
+            }
+        }
+    }
 
     for tag_section in document.select(&TAG_SECTION_SELECTOR) {
         let tag = tag_section
@@ -32,6 +58,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
             .collect::<Vec<_>>();
         for section in sections.iter().rev() {
             let verb_path = verb_path_split(section);
+
             if verb_path.unrepresentable() {
                 continue;
             };
@@ -44,6 +71,16 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
                 })
             {
                 let mut operation = operation::parse(section);
+
+                operation.operation_id = generate_operation_ids(&verb_path.verb, &verb_path.path())
+                    .into_iter()
+                    .find(|id| match id_state_map.get(id) {
+                        Some(seen) => *seen < 2,
+                        None => true,
+                    });
+
+                tag_set.insert(tag.clone());
+
                 operation.tags = vec![tag.clone()];
                 let operation = Some(operation);
                 match verb_path.verb.as_ref() {
@@ -72,7 +109,7 @@ pub fn paths(document: &scraper::html::Html) -> openapiv3::Paths {
     }
     paths.paths.sort_keys();
 
-    paths
+    (paths, tag_set)
 }
 
 fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> VerbPath {
@@ -87,6 +124,64 @@ fn verb_path_split(section: &scraper::element_ref::ElementRef<'_>) -> VerbPath {
         .unwrap()
 }
 
+/// Generate a list of possible operation ids starting with shortest
+///
+/// A possible id of `GET /{realm}/clients/{id}/roles/{role-name}/management/permissions`
+/// is `getClientRoleManagementPermissions`.
+///
+/// Assumes that the each parameter is a selector
+/// for the previous path segment. Assumes previous part is named as a list.
+/// strip suffix of 's' to indicate singular
+///
+/// getClient(s)Role(s)ManagementPermissions
+///
+/// Last id is a fallback with all params appended at the end
+///
+/// `getClientRoleManagementPermissionsByRealmByRoleName`
+fn generate_operation_ids(verb: &str, path: &str) -> Vec<String> {
+    let path = path.trim_matches('/');
+
+    let mut ids = vec![];
+
+    let mut operation_id = String::new();
+
+    let parts: Vec<&str> = path.split('/').collect();
+
+    let mut parts_removed_params = vec![];
+
+    let mut params = vec![];
+
+    for (index, part) in parts.iter().enumerate() {
+        let peek = parts.get(index + 1);
+
+        if part.starts_with('{') && part.ends_with('}') {
+            params.push(part.strip_prefix('{').unwrap().strip_suffix('}').unwrap());
+            continue;
+        }
+
+        if let Some(peek) = peek {
+            if peek.starts_with('{') && peek.ends_with('}') {
+                let part = part.strip_suffix('s').unwrap_or(part);
+
+                parts_removed_params.push(part);
+
+                continue;
+            }
+        }
+
+        parts_removed_params.push(part);
+    }
+
+    for part in parts_removed_params.into_iter().rev() {
+        operation_id = format!("{}_{}", part, operation_id);
+        ids.push(format!("{}_{}", verb, operation_id).to_lower_camel_case());
+    }
+
+    ids.push(format!("{}_{}_by_{}", verb, operation_id, params.join("_by_")).to_lower_camel_case());
+
+    ids
+}
+
 #[cfg(test)]
 mod tests {
     const HTML: &str = include_str!("../../keycloak/9.0.html");
@@ -99,7 +194,7 @@ mod tests {
 
         #[test]
         fn correctly_parses_when_there_are_no_parameters() {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             let path = if let Some(ReferenceOr::Item(path)) = paths.get("/") {
                 path
             } else {
@@ -110,7 +205,7 @@ mod tests {
 
         #[test]
         fn correctly_parses_when_there_are_three_parameters() {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             let path = if let Some(ReferenceOr::Item(path)) =
                 paths.get("/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}")
             {
@@ -134,7 +229,7 @@ mod tests {
 
         #[test]
         fn correctly_parse_when_there_are_repeating_ids_parameters() {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             let path = if let Some(ReferenceOr::Item(path)) =
                 paths.get("/{realm}/clients/{id1}/protocol-mappers/models/{id2}")
             {
@@ -158,7 +253,7 @@ mod tests {
 
         #[test]
         fn adds_descriptions_when_not_always_present() {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             let path_item = if let Some(ReferenceOr::Item(path)) =
                 paths.get("/{realm}/roles-by-id/{role-id}/composites")
             {
@@ -177,14 +272,14 @@ mod tests {
         }
     }
 
-    mod operatitions {
+    mod operations {
         use super::super::paths;
         use super::HTML;
         use openapiv3::ReferenceOr;
         use scraper::Html;
 
         fn get_path(path: &str) -> openapiv3::PathItem {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             if let Some(ReferenceOr::Item(path)) = paths.get(path) {
                 path.clone()
             } else {
@@ -214,7 +309,7 @@ mod tests {
         // Additionally, it couldn't be defined as sub paths can't be substituted in
         #[test]
         fn does_not_parse_the_any_path() {
-            let paths = paths(&Html::parse_document(HTML)).paths;
+            let paths = paths(&Html::parse_document(HTML)).0.paths;
             assert!(!paths.contains_key("/{any}"));
         }
 

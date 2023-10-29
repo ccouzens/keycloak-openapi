@@ -11,7 +11,15 @@ impl FromStr for VerbPath {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let mut split = s.split_whitespace();
         let verb = split.next().ok_or(())?.to_string();
-        let path = split.next().ok_or(())?.to_string();
+        let mut path = split
+            .next()
+            .ok_or(())?
+            .to_string()
+            .replace("/admin/realms", "");
+
+        if path.is_empty() {
+            path = "/".into();
+        }
 
         Ok(Self { verb, path })
     }

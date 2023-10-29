@@ -47,6 +47,12 @@ pub fn parse(document: &scraper::html::Html) -> Result<Info, TransformError> {
         version: extract_string(document, &VERSION_SELECTOR)?
             .split("Version: ")
             .collect(),
+        contact: Some(openapiv3::Contact {
+            name: None,
+            url: Some("https://www.keycloak.org/documentation".into()),
+            email: None,
+            extensions: Default::default(),
+        }),
         ..Default::default()
     })
 }

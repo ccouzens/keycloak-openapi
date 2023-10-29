@@ -31,6 +31,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut security_requirement: SecurityRequirement = IndexMap::new();
     security_requirement.insert(ACCESS_TOKEN.to_string(), Vec::new());
 
+    let (paths, tags) = paths::paths(&document);
+
+    let mut tags: Vec<String> = tags.into_iter().collect();
+
+    tags.sort();
+
+    let tags = tags
+        .into_iter()
+        .map(|tag| openapiv3::Tag {
+            name: tag,
+            ..Default::default()
+        })
+        .collect();
+
     let spec = OpenAPI {
         openapi: "3.0.2".to_string(),
         info: info::parse(&document)?,
@@ -39,8 +53,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             security_schemes,
             ..Default::default()
         }),
-        paths: paths::paths(&document),
+        paths,
         security: Some(vec![security_requirement]),
+        tags,
+        servers: vec![openapiv3::Server {
+            url: "https://keycloak.example.com/admin/realms".into(),
+            ..Default::default()
+        }],
         ..Default::default()
     };
 
