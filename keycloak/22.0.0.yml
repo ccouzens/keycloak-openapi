@@ -2,13 +2,18 @@ openapi: 3.0.2
 info:
   title: Keycloak Admin REST API
   description: This is a REST API reference for the Keycloak Admin REST API.
+  contact:
+    url: https://www.keycloak.org/documentation
   version: "1.0"
+servers:
+  - url: https://keycloak.example.com/admin/realms
 paths:
-  /admin/realms:
+  /:
     get:
       tags:
         - Realms Admin
-      summary: Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.
+      description: Get accessible realms Returns a list of accessible realms. The list is filtered based on what realms the caller is allowed to view.
+      operationId: get
       parameters:
         - in: query
           name: briefRepresentation
@@ -16,7 +21,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -25,7 +30,8 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Import a realm. Imports a realm from a full representation of that realm.
+      description: Import a realm. Imports a realm from a full representation of that realm.
+      operationId: post
       requestBody:
         description: '[file]'
         content:
@@ -34,15 +40,16 @@ paths:
               type: string
               format: binary
       responses:
-        2XX:
+        "200":
           description: OK
-  /admin/realms/{realm}:
+  /{realm}:
     get:
       tags:
         - Realms Admin
-      summary: Get the top-level representation of the realm It will not include nested information like User and Client representations.
+      description: Get the top-level representation of the realm It will not include nested information like User and Client representations.
+      operationId: getByRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -51,7 +58,8 @@ paths:
     put:
       tags:
         - Realms Admin
-      summary: Update the top-level information of the realm Any user, roles or client information in the representation will be ignored.
+      description: Update the top-level information of the realm Any user, roles or client information in the representation will be ignored.
+      operationId: putByRealm
       requestBody:
         description: RealmRepresentation
         content:
@@ -59,14 +67,15 @@ paths:
             schema:
               $ref: '#/components/schemas/RealmRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Realms Admin
-      summary: Delete the realm
+      description: Delete the realm
+      operationId: deleteByRealm
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -76,11 +85,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/admin-events:
+  /{realm}/admin-events:
     get:
       tags:
         - Realms Admin
-      summary: Get admin events Returns all admin events, or filters events based on URL query parameters listed here
+      description: Get admin events Returns all admin events, or filters events based on URL query parameters listed here
+      operationId: getAdminEvents
       parameters:
         - in: query
           name: authClient
@@ -142,7 +152,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -151,9 +161,10 @@ paths:
     delete:
       tags:
         - Realms Admin
-      summary: Delete all admin events
+      description: Delete all admin events
+      operationId: deleteAdminEvents
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -163,13 +174,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/attack-detection/brute-force/users:
+  /{realm}/attack-detection/brute-force/users:
     delete:
       tags:
         - Attack Detection
-      summary: Clear any user login failures for all users This can release temporary disabled users
+      description: Clear any user login failures for all users This can release temporary disabled users
+      operationId: deleteUsers
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -179,13 +191,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/attack-detection/brute-force/users/{userId}:
+  /{realm}/attack-detection/brute-force/users/{userId}:
     get:
       tags:
         - Attack Detection
-      summary: Get status of a username in brute force detection
+      description: Get status of a username in brute force detection
+      operationId: getBruteForceUser
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -196,9 +209,10 @@ paths:
     delete:
       tags:
         - Attack Detection
-      summary: Clear any user login failures for the user This can release temporary disabled user
+      description: Clear any user login failures for the user This can release temporary disabled user
+      operationId: deleteBruteForceUser
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -214,13 +228,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/authenticator-providers:
+  /{realm}/authentication/authenticator-providers:
     get:
       tags:
         - Authentication Management
-      summary: Get authenticator providers Returns a stream of authenticator providers.
+      description: Get authenticator providers Returns a stream of authenticator providers.
+      operationId: getAuthenticatorProviders
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -234,13 +249,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/client-authenticator-providers:
+  /{realm}/authentication/client-authenticator-providers:
     get:
       tags:
         - Authentication Management
-      summary: Get client authenticator providers Returns a stream of client authenticator providers.
+      description: Get client authenticator providers Returns a stream of client authenticator providers.
+      operationId: getClientAuthenticatorProviders
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -254,11 +270,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/config:
+  /{realm}/authentication/config:
     post:
       tags:
         - Authentication Management
-      summary: Create new authenticator configuration
+      description: Create new authenticator configuration
+      operationId: postAuthenticationConfig
       requestBody:
         description: AuthenticatorConfigRepresentation
         content:
@@ -266,7 +283,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -276,13 +293,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/config-description/{providerId}:
+  /{realm}/authentication/config-description/{providerId}:
     get:
       tags:
         - Authentication Management
-      summary: Get authenticator provider’s configuration description
+      description: Get authenticator provider’s configuration description
+      operationId: getConfigDescription
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -302,13 +320,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/config/{id}:
+  /{realm}/authentication/config/{id}:
     get:
       tags:
         - Authentication Management
-      summary: Get authenticator configuration
+      description: Get authenticator configuration
+      operationId: getAuthenticationConfig
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -317,7 +336,8 @@ paths:
     put:
       tags:
         - Authentication Management
-      summary: Update authenticator configuration
+      description: Update authenticator configuration
+      operationId: putAuthenticationConfig
       requestBody:
         description: AuthenticatorConfigRepresentation
         content:
@@ -325,14 +345,15 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Authentication Management
-      summary: Delete authenticator configuration
+      description: Delete authenticator configuration
+      operationId: deleteConfig
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -349,11 +370,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions:
+  /{realm}/authentication/executions:
     post:
       tags:
         - Authentication Management
-      summary: Add new authentication execution
+      description: Add new authentication execution
+      operationId: postExecutions
       requestBody:
         description: AuthenticationExecutionRepresentation
         content:
@@ -361,7 +383,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticationExecutionRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -371,20 +393,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions/{executionId}:
+  /{realm}/authentication/executions/{executionId}:
     get:
       tags:
         - Authentication Management
-      summary: Get Single Execution
+      description: Get Single Execution
+      operationId: getExecution
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Authentication Management
-      summary: Delete execution
+      description: Delete execution
+      operationId: deleteExecution
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -400,11 +424,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions/{executionId}/config:
+  /{realm}/authentication/executions/{executionId}/config:
     post:
       tags:
         - Authentication Management
-      summary: Update execution with new configuration
+      description: Update execution with new configuration
+      operationId: postExecutionConfig
       requestBody:
         description: AuthenticatorConfigRepresentation
         content:
@@ -412,7 +437,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticatorConfigRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -429,13 +454,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions/{executionId}/config/{id}:
+  /{realm}/authentication/executions/{executionId}/config/{id}:
     get:
       tags:
         - Authentication Management
-      summary: Get execution’s configuration
+      description: Get execution’s configuration
+      operationId: getExecutionConfig
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -463,13 +489,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions/{executionId}/lower-priority:
+  /{realm}/authentication/executions/{executionId}/lower-priority:
     post:
       tags:
         - Authentication Management
-      summary: Lower execution’s priority
+      description: Lower execution’s priority
+      operationId: postExecutionLowerPriority
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -486,13 +513,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/executions/{executionId}/raise-priority:
+  /{realm}/authentication/executions/{executionId}/raise-priority:
     post:
       tags:
         - Authentication Management
-      summary: Raise execution’s priority
+      description: Raise execution’s priority
+      operationId: postExecutionRaisePriority
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -509,13 +537,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows:
+  /{realm}/authentication/flows:
     get:
       tags:
         - Authentication Management
-      summary: Get authentication flows Returns a stream of authentication flows.
+      description: Get authentication flows Returns a stream of authentication flows.
+      operationId: getFlows
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -524,7 +553,8 @@ paths:
     post:
       tags:
         - Authentication Management
-      summary: Create a new authentication flow
+      description: Create a new authentication flow
+      operationId: postFlows
       requestBody:
         description: AuthenticationFlowRepresentation
         content:
@@ -532,7 +562,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticationFlowRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -542,11 +572,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows/{flowAlias}/copy:
+  /{realm}/authentication/flows/{flowAlias}/copy:
     post:
       tags:
         - Authentication Management
-      summary: Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object
+      description: Copy existing authentication flow under a new name The new name is given as 'newName' attribute of the passed JSON object
+      operationId: postCopy
       requestBody:
         description: '[string]'
         content:
@@ -554,7 +585,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -571,18 +602,20 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows/{flowAlias}/executions:
+  /{realm}/authentication/flows/{flowAlias}/executions:
     get:
       tags:
         - Authentication Management
-      summary: Get authentication executions for a flow
+      description: Get authentication executions for a flow
+      operationId: getExecutions
       responses:
-        2XX:
+        "200":
           description: OK
     put:
       tags:
         - Authentication Management
-      summary: Update authentication executions of a Flow
+      description: Update authentication executions of a Flow
+      operationId: putExecutions
       requestBody:
         description: AuthenticationExecutionInfoRepresentation
         content:
@@ -590,7 +623,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticationExecutionInfoRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -607,11 +640,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows/{flowAlias}/executions/execution:
+  /{realm}/authentication/flows/{flowAlias}/executions/execution:
     post:
       tags:
         - Authentication Management
-      summary: Add new authentication execution to a flow
+      description: Add new authentication execution to a flow
+      operationId: postExecution
       requestBody:
         description: '[string]'
         content:
@@ -619,7 +653,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -636,11 +670,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows/{flowAlias}/executions/flow:
+  /{realm}/authentication/flows/{flowAlias}/executions/flow:
     post:
       tags:
         - Authentication Management
-      summary: Add new flow with new execution to existing flow
+      description: Add new flow with new execution to existing flow
+      operationId: postFlow
       requestBody:
         description: '[string]'
         content:
@@ -648,7 +683,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -665,13 +700,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/flows/{id}:
+  /{realm}/authentication/flows/{id}:
     get:
       tags:
         - Authentication Management
-      summary: Get authentication flow for id
+      description: Get authentication flow for id
+      operationId: getFlow
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -680,7 +716,8 @@ paths:
     put:
       tags:
         - Authentication Management
-      summary: Update an authentication flow
+      description: Update an authentication flow
+      operationId: putFlow
       requestBody:
         description: AuthenticationFlowRepresentation
         content:
@@ -688,14 +725,15 @@ paths:
             schema:
               $ref: '#/components/schemas/AuthenticationFlowRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Authentication Management
-      summary: Delete an authentication flow
+      description: Delete an authentication flow
+      operationId: deleteFlow
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -711,13 +749,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/form-action-providers:
+  /{realm}/authentication/form-action-providers:
     get:
       tags:
         - Authentication Management
-      summary: Get form action providers Returns a stream of form action providers.
+      description: Get form action providers Returns a stream of form action providers.
+      operationId: getFormActionProviders
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -731,13 +770,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/form-providers:
+  /{realm}/authentication/form-providers:
     get:
       tags:
         - Authentication Management
-      summary: Get form providers Returns a stream of form providers.
+      description: Get form providers Returns a stream of form providers.
+      operationId: getFormProviders
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -751,13 +791,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/per-client-config-description:
+  /{realm}/authentication/per-client-config-description:
     get:
       tags:
         - Authentication Management
-      summary: Get configuration descriptions for all clients
+      description: Get configuration descriptions for all clients
+      operationId: getPerClientConfigDescription
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -773,11 +814,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/register-required-action:
+  /{realm}/authentication/register-required-action:
     post:
       tags:
         - Authentication Management
-      summary: Register a new required actions
+      description: Register a new required actions
+      operationId: postRegisterRequiredAction
       requestBody:
         description: '[string]'
         content:
@@ -785,7 +827,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -795,13 +837,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/required-actions:
+  /{realm}/authentication/required-actions:
     get:
       tags:
         - Authentication Management
-      summary: Get required actions Returns a stream of required actions.
+      description: Get required actions Returns a stream of required actions.
+      operationId: getRequiredActions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -815,13 +858,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/required-actions/{alias}:
+  /{realm}/authentication/required-actions/{alias}:
     get:
       tags:
         - Authentication Management
-      summary: Get required action for alias
+      description: Get required action for alias
+      operationId: getRequiredAction
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -830,7 +874,8 @@ paths:
     put:
       tags:
         - Authentication Management
-      summary: Update required action
+      description: Update required action
+      operationId: putRequiredAction
       requestBody:
         description: RequiredActionProviderRepresentation
         content:
@@ -838,14 +883,15 @@ paths:
             schema:
               $ref: '#/components/schemas/RequiredActionProviderRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Authentication Management
-      summary: Delete required action
+      description: Delete required action
+      operationId: deleteRequiredAction
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -862,13 +908,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/required-actions/{alias}/lower-priority:
+  /{realm}/authentication/required-actions/{alias}/lower-priority:
     post:
       tags:
         - Authentication Management
-      summary: Lower required action’s priority
+      description: Lower required action’s priority
+      operationId: postRequiredActionLowerPriority
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -885,13 +932,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/required-actions/{alias}/raise-priority:
+  /{realm}/authentication/required-actions/{alias}/raise-priority:
     post:
       tags:
         - Authentication Management
-      summary: Raise required action’s priority
+      description: Raise required action’s priority
+      operationId: postRequiredActionRaisePriority
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -908,13 +956,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/authentication/unregistered-required-actions:
+  /{realm}/authentication/unregistered-required-actions:
     get:
       tags:
         - Authentication Management
-      summary: Get unregistered required actions Returns a stream of unregistered required actions.
+      description: Get unregistered required actions Returns a stream of unregistered required actions.
+      operationId: getUnregisteredRequiredActions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -928,11 +977,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-description-converter:
+  /{realm}/client-description-converter:
     post:
       tags:
         - Realms Admin
-      summary: Base path for importing clients under this realm.
+      description: Base path for importing clients under this realm.
+      operationId: postClientDescriptionConverter
       requestBody:
         description: '[string]'
         content:
@@ -940,7 +990,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -954,12 +1004,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-policies/policies:
+  /{realm}/client-policies/policies:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getPolicies
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -968,6 +1020,8 @@ paths:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putPolicies
       requestBody:
         description: ClientPoliciesRepresentation
         content:
@@ -975,7 +1029,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientPoliciesRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -985,10 +1039,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-policies/profiles:
+  /{realm}/client-policies/profiles:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getProfiles
       parameters:
         - in: query
           name: include-global-profiles
@@ -996,7 +1052,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1005,6 +1061,8 @@ paths:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putProfiles
       requestBody:
         description: ClientProfilesRepresentation
         content:
@@ -1012,7 +1070,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientProfilesRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1022,13 +1080,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-registration-policy/providers:
+  /{realm}/client-registration-policy/providers:
     get:
       tags:
         - Client Registration Policy
-      summary: Base path for retrieve providers with the configProperties properly filled
+      description: Base path for retrieve providers with the configProperties properly filled
+      operationId: getProviders
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1042,13 +1101,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes:
+  /{realm}/client-scopes:
     get:
       tags:
         - Client Scopes
-      summary: Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
+      description: Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
+      operationId: getClientScopes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1057,7 +1117,8 @@ paths:
     post:
       tags:
         - Client Scopes
-      summary: Create a new client scope Client Scope’s name must be unique!
+      description: Create a new client scope Client Scope’s name must be unique!
+      operationId: postClientScopes
       requestBody:
         description: ClientScopeRepresentation
         content:
@@ -1065,7 +1126,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientScopeRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1075,13 +1136,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}:
+  /{realm}/client-scopes/{id1}/protocol-mappers/models/{id2}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mapper by id
+      description: Get mapper by id
+      operationId: getClientScopeProtocolMappersModel
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1090,7 +1152,8 @@ paths:
     put:
       tags:
         - Protocol Mappers
-      summary: Update the mapper
+      description: Update the mapper
+      operationId: putClientScopeProtocolMappersModel
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1098,14 +1161,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Protocol Mappers
-      summary: Delete the mapper
+      description: Delete the mapper
+      operationId: deleteClientScopeProtocolMappersModel
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1127,13 +1191,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}:
+  /{realm}/client-scopes/{id}:
     get:
       tags:
         - Client Scopes
-      summary: Get representation of the client scope
+      description: Get representation of the client scope
+      operationId: getClientScope
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1142,7 +1207,8 @@ paths:
     put:
       tags:
         - Client Scopes
-      summary: Update the client scope
+      description: Update the client scope
+      operationId: putClientScope
       requestBody:
         description: ClientScopeRepresentation
         content:
@@ -1150,14 +1216,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientScopeRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Client Scopes
-      summary: Delete the client scope
+      description: Delete the client scope
+      operationId: deleteClientScope
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1173,11 +1240,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/protocol-mappers/add-models:
+  /{realm}/client-scopes/{id}/protocol-mappers/add-models:
     post:
       tags:
         - Protocol Mappers
-      summary: Create multiple mappers
+      description: Create multiple mappers
+      operationId: postClientScopeProtocolMappersAddModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1185,7 +1253,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -1201,13 +1269,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/protocol-mappers/models:
+  /{realm}/client-scopes/{id}/protocol-mappers/models:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers
+      description: Get mappers
+      operationId: getClientScopeProtocolMappersModels
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1216,7 +1285,8 @@ paths:
     post:
       tags:
         - Protocol Mappers
-      summary: Create a mapper
+      description: Create a mapper
+      operationId: postClientScopeProtocolMappersModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1224,7 +1294,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1240,13 +1310,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}:
+  /{realm}/client-scopes/{id}/protocol-mappers/protocol/{protocol}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers by name for a specific protocol
+      description: Get mappers by name for a specific protocol
+      operationId: getClientScopeProtocolMappersProtocol
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1272,13 +1343,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings:
+  /{realm}/client-scopes/{id}/scope-mappings:
     get:
       tags:
         - Scope Mappings
-      summary: Get all scope mappings for the client
+      description: Get all scope mappings for the client
+      operationId: getClientScopeScopeMappings
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1298,13 +1370,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}:
+  /{realm}/client-scopes/{id}/scope-mappings/clients/{client}:
     get:
       tags:
         - Scope Mappings
-      summary: Get the roles associated with a client’s scope Returns roles for the client.
+      description: Get the roles associated with a client’s scope Returns roles for the client.
+      operationId: getClientScopeScopeMappingsClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1313,7 +1386,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add client-level roles to the client’s scope
+      description: Add client-level roles to the client’s scope
+      operationId: postClientScopeScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -1321,12 +1395,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove client-level roles from the client’s scope.
+      description: Remove client-level roles from the client’s scope.
+      operationId: deleteClientScopeScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -1334,7 +1409,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1356,13 +1431,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available:
+  /{realm}/client-scopes/{id}/scope-mappings/clients/{client}/available:
     get:
       tags:
         - Scope Mappings
-      summary: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      description: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      operationId: getClientScopeScopeMappingsClientAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1388,11 +1464,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite:
+  /{realm}/client-scopes/{id}/scope-mappings/clients/{client}/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      description: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      operationId: getClientScopeScopeMappingsClientComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -1401,7 +1478,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1427,13 +1504,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm:
+  /{realm}/client-scopes/{id}/scope-mappings/realm:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles associated with the client’s scope
+      description: Get realm-level roles associated with the client’s scope
+      operationId: getClientScopeScopeMappingsRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1442,7 +1520,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add a set of realm-level roles to the client’s scope
+      description: Add a set of realm-level roles to the client’s scope
+      operationId: postClientScopeScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -1450,12 +1529,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove a set of realm-level roles from the client’s scope
+      description: Remove a set of realm-level roles from the client’s scope
+      operationId: deleteClientScopeScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -1463,7 +1543,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1479,13 +1559,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/available:
+  /{realm}/client-scopes/{id}/scope-mappings/realm/available:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles that are available to attach to this client’s scope
+      description: Get realm-level roles that are available to attach to this client’s scope
+      operationId: getClientScopeScopeMappingsRealmAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1505,11 +1586,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-scopes/{id}/scope-mappings/realm/composite:
+  /{realm}/client-scopes/{id}/scope-mappings/realm/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      description: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      operationId: getClientScopeScopeMappingsRealmComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -1518,7 +1600,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1538,13 +1620,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-session-stats:
+  /{realm}/client-session-stats:
     get:
       tags:
         - Realms Admin
-      summary: Get client session stats Returns a JSON map.
+      description: Get client session stats Returns a JSON map.
+      operationId: getClientSessionStats
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1558,13 +1641,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates:
+  /{realm}/client-templates:
     get:
       tags:
         - Client Scopes
-      summary: Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
+      description: Get client scopes belonging to the realm Returns a list of client scopes belonging to the realm
+      operationId: getClientTemplates
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1573,7 +1657,8 @@ paths:
     post:
       tags:
         - Client Scopes
-      summary: Create a new client scope Client Scope’s name must be unique!
+      description: Create a new client scope Client Scope’s name must be unique!
+      operationId: postClientTemplates
       requestBody:
         description: ClientScopeRepresentation
         content:
@@ -1581,7 +1666,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientScopeRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1591,13 +1676,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id1}/protocol-mappers/models/{id2}:
+  /{realm}/client-templates/{id1}/protocol-mappers/models/{id2}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mapper by id
+      description: Get mapper by id
+      operationId: getClientTemplateProtocolMappersModel
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1606,7 +1692,8 @@ paths:
     put:
       tags:
         - Protocol Mappers
-      summary: Update the mapper
+      description: Update the mapper
+      operationId: putClientTemplateProtocolMappersModel
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1614,14 +1701,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Protocol Mappers
-      summary: Delete the mapper
+      description: Delete the mapper
+      operationId: deleteClientTemplateProtocolMappersModel
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1643,13 +1731,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}:
+  /{realm}/client-templates/{id}:
     get:
       tags:
         - Client Scopes
-      summary: Get representation of the client scope
+      description: Get representation of the client scope
+      operationId: getClientTemplate
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1658,7 +1747,8 @@ paths:
     put:
       tags:
         - Client Scopes
-      summary: Update the client scope
+      description: Update the client scope
+      operationId: putClientTemplate
       requestBody:
         description: ClientScopeRepresentation
         content:
@@ -1666,14 +1756,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientScopeRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Client Scopes
-      summary: Delete the client scope
+      description: Delete the client scope
+      operationId: deleteClientTemplate
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1689,11 +1780,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/protocol-mappers/add-models:
+  /{realm}/client-templates/{id}/protocol-mappers/add-models:
     post:
       tags:
         - Protocol Mappers
-      summary: Create multiple mappers
+      description: Create multiple mappers
+      operationId: postClientTemplateProtocolMappersAddModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1701,7 +1793,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -1717,13 +1809,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/protocol-mappers/models:
+  /{realm}/client-templates/{id}/protocol-mappers/models:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers
+      description: Get mappers
+      operationId: getClientTemplateProtocolMappersModels
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1732,7 +1825,8 @@ paths:
     post:
       tags:
         - Protocol Mappers
-      summary: Create a mapper
+      description: Create a mapper
+      operationId: postClientTemplateProtocolMappersModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -1740,7 +1834,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -1756,13 +1850,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/protocol-mappers/protocol/{protocol}:
+  /{realm}/client-templates/{id}/protocol-mappers/protocol/{protocol}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers by name for a specific protocol
+      description: Get mappers by name for a specific protocol
+      operationId: getClientTemplateProtocolMappersProtocol
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1788,13 +1883,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings:
+  /{realm}/client-templates/{id}/scope-mappings:
     get:
       tags:
         - Scope Mappings
-      summary: Get all scope mappings for the client
+      description: Get all scope mappings for the client
+      operationId: getClientTemplateScopeMappings
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1814,13 +1910,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}:
+  /{realm}/client-templates/{id}/scope-mappings/clients/{client}:
     get:
       tags:
         - Scope Mappings
-      summary: Get the roles associated with a client’s scope Returns roles for the client.
+      description: Get the roles associated with a client’s scope Returns roles for the client.
+      operationId: getClientTemplateScopeMappingsClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1829,7 +1926,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add client-level roles to the client’s scope
+      description: Add client-level roles to the client’s scope
+      operationId: postClientTemplateScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -1837,12 +1935,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove client-level roles from the client’s scope.
+      description: Remove client-level roles from the client’s scope.
+      operationId: deleteClientTemplateScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -1850,7 +1949,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1872,13 +1971,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/available:
+  /{realm}/client-templates/{id}/scope-mappings/clients/{client}/available:
     get:
       tags:
         - Scope Mappings
-      summary: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      description: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      operationId: getClientTemplateScopeMappingsClientAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1904,11 +2004,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/clients/{client}/composite:
+  /{realm}/client-templates/{id}/scope-mappings/clients/{client}/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      description: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      operationId: getClientTemplateScopeMappingsClientComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -1917,7 +2018,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1943,13 +2044,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/realm:
+  /{realm}/client-templates/{id}/scope-mappings/realm:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles associated with the client’s scope
+      description: Get realm-level roles associated with the client’s scope
+      operationId: getClientTemplateScopeMappingsRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -1958,7 +2060,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add a set of realm-level roles to the client’s scope
+      description: Add a set of realm-level roles to the client’s scope
+      operationId: postClientTemplateScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -1966,12 +2069,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove a set of realm-level roles from the client’s scope
+      description: Remove a set of realm-level roles from the client’s scope
+      operationId: deleteClientTemplateScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -1979,7 +2083,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -1995,13 +2099,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/available:
+  /{realm}/client-templates/{id}/scope-mappings/realm/available:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles that are available to attach to this client’s scope
+      description: Get realm-level roles that are available to attach to this client’s scope
+      operationId: getClientTemplateScopeMappingsRealmAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2021,11 +2126,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/client-templates/{id}/scope-mappings/realm/composite:
+  /{realm}/client-templates/{id}/scope-mappings/realm/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      description: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      operationId: getClientTemplateScopeMappingsRealmComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -2034,7 +2140,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2054,11 +2160,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients:
+  /{realm}/clients:
     get:
       tags:
         - Clients
-      summary: Get clients belonging to the realm.
+      description: Get clients belonging to the realm.
+      operationId: getClients
       parameters:
         - in: query
           name: clientId
@@ -2096,7 +2203,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2105,7 +2212,8 @@ paths:
     post:
       tags:
         - Clients
-      summary: Create a new client Client’s client_id must be unique!
+      description: Create a new client Client’s client_id must be unique!
+      operationId: postClients
       requestBody:
         description: ClientRepresentation
         content:
@@ -2113,7 +2221,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -2123,12 +2231,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients-initial-access:
+  /{realm}/clients-initial-access:
     get:
       tags:
         - Client Initial Access
+      description: Missing description
+      operationId: getClientsInitialAccess
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2137,7 +2247,8 @@ paths:
     post:
       tags:
         - Client Initial Access
-      summary: Create a new initial access token.
+      description: Create a new initial access token.
+      operationId: postClientsInitialAccess
       requestBody:
         description: ClientInitialAccessCreatePresentation
         content:
@@ -2145,7 +2256,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientInitialAccessCreatePresentation'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2159,12 +2270,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients-initial-access/{id}:
+  /{realm}/clients-initial-access/{id}:
     delete:
       tags:
         - Client Initial Access
+      description: Missing description
+      operationId: deleteClientsInitialAcces
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -2180,13 +2293,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id1}/protocol-mappers/models/{id2}:
+  /{realm}/clients/{id1}/protocol-mappers/models/{id2}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mapper by id
+      description: Get mapper by id
+      operationId: getClientProtocolMappersModel
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2195,7 +2309,8 @@ paths:
     put:
       tags:
         - Protocol Mappers
-      summary: Update the mapper
+      description: Update the mapper
+      operationId: putClientProtocolMappersModel
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -2203,14 +2318,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Protocol Mappers
-      summary: Delete the mapper
+      description: Delete the mapper
+      operationId: deleteClientProtocolMappersModel
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -2232,13 +2348,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}:
+  /{realm}/clients/{id}:
     get:
       tags:
         - Clients
-      summary: Get representation of the client
+      description: Get representation of the client
+      operationId: getClientByRealmById
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2247,7 +2364,8 @@ paths:
     put:
       tags:
         - Clients
-      summary: Update the client
+      description: Update the client
+      operationId: putClient
       requestBody:
         description: ClientRepresentation
         content:
@@ -2255,14 +2373,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Clients
-      summary: Delete the client
+      description: Delete the client
+      operationId: deleteClientByRealmById
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -2278,13 +2397,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}:
+  /{realm}/clients/{id}/certificates/{attr}:
     get:
       tags:
         - Client Attribute Certificate
-      summary: Get key info
+      description: Get key info
+      operationId: getCertificate
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2310,11 +2430,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}/download:
+  /{realm}/clients/{id}/certificates/{attr}/download:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Get a keystore file for the client, containing private key and public certificate
+      description: Get a keystore file for the client, containing private key and public certificate
+      operationId: postDownload
       requestBody:
         description: KeyStoreConfig
         content:
@@ -2322,7 +2443,7 @@ paths:
             schema:
               $ref: '#/components/schemas/KeyStoreConfig'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/octet-stream:
@@ -2349,13 +2470,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}/generate:
+  /{realm}/clients/{id}/certificates/{attr}/generate:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Generate a new certificate with new key pair
+      description: Generate a new certificate with new key pair
+      operationId: postGenerate
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2381,11 +2503,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}/generate-and-download:
+  /{realm}/clients/{id}/certificates/{attr}/generate-and-download:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Generate a new keypair and certificate, and get the private key file  Generates a keypair and certificate and serves the private key in a specified keystore format. Only generated public certificate is saved in Keycloak DB - the private key is not.
+      description: Generate a new keypair and certificate, and get the private key file  Generates a keypair and certificate and serves the private key in a specified keystore format. Only generated public certificate is saved in Keycloak DB - the private key is not.
+      operationId: postGenerateAndDownload
       requestBody:
         description: KeyStoreConfig
         content:
@@ -2393,7 +2516,7 @@ paths:
             schema:
               $ref: '#/components/schemas/KeyStoreConfig'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/octet-stream:
@@ -2420,13 +2543,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}/upload:
+  /{realm}/clients/{id}/certificates/{attr}/upload:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Upload certificate and eventually private key
+      description: Upload certificate and eventually private key
+      operationId: postUpload
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2452,13 +2576,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/certificates/{attr}/upload-certificate:
+  /{realm}/clients/{id}/certificates/{attr}/upload-certificate:
     post:
       tags:
         - Client Attribute Certificate
-      summary: Upload only certificate, not private key
+      description: Upload only certificate, not private key
+      operationId: postUploadCertificate
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2484,13 +2609,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/client-secret:
+  /{realm}/clients/{id}/client-secret:
     get:
       tags:
         - Clients
-      summary: Get the client secret
+      description: Get the client secret
+      operationId: getClientSecret
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2499,9 +2625,10 @@ paths:
     post:
       tags:
         - Clients
-      summary: Generate a new secret for the client
+      description: Generate a new secret for the client
+      operationId: postClientSecret
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2521,13 +2648,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/client-secret/rotated:
+  /{realm}/clients/{id}/client-secret/rotated:
     get:
       tags:
         - Clients
-      summary: Get the rotated client secret
+      description: Get the rotated client secret
+      operationId: getRotated
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2536,9 +2664,10 @@ paths:
     delete:
       tags:
         - Clients
-      summary: Invalidate the rotated secret for the client
+      description: Invalidate the rotated secret for the client
+      operationId: deleteRotated
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -2554,13 +2683,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/default-client-scopes:
+  /{realm}/clients/{id}/default-client-scopes:
     get:
       tags:
         - Clients
-      summary: Get default client scopes.  Only name and ids are returned.
+      description: Get default client scopes.  Only name and ids are returned.
+      operationId: getDefaultClientScopes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2580,18 +2710,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/default-client-scopes/{clientScopeId}:
+  /{realm}/clients/{id}/default-client-scopes/{clientScopeId}:
     put:
       tags:
         - Clients
+      description: Missing description
+      operationId: putDefaultClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Clients
+      description: Missing description
+      operationId: deleteDefaultClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -2613,11 +2747,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-access-token:
+  /{realm}/clients/{id}/evaluate-scopes/generate-example-access-token:
     get:
       tags:
         - Clients
-      summary: Create JSON with payload of example access token
+      description: Create JSON with payload of example access token
+      operationId: getGenerateExampleAccessToken
       parameters:
         - in: query
           name: scope
@@ -2630,7 +2765,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2650,11 +2785,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-id-token:
+  /{realm}/clients/{id}/evaluate-scopes/generate-example-id-token:
     get:
       tags:
         - Clients
-      summary: Create JSON with payload of example id token
+      description: Create JSON with payload of example id token
+      operationId: getGenerateExampleIdToken
       parameters:
         - in: query
           name: scope
@@ -2667,7 +2803,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2687,11 +2823,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo:
+  /{realm}/clients/{id}/evaluate-scopes/generate-example-userinfo:
     get:
       tags:
         - Clients
-      summary: Create JSON with payload of example user info
+      description: Create JSON with payload of example user info
+      operationId: getGenerateExampleUserinfo
       parameters:
         - in: query
           name: scope
@@ -2704,7 +2841,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2726,11 +2863,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/protocol-mappers:
+  /{realm}/clients/{id}/evaluate-scopes/protocol-mappers:
     get:
       tags:
         - Clients
-      summary: Return list of all protocol mappers, which will be used when generating tokens issued for particular client.
+      description: Return list of all protocol mappers, which will be used when generating tokens issued for particular client.
+      operationId: getProtocolMappers
       parameters:
         - in: query
           name: scope
@@ -2738,7 +2876,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2758,11 +2896,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted:
+  /{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/granted:
     get:
       tags:
         - Clients
-      summary: Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.
+      description: Get effective scope mapping of all roles of particular role container, which this client is defacto allowed to have in the accessToken issued for him.
+      operationId: getGranted
       parameters:
         - in: query
           name: scope
@@ -2770,46 +2909,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-    parameters:
-      - in: path
-        name: realm
-        description: realm name (not id!)
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - in: path
-        name: roleContainerId
-        description: either realm name OR client UUID
-        required: true
-        schema:
-          type: string
-        style: simple
-  /admin/realms/{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted:
-    get:
-      tags:
-        - Clients
-      summary: Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.
-      parameters:
-        - in: query
-          name: scope
-          schema:
-            type: string
-          style: form
-      responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2836,12 +2936,54 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/installation/providers/{providerId}:
+  /{realm}/clients/{id}/evaluate-scopes/scope-mappings/{roleContainerId}/not-granted:
     get:
       tags:
         - Clients
+      description: Get roles, which this client doesn’t have scope for and can’t have them in the accessToken issued for him.
+      operationId: getNotGranted
+      parameters:
+        - in: query
+          name: scope
+          schema:
+            type: string
+          style: form
       responses:
-        2XX:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    parameters:
+      - in: path
+        name: realm
+        description: realm name (not id!)
+        required: true
+        schema:
+          type: string
+        style: simple
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - in: path
+        name: roleContainerId
+        description: either realm name OR client UUID
+        required: true
+        schema:
+          type: string
+        style: simple
+  /{realm}/clients/{id}/installation/providers/{providerId}:
+    get:
+      tags:
+        - Clients
+      description: Missing description
+      operationId: getInstallationProvider
+      responses:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -2863,13 +3005,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/management/permissions:
+  /{realm}/clients/{id}/management/permissions:
     get:
       tags:
         - Clients
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: getClientManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2878,7 +3021,8 @@ paths:
     put:
       tags:
         - Clients
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: putClientManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -2886,7 +3030,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2906,11 +3050,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/nodes:
+  /{realm}/clients/{id}/nodes:
     post:
       tags:
         - Clients
-      summary: Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak
+      description: Register a cluster node with the client Manually register cluster node to this client - usually it’s not needed to call this directly as adapter should handle by sending registration request to Keycloak
+      operationId: postNodes
       requestBody:
         description: '[string]'
         content:
@@ -2918,7 +3063,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -2934,13 +3079,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/nodes/{node}:
+  /{realm}/clients/{id}/nodes/{node}:
     delete:
       tags:
         - Clients
-      summary: Unregister a cluster node from the client
+      description: Unregister a cluster node from the client
+      operationId: deleteNode
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -2962,13 +3108,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/offline-session-count:
+  /{realm}/clients/{id}/offline-session-count:
     get:
       tags:
         - Clients
-      summary: 'Get application offline session count Returns a number of offline user sessions associated with this client { \"count\": number }'
+      description: 'Get application offline session count Returns a number of offline user sessions associated with this client { \"count\": number }'
+      operationId: getOfflineSessionCount
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -2991,11 +3138,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/offline-sessions:
+  /{realm}/clients/{id}/offline-sessions:
     get:
       tags:
         - Clients
-      summary: Get offline sessions for client Returns a list of offline user sessions associated with this client
+      description: Get offline sessions for client Returns a list of offline user sessions associated with this client
+      operationId: getOfflineSessions
       parameters:
         - in: query
           name: first
@@ -3010,7 +3158,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3030,13 +3178,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/optional-client-scopes:
+  /{realm}/clients/{id}/optional-client-scopes:
     get:
       tags:
         - Clients
-      summary: Get optional client scopes.  Only name and ids are returned.
+      description: Get optional client scopes.  Only name and ids are returned.
+      operationId: getOptionalClientScopes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3056,18 +3205,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/optional-client-scopes/{clientScopeId}:
+  /{realm}/clients/{id}/optional-client-scopes/{clientScopeId}:
     put:
       tags:
         - Clients
+      description: Missing description
+      operationId: putOptionalClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Clients
+      description: Missing description
+      operationId: deleteOptionalClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -3089,11 +3242,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/protocol-mappers/add-models:
+  /{realm}/clients/{id}/protocol-mappers/add-models:
     post:
       tags:
         - Protocol Mappers
-      summary: Create multiple mappers
+      description: Create multiple mappers
+      operationId: postClientProtocolMappersAddModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -3101,7 +3255,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -3117,13 +3271,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/protocol-mappers/models:
+  /{realm}/clients/{id}/protocol-mappers/models:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers
+      description: Get mappers
+      operationId: getClientProtocolMappersModels
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3132,7 +3287,8 @@ paths:
     post:
       tags:
         - Protocol Mappers
-      summary: Create a mapper
+      description: Create a mapper
+      operationId: postClientProtocolMappersModels
       requestBody:
         description: ProtocolMapperRepresentation
         content:
@@ -3140,7 +3296,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProtocolMapperRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -3156,13 +3312,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/protocol-mappers/protocol/{protocol}:
+  /{realm}/clients/{id}/protocol-mappers/protocol/{protocol}:
     get:
       tags:
         - Protocol Mappers
-      summary: Get mappers by name for a specific protocol
+      description: Get mappers by name for a specific protocol
+      operationId: getClientProtocolMappersProtocol
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3188,13 +3345,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/push-revocation:
+  /{realm}/clients/{id}/push-revocation:
     post:
       tags:
         - Clients
-      summary: Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it.
+      description: Push the client’s revocation policy to its admin URL If the client has an admin URL, push revocation policy to it.
+      operationId: postClientPushRevocation
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3214,13 +3372,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/registration-access-token:
+  /{realm}/clients/{id}/registration-access-token:
     post:
       tags:
         - Clients
-      summary: Generate a new registration access token for the client
+      description: Generate a new registration access token for the client
+      operationId: postRegistrationAccessToken
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3240,11 +3399,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles:
+  /{realm}/clients/{id}/roles:
     get:
       tags:
         - Roles
-      summary: Get all roles for the realm or client
+      description: Get all roles for the realm or client
+      operationId: getClientRoles
       parameters:
         - in: query
           name: briefRepresentation
@@ -3267,7 +3427,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3276,7 +3436,8 @@ paths:
     post:
       tags:
         - Roles
-      summary: Create a new role for the realm or client
+      description: Create a new role for the realm or client
+      operationId: postClientRoles
       requestBody:
         description: RoleRepresentation
         content:
@@ -3284,7 +3445,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -3300,13 +3461,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}:
+  /{realm}/clients/{id}/roles/{role-name}:
     get:
       tags:
         - Roles
-      summary: Get a role by name
+      description: Get a role by name
+      operationId: getClientRole
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3315,7 +3477,8 @@ paths:
     put:
       tags:
         - Roles
-      summary: Update a role by name
+      description: Update a role by name
+      operationId: putClientRole
       requestBody:
         description: RoleRepresentation
         content:
@@ -3323,14 +3486,15 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Roles
-      summary: Delete a role by name
+      description: Delete a role by name
+      operationId: deleteClientRole
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -3353,13 +3517,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/composites:
+  /{realm}/clients/{id}/roles/{role-name}/composites:
     get:
       tags:
         - Roles
-      summary: Get composites of the role
+      description: Get composites of the role
+      operationId: getClientRoleComposites
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3368,7 +3533,8 @@ paths:
     post:
       tags:
         - Roles
-      summary: Add a composite to the role
+      description: Add a composite to the role
+      operationId: postClientRoleComposites
       requestBody:
         description: RoleRepresentation
         content:
@@ -3376,12 +3542,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Roles
-      summary: Remove roles from the role’s composite
+      description: Remove roles from the role’s composite
+      operationId: deleteClientRoleComposites
       requestBody:
         description: RoleRepresentation
         content:
@@ -3389,7 +3556,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -3412,13 +3579,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/clients/{clientUuid}:
+  /{realm}/clients/{id}/roles/{role-name}/composites/clients/{clientUuid}:
     get:
       tags:
         - Roles
-      summary: Get client-level roles for the client that are in the role’s composite
+      description: Get client-level roles for the client that are in the role’s composite
+      operationId: getClientRoleCompositesClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3451,13 +3619,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/composites/realm:
+  /{realm}/clients/{id}/roles/{role-name}/composites/realm:
     get:
       tags:
         - Roles
-      summary: Get realm-level roles of the role’s composite
+      description: Get realm-level roles of the role’s composite
+      operationId: getClientRoleCompositesRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3484,11 +3653,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/groups:
+  /{realm}/clients/{id}/roles/{role-name}/groups:
     get:
       tags:
         - Roles
-      summary: Returns a stream of groups that have the specified role name
+      description: Returns a stream of groups that have the specified role name
+      operationId: getClientRoleGroups
       parameters:
         - in: query
           name: briefRepresentation
@@ -3509,7 +3679,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3536,13 +3706,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/management/permissions:
+  /{realm}/clients/{id}/roles/{role-name}/management/permissions:
     get:
       tags:
         - Roles
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: getClientRoleManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3551,7 +3722,8 @@ paths:
     put:
       tags:
         - Roles
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: putClientRoleManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -3559,7 +3731,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3585,11 +3757,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/roles/{role-name}/users:
+  /{realm}/clients/{id}/roles/{role-name}/users:
     get:
       tags:
         - Roles
-      summary: Returns a stream of users that have the specified role name.
+      description: Returns a stream of users that have the specified role name.
+      operationId: getClientRoleUsers
       parameters:
         - in: query
           name: first
@@ -3604,7 +3777,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3631,13 +3804,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings:
+  /{realm}/clients/{id}/scope-mappings:
     get:
       tags:
         - Scope Mappings
-      summary: Get all scope mappings for the client
+      description: Get all scope mappings for the client
+      operationId: getClientScopeMappings
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3657,13 +3831,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}:
+  /{realm}/clients/{id}/scope-mappings/clients/{client}:
     get:
       tags:
         - Scope Mappings
-      summary: Get the roles associated with a client’s scope Returns roles for the client.
+      description: Get the roles associated with a client’s scope Returns roles for the client.
+      operationId: getClientScopeMappingsClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3672,7 +3847,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add client-level roles to the client’s scope
+      description: Add client-level roles to the client’s scope
+      operationId: postClientScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -3680,12 +3856,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove client-level roles from the client’s scope.
+      description: Remove client-level roles from the client’s scope.
+      operationId: deleteClientScopeMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -3693,7 +3870,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -3715,13 +3892,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/available:
+  /{realm}/clients/{id}/scope-mappings/clients/{client}/available:
     get:
       tags:
         - Scope Mappings
-      summary: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      description: The available client-level roles Returns the roles for the client that can be associated with the client’s scope
+      operationId: getClientScopeMappingsClientAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3747,11 +3925,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/clients/{client}/composite:
+  /{realm}/clients/{id}/scope-mappings/clients/{client}/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      description: Get effective client roles Returns the roles for the client that are associated with the client’s scope.
+      operationId: getClientScopeMappingsClientComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -3760,7 +3939,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3786,13 +3965,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/realm:
+  /{realm}/clients/{id}/scope-mappings/realm:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles associated with the client’s scope
+      description: Get realm-level roles associated with the client’s scope
+      operationId: getClientScopeMappingsRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3801,7 +3981,8 @@ paths:
     post:
       tags:
         - Scope Mappings
-      summary: Add a set of realm-level roles to the client’s scope
+      description: Add a set of realm-level roles to the client’s scope
+      operationId: postClientScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -3809,12 +3990,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Scope Mappings
-      summary: Remove a set of realm-level roles from the client’s scope
+      description: Remove a set of realm-level roles from the client’s scope
+      operationId: deleteClientScopeMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -3822,7 +4004,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -3838,13 +4020,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/realm/available:
+  /{realm}/clients/{id}/scope-mappings/realm/available:
     get:
       tags:
         - Scope Mappings
-      summary: Get realm-level roles that are available to attach to this client’s scope
+      description: Get realm-level roles that are available to attach to this client’s scope
+      operationId: getClientScopeMappingsRealmAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3864,11 +4047,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/scope-mappings/realm/composite:
+  /{realm}/clients/{id}/scope-mappings/realm/composite:
     get:
       tags:
         - Scope Mappings
-      summary: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      description: Get effective realm-level roles associated with the client’s scope What this does is recurse any composite roles associated with the client’s scope and adds the roles to this lists.
+      operationId: getClientScopeMappingsRealmComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -3877,7 +4061,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3897,13 +4081,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/service-account-user:
+  /{realm}/clients/{id}/service-account-user:
     get:
       tags:
         - Clients
-      summary: Get a user dedicated to the service account
+      description: Get a user dedicated to the service account
+      operationId: getServiceAccountUser
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3923,13 +4108,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/session-count:
+  /{realm}/clients/{id}/session-count:
     get:
       tags:
         - Clients
-      summary: 'Get application session count Returns a number of user sessions associated with this client { \"count\": number }'
+      description: 'Get application session count Returns a number of user sessions associated with this client { \"count\": number }'
+      operationId: getSessionCount
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3952,13 +4138,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/test-nodes-available:
+  /{realm}/clients/{id}/test-nodes-available:
     get:
       tags:
         - Clients
-      summary: Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes.
+      description: Test if registered cluster nodes are available Tests availability by sending 'ping' request to all cluster nodes.
+      operationId: getTestNodesAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -3978,11 +4165,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/clients/{id}/user-sessions:
+  /{realm}/clients/{id}/user-sessions:
     get:
       tags:
         - Clients
-      summary: Get user sessions for client Returns a list of user sessions associated with this client
+      description: Get user sessions for client Returns a list of user sessions associated with this client
+      operationId: getClientUserSessions
       parameters:
         - in: query
           name: first
@@ -3997,7 +4185,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4017,10 +4205,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/components:
+  /{realm}/components:
     get:
       tags:
         - Component
+      description: Missing description
+      operationId: getComponents
       parameters:
         - in: query
           name: name
@@ -4038,7 +4228,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4047,6 +4237,8 @@ paths:
     post:
       tags:
         - Component
+      description: Missing description
+      operationId: postComponents
       requestBody:
         description: ComponentRepresentation
         content:
@@ -4054,7 +4246,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ComponentRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -4064,12 +4256,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/components/{id}:
+  /{realm}/components/{id}:
     get:
       tags:
         - Component
+      description: Missing description
+      operationId: getComponent
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4078,6 +4272,8 @@ paths:
     put:
       tags:
         - Component
+      description: Missing description
+      operationId: putComponent
       requestBody:
         description: ComponentRepresentation
         content:
@@ -4085,13 +4281,15 @@ paths:
             schema:
               $ref: '#/components/schemas/ComponentRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Component
+      description: Missing description
+      operationId: deleteComponent
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4107,11 +4305,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/components/{id}/sub-component-types:
+  /{realm}/components/{id}/sub-component-types:
     get:
       tags:
         - Component
-      summary: List of subcomponent types that are available to configure for a particular parent component.
+      description: List of subcomponent types that are available to configure for a particular parent component.
+      operationId: getSubComponentTypes
       parameters:
         - in: query
           name: type
@@ -4119,7 +4318,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4139,12 +4338,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/credential-registrators:
+  /{realm}/credential-registrators:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getCredentialRegistrators
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4158,13 +4359,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-default-client-scopes:
+  /{realm}/default-default-client-scopes:
     get:
       tags:
         - Realms Admin
-      summary: Get realm default client scopes.  Only name and ids are returned.
+      description: Get realm default client scopes.  Only name and ids are returned.
+      operationId: getDefaultDefaultClientScopes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4178,18 +4380,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-default-client-scopes/{clientScopeId}:
+  /{realm}/default-default-client-scopes/{clientScopeId}:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putDefaultDefaultClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: deleteDefaultDefaultClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4205,13 +4411,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-groups:
+  /{realm}/default-groups:
     get:
       tags:
         - Realms Admin
-      summary: Get group hierarchy.  Only name and ids are returned.
+      description: Get group hierarchy.  Only name and ids are returned.
+      operationId: getDefaultGroups
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4225,18 +4432,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-groups/{groupId}:
+  /{realm}/default-groups/{groupId}:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putDefaultGroup
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: deleteDefaultGroup
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4252,13 +4463,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-optional-client-scopes:
+  /{realm}/default-optional-client-scopes:
     get:
       tags:
         - Realms Admin
-      summary: Get realm optional client scopes.  Only name and ids are returned.
+      description: Get realm optional client scopes.  Only name and ids are returned.
+      operationId: getDefaultOptionalClientScopes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4272,18 +4484,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/default-optional-client-scopes/{clientScopeId}:
+  /{realm}/default-optional-client-scopes/{clientScopeId}:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putDefaultOptionalClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: deleteDefaultOptionalClientScope
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4299,11 +4515,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/events:
+  /{realm}/events:
     get:
       tags:
         - Realms Admin
-      summary: Get events Returns all events, or filters them based on URL query parameters listed here
+      description: Get events Returns all events, or filters them based on URL query parameters listed here
+      operationId: getEvents
       parameters:
         - in: query
           name: client
@@ -4354,7 +4571,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4363,9 +4580,10 @@ paths:
     delete:
       tags:
         - Realms Admin
-      summary: Delete all events
+      description: Delete all events
+      operationId: deleteEvents
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4375,13 +4593,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/events/config:
+  /{realm}/events/config:
     get:
       tags:
         - Realms Admin
-      summary: Get the events provider configuration Returns JSON object with events provider configuration
+      description: Get the events provider configuration Returns JSON object with events provider configuration
+      operationId: getEventsConfig
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4390,6 +4609,8 @@ paths:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putEventsConfig
       requestBody:
         description: RealmEventsConfigRepresentation
         content:
@@ -4397,7 +4618,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RealmEventsConfigRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4407,12 +4628,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/group-by-path/{path}:
+  /{realm}/group-by-path/{path}:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getGroupByPath
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4432,11 +4655,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups:
+  /{realm}/groups:
     get:
       tags:
         - Groups
-      summary: Get group hierarchy.  Only name and ids are returned.
+      description: Get group hierarchy.  Only name and ids are returned.
+      operationId: getGroupsByRealm
       parameters:
         - in: query
           name: briefRepresentation
@@ -4474,7 +4698,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4483,7 +4707,8 @@ paths:
     post:
       tags:
         - Groups
-      summary: create or add a top level realm groupSet or create child.
+      description: create or add a top level realm groupSet or create child.
+      operationId: postGroups
       requestBody:
         description: GroupRepresentation
         content:
@@ -4491,7 +4716,7 @@ paths:
             schema:
               $ref: '#/components/schemas/GroupRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -4501,11 +4726,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/count:
+  /{realm}/groups/count:
     get:
       tags:
         - Groups
-      summary: Returns the groups counts.
+      description: Returns the groups counts.
+      operationId: getGroupsCountByRealm
       parameters:
         - in: query
           name: search
@@ -4518,7 +4744,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4535,12 +4761,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}:
+  /{realm}/groups/{id}:
     get:
       tags:
         - Groups
+      description: Missing description
+      operationId: getGroup
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4549,7 +4777,8 @@ paths:
     put:
       tags:
         - Groups
-      summary: Update group, ignores subgroups.
+      description: Update group, ignores subgroups.
+      operationId: putGroupByRealmById
       requestBody:
         description: GroupRepresentation
         content:
@@ -4557,13 +4786,15 @@ paths:
             schema:
               $ref: '#/components/schemas/GroupRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Groups
+      description: Missing description
+      operationId: deleteGroupByRealmById
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4579,11 +4810,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/children:
+  /{realm}/groups/{id}/children:
     post:
       tags:
         - Groups
-      summary: Set or create child.
+      description: Set or create child.
+      operationId: postChildren
       requestBody:
         description: GroupRepresentation
         content:
@@ -4591,7 +4823,7 @@ paths:
             schema:
               $ref: '#/components/schemas/GroupRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -4607,13 +4839,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/management/permissions:
+  /{realm}/groups/{id}/management/permissions:
     get:
       tags:
         - Groups
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: getGroupManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4622,7 +4855,8 @@ paths:
     put:
       tags:
         - Groups
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: putGroupManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -4630,7 +4864,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4650,11 +4884,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/members:
+  /{realm}/groups/{id}/members:
     get:
       tags:
         - Groups
-      summary: Get users Returns a stream of users, filtered according to query parameters
+      description: Get users Returns a stream of users, filtered according to query parameters
+      operationId: getMembers
       parameters:
         - in: query
           name: briefRepresentation
@@ -4675,7 +4910,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4695,13 +4930,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings:
+  /{realm}/groups/{id}/role-mappings:
     get:
       tags:
         - Role Mapper
-      summary: Get role mappings
+      description: Get role mappings
+      operationId: getGroupRoleMappings
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4721,13 +4957,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}:
+  /{realm}/groups/{id}/role-mappings/clients/{client}:
     get:
       tags:
         - Client Role Mappings
-      summary: Get client-level role mappings for the user, and the app
+      description: Get client-level role mappings for the user, and the app
+      operationId: getGroupRoleMappingsClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4736,7 +4973,8 @@ paths:
     post:
       tags:
         - Client Role Mappings
-      summary: Add client-level roles to the user role mapping
+      description: Add client-level roles to the user role mapping
+      operationId: postGroupRoleMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -4744,12 +4982,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Client Role Mappings
-      summary: Delete client-level roles from user role mapping
+      description: Delete client-level roles from user role mapping
+      operationId: deleteGroupRoleMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -4757,7 +4996,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4779,13 +5018,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/available:
+  /{realm}/groups/{id}/role-mappings/clients/{client}/available:
     get:
       tags:
         - Client Role Mappings
-      summary: Get available client-level roles that can be mapped to the user
+      description: Get available client-level roles that can be mapped to the user
+      operationId: getGroupRoleMappingsClientAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4811,11 +5051,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/clients/{client}/composite:
+  /{realm}/groups/{id}/role-mappings/clients/{client}/composite:
     get:
       tags:
         - Client Role Mappings
-      summary: Get effective client-level role mappings This recurses any composite roles
+      description: Get effective client-level role mappings This recurses any composite roles
+      operationId: getGroupRoleMappingsClientComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -4824,7 +5065,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4850,13 +5091,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/realm:
+  /{realm}/groups/{id}/role-mappings/realm:
     get:
       tags:
         - Role Mapper
-      summary: Get realm-level role mappings
+      description: Get realm-level role mappings
+      operationId: getGroupRoleMappingsRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4865,7 +5107,8 @@ paths:
     post:
       tags:
         - Role Mapper
-      summary: Add realm-level role mappings to the user
+      description: Add realm-level role mappings to the user
+      operationId: postGroupRoleMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -4873,12 +5116,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Role Mapper
-      summary: Delete realm-level role mappings
+      description: Delete realm-level role mappings
+      operationId: deleteGroupRoleMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -4886,7 +5130,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -4902,13 +5146,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/realm/available:
+  /{realm}/groups/{id}/role-mappings/realm/available:
     get:
       tags:
         - Role Mapper
-      summary: Get realm-level roles that can be mapped
+      description: Get realm-level roles that can be mapped
+      operationId: getGroupRoleMappingsRealmAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4928,11 +5173,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/groups/{id}/role-mappings/realm/composite:
+  /{realm}/groups/{id}/role-mappings/realm/composite:
     get:
       tags:
         - Role Mapper
-      summary: Get effective realm-level role mappings This will recurse all composite roles to get the result.
+      description: Get effective realm-level role mappings This will recurse all composite roles to get the result.
+      operationId: getGroupRoleMappingsRealmComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -4941,7 +5187,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4961,11 +5207,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/import-config:
+  /{realm}/identity-provider/import-config:
     post:
       tags:
         - Identity Providers
-      summary: Import identity provider from JSON body
+      description: Import identity provider from JSON body
+      operationId: postImportConfig
       requestBody:
         description: '[object]'
         content:
@@ -4973,7 +5220,7 @@ paths:
             schema:
               type: object
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -4989,13 +5236,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances:
+  /{realm}/identity-provider/instances:
     get:
       tags:
         - Identity Providers
-      summary: Get identity providers
+      description: Get identity providers
+      operationId: getInstances
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5004,7 +5252,8 @@ paths:
     post:
       tags:
         - Identity Providers
-      summary: Create a new identity provider
+      description: Create a new identity provider
+      operationId: postInstances
       requestBody:
         description: IdentityProviderRepresentation
         content:
@@ -5012,7 +5261,7 @@ paths:
             schema:
               $ref: '#/components/schemas/IdentityProviderRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5022,13 +5271,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}:
+  /{realm}/identity-provider/instances/{alias}:
     get:
       tags:
         - Identity Providers
-      summary: Get the identity provider
+      description: Get the identity provider
+      operationId: getInstance
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5037,7 +5287,8 @@ paths:
     put:
       tags:
         - Identity Providers
-      summary: Update the identity provider
+      description: Update the identity provider
+      operationId: putInstance
       requestBody:
         description: IdentityProviderRepresentation
         content:
@@ -5045,14 +5296,15 @@ paths:
             schema:
               $ref: '#/components/schemas/IdentityProviderRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Identity Providers
-      summary: Delete the identity provider
+      description: Delete the identity provider
+      operationId: deleteInstance
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5068,11 +5320,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}/export:
+  /{realm}/identity-provider/instances/{alias}/export:
     get:
       tags:
         - Identity Providers
-      summary: Export public broker configuration for identity provider
+      description: Export public broker configuration for identity provider
+      operationId: getExport
       parameters:
         - in: query
           name: format
@@ -5081,7 +5334,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5097,13 +5350,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}/management/permissions:
+  /{realm}/identity-provider/instances/{alias}/management/permissions:
     get:
       tags:
         - Identity Providers
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: getInstanceManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5112,7 +5366,8 @@ paths:
     put:
       tags:
         - Identity Providers
-      summary: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether client Authorization permissions have been initialized or not and a reference
+      operationId: putInstanceManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -5120,7 +5375,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5140,13 +5395,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}/mapper-types:
+  /{realm}/identity-provider/instances/{alias}/mapper-types:
     get:
       tags:
         - Identity Providers
-      summary: Get mapper types for identity provider
+      description: Get mapper types for identity provider
+      operationId: getMapperTypes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             '*/*':
@@ -5168,13 +5424,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}/mappers:
+  /{realm}/identity-provider/instances/{alias}/mappers:
     get:
       tags:
         - Identity Providers
-      summary: Get mappers for identity provider
+      description: Get mappers for identity provider
+      operationId: getMappers
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5183,7 +5440,8 @@ paths:
     post:
       tags:
         - Identity Providers
-      summary: Add a mapper to identity provider
+      description: Add a mapper to identity provider
+      operationId: postMappers
       requestBody:
         description: IdentityProviderMapperRepresentation
         content:
@@ -5191,7 +5449,7 @@ paths:
             schema:
               $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5207,13 +5465,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/instances/{alias}/mappers/{id}:
+  /{realm}/identity-provider/instances/{alias}/mappers/{id}:
     get:
       tags:
         - Identity Providers
-      summary: Get mapper by id for the identity provider
+      description: Get mapper by id for the identity provider
+      operationId: getMapper
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5222,7 +5481,8 @@ paths:
     put:
       tags:
         - Identity Providers
-      summary: Update a mapper for the identity provider
+      description: Update a mapper for the identity provider
+      operationId: putMapper
       requestBody:
         description: IdentityProviderMapperRepresentation
         content:
@@ -5230,14 +5490,15 @@ paths:
             schema:
               $ref: '#/components/schemas/IdentityProviderMapperRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Identity Providers
-      summary: Delete a mapper for the identity provider
+      description: Delete a mapper for the identity provider
+      operationId: deleteMapper
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5260,13 +5521,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/identity-provider/providers/{provider_id}:
+  /{realm}/identity-provider/providers/{provider_id}:
     get:
       tags:
         - Identity Providers
-      summary: Get identity providers
+      description: Get identity providers
+      operationId: getIdentityProviderProvider
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5283,12 +5545,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/keys:
+  /{realm}/keys:
     get:
       tags:
         - Key
+      description: Missing description
+      operationId: getKeys
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5302,12 +5566,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/localization:
+  /{realm}/localization:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getLocalizationByRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5321,10 +5587,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/localization/{locale}:
+  /{realm}/localization/{locale}:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getLocalizationByRealmByLocale
       parameters:
         - in: query
           name: useRealmDefaultLocaleFallback
@@ -5332,7 +5600,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5343,7 +5611,8 @@ paths:
     post:
       tags:
         - Realms Admin
-      summary: Import localization from uploaded JSON file
+      description: Import localization from uploaded JSON file
+      operationId: postLocalization
       requestBody:
         description: '[string]'
         content:
@@ -5351,13 +5620,15 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: deleteLocalizationByRealmByLocale
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5373,12 +5644,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/localization/{locale}/{key}:
+  /{realm}/localization/{locale}/{key}:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getLocalizationByRealmByLocaleByKey
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             text/plain:
@@ -5387,6 +5660,8 @@ paths:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putLocalization
       requestBody:
         description: '[string]'
         content:
@@ -5394,13 +5669,15 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: deleteLocalizationByRealmByLocaleByKey
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5422,13 +5699,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/logout-all:
+  /{realm}/logout-all:
     post:
       tags:
         - Realms Admin
-      summary: Removes all user sessions.
+      description: Removes all user sessions.
+      operationId: postLogoutAll
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5442,11 +5720,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/partial-export:
+  /{realm}/partial-export:
     post:
       tags:
         - Realms Admin
-      summary: Partial export of existing realm into a JSON file.
+      description: Partial export of existing realm into a JSON file.
+      operationId: postPartialExport
       parameters:
         - in: query
           name: exportClients
@@ -5459,7 +5738,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5469,11 +5748,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/partialImport:
+  /{realm}/partialImport:
     post:
       tags:
         - Realms Admin
-      summary: Partial import from a JSON file to an existing realm.
+      description: Partial import from a JSON file to an existing realm.
+      operationId: postPartialImport
       requestBody:
         description: '[file]'
         content:
@@ -5482,7 +5762,7 @@ paths:
               type: string
               format: binary
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5492,13 +5772,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/push-revocation:
+  /{realm}/push-revocation:
     post:
       tags:
         - Realms Admin
-      summary: Push the realm’s revocation policy to any client that has an admin url associated with it.
+      description: Push the realm’s revocation policy to any client that has an admin url associated with it.
+      operationId: postPushRevocationByRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5512,11 +5793,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles:
+  /{realm}/roles:
     get:
       tags:
         - Roles
-      summary: Get all roles for the realm or client
+      description: Get all roles for the realm or client
+      operationId: getRolesByRealm
       parameters:
         - in: query
           name: briefRepresentation
@@ -5539,7 +5821,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5548,7 +5830,8 @@ paths:
     post:
       tags:
         - Roles
-      summary: Create a new role for the realm or client
+      description: Create a new role for the realm or client
+      operationId: postRolesByRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -5556,7 +5839,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -5566,13 +5849,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles-by-id/{role-id}:
+  /{realm}/roles-by-id/{role-id}:
     get:
       tags:
         - Roles (by ID)
-      summary: Get a specific role’s representation
+      description: Get a specific role’s representation
+      operationId: getRolesById
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5581,7 +5865,8 @@ paths:
     put:
       tags:
         - Roles (by ID)
-      summary: Update the role
+      description: Update the role
+      operationId: putRolesById
       requestBody:
         description: RoleRepresentation
         content:
@@ -5589,14 +5874,15 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Roles (by ID)
-      summary: Delete the role
+      description: Delete the role
+      operationId: deleteRolesById
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5613,11 +5899,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles-by-id/{role-id}/composites:
+  /{realm}/roles-by-id/{role-id}/composites:
     get:
       tags:
         - Roles (by ID)
-      summary: Get role’s children Returns a set of role’s children provided the role is a composite.
+      description: Get role’s children Returns a set of role’s children provided the role is a composite.
+      operationId: getRolesByIdComposites
       parameters:
         - in: query
           name: first
@@ -5635,7 +5922,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5644,7 +5931,8 @@ paths:
     post:
       tags:
         - Roles (by ID)
-      summary: Make the role a composite role by associating some child roles
+      description: Make the role a composite role by associating some child roles
+      operationId: postRolesByIdComposites
       requestBody:
         description: RoleRepresentation
         content:
@@ -5652,12 +5940,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Roles (by ID)
-      summary: Remove a set of roles from the role’s composite
+      description: Remove a set of roles from the role’s composite
+      operationId: deleteRolesByIdComposites
       requestBody:
         description: RoleRepresentation
         content:
@@ -5665,7 +5954,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5681,13 +5970,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles-by-id/{role-id}/composites/clients/{clientUuid}:
+  /{realm}/roles-by-id/{role-id}/composites/clients/{clientUuid}:
     get:
       tags:
         - Roles (by ID)
-      summary: Get client-level roles for the client that are in the role’s composite
+      description: Get client-level roles for the client that are in the role’s composite
+      operationId: getRolesByIdCompositesClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5713,13 +6003,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles-by-id/{role-id}/composites/realm:
+  /{realm}/roles-by-id/{role-id}/composites/realm:
     get:
       tags:
         - Roles (by ID)
-      summary: Get realm-level roles that are in the role’s composite
+      description: Get realm-level roles that are in the role’s composite
+      operationId: getRolesByIdCompositesRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5739,13 +6030,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles-by-id/{role-id}/management/permissions:
+  /{realm}/roles-by-id/{role-id}/management/permissions:
     get:
       tags:
         - Roles (by ID)
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: getRolesByIdManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5754,7 +6046,8 @@ paths:
     put:
       tags:
         - Roles (by ID)
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: putRolesByIdManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -5762,7 +6055,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5782,13 +6075,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}:
+  /{realm}/roles/{role-name}:
     get:
       tags:
         - Roles
-      summary: Get a role by name
+      description: Get a role by name
+      operationId: getRoleByRealmByRoleName
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5797,7 +6091,8 @@ paths:
     put:
       tags:
         - Roles
-      summary: Update a role by name
+      description: Update a role by name
+      operationId: putRoleByRealmByRoleName
       requestBody:
         description: RoleRepresentation
         content:
@@ -5805,14 +6100,15 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Roles
-      summary: Delete a role by name
+      description: Delete a role by name
+      operationId: deleteRoleByRealmByRoleName
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5829,13 +6125,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/composites:
+  /{realm}/roles/{role-name}/composites:
     get:
       tags:
         - Roles
-      summary: Get composites of the role
+      description: Get composites of the role
+      operationId: getRoleCompositesByRealmByRoleName
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5844,7 +6141,8 @@ paths:
     post:
       tags:
         - Roles
-      summary: Add a composite to the role
+      description: Add a composite to the role
+      operationId: postRoleCompositesByRealmByRoleName
       requestBody:
         description: RoleRepresentation
         content:
@@ -5852,12 +6150,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Roles
-      summary: Remove roles from the role’s composite
+      description: Remove roles from the role’s composite
+      operationId: deleteRoleCompositesByRealmByRoleName
       requestBody:
         description: RoleRepresentation
         content:
@@ -5865,7 +6164,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -5882,13 +6181,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/composites/clients/{clientUuid}:
+  /{realm}/roles/{role-name}/composites/clients/{clientUuid}:
     get:
       tags:
         - Roles
-      summary: Get client-level roles for the client that are in the role’s composite
+      description: Get client-level roles for the client that are in the role’s composite
+      operationId: getRoleCompositesClientByRealmByRoleNameByClientUuid
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5915,13 +6215,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/composites/realm:
+  /{realm}/roles/{role-name}/composites/realm:
     get:
       tags:
         - Roles
-      summary: Get realm-level roles of the role’s composite
+      description: Get realm-level roles of the role’s composite
+      operationId: getRoleCompositesRealmByRealmByRoleName
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5942,11 +6243,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/groups:
+  /{realm}/roles/{role-name}/groups:
     get:
       tags:
         - Roles
-      summary: Returns a stream of groups that have the specified role name
+      description: Returns a stream of groups that have the specified role name
+      operationId: getRoleGroupsByRealmByRoleName
       parameters:
         - in: query
           name: briefRepresentation
@@ -5967,7 +6269,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -5988,13 +6290,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/management/permissions:
+  /{realm}/roles/{role-name}/management/permissions:
     get:
       tags:
         - Roles
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: getRoleManagementPermissionsByRealmByRoleName
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6003,7 +6306,8 @@ paths:
     put:
       tags:
         - Roles
-      summary: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      description: Return object stating whether role Authorization permissions have been initialized or not and a reference
+      operationId: putRoleManagementPermissionsByRealmByRoleName
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -6011,7 +6315,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6031,11 +6335,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/roles/{role-name}/users:
+  /{realm}/roles/{role-name}/users:
     get:
       tags:
         - Roles
-      summary: Returns a stream of users that have the specified role name.
+      description: Returns a stream of users that have the specified role name.
+      operationId: getRoleUsersByRealmByRoleName
       parameters:
         - in: query
           name: first
@@ -6050,7 +6355,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6071,13 +6376,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/sessions/{session}:
+  /{realm}/sessions/{session}:
     delete:
       tags:
         - Realms Admin
-      summary: Remove a specific user session.
+      description: Remove a specific user session.
+      operationId: deleteSession
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6093,11 +6399,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/testSMTPConnection:
+  /{realm}/testSMTPConnection:
     post:
       tags:
         - Realms Admin
-      summary: Test SMTP connection with current logged in user
+      description: Test SMTP connection with current logged in user
+      operationId: postTestSmtpConnection
       requestBody:
         description: '[string]'
         content:
@@ -6105,7 +6412,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -6115,11 +6422,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users:
+  /{realm}/users:
     get:
       tags:
         - Users
-      summary: Get users Returns a stream of users, filtered according to query parameters.
+      description: Get users Returns a stream of users, filtered according to query parameters.
+      operationId: getUsersByRealm
       parameters:
         - in: query
           name: briefRepresentation
@@ -6206,7 +6514,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6215,7 +6523,8 @@ paths:
     post:
       tags:
         - Users
-      summary: Create a new user Username must be unique.
+      description: Create a new user Username must be unique.
+      operationId: postUsers
       requestBody:
         description: UserRepresentation
         content:
@@ -6223,7 +6532,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UserRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -6233,12 +6542,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users-management-permissions:
+  /{realm}/users-management-permissions:
     get:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: getUsersManagementPermissions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6247,6 +6558,8 @@ paths:
     put:
       tags:
         - Realms Admin
+      description: Missing description
+      operationId: putUsersManagementPermissions
       requestBody:
         description: ManagementPermissionReference
         content:
@@ -6254,7 +6567,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementPermissionReference'
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6268,11 +6581,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/count:
+  /{realm}/users/count:
     get:
       tags:
         - Users
-      summary: Returns the number of users that match the given criteria.
+      description: Returns the number of users that match the given criteria.
+      operationId: getUsersCount
       parameters:
         - in: query
           name: email
@@ -6321,7 +6635,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6336,12 +6650,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/profile:
+  /{realm}/users/profile:
     get:
       tags:
         - Users
+      description: Missing description
+      operationId: getProfile
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6350,6 +6666,8 @@ paths:
     put:
       tags:
         - Users
+      description: Missing description
+      operationId: putProfile
       requestBody:
         description: '[string]'
         content:
@@ -6357,7 +6675,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -6367,13 +6685,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}:
+  /{realm}/users/{id}:
     get:
       tags:
         - Users
-      summary: Get representation of the user
+      description: Get representation of the user
+      operationId: getUserByRealmById
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6382,7 +6701,8 @@ paths:
     put:
       tags:
         - Users
-      summary: Update the user
+      description: Update the user
+      operationId: putUser
       requestBody:
         description: UserRepresentation
         content:
@@ -6390,14 +6710,15 @@ paths:
             schema:
               $ref: '#/components/schemas/UserRepresentation'
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Users
-      summary: Delete the user
+      description: Delete the user
+      operationId: deleteUserByRealmById
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -6413,13 +6734,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/configured-user-storage-credential-types:
+  /{realm}/users/{id}/configured-user-storage-credential-types:
     get:
       tags:
         - Users
-      summary: Return credential types, which are provided by the user storage where user is stored.
+      description: Return credential types, which are provided by the user storage where user is stored.
+      operationId: getConfiguredUserStorageCredentialTypes
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6439,13 +6761,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/consents:
+  /{realm}/users/{id}/consents:
     get:
       tags:
         - Users
-      summary: Get consents granted by the user
+      description: Get consents granted by the user
+      operationId: getConsents
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6465,13 +6788,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/consents/{client}:
+  /{realm}/users/{id}/consents/{client}:
     delete:
       tags:
         - Users
-      summary: Revoke consent and offline tokens for particular client from user
+      description: Revoke consent and offline tokens for particular client from user
+      operationId: deleteConsent
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6494,12 +6818,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/credentials:
+  /{realm}/users/{id}/credentials:
     get:
       tags:
         - Users
+      description: Missing description
+      operationId: getCredentials
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6519,13 +6845,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/credentials/{credentialId}:
+  /{realm}/users/{id}/credentials/{credentialId}:
     delete:
       tags:
         - Users
-      summary: Remove a credential for a user
+      description: Remove a credential for a user
+      operationId: deleteCredential
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6547,13 +6874,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}:
+  /{realm}/users/{id}/credentials/{credentialId}/moveAfter/{newPreviousCredentialId}:
     post:
       tags:
         - Users
-      summary: Move a credential to a position behind another credential
+      description: Move a credential to a position behind another credential
+      operationId: postMoveAfter
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -6583,13 +6911,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/credentials/{credentialId}/moveToFirst:
+  /{realm}/users/{id}/credentials/{credentialId}/moveToFirst:
     post:
       tags:
         - Users
-      summary: Move a credential to a first position in the credentials list of the user
+      description: Move a credential to a first position in the credentials list of the user
+      operationId: postMoveToFirst
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -6612,11 +6941,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/credentials/{credentialId}/userLabel:
+  /{realm}/users/{id}/credentials/{credentialId}/userLabel:
     put:
       tags:
         - Users
-      summary: Update a credential label for a user
+      description: Update a credential label for a user
+      operationId: putUserLabel
       requestBody:
         description: '[string]'
         content:
@@ -6624,7 +6954,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6646,11 +6976,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/disable-credential-types:
+  /{realm}/users/{id}/disable-credential-types:
     put:
       tags:
         - Users
-      summary: Disable all credentials for a user of a specific type
+      description: Disable all credentials for a user of a specific type
+      operationId: putDisableCredentialTypes
       requestBody:
         description: '[string]'
         content:
@@ -6658,7 +6989,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6674,11 +7005,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/execute-actions-email:
+  /{realm}/users/{id}/execute-actions-email:
     put:
       tags:
         - Users
-      summary: Send an email to the user with a link they can click to execute particular actions.
+      description: Send an email to the user with a link they can click to execute particular actions.
+      operationId: putExecuteActionsEmail
       parameters:
         - in: query
           name: client_id
@@ -6705,7 +7037,7 @@ paths:
             schema:
               type: string
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -6721,13 +7053,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/federated-identity:
+  /{realm}/users/{id}/federated-identity:
     get:
       tags:
         - Users
-      summary: Get social logins associated with the user
+      description: Get social logins associated with the user
+      operationId: getFederatedIdentity
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6747,20 +7080,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/federated-identity/{provider}:
+  /{realm}/users/{id}/federated-identity/{provider}:
     post:
       tags:
         - Users
-      summary: Add a social login provider to the user
+      description: Add a social login provider to the user
+      operationId: postFederatedIdentity
       responses:
-        2XX:
+        "200":
           description: OK
     delete:
       tags:
         - Users
-      summary: Remove a social login provider from user
+      description: Remove a social login provider from user
+      operationId: deleteFederatedIdentity
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6783,10 +7118,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/groups:
+  /{realm}/users/{id}/groups:
     get:
       tags:
         - Users
+      description: Missing description
+      operationId: getUserGroups
       parameters:
         - in: query
           name: briefRepresentation
@@ -6809,7 +7146,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6829,10 +7166,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/groups/count:
+  /{realm}/users/{id}/groups/count:
     get:
       tags:
         - Users
+      description: Missing description
+      operationId: getUserGroupsCount
       parameters:
         - in: query
           name: search
@@ -6840,7 +7179,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6863,18 +7202,22 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/groups/{groupId}:
+  /{realm}/users/{id}/groups/{groupId}:
     put:
       tags:
         - Users
+      description: Missing description
+      operationId: putUserGroup
       responses:
-        2XX:
+        "204":
           description: No Content
     delete:
       tags:
         - Users
+      description: Missing description
+      operationId: deleteUserGroup
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -6896,13 +7239,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/impersonation:
+  /{realm}/users/{id}/impersonation:
     post:
       tags:
         - Users
-      summary: Impersonate the user
+      description: Impersonate the user
+      operationId: postImpersonation
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6924,13 +7268,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/logout:
+  /{realm}/users/{id}/logout:
     post:
       tags:
         - Users
-      summary: Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.
+      description: Remove all user sessions associated with the user Also send notification to all clients that have an admin URL to invalidate the sessions for the particular user.
+      operationId: postLogout
       responses:
-        2XX:
+        "201":
           description: Created
     parameters:
       - in: path
@@ -6946,13 +7291,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/offline-sessions/{clientUuid}:
+  /{realm}/users/{id}/offline-sessions/{clientUuid}:
     get:
       tags:
         - Users
-      summary: Get offline sessions associated with the user and client
+      description: Get offline sessions associated with the user and client
+      operationId: getOfflineSession
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -6978,11 +7324,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/reset-password:
+  /{realm}/users/{id}/reset-password:
     put:
       tags:
         - Users
-      summary: Set up a new password for the user.
+      description: Set up a new password for the user.
+      operationId: putResetPassword
       requestBody:
         description: CredentialRepresentation
         content:
@@ -6990,7 +7337,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CredentialRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -7006,11 +7353,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/reset-password-email:
+  /{realm}/users/{id}/reset-password-email:
     put:
       tags:
         - Users
-      summary: Send an email to the user with a link they can click to reset their password.
+      description: Send an email to the user with a link they can click to reset their password.
+      operationId: putResetPasswordEmail
       parameters:
         - in: query
           name: client_id
@@ -7025,7 +7373,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -7041,13 +7389,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings:
+  /{realm}/users/{id}/role-mappings:
     get:
       tags:
         - Role Mapper
-      summary: Get role mappings
+      description: Get role mappings
+      operationId: getUserRoleMappings
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7067,13 +7416,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/clients/{client}:
+  /{realm}/users/{id}/role-mappings/clients/{client}:
     get:
       tags:
         - Client Role Mappings
-      summary: Get client-level role mappings for the user, and the app
+      description: Get client-level role mappings for the user, and the app
+      operationId: getUserRoleMappingsClient
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7082,7 +7432,8 @@ paths:
     post:
       tags:
         - Client Role Mappings
-      summary: Add client-level roles to the user role mapping
+      description: Add client-level roles to the user role mapping
+      operationId: postUserRoleMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -7090,12 +7441,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Client Role Mappings
-      summary: Delete client-level roles from user role mapping
+      description: Delete client-level roles from user role mapping
+      operationId: deleteUserRoleMappingsClient
       requestBody:
         description: RoleRepresentation
         content:
@@ -7103,7 +7455,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -7125,13 +7477,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/available:
+  /{realm}/users/{id}/role-mappings/clients/{client}/available:
     get:
       tags:
         - Client Role Mappings
-      summary: Get available client-level roles that can be mapped to the user
+      description: Get available client-level roles that can be mapped to the user
+      operationId: getUserRoleMappingsClientAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7157,11 +7510,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/clients/{client}/composite:
+  /{realm}/users/{id}/role-mappings/clients/{client}/composite:
     get:
       tags:
         - Client Role Mappings
-      summary: Get effective client-level role mappings This recurses any composite roles
+      description: Get effective client-level role mappings This recurses any composite roles
+      operationId: getUserRoleMappingsClientComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -7170,7 +7524,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7196,13 +7550,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/realm:
+  /{realm}/users/{id}/role-mappings/realm:
     get:
       tags:
         - Role Mapper
-      summary: Get realm-level role mappings
+      description: Get realm-level role mappings
+      operationId: getUserRoleMappingsRealm
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7211,7 +7566,8 @@ paths:
     post:
       tags:
         - Role Mapper
-      summary: Add realm-level role mappings to the user
+      description: Add realm-level role mappings to the user
+      operationId: postUserRoleMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -7219,12 +7575,13 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "201":
           description: Created
     delete:
       tags:
         - Role Mapper
-      summary: Delete realm-level role mappings
+      description: Delete realm-level role mappings
+      operationId: deleteUserRoleMappingsRealm
       requestBody:
         description: RoleRepresentation
         content:
@@ -7232,7 +7589,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RoleRepresentation'
       responses:
-        2XX:
+        "204":
           description: No Content
     parameters:
       - in: path
@@ -7248,13 +7605,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/realm/available:
+  /{realm}/users/{id}/role-mappings/realm/available:
     get:
       tags:
         - Role Mapper
-      summary: Get realm-level roles that can be mapped
+      description: Get realm-level roles that can be mapped
+      operationId: getUserRoleMappingsRealmAvailable
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7274,11 +7632,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/role-mappings/realm/composite:
+  /{realm}/users/{id}/role-mappings/realm/composite:
     get:
       tags:
         - Role Mapper
-      summary: Get effective realm-level role mappings This will recurse all composite roles to get the result.
+      description: Get effective realm-level role mappings This will recurse all composite roles to get the result.
+      operationId: getUserRoleMappingsRealmComposite
       parameters:
         - in: query
           name: briefRepresentation
@@ -7287,7 +7646,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -7307,11 +7666,12 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/send-verify-email:
+  /{realm}/users/{id}/send-verify-email:
     put:
       tags:
         - Users
-      summary: Send an email-verification email to the user An email contains a link the user can click to verify their email address.
+      description: Send an email-verification email to the user An email contains a link the user can click to verify their email address.
+      operationId: putSendVerifyEmail
       parameters:
         - in: query
           name: client_id
@@ -7326,7 +7686,7 @@ paths:
             type: string
           style: form
       responses:
-        2XX:
+        "200":
           description: OK
     parameters:
       - in: path
@@ -7342,13 +7702,14 @@ paths:
         schema:
           type: string
         style: simple
-  /admin/realms/{realm}/users/{id}/sessions:
+  /{realm}/users/{id}/sessions:
     get:
       tags:
         - Users
-      summary: Get sessions associated with the user
+      description: Get sessions associated with the user
+      operationId: getSessions
       responses:
-        2XX:
+        "200":
           description: OK
           content:
             application/json:
@@ -9559,3 +9920,23 @@ components:
             type: boolean
 security:
   - access_token: []
+tags:
+  - name: Attack Detection
+  - name: Authentication Management
+  - name: Client Attribute Certificate
+  - name: Client Initial Access
+  - name: Client Registration Policy
+  - name: Client Role Mappings
+  - name: Client Scopes
+  - name: Clients
+  - name: Component
+  - name: Groups
+  - name: Identity Providers
+  - name: Key
+  - name: Protocol Mappers
+  - name: Realms Admin
+  - name: Role Mapper
+  - name: Roles
+  - name: Roles (by ID)
+  - name: Scope Mappings
+  - name: Users
