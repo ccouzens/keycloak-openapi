@@ -52,7 +52,7 @@ pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Respo
 
 #[cfg(test)]
 mod test {
-    const HTML: &str = include_str!("../../../keycloak/9.0.html");
+    const HTML: &str = include_str!("../../../keycloak/22.0.0.html");
     use super::parse;
     use indexmap::IndexMap;
     use openapiv3::MediaType;
@@ -61,14 +61,13 @@ mod test {
 
     #[test]
     fn octet_streams() {
-        const CSS_SELECTOR: &str =
-            "#_paths + .sectionbody > .sect2 > #_client_attribute_certificate_resource + .sect3 + .sect3";
+        const CSS_SELECTOR: &str = ".adminRealmsRealmClientsIdCertificatesAttrDownloadPost";
         const EXPECTED: &str = r#"
         {
             "application/octet-stream": {
                 "schema": {
                     "type": "string",
-                    "format": "byte"
+                    "format": "binary"
                 }
             }
         }
@@ -86,16 +85,13 @@ mod test {
 
     #[test]
     fn json() {
-        const CSS_SELECTOR: &str =
-            "#_paths + .sectionbody > .sect2 > #_client_initial_access_resource + .sect3 + .sect3";
+        const CSS_SELECTOR: &str = ".adminRealmsRealmAuthenticationConfigIdGet";
         const EXPECTED: &str = r##"
         {
             "application/json": {
                 "schema": {
                     "type": "array",
-                    "items": {
-                        "$ref": "#/components/schemas/ClientInitialAccessPresentation"
-                    }
+                    "$ref": "#/components/schemas/AuthenticatorConfigRepresentation"
                 }
             }
         }
@@ -105,6 +101,7 @@ mod test {
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
             .next()
             .unwrap();
+
         assert_eq!(
             parse(&section).content,
             serde_json::from_str::<IndexMap<String, MediaType>>(EXPECTED).unwrap()
@@ -113,8 +110,7 @@ mod test {
 
     #[test]
     fn no_content() {
-        const CSS_SELECTOR: &str =
-            "#_paths + .sectionbody > .sect2 > #_attack_detection_resource + .sect3";
+        const CSS_SELECTOR: &str = ".adminRealmsRealmAttackDetectionBruteForceUsersDelete";
         let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())
@@ -125,8 +121,7 @@ mod test {
 
     #[test]
     fn no_content_response() {
-        const CSS_SELECTOR: &str =
-            "#_paths + .sectionbody > .sect2 > #_authentication_management_resource + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3 + .sect3";
+        const CSS_SELECTOR: &str = ".adminRealmsRealmAttackDetectionBruteForceUsersDelete";
         let document = Html::parse_document(HTML);
         let section = document
             .select(&Selector::parse(CSS_SELECTOR).unwrap())

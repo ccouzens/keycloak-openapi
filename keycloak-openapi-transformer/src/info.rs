@@ -65,8 +65,8 @@ mod tests {
 
     #[test]
     fn parses_as_expected() {
-        const HTML: &str = include_str!("../../keycloak/9.0.html");
-        const JSON: &str = include_str!("../../keycloak/9.0.json");
+        const HTML: &str = include_str!("../../keycloak/22.0.0.html");
+        const JSON: &str = include_str!("../../keycloak/22.0.0.json");
         let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");
 
         assert_eq!(Ok(openapi.info), parse(&Html::parse_document(HTML)));

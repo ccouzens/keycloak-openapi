@@ -220,8 +220,8 @@ mod tests {
     use openapiv3::OpenAPI;
     use scraper::Html;
 
-    const HTML: &str = include_str!("../../../keycloak/9.0.html");
-    const JSON: &str = include_str!("../../../keycloak/9.0.json");
+    const HTML: &str = include_str!("../../../keycloak/22.0.0.html");
+    const JSON: &str = include_str!("../../../keycloak/22.0.0.json");
 
     fn parse_schema_correctly(schema: &str) {
         let openapi: OpenAPI = serde_json::from_str(JSON).expect("Could not deserialize example");

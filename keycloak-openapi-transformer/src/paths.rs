@@ -184,7 +184,7 @@ fn generate_operation_ids(verb: &str, path: &str) -> Vec<String> {
 
 #[cfg(test)]
 mod tests {
-    const HTML: &str = include_str!("../../keycloak/9.0.html");
+    const HTML: &str = include_str!("../../keycloak/22.0.0.html");
 
     mod parameters {
         use super::super::paths;
@@ -255,7 +255,7 @@ mod tests {
         fn adds_descriptions_when_not_always_present() {
             let paths = paths(&Html::parse_document(HTML)).0.paths;
             let path_item = if let Some(ReferenceOr::Item(path)) =
-                paths.get("/{realm}/roles-by-id/{role-id}/composites")
+                paths.get("/{realm}/authentication/client-authenticator-providers")
             {
                 path
             } else {
@@ -291,7 +291,10 @@ mod tests {
         fn correctly_parses_simple_delete_case() {
             let path_item = get_path("/{realm}");
             assert_eq!(
-                path_item.delete.as_ref().and_then(|op| op.summary.as_ref()),
+                path_item
+                    .delete
+                    .as_ref()
+                    .and_then(|op| op.description.as_ref()),
                 Some(&"Delete the realm".to_string())
             );
         }
@@ -300,7 +303,10 @@ mod tests {
         fn correctly_parses_the_get_case() {
             let path_item = get_path("/{realm}/groups/{id}/role-mappings");
             assert_eq!(
-                path_item.get.as_ref().and_then(|op| op.summary.as_ref()),
+                path_item
+                    .get
+                    .as_ref()
+                    .and_then(|op| op.description.as_ref()),
                 Some(&"Get role mappings".to_string())
             );
         }
@@ -315,10 +321,13 @@ mod tests {
 
         #[test]
         fn correctly_parses_the_post_case() {
-            let path_item = get_path("/{realm}/testLDAPConnection");
+            let path_item = get_path("/{realm}/groups/{id}/children");
             assert_eq!(
-                path_item.post.as_ref().and_then(|op| op.summary.as_ref()),
-                Some(&"Test LDAP connection".to_string())
+                path_item
+                    .post
+                    .as_ref()
+                    .and_then(|op| op.description.as_ref()),
+                Some(&"Set or create child.".to_string())
             );
         }
 
@@ -326,7 +335,10 @@ mod tests {
         fn correctly_parses_the_put_case() {
             let path_item = get_path("/{realm}/users/{id}");
             assert_eq!(
-                path_item.put.as_ref().and_then(|op| op.summary.as_ref()),
+                path_item
+                    .put
+                    .as_ref()
+                    .and_then(|op| op.description.as_ref()),
                 Some(&"Update the user".to_string())
             );
         }
