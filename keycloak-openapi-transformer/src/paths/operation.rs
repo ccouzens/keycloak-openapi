@@ -38,8 +38,7 @@ fn status_code(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Sta
 
 pub fn parse(section: &scraper::element_ref::ElementRef<'_>) -> openapiv3::Operation {
     openapiv3::Operation {
-        description: apply_selector(section, &SUMMARY_SELECTOR)
-            .or(Some("Missing description".into())),
+        description: apply_selector(section, &SUMMARY_SELECTOR),
         responses: openapiv3::Responses {
             default: None,
             responses: [(
