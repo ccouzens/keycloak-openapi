@@ -1,5 +1,6 @@
 specs = \
 keycloak/22.0.0.json \
+keycloak/23.0.0.json \
 
 yamls = \
 keycloak/5.0.yml \
@@ -32,11 +33,13 @@ keycloak/21.1.0.yml \
 keycloak/21.1.1.yml \
 keycloak/21.1.2.yml \
 keycloak/22.0.0.yml \
+keycloak/23.0.0.yml \
 keycloak/sso-6.yml \
 keycloak/sso-7.3.yml \
 
 html = \
 keycloak/22.0.0.html \
+keycloak/23.0.0.html \
 
 .PHONY : all
 all : keycloak/LICENSE.txt $(specs) $(yamls)

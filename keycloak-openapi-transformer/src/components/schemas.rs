@@ -51,6 +51,18 @@ fn array_type(raw_type: &str) -> Option<openapiv3::Type> {
         }));
     }
 
+    if let Some(inner_type) = raw_type
+        .strip_prefix("List[")
+        .and_then(|raw_type| raw_type.strip_suffix(']'))
+    {
+        return Some(openapiv3::Type::Array(openapiv3::ArrayType {
+            items: Some(parse_type_boxed(inner_type)),
+            min_items: None,
+            max_items: None,
+            unique_items: false,
+        }));
+    }
+
     None
 }
 
@@ -131,7 +143,9 @@ pub fn item_type(raw_type: &str) -> Option<openapiv3::Type> {
                 ..Default::default()
             })),
             "boolean" => Some(openapiv3::Type::Boolean {}),
-            "object" | "[object]" | "<<>>" => Some(openapiv3::Type::Object(Default::default())),
+            "object" | "[object]" | "anytype" | "[anytype]" | "<<>>" => {
+                Some(openapiv3::Type::Object(Default::default()))
+            }
             "string" => Some(openapiv3::Type::String(Default::default())),
             "list" => Some(openapiv3::Type::Array(openapiv3::ArrayType {
                 items: Some(parse_type_boxed("Object")),
