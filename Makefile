@@ -7,6 +7,12 @@ keycloak/22.0.4.json \
 keycloak/22.0.5.json \
 keycloak/23.0.0.json \
 keycloak/23.0.1.json \
+keycloak/23.0.2.json \
+keycloak/23.0.3.json \
+keycloak/23.0.4.json \
+keycloak/23.0.5.json \
+keycloak/23.0.6.json \
+keycloak/23.0.7.json \
 
 yamls = \
 keycloak/5.0.yml \
@@ -46,8 +52,12 @@ keycloak/22.0.4.yml \
 keycloak/22.0.5.yml \
 keycloak/23.0.0.yml \
 keycloak/23.0.1.yml \
-keycloak/sso-6.yml \
-keycloak/sso-7.3.yml \
+keycloak/23.0.2.yml \
+keycloak/23.0.3.yml \
+keycloak/23.0.4.yml \
+keycloak/23.0.5.yml \
+keycloak/23.0.6.yml \
+keycloak/23.0.7.yml \
 
 html = \
 keycloak/22.0.0.html \
@@ -58,6 +68,12 @@ keycloak/22.0.4.html \
 keycloak/22.0.5.html \
 keycloak/23.0.0.html \
 keycloak/23.0.1.html \
+keycloak/23.0.2.html \
+keycloak/23.0.3.html \
+keycloak/23.0.4.html \
+keycloak/23.0.5.html \
+keycloak/23.0.6.html \
+keycloak/23.0.7.html \
 
 .PHONY : all
 all : keycloak/LICENSE.txt $(specs) $(yamls)

@@ -4,7 +4,7 @@ use scraper::Selector;
 lazy_static! {
     static ref TITLE_SELECTOR: Selector = Selector::parse("h1").unwrap();
     static ref DESCRIPTION_SELECTOR: Selector =
-        Selector::parse("#_overview + .sectionbody > .paragraph").unwrap();
+        Selector::parse(".sectionbody > .paragraph p").unwrap();
     static ref VERSION_SELECTOR: Selector =
         Selector::parse("#_version_information + .paragraph").unwrap();
 }
